@@ -70,3 +70,9 @@ code {
 	border-radius: 2px;
 	border: solid #555 1px;
 }
+
+span.syntax-piece, table.syntax td>span {
+	font-family: monospace;
+	font-style: italic;
+	color: #ffc933;
+}
