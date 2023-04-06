@@ -76,3 +76,10 @@ span.syntax-piece, table.syntax td>span {
 	font-style: italic;
 	color: #ffc933;
 }
+
+table.syntax tr, table.syntax tr>td {
+	vertical-align: middle;
+}
+table.syntax tr>td {
+	padding: .1em 0;
+}
