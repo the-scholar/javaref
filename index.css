@@ -63,3 +63,10 @@ h6 {
 p {
 	margin: .4rem 0;
 }
+
+code {
+	background: #333;
+	padding: 0 3px;
+	border-radius: 2px;
+	border: solid #555 1px;
+}
