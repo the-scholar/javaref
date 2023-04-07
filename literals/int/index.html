@@ -2,15 +2,55 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Int Literals</title>
+<link rel="stylesheet" type="text/css" href="/index.css">
+<title>Java Reference Test</title>
 <style type="text/css">
-#Content .description {
-	font-style: italic;
-	color: #737373;
+#ToC {
+	font-size: .8em;
+	line-height: 90%;
+	color: lightgray;
+	columns: 4;
+}
+
+#ToC>div {
+	display: block;
+}
+
+#ToC a {
+	font-weight: bold;
+	font-variant: small-caps;
+	display: inline-block;
+	padding-bottom: .4em;
+}
+
+#ToC a.c {
+	font-size: .75em;
+	padding-left: 1.5em;
+	font-weight: normal;
+	opacity: .6;
+	font-variant: normal;
+	padding-bottom: 0;
+	display: inline;
+}
+
+#ToC a.c:hover {
+	opacity: 1;
+}
+
+#ToC a.u {
+	color: #d93838;
 }
 </style>
 </head>
 <body>
+	<div id="Header">
+		<div style="font-size: 2em; font-weight: bold;">
+			Java Reference <span style="opacity: .2">Test</span>
+		</div>
+		<div id="Menu">
+			<a href="/" style="color: white;">Home</a>
+		</div>
+	</div>
 	<div id="Content">
 		<h1>Int Literals</h1>
 		<p class="description">
@@ -18,6 +58,7 @@
 			value in source code.
 		</p>
 		<h2>Syntax</h2>
+		<p>Int literals can be expressed syntactical in four forms:</p>
 		<table class="syntax">
 			<tr>
 				<td>1</td>
@@ -36,12 +77,8 @@
 				<td><span>binary-literal</span> <span class="optional">integer-type-suffix</span></td>
 			</tr>
 		</table>
-		<p>
-			<i>where...</i>
-		</p>
 		<ul>
-			<li>A <span class="syntax-piece">decimal-literal</span> is
-				either:
+			<li><span class="syntax-piece">decimal-literal</span>: <i>Either,</i>
 				<ol>
 					<li>the digit <code>0</code></li>
 					<li>a non-zero decimal digit (<code>1</code>, <code>2</code>,
@@ -50,28 +87,23 @@
 					</li>
 				</ol>followed by any number of decimal digits ( <code>0</code>, <code>1</code>,
 				<code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>,
-				<code>7</code>, <code>8</code>, <code>9</code>)
-			</li>
-			<li>A <span class="syntax-piece">hexadecimal-literal</span> is
-				the string prefix <code>0x</code> or <code>0X</code>, followed by at
+				<code>7</code>, <code>8</code>, <code>9</code>)</li>
+			<li><span class="syntax-piece">hexadecimal-literal</span>: the
+				string prefix <code>0x</code> or <code>0X</code>, followed by at
 				least one hexadecimal digit (<code>0</code>, <code>1</code>, <code>2</code>,
 				<code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>,
 				<code>8</code>, <code>9</code>, <code>a</code>, <code>b</code>, <code>c</code>,
 				<code>d</code>, <code>e</code>, <code>f</code>, <code>A</code>, <code>B</code>,
-				<code>C</code>, <code>D</code>, <code>E</code>, <code>F</code>)
-			</li>
-			<li>An <span class="syntax-piece">octal-literal</span> is the
-				digit <code>0</code> followed by at least one octal digit (<code>0</code>,
-				<code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>,
-				<code>6</code>, <code>7</code>)
-			</li>
-			<li>A <span class="syntax-piece">binary-literal</span> is the
-				string prefix^[2] <code>0b</code> or <code>0B</code>, followed by at
-				least one binary digit (<code>0</code>, <code>1</code>)
-			</li>
-			<li>An <span class="syntax-piece">integer-type-suffix</span> is
-				the letter <code>L</code> or <code>l</code>
-			</li>
+				<code>C</code>, <code>D</code>, <code>E</code>, <code>F</code>)</li>
+			<li><span class="syntax-piece">octal-literal</span>: the digit <code>0</code>
+				followed by at least one octal digit (<code>0</code>, <code>1</code>,
+				<code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>,
+				<code>7</code>)</li>
+			<li><span class="syntax-piece">binary-literal</span>: the string
+				prefix^[2] <code>0b</code> or <code>0B</code>, followed by at least
+				one binary digit (<code>0</code>, <code>1</code>)</li>
+			<li><span class="syntax-piece">integer-type-suffix</span>: the
+				letter <code>L</code> or <code>l</code></li>
 		</ul>
 		<p>
 			<i>such that...</i>
