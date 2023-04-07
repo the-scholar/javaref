@@ -70,6 +70,7 @@ span.syntax-piece, table.syntax td>span {
 	font-family: monospace;
 	font-style: italic;
 	color: #7fe384;
+	font-size: 1.1em;
 }
 table.syntax td>span {
 	border: #222 solid 1px;
