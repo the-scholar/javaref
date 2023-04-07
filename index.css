@@ -70,6 +70,10 @@ span.syntax-piece, table.syntax td>span {
 	font-style: italic;
 	color: #7f84e3;
 }
+table.syntax td>span {
+	border: #181818 solid 1px;
+	padding: 1px;
+}
 
 table.syntax tr, table.syntax tr>td {
 	vertical-align: middle;
@@ -87,4 +91,54 @@ table.syntax tr>td {
 	text-align: center;
 	padding: 0;
 	margin-right: 5px;
+}
+
+/* Info Popups */
+sup[info] {
+	color: gold;
+	cursor: pointer;
+}
+sup[info]:empty::before {
+	content: '[' attr(info) ']';
+}
+sup[info]:hover {
+	text-decoration: underline;
+}
+sup[info]:active {
+	color: red;
+}
+span[info]::before {
+	content: '[' attr(info) ']';
+	color: gold;
+	vertical-align: super;
+	font-size: .86em;
+}
+span[info] {
+	transition: opacity .6s;
+	opacity: 0;
+	position: fixed;
+	visibility: hidden;
+	font-size: .75em;
+	font-style: italic;
+	color: dimgray;
+	margin: .2em 20px;
+}
+span[info].inline {
+	font-size: 0;
+	position: static;
+	visibility: visible;
+	display: inline;
+	color: inherit;
+	transition: font-size .6s;
+	margin: 0;
+}
+span[info].visible {
+	opacity: 1;
+	position: static;
+	visibility: visible;
+	display: block;
+}
+span[info].visible.inline {
+	font-size: .8em;
+	display: inline;
 }
