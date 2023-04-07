@@ -53,34 +53,53 @@ window.onload = function() {
 				<td><span>binary-literal</span> <span class="optional">integer-type-suffix</span></td>
 			</tr>
 		</table>
-		<ul>
-			<li><span class="syntax-piece">decimal-literal</span>: <i>Either,</i>
-				<ol>
-					<li>the digit <code>0</code></li>
-					<li>a non-zero decimal digit (<code>1</code>, <code>2</code>,
-						<code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>,
-						<code>8</code>, <code>9</code>)
-					</li>
-				</ol>followed by any number of decimal digits ( <code>0</code>, <code>1</code>,
-				<code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>,
-				<code>7</code>, <code>8</code>, <code>9</code>)</li>
-			<li><span class="syntax-piece">hexadecimal-literal</span>: the
-				string prefix<sup info=1></sup> <code>0x</code> or <code>0X</code>, followed by at
-				least one hexadecimal digit (<code>0</code>, <code>1</code>, <code>2</code>,
-				<code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>,
-				<code>8</code>, <code>9</code>, <code>a</code>, <code>b</code>, <code>c</code>,
-				<code>d</code>, <code>e</code>, <code>f</code>, <code>A</code>, <code>B</code>,
-				<code>C</code>, <code>D</code>, <code>E</code>, <code>F</code>)</li>
-			<li><span class="syntax-piece">octal-literal</span>: the digit <code>0</code>
-				followed by at least one octal digit (<code>0</code>, <code>1</code>,
-				<code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>,
-				<code>7</code>)</li>
-			<li><span class="syntax-piece">binary-literal</span>: the string
-				prefix<sup info=1></sup> <code>0b</code> or <code>0B</code>,
-				followed by at least one binary digit (<code>0</code>, <code>1</code>)</li>
-			<li><span class="syntax-piece">integer-type-suffix</span>: the
-				letter <code>L</code> or <code>l</code></li>
-		</ul>
+		<p>
+			<i>where...</i>
+		</p>
+		<table class="syntax-breakdown">
+			<tr>
+				<td><span class="syntax-piece">decimal-literal</span></td>
+				<td>is either:
+					<ol>
+						<li>the digit <code>0</code>, or
+						</li>
+						<li>a non-zero decimal digit (<code>1</code>, <code>2</code>,
+							<code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>,
+							<code>8</code>, <code>9</code>)
+						</li>
+					</ol>followed by any number of decimal digits (<code>0</code>, <code>1</code>,
+					<code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>,
+					<code>7</code>, <code>8</code>, <code>9</code>)
+				</td>
+			</tr>
+			<tr>
+				<td><span class="syntax-piece">hexadecimal-literal</span></td>
+				<td>is the string prefix<sup info=1></sup> <code>0x</code> or <code>0X</code>,
+					followed by at least one hexadecimal digit (<code>0</code>, <code>1</code>,
+					<code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>,
+					<code>7</code>, <code>8</code>, <code>9</code>, <code>a</code>, <code>b</code>,
+					<code>c</code>, <code>d</code>, <code>e</code>, <code>f</code>, <code>A</code>,
+					<code>B</code>, <code>C</code>, <code>D</code>, <code>E</code>, <code>F</code>)
+				</td>
+			</tr>
+			<tr>
+				<td><span class="syntax-piece">octal-literal</span></td>
+				<td>is the digit <code>0</code> followed by at least one octal
+					digit (<code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>,
+					<code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>)
+				</td>
+			</tr>
+			<tr>
+				<td><span class="syntax-piece">binary-literal</span></td>
+				<td>is the string prefix<sup info=1></sup> <code>0b</code> or <code>0B</code>,
+					followed by at least one binary digit (<code>0</code>, <code>1</code>)
+				</td>
+			</tr>
+			<tr>
+				<td><span class="syntax-piece">integer-type-suffix</span></td>
+				<td>is the letter <code>L</code> or <code>l</code></td>
+			</tr>
+		</table>
 		<span info=1>The prefix itself is not composed of digits and
 			therefore cannot have interleaved underscores; <code>0_x123</code>
 			and <code>0x_123</code> are both invalid, for example.
