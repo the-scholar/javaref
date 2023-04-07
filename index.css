@@ -19,7 +19,7 @@ body {
 	backdrop-filter: blur(5px);
 	background: #000d;
 	margin: 2em;
-	padding: 1em;
+	padding: 1rem;
 }
 
 /* Links */
@@ -74,12 +74,23 @@ code {
 span.syntax-piece, table.syntax td>span {
 	font-family: monospace;
 	font-style: italic;
-	color: #ffc933;
+	color: #7f84e3;
 }
 
 table.syntax tr, table.syntax tr>td {
 	vertical-align: middle;
 }
 table.syntax tr>td {
-	padding: .1em 0;
+	margin: .2em .25em;
+}
+
+.syntax-number, table.syntax tr>td:first-child {
+	--bubble-color: currentcolor;
+	border-radius: 50%;
+	border: solid var(--bubble-color) 2px;
+	min-width: 1.2rem;
+	display: inline-block;
+	text-align: center;
+	padding: 0;
+	margin-right: 5px;
 }
