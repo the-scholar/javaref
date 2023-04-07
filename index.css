@@ -65,6 +65,7 @@ code {
 	border: solid #555 1px;
 }
 
+/* Syntax */
 span.syntax-piece, table.syntax td>span {
 	font-family: monospace;
 	font-style: italic;
@@ -74,12 +75,21 @@ table.syntax td>span {
 	border: #222 solid 1px;
 	padding: 1px 2px;
 }
-
 table.syntax tr, table.syntax tr>td {
 	vertical-align: middle;
 }
 table.syntax tr>td {
 	margin: .2em .25em;
+}
+.syntax-number, table.syntax tr>td:first-child {
+	--bubble-color: currentcolor;
+	border-radius: 50%;
+	border: solid var(--bubble-color) 2px;
+	min-width: 1.2rem;
+	display: inline-block;
+	text-align: center;
+	padding: 0;
+	margin-right: 5px;
 }
 
 table.syntax-breakdown {
@@ -94,16 +104,8 @@ table.syntax-breakdown td {
 table.syntax-breakdown ul, table.syntax-breakdown ol {
 	margin: .1em;
 }
-
-.syntax-number, table.syntax tr>td:first-child {
-	--bubble-color: currentcolor;
-	border-radius: 50%;
-	border: solid var(--bubble-color) 2px;
-	min-width: 1.2rem;
-	display: inline-block;
-	text-align: center;
-	padding: 0;
-	margin-right: 5px;
+table.syntax-breakdown tr>td:first-child {/* Syntax Fragments */
+	text-align: right;
 }
 
 /* Info Popups */
