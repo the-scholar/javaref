@@ -71,8 +71,8 @@ span.syntax-piece, table.syntax td>span {
 	color: #7f84e3;
 }
 table.syntax td>span {
-	border: #181818 solid 1px;
-	padding: 1px;
+	border: #222 solid 1px;
+	padding: 1px 2px;
 }
 
 table.syntax tr, table.syntax tr>td {
