@@ -82,6 +82,19 @@ table.syntax tr>td {
 	margin: .2em .25em;
 }
 
+table.syntax-breakdown {
+	margin: 1em .4em;
+	border: #222 solid 1px;
+	padding: .4em;
+}
+table.syntax-breakdown td {
+	vertical-align: top;
+	padding: .4em;
+}
+table.syntax-breakdown ul, table.syntax-breakdown ol {
+	margin: .1em;
+}
+
 .syntax-number, table.syntax tr>td:first-child {
 	--bubble-color: currentcolor;
 	border-radius: 50%;
