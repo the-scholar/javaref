@@ -155,7 +155,42 @@ long y = 2147483648L; // Out of range for int, requires L (or l) suffix
 long z = 10000000000L; // Out of range for int
 
 long negative = -2147483648; // Suffix not required since literal is 2147483648 and is operand for unary minus (-)</code></pre>
-
+<h3>Binary, Octal, and Hexadecimal Interpretation</h3>
+<p>
+	Binary, octal, and hexadecimal literals are interpreted as if used to
+	specify the <i>bits</i> of a number, in <a
+		href="https://en.wikipedia.org/wiki/Two%27s_complement">two's
+		complement</a>.
+</p>
+<ul>
+	<li>If the literal has no suffix, then that number is 32 bits (the size
+		of an <code>int</code>).
+	</li>
+	<li>Otherwise, if the <code>L</code> or <code>l</code> suffix is
+		specified, that number is 64 bits (the size of a <code>long</code>).
+	</li>
+</ul>
+<h4>Two's Complement</h4>
+<p>
+	In two's complement format, the sign bit is used to denote the <i>sign</i>
+	of the number and the remaining bits are used to determine the number's
+	magnitude. The number is negative if the leftmost bit is <code>1</code>,
+	otherwise the number is positive. To determine the magnitude of the
+	number, the remaining (value) bits are interpreted as a positive
+	integer number and are added to,
+</p>
+<ul>
+	<li>the minimum possible value of the number if the sign bit is <code>1</code>,
+		or
+	</li>
+	<li><code>0</code>, if the sign bit is <code>0</code>.</li>
+</ul>
+<p>
+	The sign bit can be interpreted as adding the lowest (negative) value
+	representable by the number, to the number when <code>1</code>, and
+	having no effect on the number when <code>0</code>. See the <a
+		href="#twos-complement">examples below</a> for more details.
+</p>
 
 <h2>Examples</h2>
 <div class="example">
@@ -224,6 +259,49 @@ System.out.pintln(0b111_000_111_000 == 07070); // true</code></pre>
 	Output: <pre><code class="output">true
 true
 true</code></pre>
+</div>
+<div class="example">
+	<h4 id="twos-complement">Two's Complement &amp; Negative Literals</h4>
+	<p>
+		A number has its lowest possible value when only its sign bit is <code>1</code>
+		and all other bits are <code>0</code>.
+	</p>
+	<pre><code>int x = 0b1_0000000000000000000000000000000;	// 32 bits. All bits but the sign bit are 0.
+				// Notice the leftmost bit (before the underscore); it is the sign bit.
+System.out.println(x);</code></pre>
+	<p>
+		That code outputs: <code>-2147483648</code> which is the minimum value
+		of an <code>int</code>.
+	</p>
+	<p>
+		Changing the rightmost value bit to a <code>1</code> will increment
+		the number:
+	</p>
+	<pre><code>int x = 0b1_0000000000000000000000000000001; // Rightmost bit is 1
+System.out.println(x);</code></pre>
+	<p>
+		This code outputs: <code>-2147483647</code>.
+	</p>
+	<p>
+		Changing the sign bit causes the number to be the numeric value of its
+		value bits added with <code>0</code>, rather than <code>-2147483648</code>:
+	</p>
+	<pre><code>int x = 0b0_0000000000000000000000000000001;
+System.out.println(x);</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">1</code></pre>
+	<p>The same can be applied to integer literals with the long suffix,
+		although those comprise 64 bits rather than 32:</p>
+	<pre><code>int x = 0b1_000000000000000000000000000000000000000000000000000000000000000L;
+int y = 0b1_000000000000000000000000000000000000000000000000000000000000001L;
+int z = 0b0_000000000000000000000000000000000000000000000000000000000000001L;
+System.out.println(x);
+System.out.println(y);
+System.out.println(z);</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">-9223372036854775808
+-9223372036854775807
+1</code></pre>
 </div>
 <h2>Notes</h2>
 <ol>
