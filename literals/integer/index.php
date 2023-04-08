@@ -1,4 +1,4 @@
-<?php t("Java Reference Test");?>
+<?php t("Javaref - Integer Literals");?>
 <h1>Int Literals</h1>
 <p class="description">A direct (literal) expression of an integral,
 	(non-decimal), value in source code.</p>
