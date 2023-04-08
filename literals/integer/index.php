@@ -110,31 +110,71 @@
 	<span class="syntax-number">4</span> A binary integer literal (base 2),
 	using digits <code>0</code> and <code>1</code> .
 </p>
+<h2>Interpretation</h2>
+<p>Decimal integer literals can represent:</p>
+<ul>
+	<li>the number 0, and</li>
+	<li>positive numbers ranging from decimal 1 to 9223372036854775808.</li>
+</ul>
+<p>Binary, octal, and hexadecimal integer literals can represent:</p>
+<ul>
+	<li>the number 0,</li>
+	<li>positive numbers ranging from 1 to 9223372036854775807, and</li>
+	<li>negative numbers ranging from -1 through -9223372036854775808.</li>
+</ul>
+<h3>Decimal Interpretation</h3>
+<p>
+	Decimal literals are interpreted as written. This means that one can
+	expect the same text that makes up such a literal in source code to be
+	printed if such literal is an argument of <code>System.out.println()</code>:
+</p>
+<pre><code>System.out.println(1234567890);</code></pre>
+<p>Output:</p>
+<pre><code>1234567890</code></pre>
+<p>
+	It is not possible for a decimal literal to represent a negative
+	number; negative numbers derived from decimal literals can be obtained
+	using the <a href="/operators/unary-minus">unary minus</a> operator
+	with the decimal literal as the operand. Special usage is granted to
+	the literals <code>2147483648</code> and <code>9223372036854775808L</code>,
+	which can both be used only as the operand of the <a
+		href="operators/unary-minus">unary minus</a> operator. Note that <code>2147483648L</code>
+	(and <code>2147483648l</code>) can be used in contexts other than as
+	the operand of the <a href="operators/unary-minus">unary minus</a>
+	operator.
+</p>
+<p>
+	Decimal literals are required to have the long suffix (<code>l</code>
+	or <code>L</code>) if they are <i>out of range</i> for the type <code>int</code>.
+	This occurs when a decimal literal is greater in value than 2147483647
+	and is not the literal <code>2147483648</code> as the operand of a <a
+		href="operators/unary-minus">unary minus</a>:
+</p>
+<pre><code>long x = 2147483647; // In-range for type int
+long y = 2147483648L; // Out of range for int, requires L (or l) suffix
+long z = 10000000000L; // Out of range for int
+
+long negative = -2147483648; // Suffix not required since literal is 2147483648 and is operand for unary minus (-)</code></pre>
+
+
 <h2>Examples</h2>
 <div class="example">
 	<h4>Simple Usage</h4>
 	<p>
 		<code>41</code> declared both as binary and decimal literals:
 	</p>
-	<pre>
-		<code>int x = 0b00101001; // 41
+	<pre><code>int x = 0b00101001; // 41
 int y = 41;
-System.out.println(x == y); // Prints true</code>
-	</pre>
-	Output:
-	<pre>
-		<code class="output">true</code>
-	</pre>
+System.out.println(x == y); // Prints true</code></pre> Output: <pre><code
+		class="output">true</code></pre>
 	<p>
 		A for loop that loops <code>16</code> times, starting at <code>0xF</code>
 		( <code>15</code> ), down to <code>0</code> :
 	</p>
-	<pre>
-		<code>for (int i = 0xF; i >= 0x0; i--)
-	System.out.println(i);	// println(...) prints integers in decimal (base 10)</code>
-	</pre>
-	<pre>
-		<code class="output">15
+	<pre><code>for (int i = 0xF; i >= 0x0; i--)
+	System.out.println(i);	// println(...) prints integers in decimal (base 10)</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">15
 14
 13
 12
@@ -149,16 +189,14 @@ System.out.println(x == y); // Prints true</code>
 3
 2
 1
-0</code>
-	</pre>
+0</code></pre>
 </div>
 <div class="example">
 	<h4>Bitflags &amp; Bitmasks</h4>
 	<p>
 		Demonstration of bitmasking using a bitflag named <code>FLAG</code> :
 	</p>
-	<pre>
-		<code>int x = 0b0110; // equal to 6
+	<pre><code>int x = 0b0110; // equal to 6
 final int FLAG = 0b0001;
 
 // Enable flag:
@@ -170,28 +208,22 @@ x ^= FLAG;// x is now 0b0110 which is 6
 // Check for flag:
 boolean flagOn = (x &amp; FLAG) != 0;
 if (flagOn)
-   doSomething();</code>
-	</pre>
+   doSomething();</code></pre>
 </div>
 <div class="example">
 	<h4>Octal Numbers</h4>
 	<p>Example depicting equivalence between 3-bit parts of a number and
 		single octal digits:</p>
-	<pre>
-		<code>// Each octal digit is 3 bits
+	<pre><code>// Each octal digit is 3 bits
 System.out.println(0b111 == 07); // true
 System.out.println(0b111000 == 070); // true
 
 // Octal 7 is binary 111
 // Octal 0 is binary 000
-System.out.pintln(0b111_000_111_000 == 07070); // true</code>
-	</pre>
-	Output:
-	<pre>
-		<code class="output">true
+System.out.pintln(0b111_000_111_000 == 07070); // true</code></pre>
+	Output: <pre><code class="output">true
 true
-true</code>
-	</pre>
+true</code></pre>
 </div>
 <h2>Notes</h2>
 <ol>
