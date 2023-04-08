@@ -57,6 +57,9 @@ h5,h6 {
 p {
 	margin: .4rem 0;
 }
+p.description {
+	font-style: italic;
+}
 
 code {
 	background: #333;
