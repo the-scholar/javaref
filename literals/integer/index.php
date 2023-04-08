@@ -155,7 +155,7 @@ long y = 2147483648L; // Out of range for int, requires L (or l) suffix
 long z = 10000000000L; // Out of range for int
 
 long negative = -2147483648; // Suffix not required since literal is 2147483648 and is operand for unary minus (-)</code></pre>
-<h3>Binary, Octal, and Hexadecimal Interpretation</h3>
+<h3>Binary, Octal, and Hexadecimal Literals Interpretation</h3>
 <p>
 	Binary, octal, and hexadecimal literals are interpreted as if used to
 	specify the <i>bits</i> of a number, in <a
@@ -191,7 +191,18 @@ long negative = -2147483648; // Suffix not required since literal is 2147483648 
 	having no effect on the number when <code>0</code>. See the <a
 		href="#twos-complement">examples below</a> for more details.
 </p>
-
+<h4>Octal &amp; Hexadecimal</h4>
+<p>Octal and hexadecimal literals' formats provide compact ways to
+	specify the bits of a number in the same way that binary literals do.
+	Each hexadecimal digit expresses 4 bits and each octal digit expresses
+	3.</p>
+<pre><code>int low = 0x8_0000000; // 8 hex digits is 32 bits of data
+int lowInBinary = 0b1000_0000000000000000000000000000;
+System.out.println(low);
+System.out.println(lowInBinary);</code></pre>
+<p>Output:</p>
+<pre><code class="output">-2147483648
+-2147483648</code></pre>
 <h2>Examples</h2>
 <div class="example">
 	<h4>Simple Usage</h4>
