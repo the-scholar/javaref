@@ -136,7 +136,73 @@ window.onload = function() {
 			<span class="syntax-number">4</span> A binary integer literal (base
 			2), using digits <code>0</code> and <code>1</code>.
 		</p>
-		<h2>Value</h2>
+		<h2>Examples</h2>
+		<div class="example">
+			<h4>Simple Usage</h4>
+			<p>
+				<code>41</code> declared both as binary and decimal literals:
+			</p>
+			<pre><code>int x = 0b00101001; // 41
+int y = 41;
+System.out.println(x == y); // Prints true</code></pre>Output:<pre><code
+				class="output">true</code></pre>
+			<p>
+				A for loop that loops <code>16</code> times, starting at <code>0xF</code>
+				(<code>15</code>), down to <code>0</code>:
+			</p>
+			<pre><code>for (int i = 0xF; i >= 0x0; i--)
+	System.out.println(i);	// println(...) prints integers in decimal (base 10)</code></pre>
+			<pre><code class="output">15
+14
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0</code></pre>
+		</div>
+		<div class="example">
+			<h4>Bitflags &amp; Bitmasks</h4>
+			<p>
+				Demonstration of bitmasking using a bitflag named <code>FLAG</code>:
+			</p>
+			<pre><code>int x = 0b0110; // equal to 6
+final int FLAG = 0b0001;
+
+// Enable flag:
+x |= FLAG;// x is now 0b0111 which is equal to 7
+
+// Disable flag:
+x ^= FLAG;// x is now 0b0110 which is 6
+
+// Check for flag:
+boolean flagOn = (x &amp; FLAG) != 0;
+if (flagOn)
+   doSomething();</code></pre>
+		</div>
+		<div class="example">
+			<h4>Octal Numbers</h4>
+			<p>Example depicting equivalence between 3-bit parts of a number
+				and single octal digits:</p>
+			<pre><code>// Each octal digit is 3 bits
+System.out.println(0b111 == 07); // true
+System.out.println(0b111000 == 070); // true
+
+// Octal 7 is binary 111
+// Octal 0 is binary 000
+System.out.pintln(0b111_000_111_000 == 07070); // true</code></pre> Output: <pre><code
+				class="output">true
+true
+true</code></pre>
+		</div>
 		<h2>Notes</h2>
 		<ol>
 			<li><code>0</code> is the only integer literal whose leftmost
