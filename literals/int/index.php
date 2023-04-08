@@ -1,14 +1,14 @@
 <?php t("Java Reference Test");?>
 <h1>Int Literals</h1>
-<p class="description">
-	A direct (literal) expression of an integral, (
-	<code>int</code>
-	or
-	<code>long</code>
-	), value in source code.
+<p class="description">A direct (literal) expression of an integral,
+	(non-decimal), value in source code.</p>
+<p>
+	Integer literals are used to directly write the value of an integral
+	type in source code. They can be used to specify an exact value for <code>char</code>s,
+	<code>byte</code>s, <code>short</code>s, <code>int</code>s, and <code>long</code>s.
 </p>
 <h2>Syntax</h2>
-<p>Int literals can be expressed through four forms:</p>
+<p>Integer literals can be expressed through four forms:</p>
 <table class="syntax">
 	<tr>
 		<td>1</td>
@@ -91,57 +91,30 @@
 <h3>Syntax Elements</h3>
 <p>
 	<span class="syntax-number">1</span> A decimal integer literal (base
-	10), using digits
-	<code>0</code>
-	through
-	<code>10</code>
-	.
+	10), using digits <code>0</code> through <code>10</code> .
 </p>
 <p>
 	<span class="syntax-number">2</span> A hexadecimal integer literal
-	(base 16), using the same digits as base 10 as well as digits
-	<code>A</code>
-	through
-	<code>F</code>
-	with values
-	<code>10</code>
-	through
-	<code>15</code>
-	. Capitalization is ignored, so
-	<code>A</code>
-	is equivalent to
-	<code>a</code>
-	,
-	<code>B</code>
-	to
-	<code>b</code>
-	, etc.
+	(base 16), using the same digits as base 10 as well as digits <code>A</code>
+	through <code>F</code> with values <code>10</code> through <code>15</code>
+	. Capitalization is ignored, so <code>A</code> is equivalent to <code>a</code>
+	, <code>B</code> to <code>b</code> , etc.
 </p>
 <p>
 	<span class="syntax-number">3</span> An octal integer literal (base 8),
-	using digits
-	<code>0</code>
-	through
-	<code>7</code>
-	. The
-	<code>0</code>
+	using digits <code>0</code> through <code>7</code> . The <code>0</code>
 	prefix is only used to signify that the literal is in octal notation
 	and does not otherwise affect the literal's value.
 </p>
 <p>
 	<span class="syntax-number">4</span> A binary integer literal (base 2),
-	using digits
-	<code>0</code>
-	and
-	<code>1</code>
-	.
+	using digits <code>0</code> and <code>1</code> .
 </p>
 <h2>Examples</h2>
 <div class="example">
 	<h4>Simple Usage</h4>
 	<p>
-		<code>41</code>
-		declared both as binary and decimal literals:
+		<code>41</code> declared both as binary and decimal literals:
 	</p>
 	<pre>
 		<code>int x = 0b00101001; // 41
@@ -153,15 +126,8 @@ System.out.println(x == y); // Prints true</code>
 		<code class="output">true</code>
 	</pre>
 	<p>
-		A for loop that loops
-		<code>16</code>
-		times, starting at
-		<code>0xF</code>
-		(
-		<code>15</code>
-		), down to
-		<code>0</code>
-		:
+		A for loop that loops <code>16</code> times, starting at <code>0xF</code>
+		( <code>15</code> ), down to <code>0</code> :
 	</p>
 	<pre>
 		<code>for (int i = 0xF; i >= 0x0; i--)
@@ -189,9 +155,7 @@ System.out.println(x == y); // Prints true</code>
 <div class="example">
 	<h4>Bitflags &amp; Bitmasks</h4>
 	<p>
-		Demonstration of bitmasking using a bitflag named
-		<code>FLAG</code>
-		:
+		Demonstration of bitmasking using a bitflag named <code>FLAG</code> :
 	</p>
 	<pre>
 		<code>int x = 0b0110; // equal to 6
