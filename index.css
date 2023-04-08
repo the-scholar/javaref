@@ -25,7 +25,7 @@ body {
 }
 #ProgressBar {
 	z-index: 9;
-	background: white;
+	background: #7f84e3;
 	position: fixed;
 	top: 0;
 	left: 0;

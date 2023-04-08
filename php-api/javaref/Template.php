@@ -16,6 +16,11 @@ window.onload = function() {
 		};
 	}
 };
+document.addEventListener("scroll", (e) => {
+	var scrp = (document.documentElement.scrollTop || document.body.scrollTop) / ((document.documentElement.scrollHeight || document.body.scrollHeight) - document.documentElement.clientHeight);
+	document.getElementById("ProgressBar").style.width = scrp*100+"%";
+});
+
 </script>
 <title><?php echo$title;?></title>
 </head>
