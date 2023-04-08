@@ -65,6 +65,12 @@ code {
 	border: solid #555 1px;
 }
 
+/* Codeblocks */
+pre>code {
+	display: block;
+	padding: 5px;
+}
+
 /* Syntax */
 span.syntax-piece, table.syntax td>span {
 	font-family: monospace;
