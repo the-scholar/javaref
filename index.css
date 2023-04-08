@@ -14,8 +14,6 @@ body {
 	height: 4em;
 	background: #181818;
 	text-align: center;
-	z-index: 10;
-	position: relative;
 }
 #Content {
 	backdrop-filter: blur(5px);
@@ -24,13 +22,12 @@ body {
 	padding: 1rem;
 }
 #ProgressBar {
-	z-index: 9;
 	background: #7f84e3;
 	position: fixed;
 	top: 0;
 	left: 0;
-	height: .2em;
-	width: 0;
+	width: .2em;
+	height: 0;
 }
 
 /* Links */
