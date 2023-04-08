@@ -28,6 +28,7 @@ window.onload = function() {
 			<a href="/" style="color: white;">Home</a>
 		</div>
 	</div>
+	<div id="ProgressBar"></div>
 	<div id="Content">
 		<?php 
 }
