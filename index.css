@@ -94,6 +94,11 @@ table.syntax td>span {
 	border: #2a2a2a solid 1px;
 	padding: 1px 2px;
 }
+table.syntax td>span.optional::after {
+	content: "(optional)";
+	font-size: .65em;
+	color: #999;
+}
 table.syntax tr, table.syntax tr>td {
 	vertical-align: middle;
 }
