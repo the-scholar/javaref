@@ -105,3 +105,19 @@
 			== 0xf_a.1_bp+0_1f</code>.
 	</li>
 </ul>
+<h2>Notes</h2>
+<ol>
+	<li>Since the <span class="syntax-piece">float-suffix</span>, if
+		included, is not considered a digit, it may not have an underscore
+		before it. For example, <code>0x123p+01_f</code> is syntactically
+		invalid. This is because <code>f</code> in this case is an indicator
+		as to the type of the literal, rather than a digit that determines the
+		literal's value.
+	</li>
+	<li>Since the characters <code>e</code> and <code>E</code> are also
+		hexadecimal digits, when defining a floating point number in
+		hexadecimal, <code>p</code> and <code>P</code> are used to indicate
+		the exponent part, rather than <code>e</code> or <code>E</code> (as
+		are used for the exponent part of decimal floating point literals).
+	</li>
+</ol>
