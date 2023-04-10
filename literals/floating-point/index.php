@@ -76,7 +76,8 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">float-suffix</span></td>
-		<td>is one of: <code>f</code>, <code>F</code>, <code>d</code>, or <code>D</code>.
+		<td>is one of the characters <code>f</code>, <code>F</code>, <code>d</code>,
+			or <code>D</code>.
 		</td>
 	</tr>
 	<tr>
@@ -94,3 +95,13 @@
 		</td>
 	</tr>
 </table>
+<p>
+	<i>such that...</i>
+</p>
+<ul>
+	<li>Each pair of consecutive digits (including those in the <span
+		class="syntax-piece">exponent</span> and <span class="syntax-piece">binary-exponent</span>
+		parts) can be separated by any number of underscores, (e.g., <code>0xfa.1bp+01
+			== 0xf_a.1_bp+0_1f</code>.
+	</li>
+</ul>
