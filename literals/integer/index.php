@@ -96,9 +96,9 @@
 <p>
 	<span class="syntax-number">2</span> A hexadecimal integer literal
 	(base 16), using the same digits as base 10 as well as digits <code>A</code>
-	through <code>F</code> with values <code>10</code> through <code>15</code>
-	. Capitalization is ignored, so <code>A</code> is equivalent to <code>a</code>
-	, <code>B</code> to <code>b</code> , etc.
+	through <code>F</code> with values <code>10</code> through <code>15</code>.
+	Capitalization is ignored, so <code>A</code> is equivalent to <code>a</code>,
+	<code>B</code> to <code>b</code>, etc.
 </p>
 <p>
 	<span class="syntax-number">3</span> An octal integer literal (base 8),
@@ -108,7 +108,7 @@
 </p>
 <p>
 	<span class="syntax-number">4</span> A binary integer literal (base 2),
-	using digits <code>0</code> and <code>1</code> .
+	using digits <code>0</code> and <code>1</code>.
 </p>
 <h2>Interpretation</h2>
 <p>Decimal integer literals can represent:</p>
