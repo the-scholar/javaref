@@ -91,7 +91,7 @@
 <h3>Syntax Elements</h3>
 <p>
 	<span class="syntax-number">1</span> A decimal integer literal (base
-	10), using digits <code>0</code> through <code>10</code> .
+	10), using digits <code>0</code> through <code>9</code> .
 </p>
 <p>
 	<span class="syntax-number">2</span> A hexadecimal integer literal
