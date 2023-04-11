@@ -91,7 +91,12 @@
 		<td><span class="syntax-piece">binary-exponent</span></td>
 		<td>is the character <code>p</code> or <code>P</code>, possibly
 			followed by a sign symbol (either <code>+</code> or <code>-</code>),
-			followed by one or more decimal digits.
+			followed by one or more decimal<sup info=3></sup> digits. <span
+			info=3>Despite the significand of the number being expressed in
+				hexadecimal, the <span class="syntax-piece">binary-exponent</span>
+				must be specified in decimal. See <a href="#Note-2">Note 2</a>
+				below.
+		</span>
 		</td>
 	</tr>
 </table>
@@ -105,6 +110,29 @@
 			== 0xf_a.1_bp+0_1f</code>.
 	</li>
 </ul>
+<h3>Syntax Elements</h3>
+<p>
+	<span class="syntax-number">1</span> A base-10 floating point literal
+	using a <span class="syntax-piece">float-suffix</span> to indicate
+	whether the literal is a <code>float</code> or <code>double</code>
+	literal.
+</p>
+<p>
+	<span class="syntax-number">2</span> A base-10 floating point literal
+	that specifies an <span class="syntax-piece">exponent</span>. The
+	literal is always a <code>double</code> literal.
+</p>
+<p>
+	<span class="syntax-number">3</span> A base-10 floating point literal
+	that specifies both an <span class="syntax-piece">exponent</span> and a
+	<span class="syntax-piece">float-suffix</span>. The suffix is used to
+	specify whether the literal is a <code>float</code> or <code>double</code>
+	literal.
+</p>
+<p>
+	<span class="syntax-number">4</span> A base-16 floating point literal
+	that specifies a binary exponent and, optionally, a float suffix.
+</p>
 <h2>Notes</h2>
 <ol>
 	<li>Since the <span class="syntax-piece">float-suffix</span>, if
@@ -114,7 +142,7 @@
 		as to the type of the literal, rather than a digit that determines the
 		literal's value.
 	</li>
-	<li>Since the characters <code>e</code> and <code>E</code> are also
+	<li id="Note-2">Since the characters <code>e</code> and <code>E</code> are also
 		hexadecimal digits, when defining a floating point number in
 		hexadecimal, <code>p</code> and <code>P</code> are used to indicate
 		the exponent part, rather than <code>e</code> or <code>E</code> (as
