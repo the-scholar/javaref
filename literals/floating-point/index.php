@@ -11,28 +11,28 @@
 <table class="syntax">
 	<tr>
 		<td>1</td>
-		<td><span>decimal-number</span> <span>float-suffix</span></td>
+		<td><span>decimal-significand</span> <span>float-suffix</span></td>
 	</tr>
 	<tr>
 		<td>2</td>
-		<td><span>decimal-number</span> <span>exponent</span></td>
+		<td><span>decimal-significand</span> <span>exponent</span></td>
 	</tr>
 	<tr>
 		<td>3</td>
-		<td><span>decimal-number</span> <span>exponent</span> <span>float-suffix</span></td>
+		<td><span>decimal-significand</span> <span>exponent</span> <span>float-suffix</span></td>
 	</tr>
 	<tr>
 		<td>4</td>
-		<td><span>hex-number</span> <span>binary-exponent</span> <span
+		<td><span>hex-significand</span> <span>binary-exponent</span> <span
 			class="optional">float-suffix</span></td>
 	</tr>
 </table>
 <p>
-	<i>where</i>
+	<i>where...</i>
 </p>
 <table class="syntax-breakdown">
 	<tr>
-		<td><span class="syntax-piece">decimal-number</span></td>
+		<td><span class="syntax-piece">decimal-significand</span></td>
 		<td>is one or more decimal digits (<code>0</code>, <code>1</code>, <code>2</code>,
 			<code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>,
 			<code>8</code>, <code>9</code>), possibly with one decimal point (<code>.</code>)
@@ -52,7 +52,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td><span class="syntax-piece">hex-number</span></td>
+		<td><span class="syntax-piece">hex-significand</span></td>
 		<td>is the string prefix <code>0x</code> or <code>0X</code>, followed
 			by one or more hexadecimal digits (<code>0</code>, <code>1</code>, <code>2</code>,
 			<code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>,
@@ -113,13 +113,12 @@
 <h3>Syntax Elements</h3>
 <p>
 	<span class="syntax-number">1</span> A base-10 floating point literal
-	using a suffix to indicate whether the literal is a <code>float</code>
-	or <code>double</code> literal.
+	using a suffix to indicate whether the literal is of type <code>float</code>
+	or <code>double</code>.
 </p>
 <p>
 	<span class="syntax-number">2</span> A base-10 floating point literal
-	that specifies an exponent. The literal is always a <code>double</code>
-	literal.
+	that specifies an exponent. The literal is always of type <code>double</code>.
 </p>
 <p>
 	<span class="syntax-number">3</span> A base-10 floating point literal
@@ -127,7 +126,39 @@
 </p>
 <p>
 	<span class="syntax-number">4</span> A base-16 floating point literal
-	that specifies an exponent and, optionally, a suffix.
+	that specifies a binary exponent and, optionally, a suffix.
+</p>
+<h2>Interpretation</h2>
+<p>
+	The value of a floating point literal is calculated by interpreting it
+	as a number in scientific notation, and then rounding that number to
+	the closest <code>double</code> or <code>float</code> value. The
+	suffix, when included, determines whether the literal is of type <code>double</code>
+	or <code>float</code>.
+</p>
+<h3>Base-10 Interpretation</h3>
+<p>
+	If the literal is in base-10 and it includes no exponent, it is simply
+	interpreted as a base-10, possibly-fractional number. If an exponent is
+	included, then the interpretation of the literal is the <span
+		class="syntax-piece">decimal-significand</span> multiplied by <code>10</code>
+	to the power of <span class="syntax-piece">exponent</span>.
+</p>
+<p>
+	Denoting the significand as <code>s</code> and the exponent as <code>e</code>,
+	the interpretation of a base-10 floating point literal is <code>s
+		&times; 10<sup>e</sup>
+	</code>.
+</p>
+<h3>Base-16 Interpretation</h3>
+<p>
+	If the literal is in base-16, its interpretation is the <span
+		class="syntax-piece">hexadecimal-significand</span> multiplied by <code>2</code>
+	to the power of <span class="syntax-piece">binary-exponent</span>.
+	Denoting the base-16 significand as <code>s</code> and the base-10
+	exponent as <code>p</code>, the interpretation of the literal is <code>s
+		&times; 2<sup>p</sup>
+	</code>.
 </p>
 <h2>Notes</h2>
 <ol>
