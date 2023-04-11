@@ -113,25 +113,21 @@
 <h3>Syntax Elements</h3>
 <p>
 	<span class="syntax-number">1</span> A base-10 floating point literal
-	using a <span class="syntax-piece">float-suffix</span> to indicate
-	whether the literal is a <code>float</code> or <code>double</code>
-	literal.
+	using a suffix to indicate whether the literal is a <code>float</code>
+	or <code>double</code> literal.
 </p>
 <p>
 	<span class="syntax-number">2</span> A base-10 floating point literal
-	that specifies an <span class="syntax-piece">exponent</span>. The
-	literal is always a <code>double</code> literal.
-</p>
-<p>
-	<span class="syntax-number">3</span> A base-10 floating point literal
-	that specifies both an <span class="syntax-piece">exponent</span> and a
-	<span class="syntax-piece">float-suffix</span>. The suffix is used to
-	specify whether the literal is a <code>float</code> or <code>double</code>
+	that specifies an exponent. The literal is always a <code>double</code>
 	literal.
 </p>
 <p>
+	<span class="syntax-number">3</span> A base-10 floating point literal
+	that specifies both an exponent and a suffix.
+</p>
+<p>
 	<span class="syntax-number">4</span> A base-16 floating point literal
-	that specifies a binary exponent and, optionally, a float suffix.
+	that specifies an exponent and, optionally, a suffix.
 </p>
 <h2>Notes</h2>
 <ol>
@@ -142,8 +138,8 @@
 		as to the type of the literal, rather than a digit that determines the
 		literal's value.
 	</li>
-	<li id="Note-2">Since the characters <code>e</code> and <code>E</code> are also
-		hexadecimal digits, when defining a floating point number in
+	<li id="Note-2">Since the characters <code>e</code> and <code>E</code>
+		are also hexadecimal digits, when defining a floating point number in
 		hexadecimal, <code>p</code> and <code>P</code> are used to indicate
 		the exponent part, rather than <code>e</code> or <code>E</code> (as
 		are used for the exponent part of decimal floating point literals).
