@@ -160,6 +160,64 @@
 		&times; 2<sup>p</sup>
 	</code>.
 </p>
+<h2>Examples</h2>
+<div class="example">
+	<h4>Simple Usage</h4>
+	<p>
+		This example demonstrates various powers of 2 declared as base-10 and
+		base-16 literals using exponents. <b>Note that <code>^</code> in the
+			comments is used to denote exponentiation.
+		</b>
+	</p>
+	<pre><code>// Print 1
+System.out.println(1e0);	// 1 * 10^0	= 1
+System.out.println(0x1p0);	// 1 * 2^0	= 1
+
+// Print 2
+System.out.println(2e0);	// 2 * 10^0	= 2
+System.out.println(0x1p1);	// 1 * 2^1	= 2
+
+// Print 4
+System.out.println(4e0);	// 4 * 10^0	= 4
+System.out.println(0x1p2);	// 1 * 2^2	= 4
+
+// Print 8
+System.out.println(8e0);	// 8 * 10^0	= 8
+System.out.println(0x1p3);	// 1 * 2^3	= 8
+
+// Print 16
+System.out.println(1.6e1);	// 1.6 * 10^1	= 16
+System.out.println(0x1p4);	// 1 * 2^4	= 16
+
+// Print 32
+System.out.println(3.2e1);	// 3.2 * 10^1	= 32
+System.out.println(0x1p5);	// 1 * 2^5	= 32
+
+// Print 64
+System.out.println(6.4e1);	// 6.4 * 10^1	= 64
+System.out.println(0x1p6);	// 1 * 2^6	= 64
+
+// Print 128
+System.out.println(1.28e2);	// 1.28 * 10^2	= 128
+System.out.println(0x1p7);	// 1 * 2^7	= 128</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">1.0
+1.0
+2.0
+2.0
+4.0
+4.0
+8.0
+8.0
+16.0
+16.0
+32.0
+32.0
+64.0
+64.0
+128.0
+128.0</code></pre>
+</div>
 <h2>Notes</h2>
 <ol>
 	<li>Since the <span class="syntax-piece">float-suffix</span>, if
