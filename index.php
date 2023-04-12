@@ -68,10 +68,10 @@
 					Literal</a><br>
 			</div>
 			<div>
-				<a class="u" href="/functions">Functions</a><br> <a class="c u"
-					href="/functions/declarations">Method Declaration</a><br> <a
-					class="c u" href="/functions/generic">Generic Methods</a><br>
-				<a class="c u" href="/functions/overriding">Method Overrides</a><br>
+				<a class="u" href="/methods">Methods</a><br> <a class="c u"
+					href="/methods/declarations">Method Declaration</a><br> <a
+					class="c u" href="/methods/generic">Generic Methods</a><br>
+				<a class="c u" href="/methods/overriding">Method Overrides</a><br>
 			</div>
 		</div>
 		<h3>Notes</h3>
