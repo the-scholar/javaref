@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/index.css">
-<title>Java Reference Test</title>
+<title>Java Reference</title>
 <style type="text/css">
 #ToC {
 	font-size: .8em;
@@ -44,9 +44,7 @@
 </head>
 <body>
 	<div id="Header">
-		<div style="font-size: 2em; font-weight: bold;">
-			Java Reference <span style="opacity: .2">Test</span>
-		</div>
+		<div style="font-size: 2em; font-weight: bold;">Java Reference</div>
 		<div id="Menu">
 			<a href="/" style="color: white;">Home</a>
 		</div>
