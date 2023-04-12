@@ -145,9 +145,10 @@
 </p>
 <p>
 	Decimal literals are required to have the long suffix (<code>l</code>
-	or <code>L</code>) if they are <i>out of range</i> for the type <code>int</code>.
-	This occurs when a decimal literal is greater in value than 2147483647
-	and is not the literal <code>2147483648</code> as the operand of a <a
+	or <code>L</code>) if they are <i>out of range</i> for the type <code>int</code>
+	and can, thus, only be represented as a <code>long</code> literal. This
+	occurs when a decimal literal is greater in value than 2147483647 and
+	is not the literal <code>2147483648</code> as the operand of a <a
 		href="operators/unary-minus">unary minus</a>:
 </p>
 <pre><code>long x = 2147483647; // In-range for type int
