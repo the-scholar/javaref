@@ -132,9 +132,15 @@
 <p>
 	The value of a floating point literal is calculated by interpreting it
 	as a number in scientific notation, and then rounding that number to
-	the closest <code>double</code> or <code>float</code> value. The
-	suffix, when included, determines whether the literal is of type <code>double</code>
-	or <code>float</code>.
+	the closest value in the value set for the literal's type. The suffix,
+	when included, determines whether the literal is of type <code>double</code>
+	or <code>float</code>, and thus determines the corresponding value set<sup
+		info=4></sup>. <span info=4>The value set of <code>float</code> is the
+		set of all values in the <i>IEEE 754 32-bit single-precision
+			floating-point format</i>, and the value set for <code>double</code>
+		is the set of all values in the <i>IEEE 754 64-bit double-precision</i>
+		format.
+	</span>
 </p>
 <h3>Base-10 Interpretation</h3>
 <p>
@@ -160,6 +166,62 @@
 		&times; 2<sup>p</sup>
 	</code>.
 </p>
+<h3>Restrictions on Floating Point Literals</h3>
+<p>
+	Floating point literals' syntax do not provide a direct means of
+	expressing negative values. A floating point literal that, upon being
+	rounded to the closest value in its type's value set, rounds to <code>Infinity</code>,
+	results in a compile-time error. Additionally, any floating point
+	literal that rounds to <code>0</code>, but is not equal to <code>0</code>,
+	results in a compile time error. This means that literals which are
+	"too big" (e.g., <code>1e99f</code> or <code>1e999d</code>) or "too
+	small" (too close to <code>0</code>, e.g. <code>1e-99f</code> or <code>1e-999d</code>)
+	to be represented by a <code>float</code> or <code>double</code> will
+	raise compile-time errors. See the <a href="#Range-Restrictions">below
+		example</a> for examples.
+</p>
+<p>
+	Even if a floating point literal is too large or small to be expressed
+	<i>exactly</i> as its corresponding type, so long as rounding the value
+	of the literal to the nearest value in the value set does not result in
+	<code>0</code> or <code>Infinity</code>, the literal is permitted. For
+	example, even though the smallest actual <code>float</code> is
+	approximately <code>1.401e-45</code>, the literal <code>0.71e-45f</code>
+	is valid, and can be used in code:
+</p>
+<pre><code>// Use BigDecimal to print exact float value:
+System.out.println(new BigDecimal(0.71e-45f));</code></pre>
+<p>
+	Note, however, that the value of that float literal is rounded to the
+	nearest value in the value set for the <code>float</code> type. The
+	output of the above code is:
+</p>
+<pre><code class="output">1.40129846432481707092372958328991613128026194187651577175706828388979108268586060148663818836212158203125E-45</code></pre>
+<p>
+	which is the smallest representable <code>float</code>.
+</p>
+<h4>Permissible Floating Point Literals</h4>
+<p>
+	The exact set of permissible <code>float</code> literals (those
+	suffixed with <code>f</code> or <code>F</code>) is comprised of those
+	exactly equal to:
+<ul>
+	<li><code>0</code>, or</li>
+	<li>any value <i>strictly</i> greater than: <span class="shrink"><code>7.00649232162408535461864791644958065640130970938257885878534141944895541342930300743319094181060791015625</code></span>
+		but strictly lesser than: <span class="shrink"><code>340282356779733661637539395458142568448</code></span>.
+	</li>
+</ul>
+<p>
+	The exact set of permissible <code>double</code> literals (those that
+	have no suffix or have the suffix <code>d</code> or <code>D</code>) is
+	comprised of those exactly equal to:
+</p>
+<ul>
+	<li><code>0</code>, or</li>
+	<li>any value <i>strictly</i> greater than: <span class="shrink"><code>2.4703282292062327208828439643411068618252990130716238221279284125033775363510437593264991818081799618989828234772285886546332835517796989819938739800539093906315035659515570226392290858392449105184435931802849936536152500319370457678249219365623669863658480757001585769269903706311928279558551332927834338409351978015531246597263579574622766465272827220056374006485499977096599470454020828166226237857393450736339007967761930577506740176324673600968951340535537458516661134223766678604162159680461914467291840300530057530849048765391711386591646239524912623653881879636239373280423891018672348497668235089863388587925628302755995657524455507255189313690836254779186948667994968324049705821028513185451396213837722826145437693412532098591327667236328125E-324</code></span>
+		but strictly lesser than: <code></code>
+	</li>
+</ul>
 <h2>Examples</h2>
 <div class="example">
 	<h4>Simple Usage</h4>
@@ -255,6 +317,11 @@ class java.lang.Float</code></pre>
 	<pre><code class="output">Double
 Double
 Float</code></pre>
+</div>
+<div class="example">
+	<h4 id="Range-Restrictions">Range Restrictions</h4>
+
+	<pre><code></code></pre>
 </div>
 <h2>Notes</h2>
 <ol>
