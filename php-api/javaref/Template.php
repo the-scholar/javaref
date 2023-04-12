@@ -16,7 +16,9 @@ window.onload = function() {
 		};
 	}
 	for (let ref of document.querySelectorAll("span.shrink")) {
-		ref.onclick = function() {
+		let clicker = document.createElement("span");
+		ref.appendChild(clicker);
+		clicker.onclick = function() {
 			if (ref.classList.contains("expanded"))
 				ref.classList.remove("expanded");
 			else
