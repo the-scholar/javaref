@@ -62,7 +62,7 @@
 			<div>
 				<a class="u" href="/literals">Literals</a><br> <a class="c"
 					href="/literals/integer">Integer Literal</a><br> <a
-					class="c u" href="/literals/floating-point">Floating Point
+					class="c" href="/literals/floating-point">Floating Point
 					Literal</a><br> <a class="c u" href="/literals/boolean">Boolean
 					Literal</a><br> <a class="c u" href="/literals/null">Null
 					Literal</a><br>
