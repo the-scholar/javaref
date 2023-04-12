@@ -15,6 +15,14 @@ window.onload = function() {
 	   			element.classList.add("visible");
 		};
 	}
+	for (let ref of document.querySelectorAll("span.shrink")) {
+		ref.onclick = function() {
+			if (ref.classList.contains("expanded"))
+				ref.classList.remove("expanded");
+			else
+				ref.classList.add("expanded");
+		};
+	}
 };
 document.addEventListener("scroll", (e) => {
 	var scrp = (document.documentElement.scrollTop || document.body.scrollTop) / ((document.documentElement.scrollHeight || document.body.scrollHeight) - document.documentElement.clientHeight);
