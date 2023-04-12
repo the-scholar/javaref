@@ -218,6 +218,44 @@ System.out.println(0x1p7);	// 1 * 2^7	= 128</code></pre>
 128.0
 128.0</code></pre>
 </div>
+<div class="example">
+	<h4>Suffix Demonstration</h4>
+	<p>This example demonstrates the how a suffix in a literal can
+		execution:</p>
+	<pre><code>Number d = 1.4; // double value 1.4 gets autoboxed into java.lang.Double object
+System.out.println(d.getClass());
+
+Number f = 1.4f; // f suffix to denote float; float value gets autoboxed to java.lang.Float object
+System.out.println(f.getClass());</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">class java.lang.Double
+class java.lang.Float</code></pre>
+	<p>
+		Another example involves an overloaded function that takes either a <code>float</code>
+		or <code>double</code>:
+	</p>
+	<pre><code>class X {
+	void test(double input) {
+		System.out.println("Double");
+	}
+	
+	void test(float input) {
+		System.out.println("Float");
+	}
+	
+	void runTest() {
+		test(0.0); // Prints "Double"
+		test(0.0d); // Prints "Double"
+		test(0.0f); // Prints "Float"
+	}
+}</code></pre>
+	<p>
+		Output of calling <code>runTest()</code>:
+	</p>
+	<pre><code class="output">Double
+Double
+Float</code></pre>
+</div>
 <h2>Notes</h2>
 <ol>
 	<li>Since the <span class="syntax-piece">float-suffix</span>, if
