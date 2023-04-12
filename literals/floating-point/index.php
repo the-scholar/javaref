@@ -322,8 +322,34 @@ Float</code></pre>
 </div>
 <div class="example">
 	<h4 id="Range-Restrictions">Range Restrictions</h4>
+	<p>
+		This example demonstrates the upper "edge" of the set of permissible <code>float</code>
+		literals:
+	</p>
+	<pre><code>// Invalid float; too large:
+// float x = 340282356779733661637539395458142568448f; // Float value is out of range.
+float y =    340282356779733661637539395458142568447.999f; // Float value is less than the upper bound; this compiles
+float z =    340282356779733661637539395458142568447.9999999999999999999999f; // Aribtrarily many digits can be appended.
 
-	<pre><code></code></pre>
+// System.out.println(x);
+System.out.println(y);
+System.out.println(z);
+
+// Print exact textual representations of the floats
+System.out.println(new BigDecimal(y));
+System.out.println(new BigDecimal(z));</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">3.4028235E38
+3.4028235E38
+340282346638528859811704183484516925440
+340282346638528859811704183484516925440</code></pre>
+	<p>
+		Notice how the the literal assigned to <code>x</code> is greater than
+		the value output by the final print statements. This is due to the
+		literals assigned to <code>y</code> and <code>z</code> being rounded
+		to the closest valid <code>float</code>, which is what is output in
+		the two final print statements.
+	</p>
 </div>
 <h2>Notes</h2>
 <ol>
