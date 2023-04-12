@@ -184,7 +184,7 @@ span[info].visible.inline {
 
 /* Shrunk Elements */
 span.shrink {
-	cursor: pointer;
+	vertical-align: baseline;
 }
 span.shrink>:first-child {
 	overflow: hidden;
@@ -192,21 +192,27 @@ span.shrink>:first-child {
 	max-width: var(--shrink-size);
 	display: inline-block;
 	white-space: nowrap;
+	vertical-align: middle;
+	transition: max-width .4s ease-out;
 }
 span.shrink.expanded>:first-child {
-	overflow-wrap: break-word;
-	display: inline;
+	max-width: unset;
+	white-space: normal;
+	word-break: break-word;
 }
-span.shrink::after {
+span.shrink>:last-child {
+	cursor: pointer;
+}
+span.shrink>:last-child::after {
 	content: '(expand)';
 	color: #f5d142;
 	font-size: .75em;
 	font-style: italic;
 	font-family: monospace;
 }
-span.shrink:hover::after {
+span.shrink>:last-child:hover::after {
 	color: red;
 }
-span.shrink.expanded::after {
+span.shrink.expanded>:last-child::after {
 	content: '(shrink)';
 }
