@@ -44,11 +44,26 @@
 <table class="syntax-breakdown">
 	<tr>
 		<td><span class="syntax-piece">modifier-list</span></td>
-		<td>is an unordered set of:
-			<ol>
-				<li>applicable method modifier keywords, and</li>
-				<li>applicable annotations.</li>
-			</ol>
+		<td>is a possibly empty set of keywords and annotations, that can
+			contain:
+			<ul>
+				<li>one of the three <i>access modifiers</i>: <code>public</code>, <code>protected</code>,
+					and <code>private</code>,
+				</li>
+				<li>up to one of each of the following keywords: <code>final</code>,
+					<code>static</code>, <code>strictfp</code>, <code>synchronized</code>,
+					<code>abstract</code>, and <code>default</code>,
+				</li>
+				<li>any number of annotations that are applicable to the method (see
+					<a href="annotation-applicability">below</a> for details).
+				</li>
+			</ul> in any order.
+			<p>
+				Note that keywords and identifiers must be separated from each other
+				by at least one whitespace character to be parsed as separate
+				tokens, but the <code>@</code> character, present in any annotation,
+				may have any amount of whitespace before or after it.
+			</p>
 		</td>
 	</tr>
 	<tr>
@@ -69,7 +84,7 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">parameter</span></td>
-		<td>is an identifier <!-- TODO --></td>
+		<td>is</td>
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">array-dims</span></td>
