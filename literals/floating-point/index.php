@@ -11,19 +11,23 @@
 <table class="syntax">
 	<tr>
 		<td>1</td>
-		<td><span class="syntax-piece">decimal-significand</span> <span class="syntax-piece">float-suffix</span></td>
+		<td><span class="syntax-piece">decimal-significand</span> <span
+			class="syntax-piece">float-suffix</span></td>
 	</tr>
 	<tr>
 		<td>2</td>
-		<td><span class="syntax-piece">decimal-significand</span> <span class="syntax-piece">exponent</span></td>
+		<td><span class="syntax-piece">decimal-significand</span> <span
+			class="syntax-piece">exponent</span></td>
 	</tr>
 	<tr>
 		<td>3</td>
-		<td><span class="syntax-piece">decimal-significand</span> <span class="syntax-piece">exponent</span> <span class="syntax-piece">float-suffix</span></td>
+		<td><span class="syntax-piece">decimal-significand</span> <span
+			class="syntax-piece">exponent</span> <span class="syntax-piece">float-suffix</span></td>
 	</tr>
 	<tr>
 		<td>4</td>
-		<td><span class="syntax-piece">hex-significand</span> <span class="syntax-piece">binary-exponent</span> <span
+		<td><span class="syntax-piece">hex-significand</span> <span
+			class="syntax-piece">binary-exponent</span> <span
 			class="syntax-piece optional">float-suffix</span></td>
 	</tr>
 </table>
@@ -284,8 +288,7 @@ System.out.println(0x1p7);	// 1 * 2^7	= 128</code></pre>
 </div>
 <div class="example">
 	<h4>Suffix Demonstration</h4>
-	<p>This example demonstrates the how a suffix in a literal can
-		execution:</p>
+	<p>This example demonstrates the effect of the suffix in a literal:</p>
 	<pre><code>Number d = 1.4; // double value 1.4 gets autoboxed into java.lang.Double object
 System.out.println(d.getClass());
 
@@ -295,8 +298,8 @@ System.out.println(f.getClass());</code></pre>
 	<pre><code class="output">class java.lang.Double
 class java.lang.Float</code></pre>
 	<p>
-		Another example involves an overloaded function that takes either a <code>float</code>
-		or <code>double</code>:
+		Another demonstration, involving an overloaded function that takes
+		either <code>float</code> or a <code>double</code>:
 	</p>
 	<pre><code>class X {
 	void test(double input) {
