@@ -1,7 +1,7 @@
 <?php t("Javaref - Method Declaration");?>
 <h1>Method Declaration</h1>
-<p class="description">Declares a method so that it can be called,
-	overridden, and referenced via a method reference, possibly while also
+<p class="description">Declares a method so that it can be referenced
+	via a method reference, called, and overridden, possibly while also
 	providing a body.</p>
 <p>A method is a named group of statements that can be referred to and
 	executed via a method invocation statement. A method declaration
