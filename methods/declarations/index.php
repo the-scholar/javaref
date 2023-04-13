@@ -107,13 +107,15 @@
 	<tr>
 		<td><span class="syntax-piece">array-dims</span></td>
 		<td>is any number of consecutive pairs of <code>[]</code> strings,
-			optionally separated (e.g. <code style="white-space: pre;">[][]   []</code>) and/or split (e.g. <code style="white-space: pre;">[][][   ]</code>) by whitespace.
+			optionally separated (e.g. <code style="white-space: pre;">[][]   []</code>)
+			and/or split (e.g. <code style="white-space: pre;">[][][   ]</code>) by
+			whitespace.
 		</td>
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">throw-list</span></td>
-		<td>
-			<!-- TODO -->
+		<td>A list of exception types denoting what the method is permitted to
+			<code>throw</code>.
 		</td>
 	</tr>
 	<tr>
