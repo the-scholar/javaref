@@ -84,20 +84,35 @@ pre>code {
 }
 
 /* Syntax */
-span.syntax-piece, table.syntax td>span {
+table.syntax td code {/* Literal Code */
+	color: white;
+	font-family: monospace;
+	background: none;
+	border: none;
+	font-size: 1.1em;
+}
+span.syntax-piece {
 	font-family: monospace;
 	font-style: italic;
 	color: #7fe384;
 	font-size: 1.1em;
 }
-table.syntax td>span {
+table.syntax td span.syntax-piece {
 	border: #2a2a2a solid 1px;
 	padding: 1px 2px;
 }
-table.syntax td>span.optional::after {
+
+table.syntax td span.optional {
+	border: #bb05 1px solid;
+	padding: 1px;
+	vertical-align: middle;
+}
+table.syntax td span.optional::after {
 	content: "(optional)";
-	font-size: .65em;
-	color: #999;
+	font-size: .55rem;
+	color: #bb0;
+	font-style: italic;
+	font-family: monospace;
 }
 table.syntax tr, table.syntax tr>td {
 	vertical-align: middle;
