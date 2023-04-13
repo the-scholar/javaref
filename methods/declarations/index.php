@@ -57,34 +57,23 @@
 				<li>any number of annotations that are applicable to the method (see
 					<a href="annotation-applicability">below</a> for details).
 				</li>
-			</ul> in any order.
+			</ul> intermixed and in any order.
 			<p>
 				Note that keywords and identifier tokens must be separated from each
 				other by at least one whitespace character<sup info=1></sup> to be
 				parsed as separate tokens and, thus, separate keywords, but the <code>@</code>
 				character, present in any annotation, may have any amount of
 				whitespace before or after it.
-			</p> <span info=1> Keywords must be separated by whitespace,
-				otherwise two consecutive keywords will be parsed as a single
-				identifier token. For example, <code>finalstatic</code> is parsed as
-				one, single identifier. Annotations, however, never need whitespace
-				immediately before them, even if a keyword precedes them, since the
-				<code>@</code> symbol indicates to Java the end of the previous
-				token and the beginning of an annotation: <pre><code>public@SuppressWarnings("all")void test() {	}</code></pre>
-				<p>Such code compiles.</p>
-				<p>
-					For annotations that end in an identifier, e.g. <code>@Override</code>,
-					whitespace <i>must</i> come after them if an identifier or keyword
-					follows, to separate the annotation's name from the succeeding
-					token:
-				</p> <pre><code>public @Overridevoid test() {	} // Does not compile: Unknown annotation "Overridevoid" and method has no return type.</code></pre>
-		</span>
+			</p>
 		</td>
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">return-type</span></td>
 		<td>is a type denoting what type of values, if any<sup info=2></sup>,
-			the method returns.
+			the method returns. The type may have its own annotations. <span
+			info=2>If <code>void</code> is specified as the method's return type,
+				the method returns no value.
+		</span>
 		</td>
 	</tr>
 	<tr>
@@ -99,12 +88,26 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">parameter</span></td>
-		<td>is</td>
+		<td>is made up of three components, in order:
+			<ol>
+				<li>A possibly empty set of parameter modifiers, in any order. The
+					modifiers can contain the keyword <code>final</code>, as well as
+					annotations that are applicable to parameters.
+				</li>
+				<li>A parameter type that determines the type of the variable. It
+					may have its own annotations and may be followed by a <code>...</code>
+					token if it is the last parameter in the parameter list, to
+					indicate that it is a variable-arity argument. The <code>...</code>
+					may be annotated, as well (e.g. <code>int @SomeAnnotation ...</code>).
+				</li>
+				<li>A variable name.</li>
+			</ol>
+		</td>
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">array-dims</span></td>
 		<td>is any number of consecutive pairs of <code>[]</code> strings,
-			optionally separated and/or split by whitespace.
+			optionally separated (e.g. <code style="white-space: pre;">[][]   []</code>) and/or split (e.g. <code style="white-space: pre;">[][][   ]</code>) by whitespace.
 		</td>
 	</tr>
 	<tr>
@@ -125,10 +128,20 @@
 		<li>Each syntactical element may be separated by whitespace.</li>
 	</ul>
 </table>
-<span info=2>If <code>void</code> is specified as the method's return
-	type, the method returns no value.
+<span info=1> Keywords must be separated by whitespace, otherwise two
+	consecutive keywords will be parsed as a single identifier token. For
+	example, <code>finalstatic</code> is parsed as one, single identifier.
+	Annotations, however, never need whitespace immediately before them,
+	even if a keyword precedes them, since the <code>@</code> symbol
+	indicates to Java the end of the previous token and the beginning of an
+	annotation: <pre><code>public@SuppressWarnings("all")void test() {	}</code></pre>
+	<p>Such code compiles.</p>
+	<p>
+		For annotations that end in an identifier, e.g. <code>@Override</code>,
+		whitespace <i>must</i> come after them if an identifier or keyword
+		follows, to separate the annotation's name from the succeeding token:
+	</p> <pre><code>public @Overridevoid test() {	} // Does not compile: Unknown annotation "Overridevoid" and method has no return type.</code></pre>
 </span>
-
 <section sect-symbol="A" id="AppendixA">
 	<h1>Appendix A</h1>
 
