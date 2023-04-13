@@ -58,13 +58,6 @@
 					<a href="annotation-applicability">below</a> for details).
 				</li>
 			</ul> intermixed and in any order.
-			<p>
-				Note that keywords and identifier tokens must be separated from each
-				other by at least one whitespace character<sup info=1></sup> to be
-				parsed as separate tokens and, thus, separate keywords, but the <code>@</code>
-				character, present in any annotation, may have any amount of
-				whitespace before or after it.
-			</p>
 		</td>
 	</tr>
 	<tr>
@@ -130,20 +123,35 @@
 		<li>Each syntactical element may be separated by whitespace.</li>
 	</ul>
 </table>
-<span info=1> Keywords must be separated by whitespace, otherwise two
-	consecutive keywords will be parsed as a single identifier token. For
-	example, <code>finalstatic</code> is parsed as one, single identifier.
-	Annotations, however, never need whitespace immediately before them,
-	even if a keyword precedes them, since the <code>@</code> symbol
-	indicates to Java the end of the previous token and the beginning of an
-	annotation: <pre><code>public@SuppressWarnings("all")void test() {	}</code></pre>
-	<p>Such code compiles.</p>
-	<p>
-		For annotations that end in an identifier, e.g. <code>@Override</code>,
-		whitespace <i>must</i> come after them if an identifier or keyword
-		follows, to separate the annotation's name from the succeeding token:
-	</p> <pre><code>public @Overridevoid test() {	} // Does not compile: Unknown annotation "Overridevoid" and method has no return type.</code></pre>
-</span>
+<p>
+	<i>such that...</i>
+</p>
+<ul>
+	<li>Keywords and identifier tokens must be separated from each other by
+		at least one whitespace character<sup info=1></sup> to be parsed as
+		separate tokens and, thus, separate keywords, but the <code>@</code>
+		character, present in any annotation, may have any amount of
+		whitespace before or after it. <span info=1> If not separated by
+			whitespace, two consecutive keywords or identifiers will be parsed as
+			a single identifier token. For example, <code>finalstatic</code> is
+			parsed as a single identifier. Annotations, however, never need
+			whitespace immediately before them, even if a keyword precedes them,
+			since the <code>@</code> symbol indicates to Java the end of the
+			previous token and the beginning of an annotation: <pre><code>public@SuppressWarnings("all")void test() {	}</code></pre>
+			<p>
+				A whitespace is not needed, but is allowed, before or after the <code>@</code>.
+				Since <code>@SuppressWarnings</code> also ends in a closing
+				parenthesis, whitespace is not required after it either.
+			</p>
+			<p>
+				For annotations that end in an identifier, e.g. <code>@Override</code>,
+				whitespace <i>must</i> come after them if an identifier or keyword
+				follows, to separate the annotation's name from the succeeding
+				token:
+			</p> <pre><code>public @Overridevoid test() {	} // Does not compile: Unknown annotation "Overridevoid" and method has no return type.</code></pre>
+	</span>
+	</li>
+</ul>
 <section sect-symbol="A" id="AppendixA">
 	<h1>Appendix A</h1>
 
