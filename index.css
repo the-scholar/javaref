@@ -104,8 +104,12 @@ table.syntax td span.syntax-piece {
 
 table.syntax td span.optional {
 	border: #bb05 1px solid;
-	padding: 1px;
+	padding: 3px 1px;
 	vertical-align: middle;
+}
+table.syntax td span.syntax-piece {
+	/* Override for when node is both optional and a syntax-piece */
+	padding: 1px 2px;
 }
 table.syntax td span.optional::after {
 	content: "(optional)";
