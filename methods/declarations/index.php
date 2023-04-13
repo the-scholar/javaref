@@ -20,7 +20,7 @@
 			<code>(</code><span class="syntax-piece optional">parameter-list</span><code>)</code>
 			<span class="syntax-piece optional">array-dims</span> <span
 			class="optional"><code>throws</code> <span class="syntax-piece">throw-list</span></span>
-			<span class="syntax-piece">block-body</span></td>
+			<span class="syntax-piece">body</span></td>
 	</tr>
 	<tr>
 		<td>2</td>
@@ -31,11 +31,11 @@
 			class="syntax-piece optional">parameter-list</span> <code>)</code> <span
 			class="optional syntax-piece">array-dims</span> <span
 			class="optional"><code>throws</code> <span class="syntax-piece">throw-list</span></span>
-			<span class="syntax-piece">block-body</span></td>
+			<span class="syntax-piece">body</span></td>
 	</tr>
 </table>
 <p class="note">
-	For a more human-friendly breakdown, see <a href="#AppendixA">Appendix
+	For a more human-friendly treatment, see <a href="#AppendixA">Appendix
 		A</a>.
 </p>
 <p>
@@ -53,8 +53,8 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">return-type</span></td>
-		<td>is a type denoting what type of values the method returns, if any<sup
-			info=1></sup>.
+		<td>is a type denoting what type of values, if any<sup info=1></sup>,
+			the method returns.
 		</td>
 	</tr>
 	<tr>
@@ -84,7 +84,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td><span class="syntax-piece">block-body</span></td>
+		<td><span class="syntax-piece">body</span></td>
 		<td>is either a semicolon <code>;</code> or a block statement.
 		</td>
 	</tr>
