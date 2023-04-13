@@ -69,8 +69,31 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">parameter</span></td>
-		<td>is an identifier</td>
+		<td>is an identifier <!-- TODO --></td>
 	</tr>
+	<tr>
+		<td><span class="syntax-piece">array-dims</span></td>
+		<td>is any number of consecutive pairs of <code>[]</code> strings,
+			optionally separated and/or split by whitespace.
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">throw-list</span></td>
+		<td>
+			<!-- TODO -->
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">block-body</span></td>
+		<td>is either a semicolon <code>;</code> or a block statement.
+		</td>
+	</tr>
+	<p>
+		<i>such that...</i>
+	</p>
+	<ul>
+		<li>Each syntactical element may be separated by whitespace.</li>
+	</ul>
 </table>
 <span info=1>If <code>void</code> is specified as the method's return
 	type, the method returns no value.
