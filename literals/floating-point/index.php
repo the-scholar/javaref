@@ -11,20 +11,20 @@
 <table class="syntax">
 	<tr>
 		<td>1</td>
-		<td><span>decimal-significand</span> <span>float-suffix</span></td>
+		<td><span class="syntax-piece">decimal-significand</span> <span class="syntax-piece">float-suffix</span></td>
 	</tr>
 	<tr>
 		<td>2</td>
-		<td><span>decimal-significand</span> <span>exponent</span></td>
+		<td><span class="syntax-piece">decimal-significand</span> <span class="syntax-piece">exponent</span></td>
 	</tr>
 	<tr>
 		<td>3</td>
-		<td><span>decimal-significand</span> <span>exponent</span> <span>float-suffix</span></td>
+		<td><span class="syntax-piece">decimal-significand</span> <span class="syntax-piece">exponent</span> <span class="syntax-piece">float-suffix</span></td>
 	</tr>
 	<tr>
 		<td>4</td>
-		<td><span>hex-significand</span> <span>binary-exponent</span> <span
-			class="optional">float-suffix</span></td>
+		<td><span class="syntax-piece">hex-significand</span> <span class="syntax-piece">binary-exponent</span> <span
+			class="syntax-piece optional">float-suffix</span></td>
 	</tr>
 </table>
 <p>

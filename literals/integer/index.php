@@ -12,19 +12,23 @@
 <table class="syntax">
 	<tr>
 		<td>1</td>
-		<td><span>decimal-literal</span> <span class="optional">integer-type-suffix</span></td>
+		<td><span class="syntax-piece">decimal-literal</span> <span
+			class="syntax-piece optional">integer-type-suffix</span></td>
 	</tr>
 	<tr>
 		<td>2</td>
-		<td><span>hexadecimal-literal</span> <span class="optional">integer-type-suffix</span></td>
+		<td><span class="syntax-piece">hexadecimal-literal</span> <span
+			class="syntax-piece optional">integer-type-suffix</span></td>
 	</tr>
 	<tr>
 		<td>3</td>
-		<td><span>octal-literal</span> <span class="optional">integer-type-suffix</span></td>
+		<td><span class="syntax-piece">octal-literal</span> <span
+			class="syntax-piece optional">integer-type-suffix</span></td>
 	</tr>
 	<tr>
 		<td>4</td>
-		<td><span>binary-literal</span> <span class="optional">integer-type-suffix</span></td>
+		<td><span class="syntax-piece">binary-literal</span> <span
+			class="syntax-piece optional">integer-type-suffix</span></td>
 	</tr>
 </table>
 <p>
