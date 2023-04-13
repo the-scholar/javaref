@@ -5,7 +5,7 @@
 	providing a body.</p>
 <p>A method is a named group of statements that can be referred to and
 	executed via a method invocation statement. A method declaration
-	introduces a method unto the program. The group of statements that are
+	introduces a method to the program. The group of statements that are
 	executed are called the method's implementation. A method declaration
 	includes the method's name (and formally, it's signature), which can be
 	used to refer to it elsewhere, though it is not necessary for a
@@ -44,7 +44,7 @@
 <table class="syntax-breakdown">
 	<tr>
 		<td><span class="syntax-piece">modifier-list</span></td>
-		<td>is a possibly empty set of keywords and annotations, that can
+		<td>is a possibly empty set of keywords and annotations that can
 			contain:
 			<ul>
 				<li>one of the three <i>access modifiers</i>: <code>public</code>, <code>protected</code>,
@@ -59,16 +59,31 @@
 				</li>
 			</ul> in any order.
 			<p>
-				Note that keywords and identifiers must be separated from each other
-				by at least one whitespace character to be parsed as separate
-				tokens, but the <code>@</code> character, present in any annotation,
-				may have any amount of whitespace before or after it.
-			</p>
+				Note that keywords and identifier tokens must be separated from each
+				other by at least one whitespace character<sup info=1></sup> to be
+				parsed as separate tokens and, thus, separate keywords, but the <code>@</code>
+				character, present in any annotation, may have any amount of
+				whitespace before or after it.
+			</p> <span info=1> Keywords must be separated by whitespace,
+				otherwise two consecutive keywords will be parsed as a single
+				identifier token. For example, <code>finalstatic</code> is parsed as
+				one, single identifier. Annotations, however, never need whitespace
+				immediately before them, even if a keyword precedes them, since the
+				<code>@</code> symbol indicates to Java the end of the previous
+				token and the beginning of an annotation: <pre><code>public@SuppressWarnings("all")void test() {	}</code></pre>
+				<p>Such code compiles.</p>
+				<p>
+					For annotations that end in an identifier, e.g. <code>@Override</code>,
+					whitespace <i>must</i> come after them if an identifier or keyword
+					follows, to separate the annotation's name from the succeeding
+					token:
+				</p> <pre><code>public @Overridevoid test() {	} // Does not compile: Unknown annotation "Overridevoid" and method has no return type.</code></pre>
+		</span>
 		</td>
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">return-type</span></td>
-		<td>is a type denoting what type of values, if any<sup info=1></sup>,
+		<td>is a type denoting what type of values, if any<sup info=2></sup>,
 			the method returns.
 		</td>
 	</tr>
@@ -110,7 +125,7 @@
 		<li>Each syntactical element may be separated by whitespace.</li>
 	</ul>
 </table>
-<span info=1>If <code>void</code> is specified as the method's return
+<span info=2>If <code>void</code> is specified as the method's return
 	type, the method returns no value.
 </span>
 
