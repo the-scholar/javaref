@@ -235,3 +235,25 @@ span.shrink>:last-child:hover::after {
 span.shrink.expanded>:last-child::after {
 	content: '(shrink)';
 }
+
+/* Page Sections */
+section {
+	padding: .5em 1.5em 1em 1.5em;
+	border: 2px solid #888;
+	margin-top: 2em;
+}
+section[sect-symbol] {
+	position: relative;
+	padding-top: 2.5em;
+}
+section[sect-symbol]::before {
+	content: attr(sect-symbol);
+	border: 2px solid #888;
+	font-size: 1.4em;
+	font-weight: bold;
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	min-width: 2ex;
+	text-align: center;
+}
