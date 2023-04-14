@@ -253,11 +253,13 @@
 </h4>
 <p>
 	Abstract method declarations cannot provide a block statement body. <code>abstract</code>
-	methods cannot be <code>static</code>. Any type containing an <code>abstract</code>
-	method must also, itself, be <code>abstract</code> (<code>interface</code>s
-	are always inherently <code>abstract</code>). <code>abstract</code>
-	types cannot be instantiated directly; only concrete sub-types can be
-	instantiated directly.
+	methods cannot be <code>static</code>, <code>final</code>, <code>native</code>,
+	<code>private</code>, <code>synchronized</code>, nor <code>strictfp</code>.
+	Any type containing an <code>abstract</code> method must also, itself,
+	be <code>abstract</code> (<code>interface</code>s are always inherently
+	<code>abstract</code>). <code>abstract</code> types cannot be
+	instantiated directly; only concrete sub-types can be instantiated
+	directly.
 </p>
 <p>
 	If a method, <code>m()</code> is declared abstract in a type, <code>A</code>,
@@ -304,10 +306,12 @@ class Test {
 	<code>native</code> Modifier
 </h4>
 <p>The native modifier is used to declare a method whose implementation
-	is provided through some other language, typically C or C++.</p>
+	is provided through some other language, typically C or C++. Such
+	methods' implementations are connected to the program through the Java
+	Native Interface.</p>
 <p>
-	The <code>native</code> modifier cannot be used with <code>strictfp</code>,
-	although it can be used with other modifiers.
+	The <code>native</code> modifier cannot be used with <code>strictfp</code>
+	or <code>abstract</code>, although it can be used with other modifiers.
 </p>
 <h3>Return Type</h3>
 <p>A method's return type determines the type of the method invocation
