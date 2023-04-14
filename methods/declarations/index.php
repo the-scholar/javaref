@@ -52,7 +52,7 @@
 				</li>
 				<li>up to one of each of the following keywords: <code>final</code>,
 					<code>static</code>, <code>strictfp</code>, <code>synchronized</code>,
-					<code>abstract</code>, and <code>default</code>,
+					<code>abstract</code>, <code>native</code>, and <code>default</code>,
 				</li>
 				<li>any number of annotations that are applicable to the method (see
 					<a href="annotation-applicability">below</a> for details).
@@ -76,7 +76,8 @@
 	<tr>
 		<td><span class="syntax-piece">parameter-list</span></td>
 		<td>is a comma-separated list of <span class="syntax-piece">parameter</span>s,
-			the last of which may be a variable-arity (var-args) parameter.
+			the first of which may be a receiver parameter and the last of which
+			may be a variable-arity (var-args) parameter.
 		</td>
 	</tr>
 	<tr>
@@ -148,7 +149,8 @@
 	<li>If:
 		<ul>
 			<li>the method's <span class="syntax-piece">modifier-list</span>
-				contains the <code>abstract</code> keyword, or
+				contains the <code>abstract</code> or <code>native</code> keywords,
+				or
 			</li>
 			<li>the method belongs to an interface and its <span
 				class="syntax-piece">modifier-list</span> does not contain the <code>default</code>
@@ -184,25 +186,68 @@
 <p>A method can have at most one access modifier keyword, otherwise a
 	compile error occurs.</p>
 <h4>
-	<code>final</code> Keyword
+	<code>final</code> Modifier
 </h4>
 <p>
-	The <code>final</code> keyword, when used on a method, disables the
-	ability for any subclasses to override the method. This never has an
-	effect on <code>private</code> methods, since such methods are not
-	dynamically bound.<sup info=3></sup>
+	The <code>final</code> modifier, when used on a method, disables the
+	ability for any subclasses to override the method. Despite having no
+	effect, it may be used on <code>private</code> methods. It cannot be
+	used on declarations directly in an <code>interface</code>, nor on any
+	method declared <code>abstract</code> or <code>native</code>.
 </p>
-<span info=3>All methods that are non-<code>private</code> and and non-<code>static</code>
-	participate in dynamic binding, which allows a subclass's <i>overridden
-		implementation</i> to be used when a method is called on an expression
-	with type supertype that evaluates to a subclass object. Fields and all
-	other methods are looked up and accessed based on the expression's
-	type, rather than the type of the value of the expression.
-</span>
+<h4>
+	<code>static</code> Modifier
+</h4>
+<p>
+	The <code>static</code> modifier causes a method to be a <i>class
+		method</i> rather than an <i>instance method</i>. Resultingly, the
+	method may not refer to <code>this</code>, <code>super</code>, or any
+	other instance methods or instance fields without qualifying such
+	references with an explicit instance:
+</p>
+<pre><code>class Dog {
+	int age; // Instance field
+	static void grow() {
+		// age++; // Not allowed; no Dog instance to increment the age of.
+	}
+}</code></pre>
+<p>This is in contrast to instance methods, which, in their bodies, may
+	access instance-specific members without explicit qualification:</p>
+<pre><code>class Dog {
+	int age;
+	void grow() {
+		age++;
+	}
+}</code></pre>
+<p>
+	Instance methods additionally may refer to <code>this</code> and <code>super</code>:
+</p>
+<pre><code>class Dog {
+	int age;
+	void grow() {
+		this.age++; // Equivalent to age++, which refers to age as a member of "this"
+	}
+}</code></pre>
+<h4><code>strictfp</code> Modifier</h4>
+<p>
+	The <code>strictfp</code> modifier causes all floating point
+	computations written in the body of a so modified method to
+	consistently operate on the normal float/double value set (depending on
+	expression type) across implementations. See <a
+		href="/keywords/strictfp">strictfp</a> for details.
+</p>
+
 <h3>Return Type</h3>
 <p>A method's return type determines the type of the method invocation
 	statement that invokes it:</p>
 <h2>Examples</h2>
+<h2>Notes</h2>
+<ol>
+	<li>The <code>final</code> modifier never has an effect on <code>private</code>
+		methods, since such instance methods are not dynamically bound, and
+		since such <code>static</code> methods cannot be overridden anyway.
+	</li>
+</ol>
 <section sect-symbol="A" id="AppendixA">
 	<h1>Appendix A</h1>
 
