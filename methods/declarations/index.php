@@ -62,9 +62,9 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">return-type</span></td>
-		<td>is a type denoting what type of values, if any<sup info=2></sup>,
+		<td>is a type denoting what type of values, if any<sup info=1></sup>,
 			the method returns. The type may have its own annotations. <span
-			info=2>If <code>void</code> is specified as the method's return type,
+			info=1>If <code>void</code> is specified as the method's return type,
 				the method returns no value.
 		</span>
 		</td>
@@ -122,10 +122,10 @@
 </p>
 <ul>
 	<li>Keywords and identifier tokens must be separated from each other by
-		at least one whitespace character<sup info=1></sup> to be parsed as
+		at least one whitespace character<sup info=2></sup> to be parsed as
 		separate tokens and, thus, separate keywords, but the <code>@</code>
 		character, present in any annotation, may have any amount of
-		whitespace before or after it. <span info=1> If not separated by
+		whitespace before or after it. <span info=2> If not separated by
 			whitespace, two consecutive keywords or identifiers will be parsed as
 			a single identifier token. For example, <code>finalstatic</code> is
 			parsed as a single identifier. Annotations, however, never need
@@ -160,6 +160,49 @@
 		class="syntax-piece">body</span>.
 	</li>
 </ul>
+<h2>Behavior</h2>
+<h3>Modifiers</h3>
+<p>Method modifiers are either keywords or annotations. Each keyword has
+	a specific meaning for methods.</p>
+<h4>Access Modifier Keywords</h4>
+<p>
+	Access modifiers affect the accessibility of a method, which determines
+	from where the method may be invoked (via a method invocation
+	statement), referenced (via a method reference), and overridden.
+	Without any access modifier keywords, a method's accessibility is <i>package-protected</i>,
+	meaning that it can be accessed by code within the same package as
+	where it is declared. If the method has the access modifier:
+</p>
+<ul>
+	<li><code>public</code>, it can be accessed from anywhere,</li>
+	<li><code>protected</code>, it can be accessed from within the
+		top-level class it is declared in and within all of the subclasses of
+		the immediate, surrounding class it is declared in,</li>
+	<li><code>private</code>, it can be accessed from within the top-level
+		class it is declared in only.</li>
+</ul>
+<p>A method can have at most one access modifier keyword, otherwise a
+	compile error occurs.</p>
+<h4>
+	<code>final</code> Keyword
+</h4>
+<p>
+	The <code>final</code> keyword, when used on a method, disables the
+	ability for any subclasses to override the method. This never has an
+	effect on <code>private</code> methods, since such methods are not
+	dynamically bound.<sup info=3></sup>
+</p>
+<span info=3>All methods that are non-<code>private</code> and and non-<code>static</code>
+	participate in dynamic binding, which allows a subclass's <i>overridden
+		implementation</i> to be used when a method is called on an expression
+	with type supertype that evaluates to a subclass object. Fields and all
+	other methods are looked up and accessed based on the expression's
+	type, rather than the type of the value of the expression.
+</span>
+<h3>Return Type</h3>
+<p>A method's return type determines the type of the method invocation
+	statement that invokes it:</p>
+<h2>Examples</h2>
 <section sect-symbol="A" id="AppendixA">
 	<h1>Appendix A</h1>
 
