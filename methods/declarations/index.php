@@ -116,12 +116,6 @@
 		<td>is either a semicolon <code>;</code> or a block statement.
 		</td>
 	</tr>
-	<p>
-		<i>such that...</i>
-	</p>
-	<ul>
-		<li>Each syntactical element may be separated by whitespace.</li>
-	</ul>
 </table>
 <p>
 	<i>such that...</i>
@@ -150,6 +144,20 @@
 				token:
 			</p> <pre><code>public @Overridevoid test() {	} // Does not compile: Unknown annotation "Overridevoid" and method has no return type.</code></pre>
 	</span>
+	</li>
+	<li>If:
+		<ul>
+			<li>the method's <span class="syntax-piece">modifier-list</span>
+				contains the <code>abstract</code> keyword, or
+			</li>
+			<li>the method belongs to an interface and its <span
+				class="syntax-piece">modifier-list</span> does not contain the <code>default</code>
+				keyword,
+			</li>
+		</ul> then the method is an <i>abstract</i> method and it must have <code>;</code>
+		for its <span class="syntax-piece">body</span>. Otherwise, the method
+		is not abstract and must not have <code>;</code> for its <span
+		class="syntax-piece">body</span>.
 	</li>
 </ul>
 <section sect-symbol="A" id="AppendixA">
