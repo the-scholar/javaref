@@ -236,7 +236,70 @@
 	expression type) across implementations. See <a
 		href="/keywords/strictfp">strictfp</a> for details.
 </p>
+<h4><code>synchronized</code> Modifier</h4>
+<p>
+	A <code>synchronized</code> method synchronizes on:
+</p>
+<ul>
+	<li><code>this</code>, if the method is an instance method, or</li>
+	<li>the <code>Class</code> object of the class of which it is a member,
+		if the method is <code>static</code>
+	</li>
+</ul>
+<p>before it begins executing. The lock is released after the method
+	completes.</p>
+<h4>
+	<code>abstract</code> Modifier
+</h4>
+<p>
+	Abstract method declarations cannot provide a block statement body. <code>abstract</code>
+	methods cannot be <code>static</code>. Any type containing an <code>abstract</code>
+	method must also, itself, be <code>abstract</code> (<code>interface</code>s
+	are always inherently <code>abstract</code>). <code>abstract</code>
+	types cannot be instantiated directly; only concrete sub-types can be
+	instantiated directly.
+</p>
+<p>
+	If a method, <code>m()</code> is declared abstract in a type, <code>A</code>,
+	then <code>m()</code> may be invoked on expressions of type <code>A</code>:
+</p>
+<pre><code>abstract class A {
+	abstract void test();
+}
 
+class Test {
+	void test() {
+		A obj = getNewA(); // get an A object from somewhere...
+		obj.test();
+	}
+}</code></pre>
+<p>
+	Any non-<code>abstract</code> sub-type that inherits an <code>abstract</code>
+	method from its immediate parent must override the abstract method and
+	provide an implementation:
+</p>
+<pre><code>abstract class A {
+	abstract void test();
+}
+
+class Sub extends A {
+
+	// Sub must implement test since Sub is not an abstract class, test is abstract, and test was inherited by Sub from A.
+	@Override void test() {
+		System.out.println("Sub");
+	}
+}
+
+class Test {
+	static A getNewA() {
+		return new Sub();
+	}
+
+	void test() {
+		A obj = getNewA();
+		obj.test();
+	}
+}</code></pre>
 <h3>Return Type</h3>
 <p>A method's return type determines the type of the method invocation
 	statement that invokes it:</p>
