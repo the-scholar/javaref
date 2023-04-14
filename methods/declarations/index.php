@@ -300,6 +300,15 @@ class Test {
 		obj.test();
 	}
 }</code></pre>
+<h4>
+	<code>native</code> Modifier
+</h4>
+<p>The native modifier is used to declare a method whose implementation
+	is provided through some other language, typically C or C++.</p>
+<p>
+	The <code>native</code> modifier cannot be used with <code>strictfp</code>,
+	although it can be used with other modifiers.
+</p>
 <h3>Return Type</h3>
 <p>A method's return type determines the type of the method invocation
 	statement that invokes it:</p>
