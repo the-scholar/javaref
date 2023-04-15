@@ -101,9 +101,12 @@
 	<tr>
 		<td><span class="syntax-piece">array-dims</span></td>
 		<td>is any number of consecutive pairs of <code>[]</code> strings,
-			optionally separated (e.g. <code style="white-space: pre;">[][] []</code>)
-			and/or split (e.g. <code style="white-space: pre;">[][][ ]</code>) by
-			whitespace.
+			optionally separated (e.g. <code style="white-space: pre;">[][]   []</code>)
+			and/or split (e.g. <code style="white-space: pre;">[][][   ]</code>) by
+			whitespace. Each <code>[]</code> pair may be annotated with an
+			annotation that targets type use. (Such annotation targets the
+			respective dimension of the array that the <code>[]</code>
+			represents.)
 		</td>
 	</tr>
 	<tr>
@@ -533,6 +536,27 @@ try {
 </h4>
 <p>Type parameters can be used as any other type within the body of the
 	method they are declared in.</p>
+<h3>
+	<span class="syntax-piece">array-dims</span> Component
+</h3>
+<p>
+	The <span class="syntax-piece">array-dims</span> is a legacy
+	syntactical element that allows the pairs of brackets (<code>[]</code>),
+	used to declare a dimension of an array type for the return type of the
+	method, to be placed after the parameter list of a method declaration.
+	It can consist of any number of pairs of brackets. The array dims
+	specified in this location are applied to the return type as if
+	appended to the return type:
+</p>
+<pre><code>// Two total array dims, both after parameter list.
+int x()[][] {
+	return new int[1][1];
+}
+
+// Three total array dims: two in return type, one after parameter-list.
+int[][] x()[] {
+	return new int[1][1][1];
+}</code></pre>
 <h2>Examples</h2>
 <h2>Notes</h2>
 <ol>
