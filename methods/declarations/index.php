@@ -15,7 +15,7 @@
 <table class="syntax">
 	<tr>
 		<td>1</td>
-		<td><span class="syntax-piece">modifier-list</span> <span
+		<td><span class="syntax-piece optional">modifier-list</span> <span
 			class="syntax-piece">return-type</span> <span class="syntax-piece">name</span>
 			<code>(</code> <span class="syntax-piece optional">parameter-list</span>
 			<code>)</code> <span class="syntax-piece optional">array-dims</span>
@@ -24,7 +24,7 @@
 	</tr>
 	<tr>
 		<td>2</td>
-		<td><span class="syntax-piece">modifier-list</span> <code>&lt;</code>
+		<td><span class="syntax-piece optional">modifier-list</span> <code>&lt;</code>
 			<span class="syntax-piece">type-parameter-list</span> <code>&gt;</code>
 			<span class="syntax-piece">annotation-list</span> <span
 			class="syntax-piece">name</span> <code>(</code> <span
