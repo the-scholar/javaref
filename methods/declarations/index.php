@@ -17,9 +17,9 @@
 		<td>1</td>
 		<td><span class="syntax-piece">modifier-list</span> <span
 			class="syntax-piece">return-type</span> <span class="syntax-piece">name</span>
-			<code>(</code><span class="syntax-piece optional">parameter-list</span><code>)</code>
-			<span class="syntax-piece optional">array-dims</span> <span
-			class="optional"><code>throws</code> <span class="syntax-piece">throw-list</span></span>
+			<code>(</code> <span class="syntax-piece optional">parameter-list</span>
+			<code>)</code> <span class="syntax-piece optional">array-dims</span>
+			<span class="optional"><code>throws</code> <span class="syntax-piece">throw-list</span></span>
 			<span class="syntax-piece">body</span></td>
 	</tr>
 	<tr>
