@@ -473,6 +473,11 @@ void runTest() {
 <pre><code class="output">TEST was called with: 0 argument(s).
 TEST was called with: 3 argument(s).
 TEST was called with: 1 argument(s).</code></pre>
+<p>A var-args parameter can also be unambiguously provided an array
+	argument:</p>
+<pre><code>test(new String[] {"a", "b", "c"});</code></pre>
+<p>Such method call prints:</p>
+<pre><code class="output">TEST was called with: 3 argument(s).</code></pre>
 <h3>Type Parameters</h3>
 <p>
 	Generic type parameters declared in the <span class="syntax-piece">type-parameter-list</span>
