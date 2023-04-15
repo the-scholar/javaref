@@ -149,6 +149,7 @@ table.syntax-breakdown ul, table.syntax-breakdown ol {
 }
 table.syntax-breakdown tr>td:first-child {/* Syntax Fragments */
 	text-align: right;
+	white-space: nowrap;
 }
 
 /* Info Popups */
