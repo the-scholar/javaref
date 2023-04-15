@@ -162,7 +162,7 @@
 		class="syntax-piece">body</span>.
 	</li>
 </ul>
-<h2>Behavior</h2>
+<h2>Components</h2>
 <p>A method can be declared directly within a class or interface, or
 	within an enum's body declaration (after the constant list). Method
 	declarations can override methods inherited from a parent type.</p>
@@ -387,9 +387,9 @@ class Test {
 	// Function may reach this point without returning a value; this is not allowed.
 }</code></pre>
 <span info=3> With a <code>finally</code> block, a method may execute
-	multiple of <code>return</code> statements. In such a case, the last
-	<i>abrupt exit</i> from execution of the method takes precedence, i.e.,
-	the final <code>return</code> or <code>throw</code> that is executed is
+	multiple of <code>return</code> statements. In such a case, the last <i>abrupt
+		exit</i> from execution of the method takes precedence, i.e., the
+	final <code>return</code> or <code>throw</code> that is executed is
 	what the method completes with: <pre><code>int test() {
 	try {
 		return 5;
@@ -398,6 +398,51 @@ class Test {
 	}
 }</code></pre> A call to <code>test()</code> returns <code>10</code>.
 </span>
+<h3>Parameter List</h3>
+<p>A method's parameters are a list of inputs that must be provided upon
+	calling the method. The variables declared in the parameter list are
+	accessible throughout the body of the method and are given values when
+	the method is called.</p>
+<h4>Overloads</h4>
+<p>A method may be overloaded if there are two or more method
+	declarations with its same name, but different signatures. A method's
+	signature includes the ordered list of types of its parameters, and
+	methods with different ordered lists of parameter types are considered
+	different when resolving overloads to execute a method invocation
+	statement:</p>
+<pre><code>void test(int x) {
+	System.out.println("Test was called with the number: " + x);
+}
+
+void test(String x) {
+	System.out.println("Test was called with: " + x);
+}
+
+void runTest() {
+	test("abc");
+}</code></pre>
+<p>
+	The output of invoking <code>runTest()</code> is:
+</p>
+<pre><code class="output">Test was called with: abc</code></pre>
+<p>Overload resolution happens statically, so the type of the expression
+	used as an argument in the method invocation is what determines the
+	method to be called:</p>
+<pre><code>void test(String x) {
+	System.out.println("STRING VERSION CALLED");
+}
+void test(Object x) {
+	System.out.println("OBJECT VERSION CALLED");
+}
+
+void runTest() {
+	test((Object) "abc"); // Provide a String, but casted to type "Object."
+}</code></pre>
+<p>
+	In the above example, <code>test(Object)</code> will be invoked with a
+	<code>String</code> as its argument, leading to the following output:
+</p>
+<pre><code class="output">OBJECT VERSION CALLED</code></pre>
 <h2>Examples</h2>
 <h2>Notes</h2>
 <ol>
