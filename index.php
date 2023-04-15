@@ -66,7 +66,7 @@
 					Literal</a><br>
 			</div>
 			<div>
-				<a class="u" href="/methods">Methods</a><br> <a class="c u"
+				<a class="u" href="/methods">Methods</a><br> <a class="c"
 					href="/methods/declarations">Method Declaration</a><br> <a
 					class="c u" href="/methods/generic">Generic Methods</a><br>
 				<a class="c u" href="/methods/overriding">Method Overrides</a><br>
