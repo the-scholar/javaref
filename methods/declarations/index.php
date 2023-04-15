@@ -245,31 +245,11 @@
 		method</i> rather than an <i>instance method</i>. Resultingly, the
 	method may not refer to <code>this</code>, <code>super</code>, or any
 	other instance methods or instance fields without qualifying such
-	references with an explicit instance:
+	references with an explicit instance. This is in contrast to instance
+	methods, which, in their bodies, may access instance-specific members
+	without explicit qualification. Instance methods additionally may refer
+	to <code>this</code> and <code>super</code>.
 </p>
-<pre><code>class Dog {
-	int age; // Instance field
-	static void grow() {
-		// age++; // Not allowed; no Dog instance to increment the age of.
-	}
-}</code></pre>
-<p>This is in contrast to instance methods, which, in their bodies, may
-	access instance-specific members without explicit qualification:</p>
-<pre><code>class Dog {
-	int age;
-	void grow() {
-		age++;
-	}
-}</code></pre>
-<p>
-	Instance methods additionally may refer to <code>this</code> and <code>super</code>:
-</p>
-<pre><code>class Dog {
-	int age;
-	void grow() {
-		this.age++; // Equivalent to age++, which refers to age as a member of "this"
-	}
-}</code></pre>
 <h4><code>strictfp</code> Modifier</h4>
 <p>
 	The <code>strictfp</code> modifier causes all floating point
@@ -303,20 +283,6 @@
 	instantiated directly; only concrete sub-types can be instantiated
 	directly.
 </p>
-<p>
-	If a method, <code>m()</code> is declared abstract in a type, <code>A</code>,
-	then <code>m()</code> may be invoked on expressions of type <code>A</code>:
-</p>
-<pre><code>abstract class A {
-	abstract void test();
-}
-
-class Test {
-	void test() {
-		A obj = getNewA(); // get an A object from somewhere...
-		obj.test();
-	}
-}</code></pre>
 <p>
 	Any non-<code>abstract</code> sub-type that inherits an <code>abstract</code>
 	method from its immediate parent must override the abstract method and
@@ -557,13 +523,132 @@ int x()[][] {
 int[][] x()[] {
 	return new int[1][1][1];
 }</code></pre>
+<h3><code>throws</code> Clause</h3>
+<p>
+	The <code>throws</code> clause declares what exceptions a method can
+	throw. Any checked exceptions that are thrown in the method body under
+	any path of execution must be assignable to at least one of the types
+	listed in the <code>throws</code> clause, otherwise, the code will not
+	compile. The same exception may be listed in the <span
+		class="syntax-piece">throw-list</span> more than once. Additionally, <code>RuntimeException</code>s
+	and <code>Error</code>s, (both of which are the root unchecked types),
+	and their subtypes, do not need to be listed, but may be.
+</p>
+<p>
+	The rules governing required types in the <span class="syntax-piece">throw-list</span>
+	apply only to checked exceptions that the method may abruptly terminate
+	due to the throwing of. Because of this, if a checked exception is
+	thrown and caught within the method's body, the exception does not need
+	to be listed in the <code>throws</code> clause:
+</p>
+<pre><code>void riskyMethod() throws Exception {
+	if (Math.random() &lt; .1)
+		throw new Exception("Throwing an exception!");
+}
+
+void test() {
+	try {
+		riskyMethod();
+	} catch (Exception e) {
+		// Ignore the exception!
+	}
+}</code></pre>
+<p>
+	The above example compiles since the body of the method <code>test()</code>
+	does not have any code deemed to potentially complete abruptly due to a
+	checked exception. If the <code>try</code>-<code>catch</code> were not
+	used to wrap the call to <code>riskyMethod()</code>, <code>Exception</code>
+	or its supertype, <code>Throwable</code>, would need to be listed in
+	the <span class="syntax-piece">throw-list</span>.
+</p>
 <h2>Examples</h2>
+<div class="example">
+	<h4>
+		<code>static</code> Method Restrictions
+	</h4>
+	<p>
+		Example of inability to reference instance properties from a <code>static</code>
+		method body:
+	</p>
+	<pre><code>class Dog {
+	static Dog someDogInstance = new Dog();
+
+	int age; // Instance field
+	static void grow() {
+		// age++; // Not allowed; no Dog instance to increment the age of.
+		
+		Dog x = new Dog(); // Make a Dog instance.
+		x.age++;
+		
+		someDogInstance.age++;
+	}
+	
+	void growThisDog() {
+		age++; // Instance methods are called with an instance, and that instance is used implicitly here in the method body.
+		this.age++; // Equivalent to age++
+		
+		someDogInstance.age++; // Instance methods can still access static data directly, but not vice versa.
+	}
+}</code></pre>
+</div>
+<div class="example">
+	<h4>
+		<code>abstract</code> Methods
+	</h4>
+	<p>An expression whose type is an abstract type can still be used to
+		invoke abstract methods in that abstract type, though the
+		implementation that gets executed depends on the concrete type of the
+		value the expression evaluates to:</p>
+	<pre><code>abstract class Animal {
+	abstract void makeSound();
+}
+
+class Dog extends Animal {
+	void makeSound() {
+		System.out.println("Woof");
+	}
+}
+
+class Cat extends Animal {
+	void makeSound() {
+		System.out.println("Meow");
+	}
+}
+
+class Test {
+	void test() {
+		Animal a = Math.random() &lt; .5 ? new Dog() : new Cat();
+		a.makeSound(); // May print "Meow" or "Woof"
+	}
+}</code></pre>
+</div>
 <h2>Notes</h2>
 <ol>
 	<li>The <code>final</code> modifier never has an effect on <code>private</code>
 		methods, since such instance methods are not dynamically bound, and
 		since such <code>static</code> methods cannot be overridden anyway.
 	</li>
+	<li><p>
+			Type parameters can be used to throw a checked exception in an
+			unchecked fashion by allowing the type of the expression provided to
+			a <code>throw</code> statement to be an unchecked exception while the
+			value itself remains a checked exception. This can be done by casting
+			a checked exception to a generic typee parameter, and then throwing
+			the result:
+		</p> <pre><code>public static @SuppressWarnings("unchecked") &lt;E extends Throwable&gt; void throwUnchecked(Throwable t) throws E {
+	throw (E) t;
+}</code></pre>
+		<p>
+			Any call to the method that does not explicitly provide type
+			arguments will infer <code>E</code> to be <code>RuntimeException</code>,
+			however, the exception provided to the method will still be thrown,
+			even if it is a <code>Throwable</code> instance.
+		</p>
+		<p>
+			The cast to <code>E</code> does not fail, since <code>E</code> is
+			upper-bounded by <code>Throwable</code> and the argument to the
+			method is any <code>Throwable</code> instance.
+		</p></li>
 </ol>
 <section sect-symbol="A" id="AppendixA">
 	<h1>Appendix A</h1>
