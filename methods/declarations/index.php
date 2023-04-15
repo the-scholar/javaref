@@ -443,6 +443,29 @@ void runTest() {
 	<code>String</code> as its argument, leading to the following output:
 </p>
 <pre><code class="output">OBJECT VERSION CALLED</code></pre>
+<h4>Var-args Parameter</h4>
+<p>
+	The final parameter in a parameter list can optionally be a <i>variable-arity</i>
+	parameter, by succeeding its type with the <code>...</code> token. Such
+	a parameter allows any number of arguments, of the parameter's type, to
+	be provided in a method invocation statement as the final arguments in
+	the statement's argument list:
+</p>
+<pre><code>void test(String... args) {
+	System.out.println("TEST was called with: " + args.length + " argument(s).");
+}
+
+void runTest() {
+	test(); // Provide no arguments.
+	test("a", "b", "c"); // Provide three arguments.
+	test("a"); // Provide one argument.
+}</code></pre>
+<p>
+	A call to <code>runTest()</code> prints:
+</p>
+<pre><code class="output">TEST was called with: 0 argument(s).
+TEST was called with: 3 argument(s).
+TEST was called with: 1 argument(s).</code></pre>
 <h2>Examples</h2>
 <h2>Notes</h2>
 <ol>
