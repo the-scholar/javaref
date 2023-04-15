@@ -466,6 +466,31 @@ void runTest() {
 <pre><code class="output">TEST was called with: 0 argument(s).
 TEST was called with: 3 argument(s).
 TEST was called with: 1 argument(s).</code></pre>
+<h3>Type Parameters</h3>
+<p>
+	Generic type parameters declared in the <span class="syntax-piece">type-parameter-list</span>
+	can be referenced throughout the remainder of the method, including in
+	the method's <span class="syntax-piece">parameter-list</span>, <span
+		class="syntax-piece">body</span>, and even the method's <span
+		class="syntax-piece">throw-list</span>. Any type parameters declared
+	in the <span class="syntax-piece">type-parameter-list</span> may also
+	be referenced anywhere else within the <span class="syntax-piece">type-parameter-list</span>.
+	This allows for recursive type parameters.
+</p>
+<p>
+	When used as a type in the <span class="syntax-piece">parameter-list</span>,
+	a type parameter's <i>upper bound</i> is used for overload resolution.
+</p>
+<pre><code>   &lt;T&gt; void test(T input) {	}
+// void test(Object input) {	} // Compiler error, generic method test(T) conflicts with this method.</code></pre>
+<p>This conflict can be avoided in cases where it is possible to
+	upper-bound the parameter:</p>
+<pre><code>   &lt;T extends Dog&gt; void test(T input) {	}
+   void test(Object input) {	} // Does not conflict; test(T) cannot be called with ANY object.</code></pre>
+<p>However, the upper bound, if provided explicitly, can still conflict
+	with other methods:</p>
+<pre><code>   &lt;T extends Dog&gt; void test(T input) {	}
+// void test(Dog input) {	} // Conflicts with test(T), since T's upper bound is Dog.</code></pre>
 <h2>Examples</h2>
 <h2>Notes</h2>
 <ol>
