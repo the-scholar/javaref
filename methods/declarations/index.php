@@ -516,6 +516,11 @@ try {
 } catch (Exception e) {
 
 }</code></pre>
+<h4>
+	Type parameters in the <span class="syntax-piece">body</span>
+</h4>
+<p>Type parameters can be used as any other type within the body of the
+	method they are declared in.</p>
 <h2>Examples</h2>
 <h2>Notes</h2>
 <ol>
