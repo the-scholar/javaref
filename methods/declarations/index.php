@@ -163,9 +163,41 @@
 	</li>
 </ul>
 <h2>Behavior</h2>
-<h3>Modifiers</h3>
-<p>Method modifiers are either keywords or annotations. Each keyword has
-	a specific meaning for methods.</p>
+<p>A method can be declared directly within a class or interface, or
+	within an enum's body declaration (after the constant list). Method
+	declarations can override methods inherited from a parent type.</p>
+<h3>Annotations</h3>
+<p>
+	Annotations can be placed in two distinct places in a method
+	declaration, either in the <span class="syntax-piece">modifier-list</span>,
+	intermixed with keyword modifiers, or, if type parameters are includes,
+	after the <span class="syntax-piece">type-parameter-list</span> and
+	immediately before the return type.
+</p>
+<p>Annotations included in the method declaration's modifier list will
+	apply to:</p>
+<ul>
+	<li>the method, if the annotation's declaration declares that it
+		targets methods, and</li>
+	<li>the type-use that is the return type, if the annotation targets
+		type-uses.</li>
+</ul>
+<p>If the annotation targets both type-uses and methods, the annotation
+	applies to both the return type and the method. If the annotation does
+	not target either, a compile error occurs.</p>
+<p>
+	If the method declares type parameters and the annotation is placed
+	after the <span class="syntax-piece">type-parameter-list</span>, the
+	annotation must target type-uses and the annotation applies only to the
+	return type.
+</p>
+<h3>Keyword Modifiers</h3>
+<p>
+	Keyword modifiers are any of <code>public</code>, <code>protected</code>,
+	<code>private</code>, <code>static</code>, <code>final</code>, <code>synchronized</code>,
+	<code>strictfp</code>, <code>default</code>, <code>abstract</code>, and
+	<code>native</code>. 
+</p>
 <h4>Access Modifier Keywords</h4>
 <p>
 	Access modifiers affect the accessibility of a method, which determines
@@ -313,9 +345,63 @@ class Test {
 	The <code>native</code> modifier cannot be used with <code>strictfp</code>
 	or <code>abstract</code>, although it can be used with other modifiers.
 </p>
+<h4><code>default</code> Modifier</h4>
+<p>
+	The default modifier allows a method declared in an <code>interface</code>
+	to include an implementation. <code>default</code> methods are not
+	abstract. A method declaration containing <code>default</code> must
+	include a block as its body.
+</p>
 <h3>Return Type</h3>
 <p>A method's return type determines the type of the method invocation
 	statement that invokes it:</p>
+<pre><code>public class Test {
+	static int x() {
+		System.out.println("x");
+		return 5;
+	}
+	
+	static void y() {
+		System.out.println("y");
+	}
+	
+	public static void main(String[] args) {
+		int a = x();
+		// int b = y(); // Not allowed; y does not return anything.
+		// String c = x(); // Not allowed; x does not return a String.
+		
+		System.out.println(a); // Prints 5.
+	}
+}</code></pre>
+<p>
+	If a method has a return type other than <code>void</code>, it is
+	required to execute at least 1 <code>return</code> statement at the end
+	of every possible path of execution that does <code>throw</code> a
+	value:
+</p>
+<pre><code>int test() {
+	if (Math.rand() > 0.5) {
+		return 4;
+	}
+
+	// Function may reach this point without returning a value; this is not allowed.
+}</code></pre>
+<p>
+	With a <code>finally</code> block, a method may execute any number of <code>return</code>
+	statements. In such a case, the last <i>abrupt exit</i> from execution
+	of the method takes precedence, i.e., the final <code>return</code> or
+	<code>throw</code> that is executed is what the method completes with:
+</p>
+<pre><code>int test() {
+	try {
+		return 5;
+	} finally {
+		return 10;
+	}
+}</code></pre>
+<p>
+	A call to <code>test()</code> returns <code>10</code>.
+</p>
 <h2>Examples</h2>
 <h2>Notes</h2>
 <ol>
