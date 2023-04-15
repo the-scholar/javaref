@@ -1,7 +1,14 @@
 <?php
-function t($title) {?><!DOCTYPE html>
+function dummy(){}
+$template_modifiers = [
+    "head_top" => "dummy",
+    "head_bottom" => "dummy"
+];
+function t($title) { global $template_modifiers;
+?><!DOCTYPE html>
 <html>
 <head>
+<?php $template_modifiers["head_top"]();?>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/index.css">
 <script type="text/javascript">
@@ -33,6 +40,7 @@ document.addEventListener("scroll", (e) => {
 
 </script>
 <title><?php echo$title;?></title>
+<?php $template_modifiers["head_bottom"]();?>
 </head>
 <body>
 	<div id="Header">
