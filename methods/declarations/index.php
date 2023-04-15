@@ -375,9 +375,9 @@ class Test {
 }</code></pre>
 <p>
 	If a method has a return type other than <code>void</code>, it is
-	required to execute at least 1 <code>return</code> statement at the end
-	of every possible path of execution that does <code>throw</code> a
-	value:
+	required to execute at least 1<sup info=3></sup> <code>return</code>
+	statement at the end of every possible path of execution that does <code>throw</code>
+	a value:
 </p>
 <pre><code>int test() {
 	if (Math.rand() > 0.5) {
@@ -386,22 +386,18 @@ class Test {
 
 	// Function may reach this point without returning a value; this is not allowed.
 }</code></pre>
-<p>
-	With a <code>finally</code> block, a method may execute any number of <code>return</code>
-	statements. In such a case, the last <i>abrupt exit</i> from execution
-	of the method takes precedence, i.e., the final <code>return</code> or
-	<code>throw</code> that is executed is what the method completes with:
-</p>
-<pre><code>int test() {
+<span info=3> With a <code>finally</code> block, a method may execute
+	multiple of <code>return</code> statements. In such a case, the last
+	<i>abrupt exit</i> from execution of the method takes precedence, i.e.,
+	the final <code>return</code> or <code>throw</code> that is executed is
+	what the method completes with: <pre><code>int test() {
 	try {
 		return 5;
 	} finally {
 		return 10;
 	}
-}</code></pre>
-<p>
-	A call to <code>test()</code> returns <code>10</code>.
-</p>
+}</code></pre> A call to <code>test()</code> returns <code>10</code>.
+</span>
 <h2>Examples</h2>
 <h2>Notes</h2>
 <ol>
