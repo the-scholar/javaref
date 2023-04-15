@@ -288,28 +288,6 @@
 	method from its immediate parent must override the abstract method and
 	provide an implementation:
 </p>
-<pre><code>abstract class A {
-	abstract void test();
-}
-
-class Sub extends A {
-
-	// Sub must implement test since Sub is not an abstract class, test is abstract, and test was inherited by Sub from A.
-	@Override void test() {
-		System.out.println("Sub");
-	}
-}
-
-class Test {
-	static A getNewA() {
-		return new Sub();
-	}
-
-	void test() {
-		A obj = getNewA();
-		obj.test();
-	}
-}</code></pre>
 <h4>
 	<code>native</code> Modifier
 </h4>
@@ -330,38 +308,13 @@ class Test {
 </p>
 <h3>Return Type</h3>
 <p>A method's return type determines the type of the method invocation
-	statement that invokes it:</p>
-<pre><code>public class Test {
-	static int x() {
-		System.out.println("x");
-		return 5;
-	}
-	
-	static void y() {
-		System.out.println("y");
-	}
-	
-	public static void main(String[] args) {
-		int a = x();
-		// int b = y(); // Not allowed; y does not return anything.
-		// String c = x(); // Not allowed; x does not return a String.
-		
-		System.out.println(a); // Prints 5.
-	}
-}</code></pre>
+	statement that invokes it.</p>
 <p>
 	If a method has a return type other than <code>void</code>, it is
 	required to execute at least 1<sup info=3></sup> <code>return</code>
 	statement at the end of every possible path of execution that does <code>throw</code>
-	a value:
+	a value.
 </p>
-<pre><code>int test() {
-	if (Math.rand() &gt; 0.5) {
-		return 4;
-	}
-
-	// Function may reach this point without returning a value; this is not allowed.
-}</code></pre>
 <span info=3> With a <code>finally</code> block, a method may execute
 	multiple of <code>return</code> statements. In such a case, the last <i>abrupt
 		exit</i> from execution of the method takes precedence, i.e., the
@@ -376,7 +329,7 @@ class Test {
 </span>
 <h3>Parameter List</h3>
 <p>A method's parameters are a list of inputs that must be provided upon
-	calling the method. The variables declared in the parameter list are
+	a call to the method. The variables declared in the parameter list are
 	accessible throughout the body of the method and are given values when
 	the method is called.</p>
 <h4>Overloads</h4>
@@ -385,68 +338,18 @@ class Test {
 	signature includes the ordered list of types of its parameters, and
 	methods with different ordered lists of parameter types are considered
 	different when resolving overloads to execute a method invocation
-	statement:</p>
-<pre><code>void test(int x) {
-	System.out.println("Test was called with the number: " + x);
-}
-
-void test(String x) {
-	System.out.println("Test was called with: " + x);
-}
-
-void runTest() {
-	test("abc");
-}</code></pre>
-<p>
-	The output of invoking <code>runTest()</code> is:
-</p>
-<pre><code class="output">Test was called with: abc</code></pre>
+	statement.</p>
 <p>Overload resolution happens statically, so the type of the expression
 	used as an argument in the method invocation is what determines the
-	method to be called:</p>
-<pre><code>void test(String x) {
-	System.out.println("STRING VERSION CALLED");
-}
-void test(Object x) {
-	System.out.println("OBJECT VERSION CALLED");
-}
-
-void runTest() {
-	test((Object) "abc"); // Provide a String, but casted to type "Object."
-}</code></pre>
-<p>
-	In the above example, <code>test(Object)</code> will be invoked with a
-	<code>String</code> as its argument, leading to the following output:
-</p>
-<pre><code class="output">OBJECT VERSION CALLED</code></pre>
+	method to be called.</p>
 <h4>Var-args Parameter</h4>
 <p>
 	The final parameter in a parameter list can optionally be a <i>variable-arity</i>
 	parameter, by succeeding its type with the <code>...</code> token. Such
 	a parameter allows any number of arguments, of the parameter's type, to
 	be provided in a method invocation statement as the final arguments in
-	the statement's argument list:
+	the statement's argument list. An array is automatically created from the arguments provided, and in the body of the method, the varargs parameter is useable in the exact same way as an array.
 </p>
-<pre><code>void test(String... args) {
-	System.out.println("TEST was called with: " + args.length + " argument(s).");
-}
-
-void runTest() {
-	test(); // Provide no arguments.
-	test("a", "b", "c"); // Provide three arguments.
-	test("a"); // Provide one argument.
-}</code></pre>
-<p>
-	A call to <code>runTest()</code> prints:
-</p>
-<pre><code class="output">TEST was called with: 0 argument(s).
-TEST was called with: 3 argument(s).
-TEST was called with: 1 argument(s).</code></pre>
-<p>A var-args parameter can also be unambiguously provided an array
-	argument:</p>
-<pre><code>test(new String[] {"a", "b", "c"});</code></pre>
-<p>Such method call prints:</p>
-<pre><code class="output">TEST was called with: 3 argument(s).</code></pre>
 <h3>Type Parameters</h3>
 <p>
 	Generic type parameters declared in the <span class="syntax-piece">type-parameter-list</span>
@@ -485,18 +388,6 @@ TEST was called with: 1 argument(s).</code></pre>
 	guaranteeably a type that can be thrown (<code>Throwable</code> or a
 	subclass thereof).
 </p>
-<pre><code>&lt;T extends Exception&gt; void doSomethingThenThrow(T exception) throws T {
-	if (Math.random() &lt; 0.5)
-		throw exception;
-}</code></pre>
-<p>This can allow callers to have to handle checked exceptions only when
-	calling the method with checked exceptions:</p>
-<pre><code>doSomethingThenThrow(new RuntimeException()); // This invocation effectively declares "throws RuntimeException", so no need to wrap in try-catch.
-try {
-	doSomethingThenThrow(new Exception()); // This invocation effectively declares "throws Exception"
-} catch (Exception e) {
-
-}</code></pre>
 <h4>
 	Type parameters in the <span class="syntax-piece">body</span>
 </h4>
@@ -512,17 +403,8 @@ try {
 	method, to be placed after the parameter list of a method declaration.
 	It can consist of any number of pairs of brackets. The array dims
 	specified in this location are applied to the return type as if
-	appended to the return type:
+	appended to the return type.
 </p>
-<pre><code>// Two total array dims, both after parameter list.
-int x()[][] {
-	return new int[1][1];
-}
-
-// Three total array dims: two in return type, one after parameter-list.
-int[][] x()[] {
-	return new int[1][1][1];
-}</code></pre>
 <h3><code>throws</code> Clause</h3>
 <p>
 	The <code>throws</code> clause declares what exceptions a method can
@@ -539,27 +421,7 @@ int[][] x()[] {
 	apply only to checked exceptions that the method may abruptly terminate
 	due to the throwing of. Because of this, if a checked exception is
 	thrown and caught within the method's body, the exception does not need
-	to be listed in the <code>throws</code> clause:
-</p>
-<pre><code>void riskyMethod() throws Exception {
-	if (Math.random() &lt; .1)
-		throw new Exception("Throwing an exception!");
-}
-
-void test() {
-	try {
-		riskyMethod();
-	} catch (Exception e) {
-		// Ignore the exception!
-	}
-}</code></pre>
-<p>
-	The above example compiles since the body of the method <code>test()</code>
-	does not have any code deemed to potentially complete abruptly due to a
-	checked exception. If the <code>try</code>-<code>catch</code> were not
-	used to wrap the call to <code>riskyMethod()</code>, <code>Exception</code>
-	or its supertype, <code>Throwable</code>, would need to be listed in
-	the <span class="syntax-piece">throw-list</span>.
+	to be listed in the <code>throws</code> clause.
 </p>
 <h2>Examples</h2>
 <div class="example">
@@ -621,6 +483,191 @@ class Test {
 		a.makeSound(); // May print "Meow" or "Woof"
 	}
 }</code></pre>
+	<p>
+		<code>abstract</code> methods must be implemented by any concrete
+		subclasses that inherit them:
+	</p>
+	<pre><code>abstract class A {
+	abstract void test();
+}
+
+class Sub extends A {
+
+	// Sub must implement test since Sub is not an abstract class, test is abstract, and test was inherited by Sub from A.
+	@Override void test() {
+		System.out.println("Sub");
+	}
+}
+
+class Test {
+	static A getNewA() {
+		return new Sub();
+	}
+
+	void test() {
+		A obj = getNewA();
+		obj.test();
+	}
+}</code></pre>
+</div>
+<div class="example">
+	<h4>Method Invocations &amp; Return Type</h4>
+	<p>Example of how return type affects method invocation statements:</p>
+	<pre><code>public class Test {
+	static int x() {
+		System.out.println("x");
+		return 5;
+	}
+	
+	static void y() {
+		System.out.println("y");
+	}
+	
+	public static void main(String[] args) {
+		int a = x();
+		// int b = y(); // Not allowed; y does not return anything.
+		// String c = x(); // Not allowed; x does not return a String.
+		
+		System.out.println(a); // Prints 5.
+	}
+}</code></pre>
+	<p>Example of return type imposing return requirements on method body:</p>
+	<pre><code>int test() {
+	if (Math.rand() &gt; 0.5) {
+		return 4;
+	}
+
+	// Function may reach this point without returning a value; this is not allowed.
+}</code></pre>
+</div>
+<div class="example">
+	<h4>Overload Resolution</h4>
+	<p>Method parameters determine which method gets invoked by a method
+		call:</p>
+	<pre><code>void test(int x) {
+	System.out.println("Test was called with the number: " + x);
+}
+
+void test(String x) {
+	System.out.println("Test was called with: " + x);
+}
+
+void runTest() {
+	test("abc");
+}</code></pre>
+	<p>
+		The output of invoking <code>runTest()</code> is:
+	</p>
+	<pre><code class="output">Test was called with: abc</code></pre>
+	<p>Changing the type, but not the value, of an expression used as an
+		argument for a method, can cause a different overload to be invoked:</p>
+	<pre><code>void test(String x) {
+	System.out.println("STRING VERSION CALLED");
+}
+void test(Object x) {
+	System.out.println("OBJECT VERSION CALLED");
+}
+
+void runTest() {
+	test((Object) "abc"); // Provide a String, but casted to type "Object."
+}</code></pre>
+	<p>
+		In the above example, <code>test(Object)</code> will be invoked with a
+		<code>String</code> as its argument, leading to the following output:
+	</p>
+	<pre><code class="output">OBJECT VERSION CALLED</code></pre>
+</div>
+<div class="example">
+	<h4>Varargs Parameter</h4>
+	<p>Any number of arguments can be provided in place of a varargs
+		parameter:</p>
+	<pre><code>void test(String... args) {
+	System.out.println("TEST was called with: " + args.length + " argument(s).");
+}
+
+void runTest() {
+	test(); // Provide no arguments.
+	test("a", "b", "c"); // Provide three arguments.
+	test("a"); // Provide one argument.
+}</code></pre>
+	<p>
+		A call to <code>runTest()</code> prints:
+	</p>
+	<pre><code class="output">TEST was called with: 0 argument(s).
+TEST was called with: 3 argument(s).
+TEST was called with: 1 argument(s).</code></pre>
+	<p>A var-args parameter can also be unambiguously provided an array
+		argument:</p>
+	<pre><code>test(new String[] {"a", "b", "c"});</code></pre>
+	<p>Such method call prints:</p>
+	<pre><code class="output">TEST was called with: 3 argument(s).</code></pre>
+</div>
+<div class="example">
+	<h4>
+		Type Parameters and <code>throws</code> Clause
+	</h4>
+	<p>
+		Use of a type parameter in a <code>throws</code> clause:
+	</p>
+	<pre><code>&lt;T extends Exception&gt; void doSomethingThenThrow(T exception) throws T {
+	if (Math.random() &lt; 0.5)
+		throw exception;
+}</code></pre>
+	<p>This can allow callers to have to handle checked exceptions only
+		when calling the method with checked exceptions:</p>
+	<pre><code>doSomethingThenThrow(new RuntimeException()); // This invocation effectively declares "throws RuntimeException", so no need to wrap in try-catch.
+try {
+	doSomethingThenThrow(new Exception()); // This invocation effectively declares "throws Exception"
+} catch (Exception e) {
+
+}</code></pre>
+</div>
+<div class="example">
+	<h4>
+		<span class="syntax-piece">array-dims</span> Usage
+	</h4>
+	<p>
+		Methods declared with <span class="syntax-piece">array-dims</span>
+	
+	
+	<pre><code>// Two total array dims, both after parameter list.
+int x()[][] {
+	return new int[1][1];
+}
+
+// Three total array dims: two in return type, one after parameter-list.
+int[][] x()[] {
+	return new int[1][1][1];
+}</code></pre>
+</div>
+<div class="example">
+	<h4>
+		<code>throw</code>ing Without <code>throws</code> Clause
+	</h4>
+	<p>
+		A <code>throws</code> clause is only necessary if the method may
+		terminate with a checked exception:
+	</p>
+	<pre><code>void riskyMethod() throws Exception {
+	if (Math.random() &lt; .1)
+		throw new Exception("Throwing an exception!");
+}
+
+void test() {
+	try {
+		riskyMethod();
+	} catch (Exception e) {
+		// Ignore the exception!
+	}
+}</code></pre>
+	<p>
+		The above example compiles since the body of the method <code>test()</code>
+		does not have any code deemed to potentially complete abruptly due to
+		a checked exception. If the <code>try</code>-<code>catch</code> were
+		not used to wrap the call to <code>riskyMethod()</code>, <code>Exception</code>
+		or its supertype, <code>Throwable</code>, would need to be listed in
+		the <span class="syntax-piece">throw-list</span>.
+	</p>
 </div>
 <h2>Notes</h2>
 <ol>
@@ -649,6 +696,83 @@ class Test {
 			upper-bounded by <code>Throwable</code> and the argument to the
 			method is any <code>Throwable</code> instance.
 		</p></li>
+	<li><p>The compiler prefers method overloads that are closer to the
+			type of the expression being used to invoke a method. A call can be
+			ambiguous if two or more overloads can plausibly be called by a
+			single method invocation statement. There are many cases where this
+			can happen, most often with a var-args overload or a null argument,
+			but sometimes with overloads whose problematic parameters are sibling
+			types in a type hierarchy:</p> <pre><code>void varargs(int... x) {	}
+void varargs(Integer... x) {	}</code></pre>
+		<p>
+			Calling <code>varargs(1)</code> will fail. The caller is required to
+			provide an array explicitly to pick which method is desired, such as
+			through: <code>varargs(new int[] {1})</code>.
+		</p>
+		<p>Another example, involving a class hierarchy:</p> <pre><code>// Wrapper class
+public class AmbiguityTest {
+	interface X {	}
+	interface Y {	}
+	class Z implements X, Y {	}
+	
+	static void m(X x) {	}
+	static void m(Y y) {	}
+	
+	public static void main(String[] args) {
+		// m(new Z()); // Ambiguous method call; expression of type Z is equidistant from both X and Y. (X &amp; Y are the types of the parameters of the two method overloads of m.)
+	}
+}</code></pre>
+		<p>
+			Such can be resolved using a cast, e.g. <code>m((X) new Z())</code>
+			will invoke <code>m(X)</code>. If a method overload is introduced to
+			explicitly accept a <code>Z</code> parameter, such overload will be
+			used instead, since the method invocation has an argument of type <code>Z</code>.
+		</p>
+		<p>
+			The <code>null</code> literal can often lead to ambiguity, because it
+			can directly exist as an expression of any reference type:
+		</p> <pre><code>// Wrapper class
+public class AmbiguityTest {
+	interface X {	}
+	interface Y {	}
+	class Z implements X, Y {	}
+	
+	static void m(X x) {	}
+	static void m(Y y) {	}
+	
+	public static void main(String[] args) {
+		// m(null); // Ambiguous method call with null literal.
+	}
+}</code></pre>
+		<p>
+			A cast can clarify the type of the expression <code>null</code> in
+			the method call and resolve the ambiguity in this case as well.
+			Adding a more specific overload in the class hierarchy will cause the
+			method invocation to prefer that as well:
+		</p> <pre><code>// Wrapper class
+public class AmbiguityTest {
+	interface X {	}
+	interface Y {	}
+	class Z implements X, Y {	}
+	
+	static void m(X x) {	}
+	static void m(Y y) {	}
+	static void m(Z z) {	}
+	
+	public static void main(String[] args) {
+		m(null); // Calls m(Z)
+	}
+}</code></pre>
+		<p>However, if there is no overload that is a subtype of other
+			overloads, the ambiguity will persist:</p> <pre><code>// Wrapper class
+public class AmbiguityTest {
+	static void m(String x) {	}
+	static void m(Number y) {	}
+	
+	public static void main(String[] args) {
+		// m(null); // Ambiguous
+	}
+}</code></pre></li>
 </ol>
 <section sect-symbol="A" id="AppendixA">
 	<h1>Appendix A</h1>
