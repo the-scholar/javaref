@@ -380,7 +380,7 @@ class Test {
 	a value:
 </p>
 <pre><code>int test() {
-	if (Math.rand() > 0.5) {
+	if (Math.rand() &gt; 0.5) {
 		return 4;
 	}
 
@@ -477,6 +477,9 @@ TEST was called with: 1 argument(s).</code></pre>
 	be referenced anywhere else within the <span class="syntax-piece">type-parameter-list</span>.
 	This allows for recursive type parameters.
 </p>
+<h4>
+	Type parameters in the <span class="syntax-piece">parameter-list</span>
+</h4>
 <p>
 	When used as a type in the <span class="syntax-piece">parameter-list</span>,
 	a type parameter's <i>upper bound</i> is used for overload resolution.
@@ -491,6 +494,28 @@ TEST was called with: 1 argument(s).</code></pre>
 	with other methods:</p>
 <pre><code>   &lt;T extends Dog&gt; void test(T input) {	}
 // void test(Dog input) {	} // Conflicts with test(T), since T's upper bound is Dog.</code></pre>
+<h4>
+	Type parameters in the <span class="syntax-piece">throw-list</span>
+</h4>
+<p>
+	Type parameters may also be used in the <span class="syntax-piece">throw-list</span>
+	to declare a method that throws a generic exception. This is only
+	possible if the type parameter being used is bounded so that it is
+	guaranteeably a type that can be thrown (<code>Throwable</code> or a
+	subclass thereof).
+</p>
+<pre><code>&lt;T extends Exception&gt; void doSomethingThenThrow(T exception) throws T {
+	if (Math.random() &lt; 0.5)
+		throw exception;
+}</code></pre>
+<p>This can allow callers to have to handle checked exceptions only when
+	calling the method with checked exceptions:</p>
+<pre><code>doSomethingThenThrow(new RuntimeException()); // This invocation effectively declares "throws RuntimeException", so no need to wrap in try-catch.
+try {
+	doSomethingThenThrow(new Exception()); // This invocation effectively declares "throws Exception"
+} catch (Exception e) {
+
+}</code></pre>
 <h2>Examples</h2>
 <h2>Notes</h2>
 <ol>
