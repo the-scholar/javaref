@@ -101,8 +101,8 @@
 	<tr>
 		<td><span class="syntax-piece">array-dims</span></td>
 		<td>is any number of consecutive pairs of <code>[]</code> strings,
-			optionally separated (e.g. <code style="white-space: pre;">[][]   []</code>)
-			and/or split (e.g. <code style="white-space: pre;">[][][   ]</code>) by
+			optionally separated (e.g. <code style="white-space: pre;">[][] []</code>)
+			and/or split (e.g. <code style="white-space: pre;">[][][ ]</code>) by
 			whitespace.
 		</td>
 	</tr>
@@ -115,6 +115,13 @@
 	<tr>
 		<td><span class="syntax-piece">body</span></td>
 		<td>is either a semicolon <code>;</code> or a block statement.
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">type-parameter-list</span></td>
+		<td>is a comma-separated list of type parameters. Each type parameter
+			is an identifier. The identifier may be the keyword <code>extends</code>
+			and then another type, to establish an upper bound.
 		</td>
 	</tr>
 </table>
