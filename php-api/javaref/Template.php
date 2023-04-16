@@ -1,16 +1,20 @@
 <?php
-function dummy(){}
-$template_modifiers = [
-    "head_top" => "dummy",
-    "head_bottom" => "dummy"
+function d(){} // Dummy func
+// Template modifiers. Allows pages to include custom functionality at certain points within the template.
+// By default, each key executes the dummy function. Keys can be defined to point to anonymous functions.
+$tmods = [
+    "head_top" => "d",
+    "head_bottom" => "d",
+    "head_after_stylesheet" => "d"
 ];
-function t($title) { global $template_modifiers;
+function t($title) { global $tmods;
 ?><!DOCTYPE html>
 <html>
 <head>
-<?php $template_modifiers["head_top"]();?>
+<?php $tmods["head_top"]();?>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/index.css">
+<?php $tmods["head_after_stylesheet"]();?>
 <script type="text/javascript">
 window.onload = function() {
 	for (let ref of document.querySelectorAll("sup[info]")) {
@@ -40,7 +44,7 @@ document.addEventListener("scroll", (e) => {
 
 </script>
 <title><?php echo$title;?></title>
-<?php $template_modifiers["head_bottom"]();?>
+<?php $tmods["head_bottom"]();?>
 </head>
 <body>
 	<div id="Header">
