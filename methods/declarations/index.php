@@ -1,5 +1,4 @@
-<?php $tmods["head_after_stylesheet"] = function(){?><link rel="stylesheet" type="text/css" href="/help-colors.css"><?php };
-t("Javaref - Method Declaration");?>
+<?php t("Javaref - Method Declaration");?>
 <h1>Method Declaration</h1>
 <p class="description">Declares a method so that it can be referenced
 	via a method reference, called, and overridden, possibly while also
@@ -35,10 +34,6 @@ t("Javaref - Method Declaration");?>
 			<span class="syntax-piece">body</span></td>
 	</tr>
 </table>
-<p class="note">
-	For a more human-friendly treatment, see <a href="#AppendixA">Appendix
-		A</a>.
-</p>
 <p>
 	<i>where...</i>
 </p>
@@ -775,74 +770,4 @@ public class AmbiguityTest {
 	}
 }</code></pre></li>
 </ol>
-<section sect-symbol="A" id="AppendixA">
-	<h1>Appendix A</h1>
-	<span class="colorblock">
-		<p>
-			At a minimum, a method declaration is required to have a <span
-				class="syntax-piece c1">return-type</span>, <span
-				class="syntax-piece c2">name</span>, <span class="c3">pair of
-				parentheses</span>, and <span class="syntax-piece c4">body</span>,
-			in that order:
-		</p> <pre><code><span class="c1">void</span> <span class="c2">testFunc</span><span
-				class="c3">()</span> <span class="c4">{
-	
-}</span></code></pre>
-	</span><br> <br>
-	<p>Following a color-coded syntactic-breakdown, here are a few example
-		method declarations with different optional parts included. Hover over
-		any element to see what parts of a method it corresponds to.</p>
-	<span class="colorblock">
-		<table class="syntax">
-			<tr>
-				<td>1</td>
-				<td><span class="syntax-piece optional c1">modifier-list</span> <code
-					class="c2">&lt;</code> <span class="syntax-piece optional c2">type-parameter-list</span>
-					<code class="c2">&gt;</code> <span class="syntax-piece c3">annotation-list</span>
-					<span class="syntax-piece c4">return-type</span> <span
-					class="syntax-piece c5">name</span> <code class="c6">(</code> <span
-					class="syntax-piece optional c6">parameter-list</span> <code
-					class="c6">)</code> <span class="optional syntax-piece c7">array-dims</span>
-					<span class="optional c8"><code>throws</code> <span
-						class="syntax-piece">throw-list</span></span> <span
-					class="syntax-piece c9">body</span></td>
-			</tr>
-		</table> <pre><code><span class="c1">public @SafeVarargs static</span> <span
-				class="c2">&lt;E extends Exception, I&gt;</span> <span class="c3">@NonNull</span> <span
-				class="c4">I</span> <span class="c5">concatenateNonNull</span><span
-				class="c6">(Function&lt;? super Throwable, ? extends E&gt; exceptionMaker, I... items)</span> <span
-				class="c7">[]</span> <span class="c8">throws E</span> <span
-				class="c9">{
-	for (I i : items)
-		if (i == null)
-			throw exceptionMaker.apply(new NullPointerException());
-}</span></code></pre> <pre><code><span class="c1">public static</span> <span
-				class="c4">void</span> <span class="c5">main</span><span class="c6">(String[] args)</span> <span
-				class="c8">throws Exception</span> <span class="c9">{
-	try (PrintWriter pw = new PrintWriter("/Some/Directory/file.txt")) {
-		pw.println("Test");
-	}
-}
-</span></code></pre> <pre><code><span class="c1">public static final</span> <span
-				class="c2">&lt;E&gt;</span> <span class="c4">E[]</span> <span
-				class="c5">sort</span><span class="c6">(E[] items, Comparator)</span> <span
-				class="c9">{
-	for (int i = 0; i &lt; items.length - 1; i++) {
-		int smallest = i;
-		// Find the smallest element in the remaining portion of the array.
-		for (int j = i; j &lt; items.length; j++)
-			if (comparator.compare(items[j], items[smallest]) &lt; 0)
-				smallest = j;
-
-		// Swap after smallest element found
-		E temp = items[i];
-		items[i] = items[smallest];
-		items[smallest] = temp;
-	}
-	return items;
-}</span></code></pre>
-	</span>
-</section>
-
-
 <?php b();?>
