@@ -789,12 +789,9 @@ public class AmbiguityTest {
 	
 }</span></code></pre>
 	</span><br> <br>
-	<p>
-		Following a color-coded syntactic-breakdown, here are a few example
-		method declarations with every optional part included, including the <span
-			class="syntax-piece">type-parameter-list</span>. Hover over any
-		element to see what parts of a method it corresponds to.
-	</p>
+	<p>Following a color-coded syntactic-breakdown, here are a few example
+		method declarations with different optional parts included. Hover over
+		any element to see what parts of a method it corresponds to.</p>
 	<span class="colorblock">
 		<table class="syntax">
 			<tr>
@@ -819,6 +816,30 @@ public class AmbiguityTest {
 	for (I i : items)
 		if (i == null)
 			throw exceptionMaker.apply(new NullPointerException());
+}</span></code></pre> <pre><code><span class="c1">public static</span> <span
+				class="c4">void</span> <span class="c5">main</span><span class="c6">(String[] args)</span> <span
+				class="c8">throws Exception</span> <span class="c9">{
+	try (PrintWriter pw = new PrintWriter("/Some/Directory/file.txt")) {
+		pw.println("Test");
+	}
+}
+</span></code></pre> <pre><code><span class="c1">public static final</span> <span
+				class="c2">&lt;E&gt;</span> <span class="c4">E[]</span> <span
+				class="c5">sort</span><span class="c6">(E[] items, Comparator)</span> <span
+				class="c9">{
+	for (int i = 0; i &lt; items.length - 1; i++) {
+		int smallest = i;
+		// Find the smallest element in the remaining portion of the array.
+		for (int j = i; j &lt; items.length; j++)
+			if (comparator.compare(items[j], items[smallest]) &lt; 0)
+				smallest = j;
+
+		// Swap after smallest element found
+		E temp = items[i];
+		items[i] = items[smallest];
+		items[smallest] = temp;
+	}
+	return items;
 }</span></code></pre>
 	</span>
 </section>
