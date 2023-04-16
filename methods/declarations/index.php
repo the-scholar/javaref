@@ -28,10 +28,10 @@ t("Javaref - Method Declaration");?>
 		<td><span class="syntax-piece optional">modifier-list</span> <code>&lt;</code>
 			<span class="syntax-piece">type-parameter-list</span> <code>&gt;</code>
 			<span class="syntax-piece">annotation-list</span> <span
-			class="syntax-piece">name</span> <code>(</code> <span
-			class="syntax-piece optional">parameter-list</span> <code>)</code> <span
-			class="optional syntax-piece">array-dims</span> <span
-			class="optional"><code>throws</code> <span class="syntax-piece">throw-list</span></span>
+			class="syntax-piece">return-type</span> <span class="syntax-piece">name</span>
+			<code>(</code> <span class="syntax-piece optional">parameter-list</span>
+			<code>)</code> <span class="optional syntax-piece">array-dims</span>
+			<span class="optional"><code>throws</code> <span class="syntax-piece">throw-list</span></span>
 			<span class="syntax-piece">body</span></td>
 	</tr>
 </table>
@@ -802,14 +802,24 @@ public class AmbiguityTest {
 				<td><span class="syntax-piece optional c1">modifier-list</span> <code
 					class="c2">&lt;</code> <span class="syntax-piece optional c2">type-parameter-list</span>
 					<code class="c2">&gt;</code> <span class="syntax-piece c3">annotation-list</span>
-					<span class="syntax-piece c4">name</span> <code class="c5">(</code>
-					<span class="syntax-piece optional c5">parameter-list</span> <code
-					class="c5">)</code> <span class="optional syntax-piece c6">array-dims</span>
-					<span class="optional c7"><code>throws</code> <span
+					<span class="syntax-piece c4">return-type</span> <span
+					class="syntax-piece c5">name</span> <code class="c6">(</code> <span
+					class="syntax-piece optional c6">parameter-list</span> <code
+					class="c6">)</code> <span class="optional syntax-piece c7">array-dims</span>
+					<span class="optional c8"><code>throws</code> <span
 						class="syntax-piece">throw-list</span></span> <span
 					class="syntax-piece c9">body</span></td>
 			</tr>
-		</table> <pre><code><span class="c1">public static</span></code></pre>
+		</table> <pre><code><span class="c1">public @SafeVarargs static</span> <span
+				class="c2">&lt;E extends Exception, I&gt;</span> <span class="c3">@NonNull</span> <span
+				class="c4">I</span> <span class="c5">concatenateNonNull</span><span
+				class="c6">(Function&lt;? super Throwable, ? extends E&gt; exceptionMaker, I... items)</span> <span
+				class="c7">[]</span> <span class="c8">throws E</span> <span
+				class="c9">{
+	for (I i : items)
+		if (i == null)
+			throw exceptionMaker.apply(new NullPointerException());
+}</span></code></pre>
 	</span>
 </section>
 
