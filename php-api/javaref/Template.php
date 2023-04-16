@@ -16,7 +16,7 @@ function t($title) { global $tmods;
 <link rel="stylesheet" type="text/css" href="/index.css">
 <?php $tmods["head_after_stylesheet"]();?>
 <script type="text/javascript">
-window.onload = function() {
+window.addEventListener("load", (e) => {
 	for (let ref of document.querySelectorAll("sup[info]")) {
 		let element = document.querySelector("span[info='"+ref.getAttribute("info")+"']");
 		ref.onclick = function() {
@@ -36,7 +36,7 @@ window.onload = function() {
 				ref.classList.add("expanded");
 		};
 	}
-};
+});
 document.addEventListener("scroll", (e) => {
 	var scrp = (document.documentElement.scrollTop || document.body.scrollTop) / ((document.documentElement.scrollHeight || document.body.scrollHeight) - document.documentElement.clientHeight);
 	document.getElementById("ProgressBar").style.height = scrp*100+"%";
