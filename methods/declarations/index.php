@@ -1,4 +1,5 @@
-<?php t("Javaref - Method Declaration");?>
+<?php $tmods["head_after_stylesheet"] = function(){?><link rel="stylesheet" type="text/css" href="/help-colors.css"><?php };
+t("Javaref - Method Declaration");?>
 <h1>Method Declaration</h1>
 <p class="description">Declares a method so that it can be referenced
 	via a method reference, called, and overridden, possibly while also
