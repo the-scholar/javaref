@@ -85,8 +85,15 @@ pre>code {
 }
 
 /* Syntax */
-table.syntax td code {/* Literal Code */
+/* Color Clearing */
+table.syntax td code:not(.color-clear *):not(.color-clear) { 
 	color: white;
+}
+span.syntax-piece:not(.color-clear *):not(.color-clear) {
+	color: #7fe384;
+}
+/* Remaining Sytnax */
+table.syntax td code {/* Literal Code */
 	font-family: monospace;
 	background: none;
 	border: none;
@@ -95,7 +102,6 @@ table.syntax td code {/* Literal Code */
 span.syntax-piece {
 	font-family: monospace;
 	font-style: italic;
-	color: #7fe384;
 	font-size: 1.1em;
 }
 table.syntax td span.syntax-piece {

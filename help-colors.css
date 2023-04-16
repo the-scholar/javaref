@@ -1,25 +1,41 @@
 @charset "UTF-8";
 
-.c1, .c1.syntax-piece {
-	color: #5bbdde;
+.c1, .c1 * {
+	color: #f55151;
 }
 
-.c2, .c2.syntax-piece {
-	color: #deb55b;
+.c2, .c2 * {
+	color: #f59051;
 }
 
-.c3, .c3.syntax-piece {
-	color: #7a5bde;
+.c3, .c3 * {
+	color: #e2f551;
 }
 
-.c4, .c4.syntax-piece {
-	color: #da5bde;
+.c4, .c4 * {
+	color: #7df551;
 }
 
-.c5, .c5.syntax-piece {
-	color: #5bdec8;
+.c5, .c5 * {
+	color: #51f5c1;
 }
 
-.c6, .c6.syntax-piece {
-	color: #de8d5b;
+.c6, .c6 * {
+	color: #51bef5;
+}
+
+.c7, .c7 * {
+	color: #5161f5;
+}
+
+.c8, .c8 * {
+	color: #8551f5;
+}
+
+.c9, .c9 * {
+	color: #dc51f5;
+}
+
+.c10, .c10 * {
+	color: #f5519b;
 }
