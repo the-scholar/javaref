@@ -86,52 +86,48 @@ pre>code {
 
 /* Syntax */
 /* Color Clearing */
-table.syntax td code:not(.color-clear *):not(.color-clear) { 
-	color: white;
-}
-span.syntax-piece:not(.color-clear *):not(.color-clear) {
-	color: #7fe384;
-}
 /* Remaining Sytnax */
-table.syntax td code {/* Literal Code */
+.syntax code {/* Literal Code */
 	font-family: monospace;
 	background: none;
 	border: none;
 	font-size: 1.1em;
+	color: white;
 }
-span.syntax-piece {
+.syntax-piece {
 	font-family: monospace;
 	font-style: italic;
 	font-size: 1.1em;
+	color: #7fe384;
 }
-table.syntax td span.syntax-piece {
+.syntax .syntax-piece {
 	border: #2a2a2a solid 1px;
 	padding: 1px 2px;
 }
 
-table.syntax td span.optional {
+.syntax .optional {
 	border: #bb05 1px solid;
 	padding: 3px 1px;
 	vertical-align: middle;
 }
-table.syntax td span.syntax-piece {
+.syntax .syntax-piece {
 	/* Override for when node is both optional and a syntax-piece */
 	padding: 1px 2px;
 }
-table.syntax td span.optional::after {
+.syntax .optional::after {
 	content: "(optional)";
 	font-size: .55rem;
 	color: #bb0;
 	font-style: italic;
 	font-family: monospace;
 }
-table.syntax tr, table.syntax tr>td {
+.syntax tr, .syntax td {
 	vertical-align: middle;
 }
-table.syntax tr>td {
+.syntax td {
 	margin: .2em .25em;
 }
-.syntax-number, table.syntax tr>td:first-child {
+.syntax-number, .syntax td:first-child {
 	--bubble-color: currentcolor;
 	border-radius: 50%;
 	border: solid var(--bubble-color) 2px;
@@ -142,19 +138,19 @@ table.syntax tr>td {
 	margin-right: 5px;
 }
 
-table.syntax-breakdown {
+.syntax-breakdown {
 	margin: 1em .4em;
 	border: #2a2a2a solid 1px;
 	padding: .4em;
 }
-table.syntax-breakdown td {
+.syntax-breakdown td {
 	vertical-align: top;
 	padding: .4em;
 }
-table.syntax-breakdown ul, table.syntax-breakdown ol {
+.syntax-breakdown ul, .syntax-breakdown ol {
 	margin: .1em;
 }
-table.syntax-breakdown tr>td:first-child {/* Syntax Fragments */
+.syntax-breakdown td:first-child {/* Syntax Fragments */
 	text-align: right;
 	white-space: nowrap;
 }

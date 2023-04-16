@@ -1,41 +1,41 @@
 @charset "UTF-8";
 
-.c1, .c1 * {
+.colorblock .c1, .colorblock .c1 * {
 	color: #f55151;
 }
 
-.c2, .c2 * {
+.colorblock .c2, .colorblock .c2 * {
 	color: #f59051;
 }
 
-.c3, .c3 * {
+.colorblock .c3, .colorblock .c3 * {
 	color: #e2f551;
 }
 
-.c4, .c4 * {
+.colorblock .c4, .colorblock .c4 * {
 	color: #7df551;
 }
 
-.c5, .c5 * {
+.colorblock .c5, .colorblock .c5 * {
 	color: #51f5c1;
 }
 
-.c6, .c6 * {
+.colorblock .c6, .colorblock .c6 * {
 	color: #51bef5;
 }
 
-.c7, .c7 * {
+.colorblock .c7, .colorblock .c7 * {
 	color: #5161f5;
 }
 
-.c8, .c8 * {
+.colorblock .c8, .colorblock .c8 * {
 	color: #8551f5;
 }
 
-.c9, .c9 * {
+.colorblock .c9, .colorblock .c9 * {
 	color: #dc51f5;
 }
 
-.c10, .c10 * {
+.colorblock .c10, .colorblock .c10 * {
 	color: #f5519b;
 }
