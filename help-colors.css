@@ -1,25 +1,25 @@
 @charset "UTF-8";
 
-.c1 {
+.c1, .c1.syntax-piece {
 	color: #5bbdde;
 }
 
-.c2 {
+.c2, .c2.syntax-piece {
 	color: #deb55b;
 }
 
-.c3 {
+.c3, .c3.syntax-piece {
 	color: #7a5bde;
 }
 
-.c4 {
+.c4, .c4.syntax-piece {
 	color: #da5bde;
 }
 
-.c5 {
+.c5, .c5.syntax-piece {
 	color: #5bdec8;
 }
 
-.c6 {
+.c6, .c6.syntax-piece {
 	color: #de8d5b;
 }
