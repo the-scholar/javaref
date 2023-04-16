@@ -777,7 +777,40 @@ public class AmbiguityTest {
 </ol>
 <section sect-symbol="A" id="AppendixA">
 	<h1>Appendix A</h1>
-
+	<span class="colorblock">
+		<p>
+			At a minimum, a method declaration is required to have a <span
+				class="syntax-piece c1">return-type</span>, <span
+				class="syntax-piece c2">name</span>, <span class="c3">pair of
+				parentheses</span>, and <span class="syntax-piece c4">body</span>,
+			in that order:
+		</p> <pre><code><span class="c1">void</span> <span class="c2">testFunc</span><span
+				class="c3">()</span> <span class="c4">{
+	
+}</span></code></pre>
+	</span><br> <br>
+	<p>
+		Following a color-coded syntactic-breakdown, here are a few example
+		method declarations with every optional part included, including the <span
+			class="syntax-piece">type-parameter-list</span>. Hover over any
+		element to see what parts of a method it corresponds to.
+	</p>
+	<span class="colorblock">
+		<table class="syntax">
+			<tr>
+				<td>1</td>
+				<td><span class="syntax-piece optional c1">modifier-list</span> <code
+					class="c2">&lt;</code> <span class="syntax-piece optional c2">type-parameter-list</span>
+					<code class="c2">&gt;</code> <span class="syntax-piece c3">annotation-list</span>
+					<span class="syntax-piece c4">name</span> <code class="c5">(</code>
+					<span class="syntax-piece optional c5">parameter-list</span> <code
+					class="c5">)</code> <span class="optional syntax-piece c6">array-dims</span>
+					<span class="optional c7"><code>throws</code> <span
+						class="syntax-piece">throw-list</span></span> <span
+					class="syntax-piece c9">body</span></td>
+			</tr>
+		</table> <pre><code><span class="c1">public static</span></code></pre>
+	</span>
 </section>
 
 
