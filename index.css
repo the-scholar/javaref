@@ -129,7 +129,7 @@ pre>code {
 .syntax .optional {
 	border: #bb05 1px solid;
 	padding: 3px 1px;
-	vertical-align: middle;
+	vertical-align: baseline;
 }
 .syntax .syntax-piece {
 	/* Override for when node is both optional and a syntax-piece */
@@ -141,6 +141,7 @@ pre>code {
 	color: #bb0;
 	font-style: italic;
 	font-family: monospace;
+	vertical-align: bottom;
 }
 .syntax tr, .syntax td {
 	vertical-align: middle;
