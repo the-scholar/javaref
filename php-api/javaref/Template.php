@@ -41,7 +41,11 @@ document.addEventListener("scroll", (e) => {
 	var scrp = (document.documentElement.scrollTop || document.body.scrollTop) / ((document.documentElement.scrollHeight || document.body.scrollHeight) - document.documentElement.clientHeight);
 	document.getElementById("ProgressBar").style.height = scrp*100+"%";
 });
-
+function copyToClipboard(text) {
+	navigator.clipboard.writeText(text).then(() => {}, () => {
+		alert("Failed to copy to clipboard: " + text);
+	});
+}
 </script>
 <title><?php echo$title;?></title>
 <?php $tmods["head_bottom"]();?>
@@ -53,7 +57,15 @@ document.addEventListener("scroll", (e) => {
 			<a href="/" style="color: white;">Home</a>
 		</div>
 	</div>
-	<div id="Copybar">Click to copy permalink!</div>
+	<div id="Copybar"
+		onclick="copyToClipboard('<?php
+    $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    if (($sp = strpos($url, '?')) !== false)
+        $url = substr($url, 0, $sp);
+    $url = rtrim($url, '/');
+
+    echo $url . "?q=" . hash("sha256", $url)?>');">Click to copy
+		permalink</div>
 	<div id="ProgressBar"></div>
 	<div id="Content">
 		<?php 
