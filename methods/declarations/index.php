@@ -334,17 +334,31 @@
 	signature includes the ordered list of types of its parameters, and
 	methods with different ordered lists of parameter types are considered
 	different when resolving overloads to execute a method invocation
-	statement.</p>
+	statement. The presence of a receiver parameter has no effect on
+	overload resolution, since method invocation statements cannot provide
+	an argument for that parameter explicitly.</p>
 <p>Overload resolution happens statically, so the type of the expression
 	used as an argument in the method invocation is what determines the
 	method to be called.</p>
+<h4>Receiver Parameter</h4>
+<p>
+	The receiver parameter is a parameter whose type is that of the class
+	the instance method belongs to and whose parameter name is the keyword
+	<code>this</code>. It may be annotated as any other parameter, but it
+	otherwise has no effect on the code; it does not change the method's
+	signature or affect overloading or invoking. The <code>this</code>
+	keyword is innately accessible in instance methods without needing to
+	be declared.
+</p>
 <h4>Var-args Parameter</h4>
 <p>
 	The final parameter in a parameter list can optionally be a <i>variable-arity</i>
 	parameter, by succeeding its type with the <code>...</code> token. Such
 	a parameter allows any number of arguments, of the parameter's type, to
 	be provided in a method invocation statement as the final arguments in
-	the statement's argument list. An array is automatically created from the arguments provided, and in the body of the method, the varargs parameter is useable in the exact same way as an array.
+	the statement's argument list. An array is automatically created from
+	the arguments provided, and in the body of the method, the varargs
+	parameter is useable in the exact same way as an array.
 </p>
 <h3>Type Parameters</h3>
 <p>
