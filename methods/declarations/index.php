@@ -168,6 +168,14 @@
 		class="syntax-piece">body</span>.
 	</li>
 </ul>
+<h3>Syntax Elements</h3>
+<p>
+	<span class="syntax-number">1</span> A normal method declaration.
+</p>
+<p>
+	<span class="syntax-number">2</span> A generic method declaration, with
+	type parameters.
+</p>
 <h2>Components</h2>
 <p>A method can be declared directly within a class or interface, or
 	within an enum's body declaration (after the constant list). Method
