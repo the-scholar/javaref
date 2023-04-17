@@ -23,6 +23,16 @@
 <p>
 	<span class="syntax-number">2</span> The literal for the value <code>false</code>.
 </p>
+<p>
+	<i>such that...</i>
+</p>
+<ul>
+	<li>As with identifiers, keywords, and the <code>null</code> literal,
+		Boolean literals must be separated from identifier-like tokens by any
+		non-zero amount of whitespace or a comment, otherwise they will be
+		interpreted as a part of the other identifier-like token.
+	</li>
+</ul>
 <h2>Usage</h2>
 <p>
 	The type of a Boolean literal is always the <code>boolean</code> type.
