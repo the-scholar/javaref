@@ -698,7 +698,7 @@ void test() {
 			unchecked fashion by allowing the type of the expression provided to
 			a <code>throw</code> statement to be an unchecked exception while the
 			value itself remains a checked exception. This can be done by casting
-			a checked exception to a generic typee parameter, and then throwing
+			a checked exception to a generic type parameter, and then throwing
 			the result:
 		</p> <pre><code>public static @SuppressWarnings("unchecked") &lt;E extends Throwable&gt; void throwUnchecked(Throwable t) throws E {
 	throw (E) t;
