@@ -8,6 +8,8 @@
 	type <code>double</code> or <code>float</code>, depending on how
 	they're specified.
 </p>
+<h2>Syntax</h2>
+<p>Floating point literals can be expressed through four forms:</p>
 <table class="syntax">
 	<tr>
 		<td>1</td>
