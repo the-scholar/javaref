@@ -53,6 +53,7 @@ document.addEventListener("scroll", (e) => {
 			<a href="/" style="color: white;">Home</a>
 		</div>
 	</div>
+	<div id="Copybar">Click to copy permalink!</div>
 	<div id="ProgressBar"></div>
 	<div id="Content">
 		<?php 
