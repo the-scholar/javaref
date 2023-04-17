@@ -16,3 +16,10 @@
 		<td><code>false</code></td>
 	</tr>
 </table>
+<h3>Syntax Elements</h3>
+<p>
+	<span class="syntax-number">1</span> The literal for the value <code>true</code>.
+</p>
+<p>
+	<span class="syntax-number">2</span> The literal for the value <code>false</code>.
+</p>
