@@ -29,3 +29,38 @@
 	Boolean literals can be used in any context that a boolean expression
 	is acceptable.
 </p>
+<h2>Examples</h2>
+<div class="example">
+	<h4>Usage in Loop</h4>
+	<p>
+		An "infinite" <code>while</code> loop using the literal <code>true</code>:
+	</p>
+	<pre><code>while (true) {
+	renderGame();
+	glSwapBuffers();
+	if (checkShouldClose())
+		break;
+	tickGame();
+}</code></pre>
+</div>
+<div class="example">
+	<h4>
+		Flipping a <code>boolean</code>
+	</h4>
+	<p>
+		A simple statement that flips the value of a <code>boolean</code>
+		variable can be made with the literal <code>true</code>:
+	</p>
+	<pre><code>boolean x = false;
+x ^= true; // Flips x; x is now true
+x ^= true; // Flips x; x is now false
+x ^= true; // x is true
+x ^= true; // x is false
+x ^= true; // x is true
+
+if (x) {
+	System.out.println("X is true");
+}</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">X is true</code></pre>
+</div>
