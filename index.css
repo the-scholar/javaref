@@ -43,9 +43,13 @@ body {
 	text-align: right;
 	font-size: .6em;
 	padding: 2px;
+	user-select: none;
 }
 #Copybar:hover {
 	opacity: 1;
+}
+#Copybar:active {
+	background: white;
 }
 
 /* Links */
