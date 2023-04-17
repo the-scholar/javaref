@@ -124,12 +124,12 @@ pre>code {
 .syntax .syntax-piece {
 	border: #2a2a2a solid 1px;
 	padding: 1px 2px;
+	line-height: 2;
 }
 
 .syntax .optional {
 	border: #bb05 1px solid;
 	padding: 3px 1px;
-	vertical-align: baseline;
 }
 .syntax .syntax-piece {
 	/* Override for when node is both optional and a syntax-piece */
@@ -141,10 +141,6 @@ pre>code {
 	color: #bb0;
 	font-style: italic;
 	font-family: monospace;
-	vertical-align: bottom;
-}
-.syntax tr, .syntax td {
-	vertical-align: middle;
 }
 .syntax td {
 	margin: .2em .25em;
@@ -158,6 +154,9 @@ pre>code {
 	text-align: center;
 	padding: 0;
 	margin-right: 5px;
+}
+.syntax td:first-child {
+	margin-top: 5px;
 }
 
 .syntax-breakdown {
