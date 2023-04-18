@@ -294,3 +294,6 @@ section[sect-symbol]::before {
 	color: var(--link-color);
 	content: '[' counter(list-item) '] ';
 }
+#Reflist>li {
+	margin: .7em 0;
+}
