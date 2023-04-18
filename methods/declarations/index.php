@@ -51,7 +51,7 @@
 					<code>abstract</code>, <code>native</code>, and <code>default</code>,
 				</li>
 				<li>any number of annotations that are applicable to the method (see
-					<a href="annotation-applicability">below</a> for details).
+					<a href="#AnnotationRestrictions">below</a> for details).
 				</li>
 			</ul> intermixed and in any order.
 		</td>
@@ -180,7 +180,7 @@
 <p>A method can be declared directly within a class or interface, or
 	within an enum's body declaration (after the constant list). Method
 	declarations can override methods inherited from a parent type.</p>
-<h3>Annotations</h3>
+<h3 id="AnnotationRestrictions">Annotations</h3>
 <p>
 	Annotations can be placed in two distinct places in a method
 	declaration, either in the <span class="syntax-piece">modifier-list</span>,
