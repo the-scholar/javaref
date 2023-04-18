@@ -3,6 +3,8 @@
 	font-family: sans-serif;
 	font-size: 1.2em;
 	scroll-behavior: smooth;
+	/* Color Variables */
+	--link-color: #7f84e3;
 }
 body {
 	background: #222;
@@ -55,7 +57,7 @@ body {
 /* Links */
 a {
 	text-decoration: none;
-	color: #7f84e3;
+	color: var(--link-color);
 }
 a:hover {
 	text-decoration: underline;
@@ -285,4 +287,10 @@ section[sect-symbol]::before {
 	top: -2px;
 	min-width: 2ex;
 	text-align: center;
+}
+
+/* References */
+#ReferenceList>li::marker {
+	color: var(--link-color);
+	content: '[' counter(list-item) '] ';
 }
