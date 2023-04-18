@@ -65,11 +65,16 @@
 
 </ul>
 <h2>References</h2>
-<ol>
-	<li
+<ol id="Reflist">
+	<li id="Ref1"
 		title="The Unicode Standard, Version 15.0.0, Chapter 4: General Category"><a
 		href="https://www.unicode.org/versions/Unicode15.0.0/ch04.pdf#page=15">Unicode
 			Standard: General Category</a> - Precise description of <i>General
 			Category</i> defined by the Unicode Standard. (The link leads to
 		version 15.0.0 of the standard.)</li>
+	<li title="Unicode Utility Webapp"><a
+		href="https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp">Uncode
+			Utilities: UnicodeSet</a> - A webapp provided by <i>Unicode.org</i>
+		which allows querying all characters present in a general category
+		(amongst other operations).</li>
 </ol>
