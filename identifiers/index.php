@@ -47,18 +47,62 @@
 </p>
 <h2>Composition</h2>
 <p>
-	Java identifiers are composed of Unicode characters, defined by the
-	Unicode standard. The Unicode characters that can comprise an
-	identifier are defined by the static Java API methods <code>Character.isJavaIdentifierStart(int)</code>
+	Java identifiers are composed of Unicode code-points<sup info=1></sup>
+	(characters), defined by the Unicode standard. The code-points that can
+	comprise an identifier are defined by the static Java API methods <code>Character.isJavaIdentifierStart(int)</code>
 	and <code>Character.isJavaIdentifierPart(int)</code>, for the <span
 		class="syntax-piece">ident-start-char</span> and each character in <span
 		class="syntax-piece">ident-body-chars</span>, respectively; if either
 	method returns <code>true</code> for a character, then the respective
 	syntax element can be composed of that character in a valid identifier.
 </p>
+<span info=1>The Unicode Standard technically specifies <i>code-points</i>,
+	not characters. In Java (and the Java specification), characters are
+	16-bit data stored by the well-known <code>char</code> type. <code>String</code>s
+	are sequences of <code>char</code>s. Some Unicode code-points are now
+	larger than 16 bits, so two characters in Java are required to
+	represent them (totaling 32 bits). (This is why some methods in the <code>Character</code>
+	and <code>String</code> classes are overloaded to accept an <code>int</code>.)
+	Because of such, the Java documentation distinguishes between <i>characters</i>
+	and <i>code-points</i>, the latter being represented by an <code>int</code>
+	in Java, and the former being represented by a <code>char</code>.
+	Code-points are what most understand a character to be: A concept of a
+	letter, digit, or other symbol (primarily) used for communication.
+	<p>When referring to a Unicode code-point, this document uses the term
+		code-point.</p>
+</span>
+<h3>
+	Permitted Characters for <span class="syntax-piece">ident-start-char</span>
+</h3>
 <p>
-	Unicode groups characters into <i>blocks</i> and into <i>general
-		categories</i> (and sub-categories).
+	The first character of a Java identifier may be any Unicode code-point
+	whose general category<sup info=2></sup>:
+</p>
+<span info=2>Unicode groups characters into <i>blocks</i> and into <i>general
+		categories</i> (and sub-categories). Blocks are generally used to
+	group code-points by language, function, etc. A character can only be
+	in one block and blocks are contiguous. General Categories are an <i>attribute</i>
+	of code-points. Each code-point is assigned exactly one general
+	category and sub-category (known as the Major and minor categories,
+	respectively).
+</span>
+<ul>
+	<li>begins with is <code>L</code> (i.e., the code-point's major
+		category is <i>Letter</i>),
+	</li>
+	<li>is <code>Nl</code> (i.e., the code-point is a <i>Number, letter</i>),
+	</li>
+	<li>is <code>Sc</code> (i.e., the code-point is a <i>Symbol, currency</i>),
+	</li>
+	<li>is <code>Pc</code> (i.e., the code-point is a <i>Punctuation,
+			connector</i>).
+	</li>
+</ul>
+<p>
+	Note that this encompasses the <b>overwhelming majority</b> of Unicode
+	code-points; more than 130 thousand characters can be used to begin a
+	Java identifier.
+</p>
 <p>The first character of an identifier is any one of the following:</p>
 <ul>
 	<li>
