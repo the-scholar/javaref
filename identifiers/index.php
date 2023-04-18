@@ -90,11 +90,11 @@
 	<li>begins with is <code>L</code> (i.e., the code-point's major
 		category is <i>Letter</i>),
 	</li>
-	<li>is <code>Nl</code> (i.e., the code-point is a <i>Number, letter</i>),
+	<li>is <code>Nl</code> (i.e., the code-point is a: <i>Number, letter</i>),
 	</li>
-	<li>is <code>Sc</code> (i.e., the code-point is a <i>Symbol, currency</i>),
+	<li>is <code>Sc</code> (i.e., the code-point is a: <i>Symbol, currency</i>),
 	</li>
-	<li>is <code>Pc</code> (i.e., the code-point is a <i>Punctuation,
+	<li>is <code>Pc</code> (i.e., the code-point is a: <i>Punctuation,
 			connector</i>).
 	</li>
 </ul>
@@ -112,15 +112,15 @@
 	begin a Java identifier, or any codepoint whose general category:
 </p>
 <ul>
-	<li>is <code>Nd</code> (i.e., the code-point is a <i>Number, decimal
+	<li>is <code>Nd</code> (i.e., the code-point is a: <i>Number, decimal
 			digit</i>),
 	</li>
-	<li>is <code>Mc</code> (i.e., the code-point is a <i>Mark, spacing
+	<li>is <code>Mc</code> (i.e., the code-point is a: <i>Mark, spacing
 			combining</i>),
 	</li>
-	<li>is <code>Mn</code> (i.e., the code-point is a <i>Mark, nonspacing</i>)
+	<li>is <code>Mn</code> (i.e., the code-point is a: <i>Mark, nonspacing</i>)
 	</li>
-	<li>is <code>Cf</code> (i.e., the code-point is a <i>Other, format</i>;
+	<li>is <code>Cf</code> (i.e., the code-point is an: <i>Other, format</i>;
 		note that these characters are <a href="#IgnoredCharacters">ignored
 			characters</a>).
 	</li>
