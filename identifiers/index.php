@@ -131,14 +131,12 @@
 	is <code>Cf</code> (as listed above), and all code-points from:
 </p>
 <ul>
-	<li><code>\u0000</code> (character NUL; null) to <code>\u0008</code>
-		(character BS; backspace),</li>
-	<li>
-		<!-- E through 1B -->
-	</li>
-	<li>
-		<!-- 7F through 9F -->
-	</li>
+	<li><code>\u0000</code> (the <i>null</i> character) to <code>\u0008</code>
+		(the <i>backspace</i> character),</li>
+	<li><code>\u000E</code> (the <i>shift out</i> character) to <code>\u001B</code>
+		(the <i>escape</i> character),</li>
+	<li><code>\u007F</code> (the <i>delete</i> character) to <code>\u009F</code>
+		(the <i>application program command</i> character).</li>
 </ul>
 <h2>References</h2>
 <ol id="Reflist">
