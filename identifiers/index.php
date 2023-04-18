@@ -103,11 +103,27 @@
 	code-points; more than 130 thousand characters can be used to begin a
 	Java identifier.
 </p>
-<p>The first character of an identifier is any one of the following:</p>
+<h3>
+	Permitted Characters for <span class="syntax-piece">ident-body-chars</span>
+</h3>
+<p>
+	Subsequent characters in a Java identifier may be any code-point that
+	is <i>ignored</i> (<a href="#IgnoredCharacters">see below</a>), can
+	begin a Java identifier, or any codepoint whose general category:
+</p>
 <ul>
-	<li>
-
+	<li>is <code>Nd</code> (i.e., the code-point is a <i>Number, decimal
+			digit</i>),
+	</li>
+	<li>is <code>Mc</code> (i.e., the code-point is a <i>Mark, spacing
+			combining</i>),
+	</li>
+	<li>is <code>Mn</code> (i.e., the code-point is a <i>Mark, nonspacing</i>)
+	</li>
+	<li>is <code>Cf</code> (i.e., the code-point is a <i>Other, format</i>)
+	</li>
 </ul>
+<p id="IgnoredCharacters">Ignored characters are characters whose
 <h2>References</h2>
 <ol id="Reflist">
 	<li id="Ref1"
@@ -117,8 +133,16 @@
 			Category</i> defined by the Unicode Standard. (The link leads to
 		version 15.0.0 of the standard.)</li>
 	<li title="Unicode Utility Webapp"><a
-		href="https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp">Uncode
+		href="https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp">Unicode
 			Utilities: UnicodeSet</a> - A webapp provided by <i>Unicode.org</i>
 		which allows querying all characters present in a general category
 		(amongst other operations).</li>
+	<li title="Java 8 Character, Class Documentation"><a
+		href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html">Java
+			Character Class Documentation</a> - Documentation for the <code>Character</code>
+		class. See the <a
+		href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html#isJavaIdentifierStart-int-"><code>isJavaIdentifierStart(int)</code></a>
+		and <a
+		href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html#isJavaIdentifierPart-int-"><code>isJavaIdentifierPart(int)</code></a>
+		method documentation for more details.</li>
 </ol>
