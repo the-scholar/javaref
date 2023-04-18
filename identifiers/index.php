@@ -120,10 +120,26 @@
 	</li>
 	<li>is <code>Mn</code> (i.e., the code-point is a <i>Mark, nonspacing</i>)
 	</li>
-	<li>is <code>Cf</code> (i.e., the code-point is a <i>Other, format</i>)
+	<li>is <code>Cf</code> (i.e., the code-point is a <i>Other, format</i>;
+		note that these characters are <a href="#IgnoredCharacters">ignored
+			characters</a>).
 	</li>
 </ul>
-<p id="IgnoredCharacters">Ignored characters are characters whose
+<p id="IgnoredCharacters">
+	Ignored characters are code-points for which <code>Character.isIdentifierIgnorable(int)</code>
+	returns <code>true</code>. This includes those whose general category
+	is <code>Cf</code> (as listed above), and all code-points from:
+</p>
+<ul>
+	<li><code>\u0000</code> (character NUL; null) to <code>\u0008</code>
+		(character BS; backspace),</li>
+	<li>
+		<!-- E through 1B -->
+	</li>
+	<li>
+		<!-- 7F through 9F -->
+	</li>
+</ul>
 <h2>References</h2>
 <ol id="Reflist">
 	<li id="Ref1"
