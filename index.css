@@ -290,7 +290,7 @@ section[sect-symbol]::before {
 }
 
 /* References */
-#ReferenceList>li::marker {
+#Reflist>li::marker {
 	color: var(--link-color);
 	content: '[' counter(list-item) '] ';
 }
