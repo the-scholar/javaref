@@ -138,6 +138,8 @@
 	<li><code>\u007F</code> (the <i>delete</i> character) to <code>\u009F</code>
 		(the <i>application program command</i> character).</li>
 </ul>
+<p>These characters are not actually ignored, but are rather allowed as
+	subsequent characters in an identifier.</p>
 <h2>References</h2>
 <ol id="Reflist">
 	<li id="Ref1"
