@@ -32,3 +32,16 @@
 		</td>
 	</tr>
 </table>
+<p>
+	<i>such that...</i>
+</p>
+<ul>
+	<li>No identifier may be identical to a keyword, the <code>null</code>
+		literal, or either Boolean literal.
+	</li>
+</ul>
+<h3>Syntax Elements</h3>
+<p>
+	<span class="syntax-number">1</span> An identifier, used to name a
+	variable, method, class or other type, type parameter, etc.
+</p>
