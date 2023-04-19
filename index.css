@@ -12,6 +12,19 @@ body {
 	color: darkgray;
 }
 
+/* Features */
+@keyframes target-highlight {
+	50% {
+		background-color: #329da87f;
+	}
+}
+:target {
+	animation-fill-mode: forwards;
+	animation-duration: 1s;
+	animation-name: target-highlight;
+	animation-iteration-count: 1;
+}
+
 /* ID Elements */
 #Header {
 	height: 4em;
