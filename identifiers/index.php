@@ -193,7 +193,7 @@ public static void main(String[] args) {
 		<img src="overbars-eclipse-large.png">
 		<p>When used profusely, code combining characters may distend to cover
 			other parts of code, as the following declaration may do in various
-			IDEs:</p> <pre><code>int v̶̫͗̾̀a̷̻̟̿̂́̿ṛ̴̡̢̳͒i̵̮̾̇͊͠ả̷͍͂̈́͝b̵͍̠̬̼̊͑l̷̰̩̍͗̈́e̴͕̩̗͑̔͋ͅ = 12;</code></pre>
+			IDEs:</p> <pre><code id="VarInternalRef">int v̶̫͗̾̀a̷̻̟̿̂́̿ṛ̴̡̢̳͒i̵̮̾̇͊͠ả̷͍͂̈́͝b̵͍̠̬̼̊͑l̷̰̩̍͗̈́e̴͕̩̗͑̔͋ͅ = 12;</code></pre>
 	</li>
 	<li><p>
 			Unicode characters can also be used to produce graphically equivalent
@@ -236,4 +236,7 @@ else
 		and <a
 		href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html#isJavaIdentifierPart-int-"><code>isJavaIdentifierPart(int)</code></a>
 		method documentation for more details.</li>
+	<li title="LingoJam Zalgo Text Generator"><a
+		href="https://lingojam.com/ZalgoText">Zalgo Text Generator</a> - Used
+		to generate the <code>int</code> variable <a href="#VarInternalRef">above</a>.</li>
 </ol>
