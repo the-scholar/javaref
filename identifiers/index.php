@@ -21,7 +21,7 @@
 	<tr>
 		<td><span class="syntax-piece">ident-start-char</span></td>
 		<td>is either <code>_</code>, <code>$</code>, or any valid letter (<a
-			href="">see below</a>).
+			href="#Composition">see below</a>).
 		</td>
 	</tr>
 	<tr>
