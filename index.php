@@ -16,7 +16,7 @@
 	display: block;
 }
 
-#ToC a {
+#ToC a, #ToC span {
 	font-weight: bold;
 	font-variant: small-caps;
 	display: inline-block;
@@ -58,18 +58,21 @@
 			</div>
 			<br>
 			<div>
-				<a class="u" href="/literals">Literals</a><br> <a class="c"
-					href="/literals/integer">Integer Literal</a><br> <a
-					class="c" href="/literals/floating-point">Floating Point
-					Literal</a><br> <a class="c" href="/literals/boolean">Boolean
-					Literal</a><br> <a class="c u" href="/literals/null">Null
-					Literal</a><br>
+				<span>General</span><br>
+				<a class="c" href="/identifiers">Identifiers</a>
+			</div>
+			<br>
+			<div>
+				<span>Literals</span><br> <a class="c" href="/literals/integer">Integer
+					Literal</a><br> <a class="c" href="/literals/floating-point">Floating
+					Point Literal</a><br> <a class="c" href="/literals/boolean">Boolean
+					Literal</a><br> <a class="c u" href="/literals/null">Null Literal</a><br>
 			</div>
 			<div>
-				<a class="u" href="/methods">Methods</a><br> <a class="c"
-					href="/methods/declarations">Method Declaration</a><br> <a
-					class="c u" href="/methods/generic">Generic Methods</a><br>
-				<a class="c u" href="/methods/overriding">Method Overrides</a><br>
+				<span>Methods</span><br> <a class="c" href="/methods/declarations">Method
+					Declaration</a><br> <a class="c u" href="/methods/generic">Generic
+					Methods</a><br> <a class="c u" href="/methods/overriding">Method
+					Overrides</a><br>
 			</div>
 		</div>
 		<h3>Notes</h3>
