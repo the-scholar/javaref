@@ -14,15 +14,16 @@ body {
 
 /* Features */
 @keyframes target-highlight {
-	50% {
+	15%, 60% {
 		background-color: #329da87f;
 	}
 }
 :target {
 	animation-fill-mode: forwards;
-	animation-duration: 1s;
+	animation-duration: 2s;
 	animation-name: target-highlight;
 	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
 }
 
 /* ID Elements */
