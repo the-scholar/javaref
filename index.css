@@ -289,11 +289,11 @@ section[sect-symbol]::before {
 	text-align: center;
 }
 
-/* References */
-#Reflist>li::marker {
+/* Linklist */
+#Linklist>li::marker {
 	color: var(--link-color);
 	content: '[' counter(list-item) '] ';
 }
-#Reflist>li {
+#Linklist>li {
 	margin: .7em 0;
 }

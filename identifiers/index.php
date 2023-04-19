@@ -27,8 +27,8 @@
 	<tr>
 		<td><span class="syntax-piece">ident-body-chars</span></td>
 		<td>is a sequence of characters composed entirely of: either <code>_</code>,
-			<code>$</code>, or any valid letter or digit (<a href="">see below</a>).
-			The sequence may be of any size.
+			<code>$</code>, or any valid letter or digit (<a href="#Composition">see
+				below</a>). The sequence may be of any size.
 		</td>
 	</tr>
 </table>
@@ -45,7 +45,7 @@
 	<span class="syntax-number">1</span> An identifier, used to name a
 	variable, method, class or other type, type parameter, etc.
 </p>
-<h2>Composition</h2>
+<h2 id="Composition">Composition</h2>
 <p>
 	Java identifiers are composed of Unicode code-points<sup info=1></sup>
 	(characters), defined by the Unicode standard. The code-points that can
@@ -140,9 +140,9 @@
 </ul>
 <p>These characters are not actually ignored, but are rather allowed as
 	subsequent characters in an identifier.</p>
-<h2>References</h2>
-<ol id="Reflist">
-	<li id="Ref1"
+<h2>External Links</h2>
+<ol id="Linklist">
+	<li id="Link1"
 		title="The Unicode Standard, Version 15.0.0, Chapter 4: General Category"><a
 		href="https://www.unicode.org/versions/Unicode15.0.0/ch04.pdf#page=15">Unicode
 			Standard: General Category</a> - Precise description of <i>General
