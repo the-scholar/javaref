@@ -181,19 +181,19 @@ public static void main(String[] args) {
 </div>
 <h2>Notes</h2>
 <ol>
-	<li><p>
-			Unicode characters can be used to produce graphically disruptive
+	<li><p>Unicode characters can be used to produce graphically disruptive
 			identifiers in source code. This is often achieved through the usage
-			of <i>combining diacritical marks</i>:
-		</p> <pre><code>int x̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅ = 10;</code></pre>
-		<p>This can produce visual annoyances in IDEs and other text editors.
-			For example, Eclipse renders this code as follows...</p> <img
-		src="overbars-eclipse-small.png">
-		<p>...and changing the zoom level can affect the character rendering:</p>
-		<img src="overbars-eclipse-large.png">
-		<p>When used profusely, code combining characters may distend to cover
-			other parts of code, as the following declaration may do in various
-			IDEs:</p> <pre><code id="VarInternalRef">int v̶̫͗̾̀a̷̻̟̿̂́̿ṛ̴̡̢̳͒i̵̮̾̇͊͠ả̷͍͂̈́͝b̵͍̠̬̼̊͑l̷̰̩̍͗̈́e̴͕̩̗͑̔͋ͅ = 12;</code></pre>
+			of combining diacritical marks:</p> <pre><code>int x̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅ = 10;</code></pre>
+		<p>This can produce visual clutter in IDEs and other text editors.
+			Following is an example image of how Eclipse IDE renders the above
+			code:</p> <img src="overbars-eclipse-small.png">
+		<p>Changing the zoom level in Eclipse affects character rendering and
+			the height that the stacked combining diacritical marks can reach far
+			enough to cover text two lines above:</p> <img
+		src="overbars-eclipse-large.png">
+		<p>When used profusely, identifiers with combining characters may
+			distend and cover other parts of code, as the following declaration
+			may do in various IDEs:</p> <pre><code id="VarInternalRef">int v̶̫͗̾̀a̷̻̟̿̂́̿ṛ̴̡̢̳͒i̵̮̾̇͊͠ả̷͍͂̈́͝b̵͍̠̬̼̊͑l̷̰̩̍͗̈́e̴͕̩̗͑̔͋ͅ = 12;</code></pre>
 	</li>
 	<li><p>
 			Unicode characters can also be used to produce graphically equivalent
