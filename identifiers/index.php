@@ -148,7 +148,7 @@ double dbl1, dbl2, dbl3, dbl4, dbl5;
 Object text = "Some text";</code></pre>
 </div>
 <div class="example">
-	<h4>Identifier with Greek Letters</h4>
+	<h4>Identifiers with Greek Letters</h4>
 	<pre><code>int α = 10;
 double β = 20;
 System.out.println(β - α);</code></pre>
