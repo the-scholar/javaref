@@ -153,6 +153,68 @@ Object text = "Some text";</code></pre>
 double β = 20;
 System.out.println(β - α);</code></pre>
 </div>
+<div class="example">
+	<h4>Combining Mark in Identifier</h4>
+	<p>Combining marks allowed in identifiers can graphically extend
+		upwards when a program renders a variable name (or other identifier)
+		in Java source code:</p>
+	<pre><code>int xͫ = 14;
+xͫ++;
+System.out.println(xͫ);</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">14</code></pre>
+	<p>Combining marks are often small, which can make it hard to
+		differentiate identifiers:</p>
+	<pre><code>void someͫMethod() {
+	System.out.println("Failure");
+}
+
+void someMethod() {
+	System.out.println("Success");
+}
+
+public static void main(String[] args) {
+	someͫMethod(); // Prints "Failure"
+}</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">Failure</code></pre>
+</div>
+<h2>Notes</h2>
+<ol>
+	<li><p>
+			Unicode characters can be used to produce graphically disruptive
+			identifiers in source code. This is often achieved through the usage
+			of <i>combining diacritical marks</i>:
+		</p> <pre><code>int x̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅ = 10;</code></pre>
+		<p>This can produce visual annoyances in IDEs and other text editors.
+			For example, Eclipse renders this code as follows...</p> <img
+		src="overbars-eclipse-small.png">
+		<p>...and changing the zoom level can affect the character rendering:</p>
+		<img src="overbars-eclipse-large.png">
+		<p>When used profusely, code combining characters may distend to cover
+			other parts of code, as the following declaration may do in various
+			IDEs:</p> <pre><code>int v̶̫͗̾̀a̷̻̟̿̂́̿ṛ̴̡̢̳͒i̵̮̾̇͊͠ả̷͍͂̈́͝b̵͍̠̬̼̊͑l̷̰̩̍͗̈́e̴͕̩̗͑̔͋ͅ = 12;</code></pre>
+	</li>
+	<li><p>
+			Unicode characters can also be used to produce graphically equivalent
+			variables which are actually different. This can be done using
+			various characters that have no visual appearance, such as the
+			zero-width space (<code>\u200B</code>):
+		</p> <pre><code>boolean javaref = true;
+boolean javaref​ = false;
+if (javaref​)
+	System.out.println(javaref);
+else
+	System.out.println(javaref​);</code></pre>
+		<p>Output:</p> <pre><code class="output">false</code></pre>
+		<p>
+			The above code snippet contains a zero width space in the occurrences
+			of <code>javaref</code> in the <code>if</code>'s condition and the
+			second print statement. The <code>if</code>'s condition therefore
+			evaluates to <code>false</code> and the <code>else</code> block is
+			executed, printing <code>false</code>.
+		</p></li>
+</ol>
 <h2>External Links</h2>
 <ol id="Linklist">
 	<li id="Link1"
