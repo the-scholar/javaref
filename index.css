@@ -112,6 +112,7 @@ code {
 	padding: 0 3px;
 	border-radius: 2px;
 	border: solid #555 1px;
+	display: inline-block;
 }
 
 /* Codeblocks */
