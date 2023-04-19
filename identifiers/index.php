@@ -140,6 +140,19 @@
 </ul>
 <p>These characters are not actually ignored, but are rather allowed as
 	subsequent characters in an identifier.</p>
+<h2>Examples</h2>
+<div class="example">
+	<h4>Simple Variable Declarations</h4>
+	<pre><code>int x, y, z;
+double dbl1, dbl2, dbl3, dbl4, dbl5;
+Object text = "Some text";</code></pre>
+</div>
+<div class="example">
+	<h4>Identifier with Greek Letters</h4>
+	<pre><code>int α = 10;
+double β = 20;
+System.out.println(β - α);</code></pre>
+</div>
 <h2>External Links</h2>
 <ol id="Linklist">
 	<li id="Link1"
