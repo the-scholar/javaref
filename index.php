@@ -58,8 +58,7 @@
 			</div>
 			<br>
 			<div>
-				<span>General</span><br>
-				<a class="c" href="/identifiers">Identifiers</a>
+				<span>General</span><br> <a class="c" href="/identifiers">Identifiers</a>
 			</div>
 			<br>
 			<div>
@@ -70,9 +69,8 @@
 			</div>
 			<div>
 				<span>Methods</span><br> <a class="c" href="/methods/declarations">Method
-					Declaration</a><br> <a class="c u" href="/methods/generic">Generic
-					Methods</a><br> <a class="c u" href="/methods/overriding">Method
-					Overrides</a><br>
+					Declarations</a><br> <a class="c"
+					href="/methods/receiver-parameters">Receiver Parameters</a><br>
 			</div>
 		</div>
 		<h3>Notes</h3>
