@@ -52,7 +52,7 @@ function copyToClipboard(text) {
 </head>
 <body>
 	<div id="Header">
-		<div style="font-size: 2em; font-weight: bold;">Java Reference</div>
+		<div style="font-size: 2em; font-weight: bold;">Javaref.net</div>
 		<div id="Menu">
 			<a href="/" style="color: white;">Home</a>
 		</div>
