@@ -72,3 +72,17 @@
 	<span class="syntax-number">2</span> A receiver parameter in an inner
 	class constructor.
 </p>
+<h2>Usage</h2>
+<p>Receiver parameters are not formal parameters. They do not alter the
+	behavior of a method, change the method's signature, nor change the
+	override-equivalence of a method. Other than allowing the presence of
+	an annotation, they do not affect the rest of a program. In fact, a
+	method or constructor with a receiver parameter that has no annotation,
+	is equivalent to one without the receiver parameter.</p>
+<p>
+	Receiver parameters can either be for a non-<code>static</code> method
+	(instance method) or a constructor in a non-<code>static</code> inner
+	class. Their only functional purpose is to allow annotations, though
+	they can be included in a method or constructor without having
+	annotations. A receiver parameter must be first in a parameter list.
+</p>
