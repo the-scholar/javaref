@@ -37,8 +37,7 @@
 		<td><span class="syntax-piece">annotation-list</span></td>
 		<td>is a list of annotations applied to the following type. Each
 			annotation is the <code>@</code> symbol followed by the name of the
-			annotation. The <code>@</code> symbol and annotation name may be
-			separated by whitespace.
+			annotation. The <code>@</code> can be followed by whitespace.
 		</td>
 	</tr>
 	<tr>
