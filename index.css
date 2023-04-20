@@ -162,6 +162,10 @@ pre>code {
 .syntax td {
 	margin: .2em .25em;
 }
+.syntax-number {
+	margin-top: 2.5px;
+	margin-bottom: 2.5px;
+}
 .syntax-number, .syntax td:first-child {
 	--bubble-color: currentcolor;
 	border-radius: 50%;
