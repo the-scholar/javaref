@@ -162,10 +162,6 @@ pre>code {
 .syntax td {
 	margin: .2em .25em;
 }
-.syntax-number {
-	margin-top: 2.5px;
-	margin-bottom: 2.5px;
-}
 .syntax-number, .syntax td:first-child {
 	--bubble-color: currentcolor;
 	border-radius: 50%;
@@ -175,6 +171,9 @@ pre>code {
 	text-align: center;
 	padding: 0;
 	margin-right: 5px;
+}
+.syntax-number.inline {
+	margin: 2.5px 0;
 }
 .syntax td:first-child {
 	margin-top: 5px;
