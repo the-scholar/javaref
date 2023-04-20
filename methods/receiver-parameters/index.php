@@ -43,12 +43,32 @@
 	<tr>
 		<td><span class="syntax-piece">type</span></td>
 		<td>is the type of the <code>this</code> receiver parameter.
+			<ul>
+				<li>For <span class="syntax-number inline">1</span>, the type must
+					be exactly the method's containing class.
+				</li>
+				<li>For <span class="syntax-number inline">2</span>, the type must
+					be exactly the immediate outer type of the constructor's containing
+					class.
+				</li>
+			</ul>
 		</td>
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">identifier</span></td>
 		<td>is the name of the containing type, used to clarify which <code>this</code>
-			instance is being declared in the receiver parameter.
+			instance is being declared in the receiver parameter. The identifier
+			must be the <i>simple name</i> of the immediate outer type of the
+			constructor's containing class.
 		</td>
 	</tr>
 </table>
+<h3>Syntax Elements</h3>
+<p>
+	<span class="syntax-number">1</span> A receiver parameter in an
+	instance method.
+</p>
+<p>
+	<span class="syntax-number">2</span> A receiver parameter in an inner
+	class constructor.
+</p>
