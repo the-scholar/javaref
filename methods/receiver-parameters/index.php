@@ -29,3 +29,27 @@
 				class="syntax-piece">identifier</span> <code>.</code></span> <code>this</code></td>
 	</tr>
 </table>
+<p>
+	<i>where...</i>
+</p>
+<table class="syntax-breakdown">
+	<tr>
+		<td><span class="syntax-piece">annotation-list</span></td>
+		<td>is a list of annotations applied to the following type. Each
+			annotation is the <code>@</code> symbol followed by the name of the
+			annotation. The <code>@</code> symbol and annotation name may be
+			separated by whitespace.
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">type</span></td>
+		<td>is the type of the <code>this</code> receiver parameter.
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">identifier</span></td>
+		<td>is the name of the containing type, used to clarify which <code>this</code>
+			instance is being declared in the receiver parameter.
+		</td>
+	</tr>
+</table>
