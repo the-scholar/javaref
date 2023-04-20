@@ -15,3 +15,17 @@
 	it represents. Utilizing a receiver parameter does not give additional
 	access privilege to the construct.
 </span>
+<h2>Syntax</h2>
+<table class="syntax">
+	<tr>
+		<td>1</td>
+		<td><span class="syntax-piece optional">annotation-list</span> <span
+			class="syntax-piece">type</span> <code>this</code></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td><span class="syntax-piece optional">annotation-list</span> <span
+			class="syntax-piece">type</span> <span class="optional"><span
+				class="syntax-piece">identifier</span> <code>.</code></span> <code>this</code></td>
+	</tr>
+</table>
