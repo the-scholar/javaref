@@ -86,3 +86,74 @@
 	they can be included in a method or constructor without having
 	annotations. A receiver parameter must be first in a parameter list.
 </p>
+<h2>Examples</h2>
+<div class="example">
+	<h4>In an Instance Method</h4>
+	<pre><code>class Test {
+	void someMethod(Test this) {
+
+	}
+}</code></pre>
+	<p>The type of the receiver parameter may be fully qualified:</p>
+	<pre><code>package net.javaref.examples;
+class ReceiverParameterExample {
+	void someMethod(net.javaref.examples.ReceiverParameterExample this) {
+
+	}
+}</code></pre>
+</div>
+<div class="example">
+	<h4>In a Constructor</h4>
+	<pre><code>class Outer {
+	class Inner {
+		Inner(Outer Outer.this) {
+
+		}
+	}
+}</code></pre>
+	<p>
+		The type of the receiver parameter may be fully qualified, but the
+		identifier prefixing <code>this</code> may <b>not</b>. This is
+		therefore valid:
+	</p>
+	<pre><code>package net.javaref.examples;
+class Outer {
+	class Inner {
+		Inner(net.javaref.examples.Outer Outer.this) {
+		
+		}
+	}
+}</code></pre>
+	<p>whereas the fully-qualified name in the following example is not:</p>
+	<pre><code>package net.javaref.examples;
+class Outer {
+	class Inner {
+//		Inner(Outer net.javaref.examples.Outer.this) { // Does not compile; expected "Outer.this", not "net.javaref.examples.Outer.this"
+		
+//		}
+	}
+}</code></pre>
+	<p>
+		Such simple-name restriction on the identifier prefixing <code>this</code>
+		restricts even against semi-qualified names:
+	</p>
+	<pre><code>package net.javaref.examples;
+class Top {
+	class Middle {
+		class Bottom {
+			Bottom(Middle Top.Middle.this) { // Does not compile; expected "Middle.this", not "Top.Middle.this"
+			
+			}
+		}
+	}
+}</code></pre>
+</div>
+<div class="example">
+	<h4>With Other Parameters</h4>
+	<p>Receiver parameters may also be used with other parameters.</p>
+	<pre><code>class Test {
+	void test(Test this, int first, int second, double third, String fourth, String... fifth) {	}
+}</code></pre>
+	<p>In such cases that other parameters are used, the receiver parameter
+		must be first in the parameter list.</p>
+</div>
