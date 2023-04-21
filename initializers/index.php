@@ -132,13 +132,18 @@ y's value: 10</code></pre>
 }</code></pre></span></li>
 	<li><i>Instance</i> initialization must assure that every <code>final</code>
 		instance field be assigned to exactly once through any branch of
-		execution, including through code executed in any constructor.</li>
+		execution, including through code executed in any constructor.<sup
+		info=3></sup> <span info=3> <!-- TODO: Describe constructor 'paths' taken during initialization -->
+	</span></li>
 </ul>
 <h5>
 	Reference of Uninitialized <code>final</code> Fields
 </h5>
+<!-- TODO: Describe how final fields ADDITIONALLY cannot be referenced before being given a <i>value</i> (not just being declared) -->
 <h4>Static Initializers</h4>
-<p></p>
+<p>
+	<!-- TODO: Describe how static initializers also cannot refer to instance stuff, such as instance fields, <code>this</code>, <code>super</code>, instance methods, etc., since they operate in a static context. -->
+</p>
 <h2>Examples</h2>
 <div class="example">
 	<h4>Simple Example</h4>
