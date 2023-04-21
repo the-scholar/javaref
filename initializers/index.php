@@ -49,18 +49,19 @@
 	from top to bottom, in order, just like a normal code block:
 </p>
 <pre><code>public class Dog {
+	String q = "ABC"; // "Conventional" initialization code: give field a value.
 	{
 		System.out.println("First Statement");
 		System.out.println("Second Statement");
 	}
 }</code></pre>
 <p>
-	Creating a <code>new Dog();</code> will cause the initializer block to
-	run, resulting in the output:
+	Simply creating a <code>new Dog();</code> will cause the initializer
+	block to run, resulting in the output:
 </p>
 <pre><code class="output">First Statement
 Second Statement</code></pre>
-<h3>Execution Order</h3>
+<h3>Interleaving</h3>
 <p>
 	Much like fields, initializers strewn throughout a type run in order,
 	from the beginning of the type to the end. <code>static</code>
