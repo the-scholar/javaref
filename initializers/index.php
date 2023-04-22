@@ -93,8 +93,17 @@ y's value: 10</code></pre>
 	<li>the field is of the same type as the initializer (<code>static</code>
 		or instance), and
 	</li>
-	<li>the reference is through a simple name such as <code>x</code>
-		(rather than a qualified name such as <code>this.x</code> or <code>ClassName.x</code>).
+	<li>the reference is through a simple name<sup info=2></sup> such as <code>x</code>.
+		<span info=2>A simple name is:
+			<ul>
+				<li>for <code>static</code> fields, the field's unqualified name
+					(e.g. <code>x</code> instead of <code>ClassName.x</code>).
+				</li>
+				<li>for instance fields, the field's unqalified name (e.g. <code>x</code>)
+					or the latter accessed directly through <code>this</code>, (e.g. <code>this.x</code>).
+				</li>
+			</ul>
+	</span>
 	</li>
 </ol>
 <p>
@@ -115,7 +124,7 @@ y's value: 10</code></pre>
 <ul>
 	<li><i>Class</i> initialization must assure that every <code>static</code>
 		<code>final</code> field be assigned to exactly once through any
-		branch of execution.<sup info=2></sup><span info=2>This allows a <code>static
+		branch of execution.<sup info=3></sup><span info=3>This allows a <code>static
 				final</code> variable to be declared without being given a value in
 			the declaration, but rather to be given a value further in the type
 			in a <code>static</code> initializer block. E.g.: <pre><code>class X {
@@ -131,14 +140,32 @@ y's value: 10</code></pre>
 	}
 }</code></pre></span></li>
 	<li><i>Instance</i> initialization must assure that every <code>final</code>
-		instance field be assigned to exactly once through any branch of
+		instance field be assigned to, exactly once, through any branch of
 		execution, including through code executed in any constructor.<sup
-		info=3></sup> <span info=3> <!-- TODO: Describe constructor 'paths' taken during initialization -->
+		info=4></sup> <span info=4>Initialization of any <code>final</code>
+			instance field must be done either through the constructors of a
+			class or the class's intialization code (field declarations and
+			instance initializer blocks). It cannot be through both, otherwise a
+			compile-time error results, and it must be done through one so that
+			the field is initialized by the time construction completes.
 	</span></li>
 </ul>
+<p>
+	Such initialization <b>must</b> be performed through simple reference;
+	it is always a compile-time error to attempt to assign to a <code>final</code>
+	field other than through a simple reference.
+</p>
 <h5>
 	Reference of Uninitialized <code>final</code> Fields
 </h5>
+<p>
+	It is a compile time error if an initializer block attempts to refer to
+	a <code>final</code> field through simple reference, before its
+	initialization, unless that reference is as the left-hand side of an
+	assignment. <code>final</code> fields must be initialized (via simple
+	reference) before they can be referenced in ways other than assignment
+	(by simple reference).
+</p>
 <!-- TODO: Describe how final fields ADDITIONALLY cannot be referenced before being given a <i>value</i> (not just being declared) -->
 <h4>Static Initializers</h4>
 <p>
