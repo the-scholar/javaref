@@ -1,4 +1,4 @@
-<?php t("Javaref - Floating Point Literals");?>
+<?php t("Javaref - Floating Point Literals", "A floating point literal is a direct (textual) expression of a fractional value in source code. It can be used anywhere a double or float can be used.");?>
 <h1>Floating Point Literals</h1>
 <p class="description">A direct (literal) expression of a floating point
 	value in source code.</p>

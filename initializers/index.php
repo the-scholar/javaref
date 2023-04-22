@@ -1,4 +1,4 @@
-<?php t("Javaref - Static &amp; Instance Initializers");?>
+<?php t("Javaref - Static &amp; Instance Initializers", "Static and instance initializers are used to execute arbitrary code during class initialization or object instantiation.");?>
 <h1>Static &amp; Instance Initializers</h1>
 <p class="description">Code block used to run arbitrary code during
 	class or instance initialization.</p>
@@ -193,7 +193,7 @@ y's value: 10</code></pre>
 Second Statement</code></pre>
 </div>
 <div class="example">
-<h4></h4>
+	<h4></h4>
 </div>
 <h2>Notes</h2>
 <ol>

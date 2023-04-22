@@ -1,4 +1,4 @@
-<?php t("Javaref - Boolean Literals");?>
+<?php t("Javaref - Boolean Literals", "A boolean literal is a textual expression of either true or false.");?>
 <h1>Boolean Literals</h1>
 <p class="description">
 	Literal expression of a Boolean (<code>true</code>/<code>false</code>)

@@ -1,4 +1,4 @@
-<?php t("Javaref - Integer Literals");?>
+<?php t("Javaref - Integer Literals", "An integer literal is a direct (textual) expression of a whole number in Java source code.");?>
 <h1>Int Literals</h1>
 <p class="description">A direct (literal) expression of an integral,
 	(non-decimal), value in source code.</p>

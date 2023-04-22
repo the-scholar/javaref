@@ -1,4 +1,4 @@
-<?php t("Javaref - Receiver Parameters");?>
+<?php t("Javaref - Receiver Parameters", "Reference page about receiver method parameters in Java.");?>
 <h1>Receiver Parameters</h1>
 <p class="description">Optional informal parameter added at the
 	beginning of the parameter list of a method or constructor.</p>

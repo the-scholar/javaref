@@ -1,4 +1,4 @@
-<?php t("Javaref - Identifiers");?>
+<?php t("Javaref - Identifiers", "Identifiers are used by a programmer to name Java constructs, such as methods, variables, and types.");?>
 <h1>Identifiers</h1>
 <p class="description">A string of characters used to name (or otherwise
 	identify) a Java construct.</p>

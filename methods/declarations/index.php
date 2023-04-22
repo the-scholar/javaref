@@ -1,4 +1,4 @@
-<?php t("Javaref - Method Declaration");?>
+<?php t("Method Declaration", "Method declarations introduce a named, executable group of statements to a program.");?>
 <h1>Method Declaration</h1>
 <p class="description">Declares a method so that it can be referenced
 	via a method reference, called, and overridden, possibly while also
@@ -97,8 +97,8 @@
 	<tr>
 		<td><span class="syntax-piece">array-dims</span></td>
 		<td>is any number of consecutive pairs of <code>[]</code> strings,
-			optionally separated (e.g. <code style="white-space: pre;">[][]   []</code>)
-			and/or split (e.g. <code style="white-space: pre;">[][][   ]</code>) by
+			optionally separated (e.g. <code style="white-space: pre;">[][] []</code>)
+			and/or split (e.g. <code style="white-space: pre;">[][][ ]</code>) by
 			whitespace. Each <code>[]</code> pair may be annotated with an
 			annotation that targets type use. (Such annotation targets the
 			respective dimension of the array that the <code>[]</code>
@@ -210,7 +210,7 @@
 	Keyword modifiers are any of <code>public</code>, <code>protected</code>,
 	<code>private</code>, <code>static</code>, <code>final</code>, <code>synchronized</code>,
 	<code>strictfp</code>, <code>default</code>, <code>abstract</code>, and
-	<code>native</code>. 
+	<code>native</code>.
 </p>
 <h4>Access Modifier Keywords</h4>
 <p>
@@ -254,7 +254,9 @@
 	without explicit qualification. Instance methods additionally may refer
 	to <code>this</code> and <code>super</code>.
 </p>
-<h4><code>strictfp</code> Modifier</h4>
+<h4>
+	<code>strictfp</code> Modifier
+</h4>
 <p>
 	The <code>strictfp</code> modifier causes all floating point
 	computations written in the body of a so modified method to
@@ -262,7 +264,9 @@
 	expression type) across implementations. See <a
 		href="/keywords/strictfp">strictfp</a> for details.
 </p>
-<h4><code>synchronized</code> Modifier</h4>
+<h4>
+	<code>synchronized</code> Modifier
+</h4>
 <p>
 	A <code>synchronized</code> method synchronizes on:
 </p>
@@ -303,7 +307,9 @@
 	The <code>native</code> modifier cannot be used with <code>strictfp</code>
 	or <code>abstract</code>, although it can be used with other modifiers.
 </p>
-<h4><code>default</code> Modifier</h4>
+<h4>
+	<code>default</code> Modifier
+</h4>
 <p>
 	The default modifier allows a method declared in an <code>interface</code>
 	to include an implementation. <code>default</code> methods are not
@@ -423,7 +429,9 @@
 	specified in this location are applied to the return type as if
 	appended to the return type.
 </p>
-<h3><code>throws</code> Clause</h3>
+<h3>
+	<code>throws</code> Clause
+</h3>
 <p>
 	The <code>throws</code> clause declares what exceptions a method can
 	throw. Any checked exceptions that are thrown in the method body under
