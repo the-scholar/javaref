@@ -166,10 +166,14 @@ y's value: 10</code></pre>
 	reference) before they can be referenced in ways other than assignment
 	(by simple reference).
 </p>
-<!-- TODO: Describe how final fields ADDITIONALLY cannot be referenced before being given a <i>value</i> (not just being declared) -->
-<h4>Static Initializers</h4>
+<h4>
+	<code>static</code> Initializers
+</h4>
 <p>
-	<!-- TODO: Describe how static initializers also cannot refer to instance stuff, such as instance fields, <code>this</code>, <code>super</code>, instance methods, etc., since they operate in a static context. -->
+	<code>static</code> initializers may not directly refer to instance
+	members, as there is no implicitly accessible state available for <code>static</code>
+	code. References to instance members must be qualified with an
+	expression.
 </p>
 <h2>Examples</h2>
 <div class="example">
@@ -188,3 +192,12 @@ y's value: 10</code></pre>
 	<pre><code class="output">First Statement
 Second Statement</code></pre>
 </div>
+<div class="example">
+<h4></h4>
+</div>
+<h2>Notes</h2>
+<ol>
+	<li>
+		<!-- TODO: Add Note 1 -->
+	</li>
+</ol>
