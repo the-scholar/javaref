@@ -14,7 +14,7 @@ function t($title) { global $tmods;
 <?php $tmods["head_top"]();?>
 <meta name="viewport" content="width=1000" />
 <meta charset="UTF-8">
-<meta name="<?php echo$desc;?>">
+<meta name="description" content="<?php echo$desc;?>">
 <link rel="stylesheet" type="text/css" href="/index.css">
 <?php $tmods["head_after_stylesheet"]();?>
 <script type="text/javascript">
