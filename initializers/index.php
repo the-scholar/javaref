@@ -197,7 +197,35 @@ Second Statement</code></pre>
 </div>
 <h2>Notes</h2>
 <ol>
-	<li>
-		<!-- TODO: Add Note 1 -->
+	<li>It is possible to declare a <code>final</code> instance field
+		without initializer blocks or a constructor, even when that field is
+		declared without a variable initializer: <pre><code>public class InitializerTest {
+	final int x;
+	final int y;
+	final int z;
+	final double test = x = y = z = 10;
+}</code></pre>
+		<p>
+			In this example, the three <code>int</code> variables are each set to
+			<code>10</code> and the variable <code>test</code> is set to <code>10.0</code>.
+			This is also possible for <code>static</code> fields.
+		</p> <pre><code>public class InitializerTest {
+	static final int x;
+	static final int y;
+	static final int z;
+	static final double test = x = y = z = 10;
+}</code></pre>
+	</li>
+	<li>It is possible to access a field in code that has not yet been
+		declared in multiple ways. For example, by using a non-simple name: <pre><code>public class Test {
+	static final int x = Test.y;
+	static final int y = Test.x;
+}</code></pre>
+		<p>
+			As with other fields, the default value of <code>y</code>, (which is
+			what <code>Test.y</code> evaluates to in <code>x</code>'s variable
+			initializer), is <code>0</code>, so both <code>x</code> and <code>y</code>
+			are initialized to the value <code>0</code>.
+		</p>
 	</li>
 </ol>
