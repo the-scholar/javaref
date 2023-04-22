@@ -50,7 +50,7 @@
 </p>
 <h3>Ordering &amp; Interleaving</h3>
 <p>
-	The instance variable initializers in field declarations and the
+	The variable initializers in instance field declarations and the
 	instance initializer blocks, contained within a type, collectively make
 	up the initialization code that gets executed when an instance of that
 	type is created. Similarly, the variable initializers of static fields
