@@ -9,10 +9,12 @@ $tmods = [
 ];
 function t($title) { global $tmods;
 ?><!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <?php $tmods["head_top"]();?>
+<meta name="viewport" content="width=1000" />
 <meta charset="UTF-8">
+<meta name="<?php echo$desc;?>">
 <link rel="stylesheet" type="text/css" href="/index.css">
 <?php $tmods["head_after_stylesheet"]();?>
 <script type="text/javascript">
