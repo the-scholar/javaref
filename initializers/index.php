@@ -193,7 +193,30 @@ y's value: 10</code></pre>
 Second Statement</code></pre>
 </div>
 <div class="example">
-	<h4></h4>
+	<h4>Order of Execution</h4>
+	<pre><code>class Test {
+	{
+		System.out.println("Point 1: " + ((Test) this).x); // At this point, x has not been declared, and so has value 0.
+		// x++;			// x is not yet declared.
+		// this.x++;	// x is not yet declared.
+		((Test) this).x++; // x is now 1.
+		System.out.println("Point 2: " + ((Test) this).x);
+	}
+	int x = 5; // x is set to 5.
+	{
+		System.out.println("Point 3: " + x);
+		// Increment x 3 times:
+		x++;
+		this.x++;
+		((Test) this).x++; // x is now 8
+		System.out.println("Point 4: " + x);
+	}
+}</code></pre>
+<p>This code prints the following:</p>
+<pre><code class="output">Point 1: 0
+Point 2: 1
+Point 3: 5
+Point 4: 8</code></pre>
 </div>
 <h2>Notes</h2>
 <ol>
