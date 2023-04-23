@@ -16,6 +16,7 @@
 	access privilege to the construct.
 </span>
 <h2>Syntax</h2>
+<p>A receiver parameter consists of:</p>
 <table class="syntax">
 	<tr>
 		<td>1</td>
