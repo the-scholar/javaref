@@ -8,6 +8,8 @@
 	run arbitrary code during the initialization of a class or an
 	interface. Both types of initializers are blocks of code.
 </p>
+<h2>Syntax</h2>
+<p>Initializer Blocks have the following forms:</p>
 <table class="syntax">
 	<tr>
 		<td>1</td>
