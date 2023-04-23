@@ -212,11 +212,20 @@ Second Statement</code></pre>
 		System.out.println("Point 4: " + x);
 	}
 }</code></pre>
-<p>This code prints the following:</p>
-<pre><code class="output">Point 1: 0
+	<p>This code prints the following:</p>
+	<pre><code class="output">Point 1: 0
 Point 2: 1
 Point 3: 5
 Point 4: 8</code></pre>
+</div>
+<div class="example">
+	<h4>
+		Mixing <code>static</code> and Instance Initializers
+	</h4>
+	<p>
+		Instance initializer code can access <code>static</code> fields. Class
+		initialization is begun before
+
 </div>
 <h2>Notes</h2>
 <ol>
@@ -251,4 +260,24 @@ Point 4: 8</code></pre>
 			are initialized to the value <code>0</code>.
 		</p>
 	</li>
+	<li>It is possible for instance initializer code to be executed before
+		<code>static</code> initializer code completes, particularly in the
+		case that <code>static</code> initializer code attempts to create an
+		object of the class currently being initialized: <pre><code>class Test {
+	// Instance initializer code
+	{
+		System.out.println(x);
+	}
+	
+	// Static initializer code
+	static int x;
+	static {
+		new Test(); // Create new Test before static initialization has completed. This causes the instance initializer to be run.
+		// The object instantiation prints 0, since x has not been assigned to yet.
+		
+		x = 10000;
+	}
+}</code></pre>
+		<p>Output:</p> <pre><code class="output">0</code></pre>
+
 </ol>
