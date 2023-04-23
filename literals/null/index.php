@@ -9,3 +9,4 @@
 	type is the null type. The null type cannot be expressed in Java code.
 </p>
 <h2>Syntax</h2>
+<p>The null literal has one form:</p>
