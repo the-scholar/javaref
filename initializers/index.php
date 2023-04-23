@@ -223,9 +223,69 @@ Point 4: 8</code></pre>
 		Mixing <code>static</code> and Instance Initializers
 	</h4>
 	<p>
-		Instance initializer code can access <code>static</code> fields. Class
-		initialization is begun before
+		Instance initializer code can access <code>static</code> fields:
+	</p>
+	<pre><code>public class Example {
+	static int count;
+	String str;
+	{
+		str = "Item #" + count++;
+	}
 
+	public static void main(String[] args) {
+		System.out.println(new Example().str); // Create one example object.
+		System.out.println(new Example().str); // Create another.
+		System.out.println(new Example().str);
+		
+		Example nextExample = new Example(), lastExample = new Example();
+		System.out.println();
+		System.out.println("Last two Example objects:");
+		System.out.println(nextExample.str);
+		System.out.println(lastExample.str);
+	}
+}</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">Item #0
+Item #1
+Item #2
+
+Last two Example objects:
+Item #3
+Item #4</code></pre>
+</div>
+<div class="example">
+	<h4>Initializers Interleaved With Members</h4>
+	<pre><code>public class C {
+	static {
+		System.out.println("Initializer 1 (Static)");
+	}
+	{
+		System.out.println("Initializer 2 (Instance)");
+	}
+	
+	C() {
+		System.out.println("Constructor");
+	}
+	
+	static {
+		System.out.println("Initializer 3 (Static)");
+	}
+	{
+		System.out.println("Initializer 4 (Instance)");
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("Main method started.");
+		new C();
+	}
+}</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">Initializer 1 (Static)
+Initializer 3 (Static)
+Main method started.
+Initializer 2 (Instance)
+Initializer 4 (Instance)
+Constructor</code></pre>
 </div>
 <h2>Notes</h2>
 <ol>
