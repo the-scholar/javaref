@@ -26,8 +26,14 @@
 	<tr>
 		<td><span class="syntax-piece">modifier-list</span></td>
 		<td>is a possibly empty set of keywords and annotations that can
-			contain, <code>public</code>, <code>abstract</code>, and any number
-			of annotations that are applicable to the annotation element.
+			contain:
+			<ul>
+				<li><code>public</code>,</li>
+				<li><code>abstract</code>,</li>
+				<li>and any number of annotations that are applicable to the
+					annotation element</li>
+			</ul>
+			<p>intermixed in any order.</p>
 		</td>
 	</tr>
 	<tr>
