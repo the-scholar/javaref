@@ -7,6 +7,7 @@
 	during tokenization of a Java program. Keywords are not considered
 	identifiers.</p>
 <h2>Syntax</h2>
+<p>Identifiers consist of:</p>
 <table class="syntax">
 	<tr>
 		<td>1</td>
