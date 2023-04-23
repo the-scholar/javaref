@@ -97,8 +97,8 @@
 	<tr>
 		<td><span class="syntax-piece">array-dims</span></td>
 		<td>is any number of consecutive pairs of <code>[]</code> strings,
-			optionally separated (e.g. <code style="white-space: pre;">[][] []</code>)
-			and/or split (e.g. <code style="white-space: pre;">[][][ ]</code>) by
+			optionally separated (e.g. <code style="white-space: pre;">[][]   []</code>)
+			and/or split (e.g. <code style="white-space: pre;">[][][   ]</code>) by
 			whitespace. Each <code>[]</code> pair may be annotated with an
 			annotation that targets type use. (Such annotation targets the
 			respective dimension of the array that the <code>[]</code>
