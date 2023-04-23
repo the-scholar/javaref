@@ -1,0 +1,1 @@
+<?php t("Annotation Elements", "Used to specify the properties that need to be given values when an annotation is used.");?>
