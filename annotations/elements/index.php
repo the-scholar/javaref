@@ -61,8 +61,17 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">default-value</span></td>
-		<td>is a constant expression, whose type is the same as the element's
-			declared type.</td>
+		<td>is:
+			<ul>
+				<li>if the element's type is an annotation type, a use of that
+					annotation type<sup info=1></sup>,<span info=1>An example of this
+						is:<pre><code>SuppressWarnings elementName() default @SupressWarnings("all");</code></pre>
+				</span>
+				</li>
+				<li>otherwise, a constant expression whose type is the same as the
+					element's declared type.</li>
+			</ul>
+		</td>
 	</tr>
 </table>
 <h2>Usage</h2>
@@ -100,11 +109,32 @@
 	are already deemed <code>public</code> and <code>abstract</code>.
 </p>
 <h3>Default Elements</h3>
+<p>
+	Annotation elements whose declarations contain a <code>default</code>
+	clause with a <span class="syntax-piece">default-value</span> do not
+	need to be specified when the annotation is utilized. The annotation
+	can be used as if the element was not declared in the annotation's
+	declaration, and the annotation use will have the <span
+		class="syntax-piece">default-value</span> for that element.
+</p>
 <!-- Discuss how default annotation elements do not have to be specified. -->
 <h3>Restrictions</h3>
 <h4>Inheritance</h4>
-<!-- Talk about how no public or protected method from Object or Annotation can be "overridden" with an annotation element decl. -->
+<p>
+	Annotation element declarations formally declare <code>abstract</code>
+	methods in the annotation type they are contained in. No annotation
+	element is allowed to override a <code>public</code> or <code>protected</code>
+	method from either <code>java.lang.Object</code> or <code>java.lang.annotation.Annotation</code>.
+	This is the case despite the method declared by an element declaration
+	being <code>abstract</code>.
+</p>
 <h4>Cyclic Elements</h4>
+<p>An annotation element's type may be another annotation. That
+	contained annotation may in turn have one or more elements whose types
+	are also annotations.</p>
+<p>An annotation element's type may not be or contain the annotation
+	that the element is declared in; an element's type may not cause a
+	cycle.</p>
 <!-- Talk about how having an element whose type, either directly or indirectly, contains an annotation of the current type, is a compile-time error. -->
 <h3>
 	<code>value()</code> Element
