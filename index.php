@@ -73,6 +73,12 @@
 					Declarations</a><br> <a class="c"
 					href="/methods/receiver-parameters">Receiver Parameters</a><br>
 			</div>
+			<div>
+				<span>Annotations</span><br>
+				<a class="c u" href="annotations/declarations">Annotation
+					Declarations</a><br>
+					<a class="c u" href="annotations/elements">Annotation Element Declarations</a>
+			</div>
 		</div>
 		<h3>Notes</h3>
 		<p>
