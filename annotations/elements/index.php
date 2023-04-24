@@ -117,7 +117,6 @@
 	declaration, and the annotation use will have the <span
 		class="syntax-piece">default-value</span> for that element.
 </p>
-<!-- Discuss how default annotation elements do not have to be specified. -->
 <h3>Restrictions</h3>
 <h4>Inheritance</h4>
 <p>
@@ -140,3 +139,14 @@
 	<code>value()</code> Element
 </h3>
 <!-- Discuss how this element is used to allow a anonymously supplying a value when using an annotation. -->
+<h2>Examples</h2>
+<div class="example">
+	<h4>Cyclic Annotation Reference</h4>
+	<p>This is an example of a set of annotations whose elements create a
+		cycle. Cyclic annotations will not compile.</p>
+	<pre><code>@interface First	{	Second value();	}
+@interface Second	{	Third value();	}
+@interface Third	{	First value();	}</code></pre>
+</div>
+<!-- Default Annotations -->
+<!-- Value Element -->
