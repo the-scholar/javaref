@@ -1,12 +1,6 @@
-<?php t("Annotation Element Declarations", "Used to specify the properties that need to be given values when an annotation is used.");?>
+<?php t("Annotation Element Declarations", "Used to specify the attributes that need to/can be given values when an annotation is used.");?>
 <h1>Annotation Element Declarations</h1>
-<p class="description">Defines a property of an annotation.</p>
-<p>
-	Annotations may, optionally, specify <i>elements</i> in their body,
-	which define properties that are provided in each use of the
-	annotation. The elements may have a default value, in which case their
-	being specified in an annotation's use is optional.
-</p>
+<p class="description">Defines an attribute of an annotation.</p>
 <h2>Syntax</h2>
 <p>An annotation element declaration consists of:</p>
 <table class="syntax">
@@ -71,3 +65,48 @@
 			declared type.</td>
 	</tr>
 </table>
+<h2>Usage</h2>
+<p>
+	Annotation element declarations are used exclusively in the body of <a
+		href="/annotations/declarations">annotation declarations</a>. They're
+	used to define attributes that must/may be specified when the declared
+	annotation is used. The <span style="color: #66ffe3;">annotation
+		element declarations</span> in the following example are highlighted
+	turquoise, and the <span style="color: #ffe62b;">annotation uses</span>
+	are higlighted yellow.
+</p>
+<pre><code>@interface SomeAnnotation {
+	<span style="color: #66ffe3;">int size();</span> // Required annotation element
+	<span style="color: #66ffe3;">String website() default "javaref.net";</span> // Optional annotation element
+}
+
+
+<span style="color: #ffe62b">@SomeAnnotation(<span
+			style="color: #9a935b;">size = 4</span>)</span> class AnnotationTest { // size is required, so it must be specified
+	<span style="color: #ffe62b">@SomeAnnotation(<span
+			style="color: #9a935b;">size = 12, website = "javaref.net/annotations/declarations"</span>)</span>
+	int x = 14; // Specify size explicitly
+
+	<span style="color: #ffe62b">@SomeAnnotation(<span
+			style="color: #9a935b;">website = "example.com", size = 10</span>)</span>
+	void someMethod() {	}
+}</code></pre>
+<p>
+	The type of value that may be provided for an element when using an
+	annotation is the <span class="syntax-piece">type</span> specified in
+	the element declaration. Annotation elements may optionally have both
+	or either of the keywords <code>public</code> and <code>abstract</code>,
+	but neither one has any effect, since annotation element declarations
+	are already deemed <code>public</code> and <code>abstract</code>.
+</p>
+<h3>Default Elements</h3>
+<!-- Discuss how default annotation elements do not have to be specified. -->
+<h3>Restrictions</h3>
+<h4>Inheritance</h4>
+<!-- Talk about how no public or protected method from Object or Annotation can be "overridden" with an annotation element decl. -->
+<h4>Cyclic Elements</h4>
+<!-- Talk about how having an element whose type, either directly or indirectly, contains an annotation of the current type, is a compile-time error. -->
+<h3>
+	<code>value()</code> Element
+</h3>
+<!-- Discuss how this element is used to allow a anonymously supplying a value when using an annotation. -->
