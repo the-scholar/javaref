@@ -58,7 +58,8 @@
 			</div>
 			<br>
 			<div>
-				<span>General</span><br> <a class="c" href="/identifiers">Identifiers</a>
+				<span>General</span><br> <a class="c" href="/identifiers">Identifiers</a><br>
+				<a class="c" href="/initializers">Static &amp; Instance Initializers</a><br>
 			</div>
 			<br>
 			<div>
