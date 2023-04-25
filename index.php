@@ -77,7 +77,7 @@
 				<span>Annotations</span><br>
 				<a class="c u" href="annotations/declarations">Annotation
 					Declarations</a><br>
-					<a class="c u" href="annotations/elements">Annotation Element Declarations</a>
+					<a class="c" href="annotations/elements">Annotation Element Declarations</a>
 			</div>
 		</div>
 		<h3>Notes</h3>
