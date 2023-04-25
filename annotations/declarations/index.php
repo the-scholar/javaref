@@ -13,3 +13,43 @@
 		</td>
 	</tr>
 </table>
+<p>
+	<i>where...</i>
+</p>
+<table class="syntax-breakdown">
+	<tr>
+		<td><span class="syntax-piece">modifier-list</span></td>
+		<td>is a possibly empty set of keywords and annotations that can
+			contain:
+			<ul>
+				<li>one of <code>public</code>, <code>protected</code>, or <code>private</code>,
+				</li>
+				<li><code>abstract</code>,</li>
+				<li><code>static</code>,</li>
+				<li><code>strictfp</code>,</li>
+				<li>and any number of annotations that are applicable to the
+					declaration,</li>
+			</ul>
+			<p>in any order.</p>
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">name</span></td>
+		<td>is any valid <a href="/identifiers">identifier</a> that is not the
+			same as a sibling type or a surrounding type, if the annotation is
+			not top-level.
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">annotation-members</span></td>
+		<td>is any number of:
+			<ul>
+				<li>field declarations,</li>
+				<li>type declarations,</li>
+				<li>and <a href="../elements">annotation element declarations</a>,
+				</li>
+			</ul>
+			<p>in any order.</p>
+		</td>
+
+</table>
