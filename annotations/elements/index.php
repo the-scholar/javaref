@@ -134,11 +134,16 @@
 <p>An annotation element's type may not be or contain the annotation
 	that the element is declared in; an element's type may not cause a
 	cycle.</p>
-<!-- Talk about how having an element whose type, either directly or indirectly, contains an annotation of the current type, is a compile-time error. -->
 <h3>
 	<code>value()</code> Element
 </h3>
-<!-- Discuss how this element is used to allow a anonymously supplying a value when using an annotation. -->
+<p>
+	If an annotation has an element named exactly <code>value</code> and
+	all other elements, if any, have default values, the annotation can
+	optionally be used and given a value without explicitly specifying an
+	element name. The provided value is implicitly assigned to the <code>value</code>
+	attribute of the annotation.
+</p>
 <h2>Examples</h2>
 <div class="example">
 	<h4>Cyclic Annotation Reference</h4>
@@ -148,5 +153,45 @@
 @interface Second	{	Third value();	}
 @interface Third	{	First value();	}</code></pre>
 </div>
-<!-- Default Annotations -->
-<!-- Value Element -->
+<div class="example">
+	<h4>Default Elements</h4>
+	<pre><code>@interface MadeBy {
+	int age() default 10;
+	double height() default 6.3;
+	String name() default "John";
+}
+
+class Test {
+	private @MadeBy int x;				// x is annotated with @MadeBy(name = "John", age = 10, height = 6.3)
+	private @MadeBy("Christine") int y;	// y is annotated with @MadeBy(name = "Christine", age = 10, height = 6.3)
+	private @MadeBy(age = 97) int z;	// z is annotated with @MadeBy(name = "John", age = 97, height = 6.3)
+}</code></pre>
+</div>
+<div class="example">
+	<h4>Value Element</h4>
+	<pre><code>@interface First	{	String value() default "Bird";	}
+@interface Second	{	int value() default 10;	}
+@interface Third	{	First[] value() default { @First("Dog"), @First("Cat"), @First("Cow") };	}
+
+class X {
+	@First("Cow")		int a;		// a is annotated with @First(value = "Cow")
+	@Second(14)			int b;		// b is annotated with @Second(value = 14)
+	@Second(value = 13)	int c;		// c is annotated with @Second(value = 13)
+	@Second				int d;		// d is annotated with @Second(value = 10)
+	@Third(@First)		int e;		// e is annotated with @Third(value = { @First(value = "Bird") })
+}</code></pre>
+</div>
+<h2>Notes</h2>
+<ol>
+	<li>An annotation where all elements have a <code>default</code> value
+		may still be used and given a value without explicitly naming the
+		attribute the value applies to, so long as the annotation has a <code>value</code>
+		attribute: <pre><code>@interface Test {
+	int something() default 10;
+	int somethingElse() default 20;
+	String value() default "ABC";
+}
+
+@Test("DEF") class X {	} // X is annotated with @Test(something = 10, somethingElse = 20, value = "DEF")</code></pre>
+	</li>
+</ol>
