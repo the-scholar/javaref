@@ -56,7 +56,7 @@
 		<td>is the <code>[</code> token followed by the <code>]</code> token,
 			used together to indicate that the element's type is an array. The
 			brackets can instead be included in the <span class="syntax-piece">type</span>,
-			but are allowed here for consistency with older versions.
+			but are allowed here for consistency with older versions of Java.
 		</td>
 	</tr>
 	<tr>
@@ -193,5 +193,37 @@ class X {
 }
 
 @Test("DEF") class X {	} // X is annotated with @Test(something = 10, somethingElse = 20, value = "DEF")</code></pre>
+	</li>
+	<li>The Java compiler in Eclipse, version 2022-12 (4.26.0) (Build
+		20221201-1913)<sup info=2></sup>, and versions prior, has a bug that
+		disallows the use of the <span class="syntax-piece">array-dims</span>
+		with the error message:<span info=2>Latest Eclipse version as of
+			writing.</span> <pre><code class="message">Extended dimensions are illegal in an annotation attribute declaration</code></pre>
+		<p>
+			Due to Eclipse's compilation process, an annotation element
+			declaration containing the <span class="syntax-piece">array-dims</span>
+			part can still be compiled by Eclipse's compiler, though the compiler
+			will introduce an unchecked exception to the compiled bytecode<sup
+				info=3></sup>. Executing the compiled code results in a <code>java.lang.Error</code>
+			with the above message.
+		</p> <span info=3>Eclipse uses an incremental compiler that introduces
+			runtime errors to the bytecode output, (instead of crashing), if it
+			encounters certain issues with code. The compiler produces a <code>java.lang.Error</code>
+			with the above error message as its <code>message</code>, which is
+			raised in code attempting to access the annotation such as in the
+			example below.
+	</span>
+		<p>An example to reproduce the issue is as follows:</p> <pre><code>public class AnnotationBug {
+	@Retention(RetentionPolicy.RUNTIME)
+	@interface Test {
+		String value()[] default {}; // Offending line
+	}
+
+	static @Test int x = 10;
+
+	public static void main(String[] args) throws NoSuchFieldException, SecurityException {
+		System.out.println(Arrays.toString(AnnotationBug.class.getDeclaredField("x").getAnnotations()));
+	}
+}</code></pre>
 	</li>
 </ol>
