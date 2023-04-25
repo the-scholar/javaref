@@ -341,5 +341,25 @@ Constructor</code></pre>
 	}
 }</code></pre>
 		<p>Output:</p> <pre><code class="output">0</code></pre>
-
+	</li>
+	<li>It is possible to run code before the <code>main(String[])</code>
+		method begins by including such code in a <code>static</code>
+		initializer block in the class containing the <code>main(String[])</code>
+		method: <pre><code>public class Test {
+	private static int x;
+	static {
+		Scanner s = new Scanner(System.in);
+		System.out.print("Please enter a number: ");
+		x = s.nextInt();
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("You entered " + x + " before the main method was called.");
+	}
+}</code></pre>
+		<p>Calling this code and providing the command-line input:</p> <pre><code
+			class="input">14
+</code></pre>
+		<p>will print the output:</p> <pre><code class="output">You entered 14 before the main method was called.</code></pre>
+	</li>
 </ol>
