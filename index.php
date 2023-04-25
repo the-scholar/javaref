@@ -74,10 +74,10 @@
 					href="/methods/receiver-parameters">Receiver Parameters</a><br>
 			</div>
 			<div>
-				<span>Annotations</span><br>
+				<span>Annotations</span><br> <a class="c u" href="annotations">Annotations</a><br>
 				<a class="c u" href="annotations/declarations">Annotation
-					Declarations</a><br>
-					<a class="c" href="annotations/elements">Annotation Element Declarations</a>
+					Declarations</a><br> <a class="c" href="annotations/elements">Annotation
+					Element Declarations</a>
 			</div>
 		</div>
 		<h3>Notes</h3>
