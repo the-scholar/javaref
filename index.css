@@ -128,7 +128,7 @@ pre>code {
 /* Syntax */
 /* Color Clearing */
 /* Remaining Sytnax */
-.syntax code {/* Literal Code */
+.syntax code, code.decorated, .decorated code {/* Literal Code */
 	font-family: monospace;
 	background: none;
 	border: none;
@@ -141,21 +141,21 @@ pre>code {
 	font-size: 1.1em;
 	color: #7fe384;
 }
-.syntax .syntax-piece {
+.syntax .syntax-piece, .decorated.syntax-piece, .decorated .syntax-piece {
 	border: #2a2a2a solid 1px;
 	padding: 1px 2px;
 	line-height: 2;
 }
 
-.syntax .optional {
+.syntax .optional, .decorated.optional, .decorated .optional {
 	border: #bb05 1px solid;
 	padding: 3px 1px;
 }
-.syntax .syntax-piece {
+.syntax .syntax-piece, .decorated.syntax-piece, .decorated .syntax-piece {
 	/* Override for when node is both optional and a syntax-piece */
 	padding: 1px 2px;
 }
-.syntax .optional::after {
+.syntax .optional::after, .decorated.optional::after, .decorated .optional::after {
 	content: "(optional)";
 	font-size: .55rem;
 	color: #bb0;
