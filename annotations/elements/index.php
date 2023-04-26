@@ -74,6 +74,10 @@
 		</td>
 	</tr>
 </table>
+<h3>Syntax Elements</h3>
+<p>
+	<span class="syntax-number">1</span> A declaration of an annotation element.
+</p>
 <h2>Usage</h2>
 <p>
 	Annotation element declarations are used exclusively in the body of <a

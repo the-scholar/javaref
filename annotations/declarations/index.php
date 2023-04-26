@@ -53,11 +53,16 @@
 		</td>
 	</tr>
 </table>
+<h3>Syntax Elements</h3>
+<p>
+	<span class="syntax-number">1</span> A declaration of an annotation type.
+</p>
 <h2>Usage</h2>
 <p>An annotation declaration introduces an annotation type to the
 	program. Annotation types are interfaces that can additionally be used
 	to annotate program elements.</p>
 <h3>Annotating</h3>
-<p>An annotation type can be used to
-<!-- TODO: Complete -->
+<p>
+	An annotation type can be used to
+	<!-- TODO: Complete -->
 <?php b();
