@@ -41,7 +41,7 @@
 <p>
 	<span class="syntax-number">2</span> An instance initializer.
 </p>
-<h2>Usage</h2>
+<h2>Behavior</h2>
 <p>
 	Initializers are used to run arbitrary code during initialization of a
 	class or object. They provide a means of executing statements and
@@ -83,7 +83,26 @@
 x's new value: 11
 y's value: 10</code></pre>
 </span>
-<h3>Constraints</h3>
+<h2>Constraints</h2>
+<h3>Placement</h3>
+<p>
+	Both <code>static</code> and instance initializers are permitted only
+	in the body of a type. <code>static</code> initializers may be present
+	in any <code>static</code> class or in an <code>enum</code> (which is
+	implicitly <code>static</code>). Specifically, <code>static</code>
+	initializers may be present in:
+</p>
+<ul>
+	<li><code>static</code> classes,</li>
+	<li>top-level classes,</li>
+	<li><code>enum</code>s, after the <code>enum</code> constant header.</li>
+</ul>
+<p>
+	Instance initializers may be placed in any <code>class</code> body,
+	(including inner, local, and anonymous classes), or in <code>enum</code>s
+	after the <code>enum</code> constant header.
+</p>
+<h3>Field Reference</h3>
 <p>
 	Both <code>static</code> and instance initializers are disallowed from
 	referencing a field if the following are true:
@@ -362,5 +381,13 @@ Constructor</code></pre>
 </code></pre>
 		<p>will print the output:</p> <pre><code class="output">You entered 14 before the main method was called.</code></pre>
 	</li>
+	<li>It is possible to include a <code>static</code> initializer inside
+		an <code>interface</code> (including <code>@interface</code>s)
+		indirectly, by declaring a <code>class</code> or <code>enum</code>
+		within the interface and including the <code>static</code> initializer
+		inside that.
+	</li>
 </ol>
-<?php b();
+<?php
+
+b();
