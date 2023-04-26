@@ -241,3 +241,4 @@ else
 		href="https://lingojam.com/ZalgoText">Zalgo Text Generator</a> - Used
 		to generate the <code>int</code> variable <a href="#VarInternalRef">above</a>.</li>
 </ol>
+<?php b();

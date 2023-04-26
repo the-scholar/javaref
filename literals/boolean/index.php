@@ -74,3 +74,4 @@ if (x) {
 	<p>Output:</p>
 	<pre><code class="output">X is true</code></pre>
 </div>
+<?php b();

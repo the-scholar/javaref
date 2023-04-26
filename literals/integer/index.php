@@ -95,7 +95,7 @@
 <h3>Syntax Elements</h3>
 <p>
 	<span class="syntax-number">1</span> A decimal integer literal (base
-	10), using digits <code>0</code> through <code>9</code> .
+	10), using digits <code>0</code> through <code>9</code>.
 </p>
 <p>
 	<span class="syntax-number">2</span> A hexadecimal integer literal
@@ -106,7 +106,7 @@
 </p>
 <p>
 	<span class="syntax-number">3</span> An octal integer literal (base 8),
-	using digits <code>0</code> through <code>7</code> . The <code>0</code>
+	using digits <code>0</code> through <code>7</code>. The <code>0</code>
 	prefix is only used to signify that the literal is in octal notation
 	and does not otherwise affect the literal's value.
 </p>
@@ -324,4 +324,4 @@ System.out.println(z);</code></pre>
 	<li><code>0</code> is the only integer literal whose leftmost digit is
 		<code>0</code> that is not an octal literal.</li>
 </ol>
-<?php b();?>
+<?php b();

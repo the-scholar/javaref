@@ -24,3 +24,15 @@
 			<span class="syntax-piece">element-value-list</span> <code>)</code></td>
 	</tr>
 </table>
+<p>
+	<i>where...</i>
+</p>
+<table class="syntax-breakdown">
+	<tr>
+		<td><span class="syntax-piece">name</span></td>
+		<td>is an identifier that names the annotation.</td>
+	</tr>
+	<tr><td><span class="syntax-piece"></span>
+</table>
+<!-- TODO: Complete -->
+<?php b();

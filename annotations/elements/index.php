@@ -227,3 +227,4 @@ class X {
 }</code></pre>
 	</li>
 </ol>
+<?php b();

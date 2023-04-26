@@ -372,3 +372,4 @@ System.out.println(new BigDecimal(z));</code></pre>
 		are used for the exponent part of decimal floating point literals).
 	</li>
 </ol>
+<?php b();

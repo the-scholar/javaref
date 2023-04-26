@@ -51,5 +51,13 @@
 			</ul>
 			<p>in any order.</p>
 		</td>
-
+	</tr>
 </table>
+<h2>Usage</h2>
+<p>An annotation declaration introduces an annotation type to the
+	program. Annotation types are interfaces that can additionally be used
+	to annotate program elements.</p>
+<h3>Annotating</h3>
+<p>An annotation type can be used to
+<!-- TODO: Complete -->
+<?php b();

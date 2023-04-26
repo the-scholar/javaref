@@ -363,3 +363,4 @@ Constructor</code></pre>
 		<p>will print the output:</p> <pre><code class="output">You entered 14 before the main method was called.</code></pre>
 	</li>
 </ol>
+<?php b();

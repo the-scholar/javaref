@@ -10,3 +10,5 @@
 </p>
 <h2>Syntax</h2>
 <p>The null literal has one form:</p>
+
+<?php b();

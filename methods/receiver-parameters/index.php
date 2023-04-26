@@ -158,3 +158,4 @@ class Top {
 	<p>In such cases that other parameters are used, the receiver parameter
 		must be first in the parameter list.</p>
 </div>
+<?php b();
