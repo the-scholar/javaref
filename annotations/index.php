@@ -32,7 +32,39 @@
 		<td><span class="syntax-piece">name</span></td>
 		<td>is an identifier that names the annotation.</td>
 	</tr>
-	<tr><td><span class="syntax-piece"></span>
+	<tr>
+		<td><span class="syntax-piece">element-value</span></td>
+		<td>is a constant expression or another (nested) annotation that
+			matches the type of the annotation's <code>value</code> element.
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">element-value-list</span></td>
+		<td>is a map of annotation elements to constant expressions or other
+			annotations. The map is specified as a comma-separated list of
+			key-value pairs of the form:
+			<div class="decorated" style="margin-left: 2em;">
+				<span class="syntax-piece">element-name</span> <code>=</code> <span
+					class="syntax-piece">value</span>
+			</div> where <span class="syntax-piece">element-name</span> specifies
+			which element the value is assigned to and <span class="syntax-piece">value</span>
+			specifies the value to assign.
+		</td>
+	</tr>
 </table>
-<!-- TODO: Complete -->
-<?php b();
+<h3>Syntax Elements</h3>
+<p>
+	<span class="syntax-number">1</span> An annotation without attributes
+	provided (a <i>marker</i> annotation).
+</p>
+<p>
+	<span class="syntax-number">2</span> An annotation that specifies a
+	single attribute, <code>value</code>, of its annotation type.
+</p>
+<p>
+	<span class="syntax-number">3</span> A normal annotation, with
+	attributes explicitly named.
+</p>
+<?php
+
+b();
