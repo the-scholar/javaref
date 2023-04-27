@@ -107,6 +107,18 @@ p.description {
 	font-style: italic;
 }
 
+/* Tables */
+table td, table {
+	border: 1px solid #2a2a2a;
+	border-collapse: collapse;
+	padding: .3em;
+}
+/* Stuff to undo unwanted table styles for syntax & syntax breakdown tables */
+.syntax td, .syntax-breakdown td {
+	border: none;
+	border-collapse: initial;
+}
+
 code {
 	background: #333;
 	padding: 0 3px;
@@ -126,8 +138,6 @@ pre>code {
 }
 
 /* Syntax */
-/* Color Clearing */
-/* Remaining Sytnax */
 .syntax code, code.decorated, .decorated code {/* Literal Code */
 	font-family: monospace;
 	background: none;
