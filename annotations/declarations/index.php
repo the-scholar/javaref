@@ -102,25 +102,56 @@
 	</tr>
 	<tr>
 		<td>Type</td>
-		<td>any <code>class</code>, <code>enum</code>, and <code>interface</code> declarations
-			(including <code>@interface</code> annotation declarations)</td>
+		<td>any <code>class</code>, <code>enum</code>, and <code>interface</code>
+			declarations (including <code>@interface</code> annotation
+			declarations)
+		</td>
 	</tr>
 	<tr>
-		<td>Annotation Type</td>
-		<td>any <code>@interface</code> annotation declarations</td>
+		<td>Annotation Type<sup info=3></sup></td>
+		<td>any <code>@interface</code> annotation declarations
+		</td>
 	</tr>
 	<!-- TODO: Complete -->
 </table>
+<span info=3> <!-- TODO: Discuss how the <code>TYPE</code> target is a superset of this target, and clarify what the behavior is if both are included. -->
+</span>
 <h4>Duplication</h4>
 <p>
 	The <code>@Target</code> annotation does not permit duplicate targets
-	in its arguments. <code>@Target</code> is used with duplicate targets,
-	a compiler error occurs.
+	in its arguments. If <code>@Target</code> is used with duplicate
+	targets (even if the use of <code>@Target</code> is not an application
+	to an annotation declaration), a compiler error occurs.
 </p>
+<h3>
+	<span class="syntax-piece">annotation-members</span>
+</h3>
+<p>Annotations may declare, as members, any number of the following:</p>
+<ul>
+	<li><a href="elements">annotation elements</a>,</li>
+	<li>nested types,</li>
+	<li>constants</li>
+</ul>
+<p>Each member may be located anywhere directly in the body of the
+	annotation declaration.</p>
+<h4>Annotation Elements</h4>
+<p>
+	Each annotation element in an annotation specifies an attribute of the
+	annotation. They are described in detail <a href="elements">here</a>.
+</p>
+<h4>Nested Types</h4>
+<!-- TODO: Discuss nested types. Make sure to note that classes are implicitly declared as static. -->
+<h4>Constants</h4>
+<!-- Discuss the slightly niche lack of initializer blocks or "collective initializer code" for these constants, and how they HAVE to be given a value ONLY in their declaration. -->
+<h2>Examples</h2>
+<!-- TODO: Target Examples -->
+<!-- TODO: Classes -->
+<!-- TODO: Enums -->
+<!-- TODO: Constants -->
 <h2>Notes</h2>
 <ol>
-	<li id="note-1">Annotations may be declared so that they cannot
-		be applied to other elements using the meta-annotation <code>@Target({})</code>.
+	<li id="note-1">Annotations may be declared so that they cannot be
+		applied to other elements using the meta-annotation <code>@Target({})</code>.
 		Such an annotation will raise a compile-time error if used on any
 		element.
 		<p>Nevertheless, the annotation may still be used as an element for
@@ -166,6 +197,9 @@
 		return 0;
 	}
 };</code></pre>
+	</li>
+	<li>
+		<!-- TODO: Discuss how an annotation's constants must be given a value only at declaration, and, unlike other types' static final fields, cannot be initialized in subsequent initializers. -->
 	</li>
 </ol>
 <?php
