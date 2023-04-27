@@ -79,8 +79,11 @@
 </p>
 <ul>
 	<li>If the <code>@Target</code> annotation is applied to an annotation
-		declaration, the declaration may only be used to annotate the program
+		declaration, the declaration may be used to annotate the program
 		elements specified in the <code>@Target</code> annotation.<sup info=2></sup>
+		More precisely, such an annotation may apply to a program element if
+		any of the targets specified permits the annotation to be used on that
+		element.
 	</li>
 	<li>Otherwise, if no set is specified, the annotation may target all
 		annotatable program elements except type parameter declarations.</li>
@@ -99,17 +102,24 @@
 	</tr>
 	<tr>
 		<td>Type</td>
-		<td><code>class</code>es, <code>enum</code>s, and <code>interface</code>s
-			(including annotations)</td>
+		<td>any <code>class</code>, <code>enum</code>, and <code>interface</code> declarations
+			(including <code>@interface</code> annotation declarations)</td>
 	</tr>
 	<tr>
 		<td>Annotation Type</td>
-		<td>Only annotation types.</td>
+		<td>any <code>@interface</code> annotation declarations</td>
 	</tr>
+	<!-- TODO: Complete -->
 </table>
+<h4>Duplication</h4>
+<p>
+	The <code>@Target</code> annotation does not permit duplicate targets
+	in its arguments. <code>@Target</code> is used with duplicate targets,
+	a compiler error occurs.
+</p>
 <h2>Notes</h2>
 <ol>
-	<li accesskey="note-1">Annotations may be declared so that they cannot
+	<li id="note-1">Annotations may be declared so that they cannot
 		be applied to other elements using the meta-annotation <code>@Target({})</code>.
 		Such an annotation will raise a compile-time error if used on any
 		element.
