@@ -114,9 +114,10 @@ table td, table {
 	padding: .3em;
 }
 /* Stuff to undo unwanted table styles for syntax & syntax breakdown tables */
-.syntax td, .syntax-breakdown td {
+.syntax, .syntax td, .syntax-breakdown, .syntax-breakdown td {
 	border: none;
 	border-collapse: initial;
+	padding: initial;
 }
 
 code {
