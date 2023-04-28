@@ -192,7 +192,15 @@
 		</span>
 		</td>
 	</tr>
-	<!-- TODO: Complete -->
+	<tr>
+		<td>Type Parameter</td>
+		<td>any type parameter declaration.</td>
+	</tr>
+	<tr>
+		<td>Type Use</td>
+		<td>the use of a type. For details, see <a href="../">annotations</a>.
+		</td>
+	</tr>
 </table>
 <h4>Duplication</h4>
 <p>
