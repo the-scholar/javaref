@@ -172,6 +172,26 @@
 		</span>
 		</td>
 	</tr>
+	<tr>
+		<td>Package</td>
+		<td>implementation-dependent<sup info=7></sup> package declaration <span
+			info=7>Syntactically (disregarding semantic restrictions),
+				annotations targeting packages may be placed in front of the <code>package</code>
+				keyword on any package declaration in any file, however, each
+				package is subject to the constraint that only one such declaration
+				may be annotated.
+				<p>
+					Java provides implementations with liberty for upholding this
+					requirement. (File-based) implementations typically consider a
+					canonical package declaration in a file named <code>package-info.java</code>,
+					within the package being annotated, whose contents begin with the
+					package declaration, possibly with annotations. Such
+					implementations may disallow the annotated package declaration to
+					be placed elsewhere.
+				</p>
+		</span>
+		</td>
+	</tr>
 	<!-- TODO: Complete -->
 </table>
 <h4>Duplication</h4>
