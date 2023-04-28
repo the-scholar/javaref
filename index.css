@@ -116,6 +116,10 @@ table td, table {
 	border-collapse: collapse;
 	padding: .3em;
 }
+table th {
+	padding-left: .5em;
+	padding-right: .5em;
+}
 table {
 	margin: 1em 0 .5em;
 }
