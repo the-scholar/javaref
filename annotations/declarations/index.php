@@ -112,6 +112,28 @@
 		<td>any <code>@interface</code> annotation declarations
 		</td>
 	</tr>
+	<tr>
+		<td>Method</td>
+		<td>any method declaration, including <code>abstract</code>
+			declarations and annotation element declarations.
+		</td>
+	</tr>
+	<tr>
+		<td>Constructor</td>
+		<td>any constructor declaration.</td>
+	</tr>
+	<tr>
+		<td>Field</td>
+		<td>any field, including constants declared in <code>@interface</code>s
+			and <code>enum</code> constants. (Note that field annotations can be
+			used on their own constant members.)
+		</td>
+	</tr>
+	<tr>
+		<td>Parameter</td>
+		<td>any method parameter (not including <a
+			href="/methods/receiver-parameters">receiver parameters</a>). <!-- TODO: Research receiver parameters. It looks like they cannot be annotated with this target, but check the spec. --></td>
+	</tr>
 	<!-- TODO: Complete -->
 </table>
 <span info=3> <!-- TODO: Discuss how the <code>TYPE</code> target is a superset of this target, and clarify what the behavior is if both are included. -->
