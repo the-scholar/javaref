@@ -104,12 +104,12 @@
 		<td>Type</td>
 		<td>any <code>class</code>, <code>enum</code>, and <code>interface</code>
 			declarations (including any <code>@interface</code> annotation
-			declarations)
+			declarations).
 		</td>
 	</tr>
 	<tr>
 		<td>Annotation Type<sup info=3></sup></td>
-		<td>any <code>@interface</code> annotation declarations <span info=3>The
+		<td>any <code>@interface</code> annotation declarations. <span info=3>The
 				<i>Type</i> target is a superset of this target; declaring an
 				annotation with both <i>Type</i> and <i>Annotation Type</i> as
 				targets is redundant. This target is primarily used to declare
@@ -174,7 +174,7 @@
 	</tr>
 	<tr>
 		<td>Package</td>
-		<td>implementation-dependent<sup info=7></sup> package declaration <span
+		<td>implementation-dependent<sup info=7></sup> package declaration. <span
 			info=7>Syntactically (disregarding semantic restrictions),
 				annotations targeting packages may be placed in front of the <code>package</code>
 				keyword on any package declaration in any file, however, each
