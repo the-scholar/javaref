@@ -66,9 +66,36 @@
 	attributes explicitly named.
 </p>
 <h2>Usage</h2>
-<p>To annotate a program element, the annotation is placed before the
-	element, (typically alongside modifiers if the element accepts
-	modifiers).</p>
+<p>Annotations associate supplementary information with a Java element
+	in a program. They can apply to:</p>
+<ul>
+	<li>declarations for the following:
+		<ul>
+			<li>Types</li>
+			<li>Methods</li>
+			<li>Constructors</li>
+			<li>Fields</li>
+			<li>Parameters</li>
+			<li>Local Variables</li>
+			<li>Packages</li>
+			<li>Type Parameters</li>
+		</ul>
+	</li>
+	<li>and uses of Types.</li>
+</ul>
+<p>
+	The location in source code that an annotation may be present at to
+	apply to a certain element is dictated by the syntax for that element.
+	For example, see <a href="/methods/declarations">Method Declarations</a>.
+</p>
+<p>
+	Annotations that apply to declarations are almost always specified in
+	the declaration's <i>modifier list</i>, intermixed with keyword
+	modifiers, such as <code>public</code>, <code>protected</code>, <code>static</code>,
+	<code>final</code>, etc. Annotations that apply to type uses may appear
+	in these same locations (subject to some constraints) or may more
+	closely to the type. For details, see below.
+</p>
 <h3>Targets</h3>
 
 <h2>Meta Annotations</h2>
