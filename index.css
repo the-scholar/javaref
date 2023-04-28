@@ -116,6 +116,9 @@ table td, table {
 	border-collapse: collapse;
 	padding: .3em;
 }
+table {
+	margin: 1em 0 .5em;
+}
 /* Stuff to undo unwanted table styles for syntax & syntax breakdown tables */
 .syntax, .syntax td, .syntax-breakdown, .syntax-breakdown td {
 	border: none;
