@@ -65,6 +65,12 @@
 	<span class="syntax-number">3</span> A normal annotation, with
 	attributes explicitly named.
 </p>
-<?php
+<h2>Usage</h2>
+<p>To annotate a program element, the annotation is placed before the
+	element, (typically alongside modifiers if the element accepts
+	modifiers).</p>
+<h3>Targets</h3>
 
+<h2>Meta Annotations</h2>
+<?php
 b();
