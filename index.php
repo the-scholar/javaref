@@ -82,8 +82,8 @@
 		</div>
 		<h3>Notes</h3>
 		<p>
-			<span style="color: #d93838;">Red</span> items point to pages that do
-			not yet exist.
+			<span style="color: #d93838;">Red</span> items point to pages that
+			are not complete.
 		</p>
 	</div>
 </body>
