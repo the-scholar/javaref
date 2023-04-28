@@ -202,6 +202,10 @@
 		</td>
 	</tr>
 </table>
+<div class="note">
+	For a more detailed analysis, refer to the relevant sections in <a
+		href="../">Annotations</a>.
+</div>
 <h4>Duplication</h4>
 <p>
 	The <code>@Target</code> annotation does not permit duplicate targets
