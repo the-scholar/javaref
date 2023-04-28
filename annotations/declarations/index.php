@@ -103,13 +103,19 @@
 	<tr>
 		<td>Type</td>
 		<td>any <code>class</code>, <code>enum</code>, and <code>interface</code>
-			declarations (including <code>@interface</code> annotation
+			declarations (including any <code>@interface</code> annotation
 			declarations)
 		</td>
 	</tr>
 	<tr>
 		<td>Annotation Type<sup info=3></sup></td>
-		<td>any <code>@interface</code> annotation declarations
+		<td>any <code>@interface</code> annotation declarations <span info=3>The
+				<i>Type</i> target is a superset of this target; declaring an
+				annotation with both <i>Type</i> and <i>Annotation Type</i> as
+				targets is redundant. This target is primarily used to declare
+				meta-annotations, as annotations with <i>only</i> this target may
+				not be applied to any type; just other annotations' declarations.
+		</span>
 		</td>
 	</tr>
 	<tr>
@@ -124,20 +130,50 @@
 	</tr>
 	<tr>
 		<td>Field</td>
-		<td>any field, including constants declared in <code>@interface</code>s
-			and <code>enum</code> constants. (Note that field annotations can be
-			used on their own constant members.)
+		<td>any field declaration<sup info=4></sup>, including constants
+			declared in <code>@interface</code>s and <code>enum</code> constants.
+			(Note that annotations targeting fields can be used on their own
+			member constants.) <span info=4>Formally, annotations targeting
+				fields apply to the <i>declaration</i> that declares a field, or set
+				of fields.
+				<p>
+					In practice, each reflection <code>Field</code> object of a single
+					declaration, annotated with an annotation that targets fields, will
+					expose the annotation through <code>Field#getAnnotations()</code>
+					and similar methods.
+				</p>
+		</span>
 		</td>
 	</tr>
 	<tr>
 		<td>Parameter</td>
 		<td>any method parameter (not including <a
-			href="/methods/receiver-parameters">receiver parameters</a>). <!-- TODO: Research receiver parameters. It looks like they cannot be annotated with this target, but check the spec. --></td>
+			href="/methods/receiver-parameters">receiver parameters</a><sup
+			info=5></sup>). <span info=5>Receiver parameters are not formal
+				parameters, so they may not be annotated by virtue of the annotation
+				being declared to target a parameter.
+				<p>
+					Receiver parameters allow only their type to be annotated, so
+					annotations contained in their syntax must target type use. For
+					receiver parameter syntax, see, <a
+						href="/methods/receiver-parameters">Receiver Parameters</a>.
+				</p>
+		</span></td>
+	</tr>
+	<tr>
+		<td>Local Variable</td>
+		<td>any local variable declaration<sup info=6></sup>, including those
+			in the header of a <code>for</code> loop or <code>try</code>-with-resources
+			statement. <span info=6>Annotations of this target apply to the <i>declaration</i>
+				that declares a local variable, or possibly a list of local
+				variables.
+				<p>Since local variables cannot be accessed through reflection, such
+					detail has no programmatic impact.</p>
+		</span>
+		</td>
 	</tr>
 	<!-- TODO: Complete -->
 </table>
-<span info=3> <!-- TODO: Discuss how the <code>TYPE</code> target is a superset of this target, and clarify what the behavior is if both are included. -->
-</span>
 <h4>Duplication</h4>
 <p>
 	The <code>@Target</code> annotation does not permit duplicate targets
