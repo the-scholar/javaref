@@ -72,6 +72,9 @@
 	an annotation, a warning is issued.
 </span>
 <h3>Targets</h3>
+<h4>
+	<code>@Target</code> Behavior
+</h4>
 <p>
 	An annotation declaration may specify a set of <i>targets</i> that
 	determines what program elements the annotation may be used on using
@@ -94,119 +97,140 @@
 	element, for example <code>@Target({})</code>. For uses of this, see <a
 	href="#note-1">note 1</a> below.
 </span>
-<p>The following table lists each annotation target along with a
-	description of what elements it allows an annotation to apply to:</p>
-<table>
-	<tr>
-		<th>Target</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>Type</td>
-		<td>any <code>class</code>, <code>enum</code>, and <code>interface</code>
-			declarations (including any <code>@interface</code> annotation
-			declarations).
-		</td>
-	</tr>
-	<tr>
-		<td>Annotation Type<sup info=3></sup></td>
-		<td>any <code>@interface</code> annotation declarations. <span info=3>The
-				<i>Type</i> target is a superset of this target; declaring an
-				annotation with both <i>Type</i> and <i>Annotation Type</i> as
-				targets is redundant. This target is primarily used to declare
-				meta-annotations, as annotations with <i>only</i> this target may
-				not be applied to any type; just other annotations' declarations.
-		</span>
-		</td>
-	</tr>
-	<tr>
-		<td>Method</td>
-		<td>any method declaration, including <code>abstract</code>
-			declarations and annotation element declarations.
-		</td>
-	</tr>
-	<tr>
-		<td>Constructor</td>
-		<td>any constructor declaration.</td>
-	</tr>
-	<tr>
-		<td>Field</td>
-		<td>any field declaration<sup info=4></sup>, including constants
-			declared in <code>@interface</code>s and <code>enum</code> constants.
-			(Note that annotations targeting fields can be used on their own
-			member constants.) <span info=4>Formally, annotations targeting
-				fields apply to the <i>declaration</i> that declares a field, or set
-				of fields.
-				<p>
-					In practice, each reflection <code>Field</code> object of a single
-					declaration, annotated with an annotation that targets fields, will
-					expose the annotation through <code>Field#getAnnotations()</code>
-					and similar methods.
-				</p>
-		</span>
-		</td>
-	</tr>
-	<tr>
-		<td>Parameter</td>
-		<td>any method parameter (not including <a
-			href="/methods/receiver-parameters">receiver parameters</a><sup
-			info=5></sup>). <span info=5>Receiver parameters are not formal
-				parameters, so they may not be annotated by virtue of the annotation
-				being declared to target a parameter.
-				<p>
-					Receiver parameters allow only their type to be annotated, so
-					annotations contained in their syntax must target type use. For
-					receiver parameter syntax, see, <a
-						href="/methods/receiver-parameters">Receiver Parameters</a>.
-				</p>
-		</span></td>
-	</tr>
-	<tr>
-		<td>Local Variable</td>
-		<td>any local variable declaration<sup info=6></sup>, including those
-			in the header of a <code>for</code> loop or <code>try</code>-with-resources
-			statement. <span info=6>Annotations of this target apply to the <i>declaration</i>
-				that declares a local variable, or possibly a list of local
-				variables.
-				<p>Since local variables cannot be accessed through reflection, such
-					detail has no programmatic impact.</p>
-		</span>
-		</td>
-	</tr>
-	<tr>
-		<td>Package</td>
-		<td>implementation-dependent<sup info=7></sup> package declaration. <span
-			info=7>Syntactically (disregarding semantic restrictions),
-				annotations targeting packages may be placed in front of the <code>package</code>
-				keyword on any package declaration in any file, however, each
-				package is subject to the constraint that only one such declaration
-				may be annotated.
-				<p>
-					Java provides implementations with liberty for upholding this
-					requirement. (File-based) implementations typically consider a
-					canonical package declaration in a file named <code>package-info.java</code>,
-					within the package being annotated, whose contents begin with the
-					package declaration, possibly with annotations. Such
-					implementations may disallow the annotated package declaration to
-					be placed elsewhere.
-				</p>
-		</span>
-		</td>
-	</tr>
-	<tr>
-		<td>Type Parameter</td>
-		<td>any type parameter declaration.</td>
-	</tr>
-	<tr>
-		<td>Type Use</td>
-		<td>the use of a type. For details, see <a href="../">annotations</a>.
-		</td>
-	</tr>
-</table>
-<div class="note">
-	For a more detailed analysis, refer to the relevant sections in <a
-		href="../">Annotations</a>.
-</div>
+<h4>
+	<code>@Target</code> Application
+</h4>
+<p>
+	The <code>@Target</code> meta-annotation, if used, must be located in
+	the <span class="syntax-piece">modifier-list</span> of the annotation
+	declaration it applies to. The meta-annotation must be supplied a
+	(possibly empty) array of <code>java.lang.annotation.ElementType</code>
+	values, without duplicates<sup info=3></sup>, for the <code>value()</code>
+	element of <code>@Target</code>.
+</p>
+<span info=3>The <code>@Target</code> annotation may never include
+	duplicate elements in its array <code>value</code>. This is enforced by
+	the compiler. The following: <pre><code>@Target({ElementType.TYPE, ElementType.TYPE})
+@interface X {}</code></pre>
+	<p>results in a compiler error.</p></span>
+
+<!-- Temporary section. Will remain until information is moved to proper page (/annotations) -->
+<section style="background: #b003">
+	<!-- TODO: Move information to respective sections in /annotations and then remove this table. -->
+	<p>The following table lists each annotation target along with a
+		description of what elements it allows an annotation to apply to:</p>
+	<table>
+		<tr>
+			<th>Target</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>Type</td>
+			<td>any <code>class</code>, <code>enum</code>, and <code>interface</code>
+				declarations (including any <code>@interface</code> annotation
+				declarations).
+			</td>
+		</tr>
+		<tr>
+			<td>Annotation Type<sup info=3></sup></td>
+			<td>any <code>@interface</code> annotation declarations. <span info=3>The
+					<i>Type</i> target is a superset of this target; declaring an
+					annotation with both <i>Type</i> and <i>Annotation Type</i> as
+					targets is redundant. This target is primarily used to declare
+					meta-annotations, as annotations with <i>only</i> this target may
+					not be applied to any type; just other annotations' declarations.
+			</span>
+			</td>
+		</tr>
+		<tr>
+			<td>Method</td>
+			<td>any method declaration, including <code>abstract</code>
+				declarations and annotation element declarations.
+			</td>
+		</tr>
+		<tr>
+			<td>Constructor</td>
+			<td>any constructor declaration.</td>
+		</tr>
+		<tr>
+			<td>Field</td>
+			<td>any field declaration<sup info=4></sup>, including constants
+				declared in <code>@interface</code>s and <code>enum</code>
+				constants. (Note that annotations targeting fields can be used on
+				their own member constants.) <span info=4>Formally, annotations
+					targeting fields apply to the <i>declaration</i> that declares a
+					field, or set of fields.
+					<p>
+						In practice, each reflection <code>Field</code> object of a single
+						declaration, annotated with an annotation that targets fields,
+						will expose the annotation through <code>Field#getAnnotations()</code>
+						and similar methods.
+					</p>
+			</span>
+			</td>
+		</tr>
+		<tr>
+			<td>Parameter</td>
+			<td>any method parameter (not including <a
+				href="/methods/receiver-parameters">receiver parameters</a><sup
+				info=5></sup>). <span info=5>Receiver parameters are not formal
+					parameters, so they may not be annotated by virtue of the
+					annotation being declared to target a parameter.
+					<p>
+						Receiver parameters allow only their type to be annotated, so
+						annotations contained in their syntax must target type use. For
+						receiver parameter syntax, see, <a
+							href="/methods/receiver-parameters">Receiver Parameters</a>.
+					</p>
+			</span></td>
+		</tr>
+		<tr>
+			<td>Local Variable</td>
+			<td>any local variable declaration<sup info=6></sup>, including those
+				in the header of a <code>for</code> loop or <code>try</code>-with-resources
+				statement. <span info=6>Annotations of this target apply to the <i>declaration</i>
+					that declares a local variable, or possibly a list of local
+					variables.
+					<p>Since local variables cannot be accessed through reflection,
+						such detail has no programmatic impact.</p>
+			</span>
+			</td>
+		</tr>
+		<tr>
+			<td>Package</td>
+			<td>implementation-dependent<sup info=7></sup> package declaration. <span
+				info=7>Syntactically (disregarding semantic restrictions),
+					annotations targeting packages may be placed in front of the <code>package</code>
+					keyword on any package declaration in any file, however, each
+					package is subject to the constraint that only one such declaration
+					may be annotated.
+					<p>
+						Java provides implementations with liberty for upholding this
+						requirement. (File-based) implementations typically consider a
+						canonical package declaration in a file named <code>package-info.java</code>,
+						within the package being annotated, whose contents begin with the
+						package declaration, possibly with annotations. Such
+						implementations may disallow the annotated package declaration to
+						be placed elsewhere.
+					</p>
+			</span>
+			</td>
+		</tr>
+		<tr>
+			<td>Type Parameter</td>
+			<td>any type parameter declaration.</td>
+		</tr>
+		<tr>
+			<td>Type Use</td>
+			<td>the use of a type. For details, see <a href="../">annotations</a>.
+			</td>
+		</tr>
+	</table>
+	<div class="note">
+		For a more detailed analysis, refer to the relevant sections in <a
+			href="../">Annotations</a>.
+	</div>
+</section>
 <h4>Duplication</h4>
 <p>
 	The <code>@Target</code> annotation does not permit duplicate targets
