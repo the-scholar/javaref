@@ -86,7 +86,8 @@
 		element.
 	</li>
 	<li>Otherwise, if no set is specified, the annotation may target all
-		annotatable program elements except type parameter declarations.</li>
+		annotatable program elements except type parameter declarations and
+		type uses.</li>
 </ul>
 <span info=2>Note that if <code>@Target</code> is specified with an
 	empty set, the annotation may not be applied to <i>any</i> program
