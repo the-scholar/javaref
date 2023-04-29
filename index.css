@@ -76,6 +76,9 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+a.unlinked {
+	color: #d93838;
+}
 
 /* Section Headers */
 h1 {
