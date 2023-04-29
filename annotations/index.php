@@ -87,6 +87,9 @@
 	The location in source code that an annotation may be present at to
 	apply to a certain element is dictated by the syntax for that element.
 	For example, see <a href="/methods/declarations">Method Declarations</a>.
+	Semantic rules invovling the annotation's declared targets define
+	whether annotations deemed to apply to certain elements are illegal and
+	will raise compiler errors.
 </p>
 <p>
 	Annotations that apply to declarations are almost always specified in
@@ -97,7 +100,98 @@
 	closely to the type. For details, see below.
 </p>
 <h3>Targets</h3>
-
-<h2>Meta Annotations</h2>
+<p>
+	An annotation's declaration must, itself, be
+	annotated with the <code>@Target</code> annotation for a target (or set
+	of targets) to be specified. (See
+</p>
+<p>
+	There are 10 possible targets that an annotation declaration may
+	specify in a <code>@Target</code> meta-annotation:
+</p>
+<table>
+	<tr>
+		<th>Index</th>
+		<th>Target</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td><a href="#target.type">Type</a></td>
+		<td>any <code>class</code>, <code>enum</code>, and <code>interface</code>
+			declarations (including any <code>@interface</code> annotation
+			declarations).
+		</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td><a href="#target.annotation-type">Annotation Type</a></td>
+		<td>any <code>@interface</code> annotation declarations.
+		</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td><a href="#target.method">Method</a></td>
+		<td>any method declaration, including <code>abstract</code>
+			declarations and annotation element declarations.
+		</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td><a href="#target.constructor">Constructor</a></td>
+		<td>any constructor declaration.</td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td><a href="#target.field">Field</a></td>
+		<td>any field declaration, including constants declared in <code>@interface</code>s
+			and <code>enum</code> constants. (Note that annotations targeting
+			fields can be used on their own member constants.)
+		</td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td><a href="#target.parameter">Parameter</a></td>
+		<td>any method parameter (not including <a
+			href="/methods/receiver-parameters">receiver parameters</a>).
+		</td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td><a href="#target.local-variable">Local Variable</a></td>
+		<td>any local variable declaration, including those in the header of a
+			<code>for</code> loop or <code>try</code>-with-resources statement.
+		</td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td><a href="#target.package">Package</a></td>
+		<td>implementation-chosen package declarations.</td>
+	</tr>
+	<tr>
+		<td>9</td>
+		<td><a href="#target.type-parameter">Type Parameter</a></td>
+		<td>any type parameter declaration.</td>
+	</tr>
+	<tr>
+		<td>10</td>
+		<td><a href="#target.type-use">Type Use</a></td>
+		<td>the use of a type.</td>
+	</tr>
+</table>
+<h4 id="target.type">Type Target</h4>
+<p>The type target allows an annotation to be applied to any type
+	declaration.</p>
+<ul>
+	<li>the modifier list of any <a class="unlinked" href=""><code>class</code>
+			declaration</a>, (including nested, inner, and local classes).
+	</li>
+	<li>the modifier list of any <a class="unlinked" href=""><code>interface</code>
+			declaration</a>, (<a href="declarations"><code>@interface</code>
+			declarations</a> and any nested <code>interface</code> or <code>@interface</code>
+		declarations),
+	</li>
+</ul>
+<h3>Meta Annotations</h3>
 <?php
 b();
