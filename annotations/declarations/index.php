@@ -313,6 +313,14 @@
 	}
 };</code></pre>
 	</li>
+	<li>The <code>@Target</code> annotation must not contain duplicate <code>ElementType</code>
+		values for its <code>value()</code> element even when not used to
+		annotate an annotation declaration. For example, the uniqueness
+		constraint of <code>ElementValues</code> still holds, even in the
+		following <code>@Target</code> use: <pre><code>public @interface Note {
+	Target value() default @Target({ ElementType.TYPE, ElementType.TYPE });
+}</code></pre>
+	<p>The above code raises a compilation error.</p></li>
 	<li>
 		<!-- TODO: Discuss how an annotation's constants must be given a value only at declaration, and, unlike other types' static final fields, cannot be initialized in subsequent initializers. -->
 	</li>
