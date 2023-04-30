@@ -100,10 +100,7 @@
 	closely to the type. For details, see below.
 </p>
 <h3>Targets</h3>
-<p>
-	An annotation's declaration must, itself, be
-	annotated with the <code>@Target</code> annotation for a target (or set
-	of targets) to be specified. (See
+<p>Although not required, an annotation declaration can restrict its use to certain program elements using the `@java.lang.annotation.Target` meta-annotation. The `@Target` annotation takes an array of<!-- TODO: Finish -->
 </p>
 <p>
 	There are 10 possible targets that an annotation declaration may
