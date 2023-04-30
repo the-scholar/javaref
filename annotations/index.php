@@ -96,7 +96,7 @@
 	the declaration's <i>modifier list</i>, intermixed with keyword
 	modifiers, such as <code>public</code>, <code>protected</code>, <code>static</code>,
 	<code>final</code>, etc. Annotations that apply to type uses may appear
-	in these same locations (subject to some constraints) or may more
+	in these same locations (subject to some constraints) or may appear more
 	closely to the type. For details, see below.
 </p>
 <h3>Targets</h3>
