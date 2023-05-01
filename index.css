@@ -78,6 +78,7 @@ a:hover {
 }
 a.unlinked {
 	color: #d93838;
+	cursor: pointer;
 }
 
 /* Section Headers */
