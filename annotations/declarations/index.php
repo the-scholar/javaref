@@ -109,14 +109,13 @@
 	element of <code>@Target</code>.
 </p>
 <span info=3>The <code>@Target</code> annotation may never include
-	duplicate elements in its array <code>value</code>. This is enforced by
-	the compiler. The following: <pre><code>@Target({ElementType.TYPE, ElementType.TYPE})
+	duplicate elements in the array passed as an argument for its <code>value()</code>
+	element. This is enforced by the compiler. The following: <pre><code>@Target({ElementType.TYPE, ElementType.TYPE})
 @interface X {}</code></pre>
 	<p>results in a compiler error.</p></span>
 
 <!-- Temporary section. Will remain until information is moved to proper page (/annotations) -->
 <section style="background: #b003">
-	<!-- TODO: Move information to respective sections in /annotations and then remove this table. -->
 	<p>The following table lists each annotation target along with a
 		description of what elements it allows an annotation to apply to:</p>
 	<table>
@@ -231,13 +230,6 @@
 			href="../">Annotations</a>.
 	</div>
 </section>
-<h4>Duplication</h4>
-<p>
-	The <code>@Target</code> annotation does not permit duplicate targets
-	in its arguments. If <code>@Target</code> is used with duplicate
-	targets (even if the use of <code>@Target</code> is not an application
-	to an annotation declaration), a compiler error occurs.
-</p>
 <h3>
 	<span class="syntax-piece">annotation-members</span>
 </h3>
