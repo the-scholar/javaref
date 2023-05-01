@@ -84,46 +84,23 @@
 	<li>and uses of Types.</li>
 </ul>
 <p>
-	Annotations may specify a <i>target</i>, which determines which of
-	these program elements they are allowed to be applied to.
+	The location in source code that an annotation may be present at to
+	apply to a certain element is dictated by the syntax for that element.
+	For example, see <a href="/methods/declarations">Method Declarations</a>.
+	Semantic rules invovling the annotation's declared targets define
+	whether annotations deemed to apply to certain elements are illegal and
+	will raise compiler errors.
 </p>
 <p>
-	Different program elements (e.g. methods, fields, classes, etc.),
-	specify in their syntax where their annotations must be textually
-	located (usually in the <i>modifier list</i> if annotating a
-	declaration<sup info=1></sup>, for example, see <a
-		href="/methods/declarations">Method Declarations</a>). Although a
-	program element's syntax may permit annotations at these certain
-	textual locations, for an annotation to be valid at a location; (for
-	the program to compile), the annotation must also be able to apply to a
-	program element from that location<sup info=2></sup>. If this is not
-	the case, the annotation will cause a compiler error.
-
+	Annotations that apply to declarations are almost always specified in
+	the declaration's <i>modifier list</i>, intermixed with keyword
+	modifiers, such as <code>public</code>, <code>protected</code>, <code>static</code>,
+	<code>final</code>, etc. Annotations that apply to type uses may appear
+	in these same locations (subject to some constraints) or may appear more
+	closely to the type. For details, see below.
 </p>
-<span info=1>Annotations that apply to declarations are almost always
-	specified in the declaration's <i>modifier list</i>, intermixed with
-	keyword modifiers, such as <code>public</code>, <code>protected</code>,
-	<code>static</code>, <code>final</code>, etc. Annotations that apply to
-	type uses may appear in these same locations (subject to some
-	constraints) or may appear more closely to the type. The precise rules
-	governing annotations and what elements they apply to are described
-	per-target, below.
-</span>
-<span info=2>For example, an annotation that is declared to target only
-	field declarations may not be applied to a method declaration, even if
-	used in the <span class="syntax-piece">modifier-list</span> of that
-	method declaration: <pre><code>@Target(FIELD)
-@interface X {	}
-class A {
-	@X int someField; // All good
-	// @X int someMethod() {	} // Not allowed; @X is in the right position but can only target fields.
-}</code></pre>
-</span>
 <h3>Targets</h3>
-<p>
-	An annotation's declaration must, itself, be annotated with the <code>@Target</code>
-	annotation for a target (or set of targets) for . (See <a
-		href="declarations">annotation declarations</a> for details.)
+<p>Although not required, an annotation declaration can restrict its use to certain program elements using the `@java.lang.annotation.Target` meta-annotation. The `@Target` annotation takes an array of<!-- TODO: Finish -->
 </p>
 <p>
 	There are 10 possible targets that an annotation declaration may
