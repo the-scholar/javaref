@@ -30,8 +30,8 @@
 <table class="syntax-breakdown">
 	<tr>
 		<td><span class="syntax-piece">name</span></td>
-		<td>is a <a href="/names">qualified or simple name</a> that refers to
-			the annotation.
+		<td>is a <a href="/names" class="unlinked">qualified or simple name</a>
+			that refers to the annotation.
 		</td>
 	</tr>
 	<tr>
