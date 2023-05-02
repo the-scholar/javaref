@@ -30,7 +30,9 @@
 <table class="syntax-breakdown">
 	<tr>
 		<td><span class="syntax-piece">name</span></td>
-		<td>is an identifier that names the annotation.</td>
+		<td>is a <a href="/names">qualified or simple name</a> that refers to
+			the annotation.
+		</td>
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">element-value</span></td>
@@ -96,11 +98,15 @@
 	the declaration's <i>modifier list</i>, intermixed with keyword
 	modifiers, such as <code>public</code>, <code>protected</code>, <code>static</code>,
 	<code>final</code>, etc. Annotations that apply to type uses may appear
-	in these same locations (subject to some constraints) or may appear more
-	closely to the type. For details, see below.
+	in these same locations (subject to some constraints) or may appear
+	more closely to the type. For details, see below.
 </p>
 <h3>Targets</h3>
-<p>Although not required, an annotation declaration can restrict its use to certain program elements using the `@java.lang.annotation.Target` meta-annotation. The `@Target` annotation takes an array of<!-- TODO: Finish -->
+<p>
+	Although not required, an annotation declaration can restrict its use
+	to certain program elements using the `@java.lang.annotation.Target`
+	meta-annotation. The `@Target` annotation takes an array of
+	<!-- TODO: Finish -->
 </p>
 <p>
 	There are 10 possible targets that an annotation declaration may
@@ -180,14 +186,16 @@
 <p>The type target allows an annotation to be applied to any type
 	declaration.</p>
 <ul>
-	<li>the modifier list of any <a class="unlinked" href=""><code>class</code>
+	<li>the modifier list of any <a class="unlinked"><code>class</code>
 			declaration</a>, (including nested, inner, and local classes).
 	</li>
-	<li>the modifier list of any <a class="unlinked" href=""><code>interface</code>
+	<li>the modifier list of any <a class="unlinked"><code>interface</code>
 			declaration</a>, (<a href="declarations"><code>@interface</code>
 			declarations</a> and any nested <code>interface</code> or <code>@interface</code>
 		declarations),
 	</li>
+	<li>the modifier list of any <a class="unlinked"></a> <!-- TODO: Finish listing places where Type annotations can be used. -->
+
 </ul>
 <h3>Meta Annotations</h3>
 <?php
