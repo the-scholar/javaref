@@ -114,72 +114,83 @@
 </p>
 <table>
 	<tr>
-		<th>Index</th>
+		<th>Enum Constant</th>
 		<th>Target</th>
 		<th>Description</th>
+		<th>Index</th>
 	</tr>
 	<tr>
-		<td>1</td>
+		<td><code>TYPE</code></td>
 		<td><a href="#target.type">Type</a></td>
 		<td>any <code>class</code>, <code>enum</code>, and <code>interface</code>
 			declarations (including any <code>@interface</code> annotation
 			declarations).
 		</td>
+		<td>1</td>
 	</tr>
 	<tr>
-		<td>2</td>
+		<td><code>ANNOTATION_TYPE</code></td>
 		<td><a href="#target.annotation-type">Annotation Type</a></td>
 		<td>any <code>@interface</code> annotation declarations.
 		</td>
+		<td>2</td>
 	</tr>
 	<tr>
-		<td>3</td>
+		<td><code>METHOD</code></td>
 		<td><a href="#target.method">Method</a></td>
 		<td>any method declaration, including <code>abstract</code>
 			declarations and annotation element declarations.
 		</td>
+		<td>3</td>
 	</tr>
 	<tr>
-		<td>4</td>
+		<td><code>CONSTRUCTOR</code></td>
 		<td><a href="#target.constructor">Constructor</a></td>
 		<td>any constructor declaration.</td>
+		<td>4</td>
 	</tr>
 	<tr>
-		<td>5</td>
+		<td><code>FIELD</code></td>
 		<td><a href="#target.field">Field</a></td>
 		<td>any field declaration, including constants declared in <code>@interface</code>s
 			and <code>enum</code> constants. (Note that annotations targeting
 			fields can be used on their own member constants.)
 		</td>
+		<td>5</td>
 	</tr>
 	<tr>
-		<td>6</td>
+		<td><code>PARAMETER</code></td>
 		<td><a href="#target.parameter">Parameter</a></td>
 		<td>any method parameter (not including <a
 			href="/methods/receiver-parameters">receiver parameters</a>).
 		</td>
+		<td>6</td>
 	</tr>
 	<tr>
-		<td>7</td>
+		<td><code>LOCAL_VARIABLE</code></td>
 		<td><a href="#target.local-variable">Local Variable</a></td>
 		<td>any local variable declaration, including those in the header of a
 			<code>for</code> loop or <code>try</code>-with-resources statement.
 		</td>
+		<td>7</td>
 	</tr>
 	<tr>
-		<td>8</td>
+		<td><code>PACKAGE</code></td>
 		<td><a href="#target.package">Package</a></td>
 		<td>implementation-chosen package declarations.</td>
+		<td>8</td>
 	</tr>
 	<tr>
-		<td>9</td>
+		<td><code>TYPE_PARAMETER</code></td>
 		<td><a href="#target.type-parameter">Type Parameter</a></td>
 		<td>any type parameter declaration.</td>
+		<td>9</td>
 	</tr>
 	<tr>
-		<td>10</td>
+		<td><code>TYPE_USE</code></td>
 		<td><a href="#target.type-use">Type Use</a></td>
 		<td>the use of a type.</td>
+		<td>10</td>
 	</tr>
 </table>
 <h4 id="target.type">Type Target</h4>
@@ -197,10 +208,12 @@
 	<li>the modifier list of any <a class="unlinked">enum declaration</a>.
 	</li>
 	<li>the modifier list of any <a href="declarations">annotation
-			declaration</a>. An annotation with the <code>TYPE</code> target can
-		be applied to its own declaration.
+			declaration</a>. (An annotation with the <code>TYPE</code> target can
+		be applied to its own declaration.)
 	</li>
 </ul>
+<h4 id="target.annotation-type">Annotation Type</h4>
+<p>The annotation type
 <h3>Meta Annotations</h3>
 <?php
 b();
