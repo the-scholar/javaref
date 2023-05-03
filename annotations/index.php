@@ -198,7 +198,31 @@
 		<td>10</td>
 	</tr>
 </table>
-<h4 id="target.type"><code>TYPE</code> Target</h4>
+<h4>How Targets Work</h4>
+<p>Annotations whose declarations do not specify a target can be applied
+	to:</p>
+<ul>
+	<li>Types</li>
+	<li>Methods</li>
+	<li>Constructors</li>
+	<li>Fields</li>
+	<li>Parameters</li>
+	<li>Local Variables</li>
+	<li>Packages</li>
+</ul>
+<p>That is, they can be applied to all annotatble program elements
+	except Type Parameters and Type Uses.</p>
+<p>
+	Otherwise, if <code>@Target</code> is applied to an annotation's
+	declaration, that annotation may be applied to the union of the types
+	permitted by each <code>ElementType</code> specified in the <code>@Target</code>
+	annotation. For example, if <code>@Target({ TYPE, FIELD })</code> is
+	applied to a declaration, the annotation may be applied to <i>both</i>
+	type declarations (e.g. classes, interfaces, etc.) and fields.
+</p>
+<h4 id="target.type">
+	<code>TYPE</code> Target
+</h4>
 <p>
 	The <code>TYPE</code> target allows an annotation to be applied to any
 	type declaration.
@@ -219,7 +243,9 @@
 		be applied to its own declaration.)
 	</li>
 </ul>
-<h4 id="target.annotation-type"><code>ANNOTATION_TYPE</code> Target</h4>
+<h4 id="target.annotation-type">
+	<code>ANNOTATION_TYPE</code> Target
+</h4>
 <p>
 	The <code>ANNOTATION_TYPE</code> target is a subset of the <code>TYPE</code>
 	target. The <code>ANNOTATION_TYPE</code> allows an annotation to apply
