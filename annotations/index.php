@@ -103,10 +103,13 @@
 </p>
 <h3>Targets</h3>
 <p>
-	Although not required, an annotation declaration can restrict its use
-	to certain program elements using the `@java.lang.annotation.Target`
-	meta-annotation. The `@Target` annotation takes an array of
-	<!-- TODO: Finish -->
+	Although not required, an annotation declaration can restrict (or
+	expand) its use to certain program elements using the <code>@java.lang.annotation.Target</code>
+	meta-annotation. The <code>@Target</code> annotation has a non-default
+	<code>java.lang.annotation.ElementType[]</code> member, which specifies
+	the types of program elements that the annotation may be applied to.
+	The <code>ElementType</code> array may not contain duplicates when used
+	as an argument to the <code>@Target</code> annotation.
 </p>
 <p>
 	There are 10 possible targets that an annotation declaration may
@@ -114,7 +117,9 @@
 </p>
 <table>
 	<tr>
-		<th>Enum Constant</th>
+		<th
+			title="The java.lang.annotation.ElementType constant that represents this target.">Enum
+			Constant</th>
 		<th>Target</th>
 		<th>Description</th>
 		<th>Index</th>
@@ -193,9 +198,11 @@
 		<td>10</td>
 	</tr>
 </table>
-<h4 id="target.type">Type Target</h4>
-<p>The type target allows an annotation to be applied to any type
-	declaration.</p>
+<h4 id="target.type"><code>TYPE</code> Target</h4>
+<p>
+	The <code>TYPE</code> target allows an annotation to be applied to any
+	type declaration.
+</p>
 <ul>
 	<li>the modifier list of any <a class="unlinked"><code>class</code>
 			declaration</a>, (including nested, inner, and local classes).
@@ -212,8 +219,23 @@
 		be applied to its own declaration.)
 	</li>
 </ul>
-<h4 id="target.annotation-type">Annotation Type</h4>
-<p>The annotation type
+<h4 id="target.annotation-type"><code>ANNOTATION_TYPE</code> Target</h4>
+<p>
+	The <code>ANNOTATION_TYPE</code> target is a subset of the <code>TYPE</code>
+	target. The <code>ANNOTATION_TYPE</code> allows an annotation to apply
+	to <a href="declarations">annotation declarations</a>.
+</p>
+<p>
+	An annotation that targets both <code>TYPE</code> and <code>ANNOTATION_TYPE</code>
+	can be applied to the same set of program elements as an annotation
+	that targets only <code>TYPE</code>.
+</p>
 <h3>Meta Annotations</h3>
+<h3>
+	<span class="syntax-piece">element-value</span> and <span
+		class="syntax-piece">element-value-list</span>
+</h3>
+<!-- TODO: Talk about how these arguments must be constants. -->
+<!-- TODO: Talk about how these arguments may also include annotations, even inside the array expressions. -->
 <?php
 b();
