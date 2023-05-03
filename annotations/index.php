@@ -30,8 +30,8 @@
 <table class="syntax-breakdown">
 	<tr>
 		<td><span class="syntax-piece">name</span></td>
-		<td>is a <a href="/names" class="unlinked">qualified or simple name</a>
-			that refers to the annotation.
+		<td>is a <a class="unlinked">qualified or simple name</a> that refers
+			to the annotation.
 		</td>
 	</tr>
 	<tr>
@@ -190,12 +190,16 @@
 			declaration</a>, (including nested, inner, and local classes).
 	</li>
 	<li>the modifier list of any <a class="unlinked"><code>interface</code>
-			declaration</a>, (<a href="declarations"><code>@interface</code>
+			declaration</a>, (including <a href="declarations"><code>@interface</code>
 			declarations</a> and any nested <code>interface</code> or <code>@interface</code>
 		declarations),
 	</li>
-	<li>the modifier list of any <a class="unlinked"></a> <!-- TODO: Finish listing places where Type annotations can be used. -->
-
+	<li>the modifier list of any <a class="unlinked">enum declaration</a>.
+	</li>
+	<li>the modifier list of any <a href="declarations">annotation
+			declaration</a>. An annotation with the <code>TYPE</code> target can
+		be applied to its own declaration.
+	</li>
 </ul>
 <h3>Meta Annotations</h3>
 <?php
