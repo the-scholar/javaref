@@ -256,6 +256,16 @@
 	can be applied to the same set of program elements as an annotation
 	that targets only <code>TYPE</code>.
 </p>
+<h4 id="target.method">
+	<code>METHOD</code> Target
+</h4>
+<p>
+	Allows an annotation to apply to methods. Such annotations may be put
+	within the <span class="syntax-piece">modifier-list</span> of a method
+	declaration.
+</p>
+<p>Annotation declarations with this target can apply to annotation
+	elements, including their own annotation elements.</p>
 <h3>Meta Annotations</h3>
 <h3>
 	<span class="syntax-piece">element-value</span> and <span
@@ -263,5 +273,15 @@
 </h3>
 <!-- TODO: Talk about how these arguments must be constants. -->
 <!-- TODO: Talk about how these arguments may also include annotations, even inside the array expressions. -->
+<h2>Examples</h2>
+<div>
+	<h4>Self-Application of Annotations</h4>
+	<!-- TODO: Show an example of an annotation that targets ANNOTATION_TYPEs applying to itself. -->
+</div>
+<div>
+	<h4>Annotation Applied to Own Members</h4>
+	<!-- TODO: Show example of an annotation that targets METHODs being applied to its own element. -->
+	<!-- TODO: Distinguish this from the annotation element returning itself. -->
+</div>
 <?php
 b();
