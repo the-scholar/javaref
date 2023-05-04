@@ -288,15 +288,53 @@
 <h4>
 	<code>PARAMETER</code> Target
 </h4>
+<p>Allows an annotation to target any parameter in a:</p>
+<ul>
+	<li>method declaration,</li>
+	<li>lambda expression,</li>
+	<li>or <code>catch</code> clause.
+	</li>
+</ul>
 <p>
-	Allows an annotation to target any parameter in a method, lambda
-	expression, or <code>catch</code> clause. The annotation goes in the <span
-		class="syntax-piece">modifier-list</span> of the parameter it applies
-	to.
+	The annotation is put in the <span class="syntax-piece">modifier-list</span>
+	of the parameter.
 </p>
 <p>
 	Note that this target does not allow an annotation to be applied to <a
-		href="/methods/receiver-parameters">receiever parameters</a>.
+		href="/methods/receiver-parameters">receiever parameters</a>, as
+	annotations that are a part of a receiver parameter may only be applied
+	to the type use within the receiver parameter declaration.
+</p>
+<h4>
+	<code>LOCAL_VARIABLE</code> Target
+</h4>
+<p>
+	Allows an annotation to target any local variable declaration,
+	including those inside the headers of <code>for</code> loops and <code>try</code>
+	statements. The annotation is put in the <span class="syntax-piece">modifier-list</span>,
+	just like the keyword <code>final</code> if it is present.
+</p>
+<h4>
+	<code>PACKAGE</code> Target
+</h4>
+<p>Allows an annotation to target package declarations. In any given
+	package, only one such package declaration is allowed to be annotated.
+	The annotation is put in front of the declaration, in the declaration's
+	"modifier list." As of Java 8, there are no modifiers applicable to a
+	package declaration other than annotations.</p>
+<h5>Implementation-Specific Canonical Package Declaration</h5>
+<p>
+	Implementations typically choose to specify a canonical package
+	declaration, and require that this be the only package declaration that
+	be annotated. Many implementations follow suggestions made by the
+	specification that this canonical declaration be in a file called <code>package-info.java</code>
+	which is situated directly in the package.
+</p>
+<p>
+	This means that, in some implementations of the Java compiler, an
+	annotated package declaration must go in a <i>specific</i> file, rather
+	than go in any file subject to the constraint that there is only one
+	such annotated declaration per package.
 </p>
 <h3>Meta Annotations</h3>
 <h3>
