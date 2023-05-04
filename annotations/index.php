@@ -336,6 +336,24 @@
 	than go in any file subject to the constraint that there is only one
 	such annotated declaration per package.
 </p>
+<h4>
+	<code>TYPE_PARAMETER</code> Target
+</h4>
+<p>Annotations with this target can be applied to type parameters in a
+	declaration of a generic:</p>
+<ul>
+	<li>Class,</li>
+	<li>Interface,</li>
+	<li>Constructor,</li>
+	<li>or Method.</li>
+</ul>
+<p>
+	The type parameters declared in the <span class="syntax-piece">type-parameter-list</span>
+	of these program elements can each be annotated with annotations
+	targetnig <code>TYPE_PARAMETERS</code>. Such annotations are located
+	textually immediately in front of the name of the type variable in the
+	declaration.
+</p>
 <h3>Meta Annotations</h3>
 <h3>
 	<span class="syntax-piece">element-value</span> and <span
