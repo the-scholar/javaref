@@ -266,6 +266,38 @@
 </p>
 <p>Annotation declarations with this target can apply to annotation
 	elements, including their own annotation elements.</p>
+<h4>
+	<code>CONSTRUCTOR</code> Target
+</h4>
+<p>
+	Allows an annotation to target any constructor declaration. The
+	annotation is put in the <span class="syntax-piece">modifier-list</span>
+	of the declaration.
+</p>
+<h4>
+	<code>FIELD</code> Target
+</h4>
+<p>
+	Allows an annotation to target any field declaration. Such annotations
+	can only be placed in the <span class="syntax-piece">modifier-list</span>
+	of a field declaration. Reflectively, the annotation can be accessed
+	from any <code>java.lang.reflection.Field</code> that is a part of the
+	annotated declaration, though the annotation cannot be applied to only
+	some fields in a multi-field declaration.
+</p>
+<h4>
+	<code>PARAMETER</code> Target
+</h4>
+<p>
+	Allows an annotation to target any parameter in a method, lambda
+	expression, or <code>catch</code> clause. The annotation goes in the <span
+		class="syntax-piece">modifier-list</span> of the parameter it applies
+	to.
+</p>
+<p>
+	Note that this target does not allow an annotation to be applied to <a
+		href="/methods/receiver-parameters">receiever parameters</a>.
+</p>
 <h3>Meta Annotations</h3>
 <h3>
 	<span class="syntax-piece">element-value</span> and <span
