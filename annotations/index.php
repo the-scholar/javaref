@@ -374,12 +374,15 @@
 <ul>
 	<li>immediately before the <i>simple name</i> of the following types:
 		<ul>
-			<li>any type in an <code>extends</code> clause,
-			</li>
-			<li>any type in an <code>implements</code> clause,
-			</li>
+			<li>the type used as the type of the variable in a field or local
+				variable declaration,</li>
 			<li>the return type in a method declaration (including the element
 				type of an annotation element declaration),</li>
+			<li>any type that is an argument to the <code>extends</code> clause,
+			</li>
+			<li>any type that is an argument to the <code>implements</code>
+				clause,
+			</li>
 			<li>any type used to qualify a type that it encloses (i.e., contains
 				in an non-<code>static</code> context<sup info=1></sup>), <span
 				info=1>Types used in a reference to qualify other types may only be
@@ -423,6 +426,13 @@ class Outer {
 }</code></pre>
 			</span>
 			</li>
+			<li>any type that is an argument to a <code>throws</code> clause,
+			</li>
+			<li>the type used in an upper-bound for a type parameter, (i.e. the
+				type used in the <code>extends</code> clause of a type parameter
+				declaration).
+			</li>
+			<!-- TODO: Finish -->
 		</ul> In these cases, the annotation applies to the type meant by the
 		simple name that immediately follows it<sup info=2></sup>. <span
 		info=2>For example, in the following fully qualified type: <pre><code>java.lang.@Ann Object myObjectVariable = "abc";</code></pre>
@@ -434,7 +444,6 @@ class Outer {
 	</span>
 	</li>
 </ul>
-
 <p>
 	<code>TYPE_USE</code> <i>does not</i> permit an annotation to be used
 	on:
@@ -445,9 +454,9 @@ class Outer {
 	<li>a type used to qualify the <code>this</code> or <code>super</code>
 		keyword, or
 	</li>
-	<li>a type <i>surrounding</i> (but not enclosing; see <sup info=1 class="inline"></sup>
-		above), another type<sup info=3></sup> in a qualified reference
-		context,
+	<li>a type <i>surrounding</i> (but not enclosing; see <sup info=1
+		class="inline"></sup> above), another type<sup info=3></sup> in a
+		qualified reference context,
 	</li>
 </ul>
 <p>despite each of these being uses of types.</p>
