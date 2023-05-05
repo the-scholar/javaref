@@ -374,11 +374,19 @@
 <ul>
 	<li>immediately before the <i>simple name</i> of the following types:
 		<ul>
-			<li>the type used as the type of the variable in a field or local
-				variable declaration,</li>
-			<li>the return type in a method declaration (including the element
-				type of an annotation element declaration),</li>
+			<li>type of the variable in a field or local variable declaration,</li>
+			<li>a non-<code>void</code> return type in a method declaration
+				(including the element type of an annotation element declaration),
+			</li>
+			<li>the type of the parameter in a method or constructor's parameter
+				declaration,</li>
+			<li>the type of the parameter in a lambda expression's formal
+				parameter declaration (if the type is included),</li>
+			<li>each of the types of the exception parameter in a <code>catch</code>
+				clause,<!-- TODO: In the execption param: (@A1 Ex1 | @A2 Ex2 e) it seems that @A1 applies to the type Ex1|@A2 Ex2 whereas @A2 applies to Ex2. Verify this? -->
+			</li>
 			<li>any type that is an argument to the <code>extends</code> clause,
+				of a <code>class</code> or <code>interface</code> declaration,
 			</li>
 			<li>any type that is an argument to the <code>implements</code>
 				clause,
@@ -430,9 +438,21 @@ class Outer {
 			</li>
 			<li>the type used in an upper-bound for a type parameter, (i.e. the
 				type used in the <code>extends</code> clause of a type parameter
-				declaration).
+				declaration),
 			</li>
-			<!-- TODO: Finish -->
+			<li>the type of a <a href="/methods/receiver-parameters">receiver
+					parameter</a>,
+			</li>
+			<li>any type argument in an explicit type argument list,</li>
+			<li>a type (including array types) used with the <code>new</code>
+				operator that is instantiated by the <code>new</code> expression,
+				<div class="note">Note that the annotation still applies to the type
+					meant by the simple name, even if the type actually used is an
+					array type.</div>
+			</li>
+			<li>a type used with the <code>new</code> operator to denote the
+				supertype of an anonymous class being instantiated,
+			</li>
 		</ul> In these cases, the annotation applies to the type meant by the
 		simple name that immediately follows it<sup info=2></sup>. <span
 		info=2>For example, in the following fully qualified type: <pre><code>java.lang.@Ann Object myObjectVariable = "abc";</code></pre>
@@ -440,6 +460,17 @@ class Outer {
 				<code>Object</code> is a simple name, and it immediately follows <code>@Ann</code>,
 				so <code>@Ann</code> applies to the type <code>Object</code> used in
 				that variable declaration.
+			</p>
+			<p>This also has implications for array types:</p> <pre><code>@Ann Object[][] objectMatrix;</code></pre>
+			<p>
+				The <code>@Ann</code> annotation applies only to the type <code>Object</code>
+				as it is used in the variable declaration. To apply the annotation
+				to <code>Object[]</code> or <code>Object[][]</code> as used in the
+				declaration, the annotation would need to be immediately before the
+				appropriate pair of brackets. This occurs because an array type is
+				textually composed of multiple types, so in the above variable
+				declaration, the three types <code>Object</code>, <code>Object[]</code>,
+				and <code>Object[][]</code> are being used.
 			</p>
 	</span>
 	</li>
