@@ -369,12 +369,70 @@
 	annotation to be applied in these other cases.
 </p>
 <p>
-	A <code>TYPE_USE</code> annotation can be used in the following
-	contexts:
+	A <code>TYPE_USE</code> annotation can be located as follows:
 </p>
 <ul>
-	<li>
-
+	<li>immediately before the <i>simple name</i> of the following types:
+		<ul>
+			<li>any type in an <code>extends</code> clause,
+			</li>
+			<li>any type in an <code>implements</code> clause,
+			</li>
+			<li>the return type in a method declaration (including the element
+				type of an annotation element declaration),</li>
+			<li>any type used to qualify a type that it encloses (i.e., contains
+				in an non-<code>static</code> context<sup info=1></sup>), <span
+				info=1>Types used in a reference to qualify other types may only be
+					annotated if they enclose the qualified type. For example, if <code>Ann</code>
+					is an annotation that targets <code>TYPE_USE</code>, <pre><code>class Outer {
+	class Inner {	}
+	
+	private @Ann Outer.Inner someField; // Make a class variable of type Outer.Inner, where Outer is annotated.
+}</code></pre>
+					<p>
+						The above <code>@Ann</code> annotation applies to <code>Outer</code>
+						and compiles, since the identifier <code>Outer</code> refers to
+						the class <code>Outer</code> as an <i>enclosing instance</i> of
+						the class <code>Inner</code>; the meaning of the <code>Outer</code>
+						identifier is semantically a type enclosing <code>Inner</code>.
+					</p>
+					<p>
+						However, if <code>Inner</code> is <code>static</code> then the
+						class <code>Inner</code> is no longer an instance member of <code>Outer</code>
+						and outer no longer encloses it:
+					</p> <pre><code>class Outer {
+	static class Inner {	}
+	
+	// private @Ann Outer.Inner someField; // No longer compiles. Outer is considered nothing more than a container.
+}</code></pre>
+					<p>
+						<code>Outer</code> is no longer semantically considered a type in
+						the field declaration, so it may not be annotated as a type use.
+						It is simply considered a "container" that statically contains <code>Inner</code>.
+					</p>
+					<p>
+						In both cases, <code>Inner</code> may be annotated in the field
+						declaration, since it is a type in both respects:
+					</p> <pre><code>
+class Outer {
+	static class Nested {	}
+	class Inner {	}
+	
+	private Outer.@Ann Nested field1;
+	private Outer.@Ann Inner  field2;
+}</code></pre>
+			</span>
+			</li>
+		</ul> In these cases, the annotation applies to the type meant by the
+		simple name that immediately follows it<sup info=2></sup>. <span
+		info=2>For example, in the following fully qualified type: <pre><code>java.lang.@Ann Object myObjectVariable = "abc";</code></pre>
+			<p>
+				<code>Object</code> is a simple name, and it immediately follows <code>@Ann</code>,
+				so <code>@Ann</code> applies to the type <code>Object</code> used in
+				that variable declaration.
+			</p>
+	</span>
+	</li>
 </ul>
 
 <p>
@@ -387,13 +445,13 @@
 	<li>a type used to qualify the <code>this</code> or <code>super</code>
 		keyword, or
 	</li>
-	<li>a type <i>surrounding</i> another type<sup info=1></sup> in a
-		qualified reference context, (i.e. a type used to qualify another
-		through a <code>static</code> context<sup info=2></sup>),
+	<li>a type <i>surrounding</i> (but not enclosing; see <sup info=1 class="inline"></sup>
+		above), another type<sup info=3></sup> in a qualified reference
+		context,
 	</li>
 </ul>
 <p>despite each of these being uses of types.</p>
-<span info=1>A type can <i>surround</i> or <i>enclose</i> a member.
+<span info=3>A type can <i>surround</i> or <i>enclose</i> a member.
 	<ul>
 		<li>If a type's member is <code>static</code>, the type surrounds that
 			member.
@@ -402,46 +460,6 @@
 			that type encloses that member.
 		</li>
 	</ul>
-</span>
-<span info=2>Types used in a reference to qualify other types may only
-	be annotated if they enclose the qualified type. For example, if <code>Ann</code>
-	is an annotation that targets <code>TYPE_USE</code>, <pre><code>class Outer {
-	class Inner {	}
-	
-	private @Ann Outer.Inner someField; // Make a class variable of type Outer.Inner, where Outer is annotated.
-}</code></pre>
-	<p>
-		The above <code>@Ann</code> annotation applies to <code>Outer</code>
-		and compiles, since the identifier <code>Outer</code> refers to the
-		class <code>Outer</code> as an <i>enclosing instance</i> of the class
-		<code>Inner</code>; the meaning of the <code>Outer</code> identifier
-		is semantically a type enclosing <code>Inner</code>.
-	</p>
-	<p>
-		However, if <code>Inner</code> is <code>static</code> then the class <code>Inner</code>
-		is no longer an instance member of <code>Outer</code> and outer no
-		longer encloses it:
-	</p> <pre><code>class Outer {
-	static class Inner {	}
-	
-	// private @Ann Outer.Inner someField; // No longer compiles. Outer is considered nothing more than a container.
-}</code></pre>
-	<p>
-		<code>Outer</code> is no longer semantically considered a type in the
-		field declaration, so it may not be annotated as a type use. It is
-		simply considered a "container" that statically contains <code>Inner</code>.
-	</p>
-	<p>
-		In both cases, <code>Inner</code> may be annotated in the field
-		declaration, since it is a type in both respects:
-	</p> <pre><code>
-class Outer {
-	static class Nested {	}
-	class Inner {	}
-	
-	private Outer.@Ann Nested field1;
-	private Outer.@Ann Inner  field2;
-}</code></pre>
 </span>
 <h3>Meta Annotations</h3>
 <h3>
