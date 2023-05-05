@@ -453,6 +453,9 @@ class Outer {
 			<li>a type used with the <code>new</code> operator to denote the
 				supertype of an anonymous class being instantiated,
 			</li>
+			<li>the type of a cast expression, or each of the types if the cast is an intersection cast,</li>
+			<li>the type used as the right operand of the <code>instanceof</code> operator,</li>
+			<li>
 		</ul> In these cases, the annotation applies to the type meant by the
 		simple name that immediately follows it<sup info=2></sup>. <span
 		info=2>For example, in the following fully qualified type: <pre><code>java.lang.@Ann Object myObjectVariable = "abc";</code></pre>
