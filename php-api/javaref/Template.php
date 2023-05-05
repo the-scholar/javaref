@@ -18,6 +18,9 @@ function t($title) { global $tmods;
 <link rel="stylesheet" type="text/css" href="/index.css">
 <?php $tmods["head_after_stylesheet"]();?>
 <script type="text/javascript">
+function updateScrollbar() {
+	document.getElementById("ProgressBar").style.height = (document.documentElement.scrollTop || document.body.scrollTop) / ((document.documentElement.scrollHeight || document.body.scrollHeight) - document.documentElement.clientHeight)*100+"%";
+}
 window.addEventListener("load", (e) => {
 	for (let ref of document.querySelectorAll("sup[info]")) {
 		let element = document.querySelector("span[info='"+ref.getAttribute("info")+"']");
@@ -26,6 +29,7 @@ window.addEventListener("load", (e) => {
 	   			element.classList.remove("visible");
 	   		else
 	   			element.classList.add("visible");
+	   		updateScrollbar();
 		};
 	}
 	for (let ref of document.querySelectorAll("span.shrink")) {
@@ -36,13 +40,11 @@ window.addEventListener("load", (e) => {
 				ref.classList.remove("expanded");
 			else
 				ref.classList.add("expanded");
+			updateScrollbar();
 		};
 	}
 });
-document.addEventListener("scroll", (e) => {
-	var scrp = (document.documentElement.scrollTop || document.body.scrollTop) / ((document.documentElement.scrollHeight || document.body.scrollHeight) - document.documentElement.clientHeight);
-	document.getElementById("ProgressBar").style.height = scrp*100+"%";
-});
+document.addEventListener("scroll", (e) => updateScrollbar());
 function copyToClipboard(text) {
 	navigator.clipboard.writeText(text).then(() => {}, () => {
 		alert("Failed to copy to clipboard: " + text);
