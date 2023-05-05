@@ -242,6 +242,10 @@ sup[info]:hover {
 sup[info]:active {
 	color: red;
 }
+sup[info].inline { /* Appears inline, not shrunk, and not vertically lifted. */
+	vertical-align: inherit;
+	font-size: inherit;
+}
 span[info]::before {
 	content: '[' attr(info) ']';
 	color: gold;
