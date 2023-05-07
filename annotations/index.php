@@ -453,9 +453,19 @@ class Outer {
 			<li>a type used with the <code>new</code> operator to denote the
 				supertype of an anonymous class being instantiated,
 			</li>
-			<li>the type of a cast expression, or each of the types if the cast is an intersection cast,</li>
-			<li>the type used as the right operand of the <code>instanceof</code> operator,</li>
-			<li>
+			<li>the type of a cast expression, or each of the types if the cast
+				is an intersection cast,</li>
+			<li>the type used as the right operand of the <code>instanceof</code>
+				operator,
+			</li>
+			<li>the type in a method reference that represents an instance
+				creation via constructor or array creation (i.e., a method reference
+				containing <code>new</code>, such as <code>int[]::new</code> or <code>Object::new</code>),
+			</li>
+			<li>the type in a method reference specifying a reference type to
+				search for a method from (i.e. the type immediately before <code>::</code>
+				in a method reference where <code>new</code> does not follow the <code>::</code>).
+			</li>
 		</ul> In these cases, the annotation applies to the type meant by the
 		simple name that immediately follows it<sup info=2></sup>. <span
 		info=2>For example, in the following fully qualified type: <pre><code>java.lang.@Ann Object myObjectVariable = "abc";</code></pre>
@@ -477,6 +487,35 @@ class Outer {
 			</p>
 	</span>
 	</li>
+	<li>Immediately before a bracket pair (<code>[]</code>) used to denote
+		an array dimension in a type. In this case, the annotation applies to
+		the type of dimension indicated by the targeted pair.<sup info=3></sup>
+		<span info=3>In an array type with multiple dimensions, a bracket pair
+			to the left represents an array type whose <i>component</i> is an
+			array of dimension equal to the number of bracket pairs to the right.
+			For example:<pre><code>int @A[][][]@B[][] highDimensionalArray;</code></pre>
+			<p>
+				The bracket pair that <code>@A</code> applies to represents the a
+				5-dimensional array type: <code>int[][][][][]</code>. The bracket
+				pair that <code>@B</code> applies to represents the 2-dimensional
+				type: <code>int[][]</code>.
+			</p>
+	</span>
+	</li>
+	<li>Immediately before a wildcard type argument, in which case the
+		annotation applies to the wildcard.</li>
+	<li>Immediately before the <code>...</code> token of a variable arity
+		parameter, in which case the annotation applies to the type
+		represented by the <code>...</code><sup info=4></sup>. <span info=4>The
+			<code>...</code> is treated as the innermost dimension of the array
+			represented by the parameter's type. That is, in a parameter of type
+			<code>int[][] @A...</code>, the parameter is equivalent to <code>int[][]
+				@A[]</code> and (in both cases) <code>@A</code> applies to the type
+			<code>int[]</code>.
+	</span>
+	</li>
+	<li>Immediately before the type name in a constructor, in which case
+		the annotation applies to the type named by the constructor.</li>
 </ul>
 <p>
 	<code>TYPE_USE</code> <i>does not</i> permit an annotation to be used
@@ -486,15 +525,16 @@ class Outer {
 	<li>any type in an <code>import</code> declaration,
 	</li>
 	<li>a type used to qualify the <code>this</code> or <code>super</code>
-		keyword, or
+		keyword (including in method references, e.g. <code>Type.super::method</code>),
+		or
 	</li>
 	<li>a type <i>surrounding</i> (but not enclosing; see <sup info=1
-		class="inline"></sup> above), another type<sup info=3></sup> in a
+		class="inline"></sup> above), another type<sup info=5></sup> in a
 		qualified reference context,
 	</li>
 </ul>
 <p>despite each of these being uses of types.</p>
-<span info=3>A type can <i>surround</i> or <i>enclose</i> a member.
+<span info=5>A type can <i>surround</i> or <i>enclose</i> a member.
 	<ul>
 		<li>If a type's member is <code>static</code>, the type surrounds that
 			member.
