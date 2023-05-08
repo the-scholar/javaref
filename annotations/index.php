@@ -581,6 +581,23 @@ class Outer {
 	</li>
 </ul>
 <p>despite each of these being uses of types.</p>
+<h3>Multi-applicability</h3>
+<p>
+	An annotation that targets <code>TYPE_USE</code> while also targeting
+	any of the following declarations:
+</p>
+<ul id="targets.ambiguity-declarations">
+	<li><code>METHOD</code></li>
+	<li><code>CONSTRUCTOR</code></li>
+	<li><code>FIELD</code></li>
+	<li><code>LOCAL_VARIABLE</code></li>
+	<li><code>PARAMETER</code></li>
+</ul>
+<p>may apply to both the declaration and its type if used within the
+	declaration's modifier list. This may happen even if the declaration
+	declares type parameters (in the case of constructor and method
+	declarations, considering a constructor's type to be the type of object
+	it constructs).</p>
 <h3>Meta Annotations</h3>
 <h3>
 	<span class="syntax-piece">element-value</span> and <span
@@ -607,7 +624,6 @@ class Outer {
 		within the method's <span class="syntax-piece">modifier-list</span> as
 		well as immediately before the method's return type, so long as the
 		return type is not <code>void</code>.
-		</p>
 		<p>
 			Attempting to access the annotation on the return type, via
 			reflection, raises a <code>java.lang.annotation.AnnotationFormatError</code>,
@@ -681,10 +697,42 @@ class Outer {
 			type.
 		</p>
 	</li>
-	<li>In all but a few limited cases, it is possible to make an
-		annotation that targets both <code>TYPE_USE</code> and methods to
-		apply to only the method it is used within.
+	<li><p>Types that are not:</p>
+		<ul>
+			<li>primitive,</li>
+			<li>top-level types stored within the default package,</li>
+			<li>or used to name a constructor,</li>
+		</ul>
+		<p>
+			can be fully qualified by a package name when used as a declaration's
+			type, deterring the ability of an annotation in the declaration's <span
+				class="syntax-piece">modifier-list</span> from applying to both the
+			declaration and the declaration's type. Such annotations targeting
+			any of the five <a href="targets.ambiguity-declarations">potentially
+				ambiguous declarations</a> as well as <code>TYPE_USE</code> can be
+			made to only apply to the declaration, since the simple name closest
+			to the declaration's modifier list will be a package name, not a type
+			name:
+		</p> <pre><code>@Target({ TYPE_USE, FIELD })
+@interface A {}
 
+class Test {
+	@A Object someField; // @A applies to Object and the whole declaration
+	@A java.lang.Object someOtherField; // @A applies only to the whole declaration
+}</code></pre>
+		<p>
+			In the code example, since <code>@A</code> targets both field
+			declarations and type use, it applies to <code>someField</code>'s
+			declaration and its type: <code>Object</code>, since <code>Object</code>
+			is a simple name. In the declaration of <code>someOtherField</code>,
+			<code>@A</code> can only apply to the declaration, since the the
+			simple name closest to <code>@A</code> is <code>java</code> which
+			names a package.
+		</p>
+		<p>
+			This is also possible to use for <code>static</code>ally nested
+			types, even in the default package.
+		</p></li>
 </ol>
 <?php
 b();
