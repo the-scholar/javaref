@@ -409,8 +409,7 @@
 						Types used in a reference to qualify other types may only be
 						annotated if they enclose the qualified type. For example, if <code>Ann</code>
 						is an annotation that targets <code>TYPE_USE</code>,
-					</p>
-					<pre><code>class Outer {
+					</p> <pre><code>class Outer {
 	class Inner {	}
 	
 	private @Ann Outer.Inner someField; // Make a class variable of type Outer.Inner, where Outer is annotated.
@@ -534,15 +533,26 @@ class Outer {
 	</li>
 	<li>Immediately before the type name in a constructor, in which case
 		the annotation applies to the type named by the constructor.</li>
-	<li id="type-list.first-modifier-list-item">In the modifier list of a
-		method declaration (or annotation element declaration) whose return
-		type is not <code>void</code> and is specified by a simple name, in
-		which case it applies to the type meant by that simple name.
-	</li>
 	<li>In the modifier list of a constructor declaration, in which case it
 		applies to the type named by the constructor.</li>
-	<li>In the modifier list of a
-
+	<li id="type-list.modifier-list-items">In the modifier lists of the
+		following:
+		<ul>
+			<li>a method declaration (or annotation element declaration) whose
+				return type is not <code>void</code> and is specified by a simple
+				name,
+			</li>
+			<li>a field declaration,</li>
+			<li>parameter declarations (excepting receiver parameter
+				declarations),</li>
+			<li>local variable declarations, including those declared in <code>for</code>
+				and <code>try</code>-with-resources statements.
+			</li>
+		</ul> In these cases, the annotation applies to type meant by the
+		simple name within the declaration that is closest to the modifier
+		list, (which may cause a compilation error if such name names a
+		package or a surrounding type, rather than an enclosing type).
+	</li>
 </ul>
 <p>
 	<code>TYPE_USE</code> <i>does not</i> permit an annotation to be used
@@ -648,7 +658,7 @@ class Outer {
 				href="#type-list.type-prefixes">see above</a>),
 			</li>
 			<li>or in the modifier list of the declaration (<a
-				href="#type-list.first-modifier-list-item">see above</a>.
+				href="type-list.modifier-list-items">see above</a>.
 			</li>
 		</ul>
 		<p>A simple example is in the method declaration:</p> <pre><code>@A int one() {	return 1;	}</code></pre>
