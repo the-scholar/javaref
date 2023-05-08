@@ -375,7 +375,8 @@
 <ul>
 	<li>immediately before the <i>simple name</i> of the following types:
 		<ul>
-			<li>type of the variable in a field or local variable declaration,</li>
+			<li>the type of the variable in a field or local variable
+				declaration,</li>
 			<li>a non-<code>void</code> return type in a method declaration
 				(including the element type of an annotation element declaration),
 			</li>
@@ -537,16 +538,25 @@ class Outer {
 	<li>any type in an <code>import</code> declaration,
 	</li>
 	<li>a type used to qualify the <code>this</code> or <code>super</code>
-		keyword (including in method references, e.g. <code>Type.super::method</code>),
-		or
+		keyword (including in method references, e.g. <code>Type.super::method</code>,
+		or in the identifier optionally used to qualify a receiver parameter
+		in an inner class's constructor<sup info=5></sup>), or <span info=5>An
+			example of such an identifier being illegally annotated is: <pre><code>class Outer {
+	class Inner {
+		Inner(Outer @A Outer.this) {	}	// Illegal annotation
+											// Outer within Outer.this cannot be annotated.
+	}
+}</code></pre>
+			<p>Note that the receiver parameter's type may still be annotated.</p>
+	</span>
 	</li>
 	<li>a type <i>surrounding</i> (but not enclosing; see <sup info=1
-		class="inline"></sup> above), another type<sup info=5></sup> in a
+		class="inline"></sup> above), another type<sup info=6></sup> in a
 		qualified reference context,
 	</li>
 </ul>
 <p>despite each of these being uses of types.</p>
-<span info=5>A type can <i>surround</i> or <i>enclose</i> a member.
+<span info=6>A type can <i>surround</i> or <i>enclose</i> a member.
 	<ul>
 		<li>If a type's member is <code>static</code>, the type surrounds that
 			member.
