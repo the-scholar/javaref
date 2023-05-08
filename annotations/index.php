@@ -369,7 +369,8 @@
 	annotation to be applied in these other cases.
 </p>
 <p>
-	A <code>TYPE_USE</code> annotation can be located as follows:
+	The <code>TYPE_USE</code> target permits an annotation to be located as
+	follows:
 </p>
 <ul>
 	<li>immediately before the <i>simple name</i> of the following types:
@@ -517,13 +518,22 @@ class Outer {
 	</li>
 	<li>Immediately before the type name in a constructor, in which case
 		the annotation applies to the type named by the constructor.</li>
-	<li>In the modifier list of a method declaration,</li>
+	<li>In the modifier list of a method declaration (or annotation element
+		declaration) whose return type is not <code>void</code> and is
+		specified by a simple name, in which case it applies to the type meant
+		by that simple name.
+	</li>
+	<li>In the modifier list of a constructor declaration, in which case it
+		applies to the type named by the constructor.</li>
+	<li>In the modifier list of a
+
 </ul>
 <p>
 	<code>TYPE_USE</code> <i>does not</i> permit an annotation to be used
 	on:
 </p>
 <ul>
+	<li><code>void</code> (as a method's return type),</li>
 	<li>any type in an <code>import</code> declaration,
 	</li>
 	<li>a type used to qualify the <code>this</code> or <code>super</code>
@@ -616,6 +626,39 @@ class Outer {
 &lt;T&gt; @A void test() {	}</code></pre>
 		<p>The correct behavior is for a compilation error to be raised.</p>
 	</li>
+	<li>In many declarations, annotations targeting <code>TYPE_USE</code>
+		can be construed as being either:
+		<ul>
+			<li>immediately before the simple name of the declaration's type (<a
+				href="#">see above</a>),
+			</li>
+			<li>or in the modifier list of the declaration (<a href="#">see above</a>.
+			</li>
+		</ul>
+		<p>A simple example is in the method declaration:</p> <pre><code>@A int one() {	return 1;	}</code></pre>
+		<p>In these cases, the annotation still applies to the declaration's
+			type, (and is considered to apply only once). It is possible for an
+			annotation to be unambiguously placed into either of these two parts
+			of a declaration in any declaration that permits type parameters. For
+			example, if the method declaration above declared a type parameter
+			list:</p> <pre><code>@A &lt;T&gt; int one() {	return 1;	}</code></pre>
+		<p>
+			the annotation <code>@A</code> then unambiguously falls within the
+			method declaration's <span class="syntax-piece">modifier-list</span>.
+			This phenomenon is possible for method declarations and constructor
+			declarations, alike. This phenomenon gives rise to the two
+			aforementioned distinct rules listed above that say where <code>TYPE_USE</code>
+			annotations are permitted, but do not have any effect on how the
+			annotation applies, as annotations at the end of the <span
+				class="syntax-piece">modifier-list</span> of a declaration that
+			target <code>TYPE_USE</code> will still apply to the declaration's
+			type.
+		</p>
+	</li>
+	<li>In all but a few limited cases, it is possible to make an
+		annotation that targets both <code>TYPE_USE</code> and methods to
+		apply to only the method it is used within.
+
 </ol>
 <?php
 b();
