@@ -373,7 +373,8 @@
 	follows:
 </p>
 <ul>
-	<li>immediately before the <i>simple name</i> of the following types:
+	<li id="type-list.type-prefixes">immediately before the <i>simple name</i>
+		of the following types:
 		<ul>
 			<li>the type of the variable in a field or local variable
 				declaration,</li>
@@ -395,9 +396,21 @@
 			</li>
 			<li>any type used to qualify a type that it encloses (i.e., contains
 				in an non-<code>static</code> context<sup info=1></sup>), <span
-				info=1>Types used in a reference to qualify other types may only be
-					annotated if they enclose the qualified type. For example, if <code>Ann</code>
-					is an annotation that targets <code>TYPE_USE</code>, <pre><code>class Outer {
+				info=1>A type can <i>surround</i> or <i>enclose</i> a member:
+					<ul>
+						<li>If a type's member is <code>static</code>, the type surrounds
+							that member.
+						</li>
+						<li>If a type's member is an instance member (non-<code>static</code>),
+							that type encloses that member.
+						</li>
+					</ul>
+					<p>
+						Types used in a reference to qualify other types may only be
+						annotated if they enclose the qualified type. For example, if <code>Ann</code>
+						is an annotation that targets <code>TYPE_USE</code>,
+					</p>
+					<pre><code>class Outer {
 	class Inner {	}
 	
 	private @Ann Outer.Inner someField; // Make a class variable of type Outer.Inner, where Outer is annotated.
@@ -469,8 +482,10 @@ class Outer {
 				in a method reference where <code>new</code> does not follow the <code>::</code>).
 			</li>
 		</ul> In these cases, the annotation applies to the type meant by the
-		simple name that immediately follows it<sup info=2></sup>. <span
-		info=2>For example, in the following fully qualified type: <pre><code>java.lang.@Ann Object myObjectVariable = "abc";</code></pre>
+		simple name that immediately follows it<sup info=2></sup>. (Note that
+		this may not be the type of the declaration, e.g. in the case when an
+		enclosing type is used to qualify a declaration's type.) <span info=2>For
+			example, in the following fully qualified type: <pre><code>java.lang.@Ann Object myObjectVariable = "abc";</code></pre>
 			<p>
 				<code>Object</code> is a simple name, and it immediately follows <code>@Ann</code>,
 				so <code>@Ann</code> applies to the type <code>Object</code> used in
@@ -519,10 +534,10 @@ class Outer {
 	</li>
 	<li>Immediately before the type name in a constructor, in which case
 		the annotation applies to the type named by the constructor.</li>
-	<li>In the modifier list of a method declaration (or annotation element
-		declaration) whose return type is not <code>void</code> and is
-		specified by a simple name, in which case it applies to the type meant
-		by that simple name.
+	<li id="type-list.first-modifier-list-item">In the modifier list of a
+		method declaration (or annotation element declaration) whose return
+		type is not <code>void</code> and is specified by a simple name, in
+		which case it applies to the type meant by that simple name.
 	</li>
 	<li>In the modifier list of a constructor declaration, in which case it
 		applies to the type named by the constructor.</li>
@@ -551,21 +566,11 @@ class Outer {
 	</span>
 	</li>
 	<li>a type <i>surrounding</i> (but not enclosing; see <sup info=1
-		class="inline"></sup> above), another type<sup info=6></sup> in a
-		qualified reference context,
+		class="inline"></sup> above), another type in a qualified reference
+		context,
 	</li>
 </ul>
 <p>despite each of these being uses of types.</p>
-<span info=6>A type can <i>surround</i> or <i>enclose</i> a member.
-	<ul>
-		<li>If a type's member is <code>static</code>, the type surrounds that
-			member.
-		</li>
-		<li>If a type's member is an instance member (non-<code>static</code>),
-			that type encloses that member.
-		</li>
-	</ul>
-</span>
 <h3>Meta Annotations</h3>
 <h3>
 	<span class="syntax-piece">element-value</span> and <span
@@ -640,9 +645,10 @@ class Outer {
 		can be construed as being either:
 		<ul>
 			<li>immediately before the simple name of the declaration's type (<a
-				href="#">see above</a>),
+				href="#type-list.type-prefixes">see above</a>),
 			</li>
-			<li>or in the modifier list of the declaration (<a href="#">see above</a>.
+			<li>or in the modifier list of the declaration (<a
+				href="#type-list.first-modifier-list-item">see above</a>.
 			</li>
 		</ul>
 		<p>A simple example is in the method declaration:</p> <pre><code>@A int one() {	return 1;	}</code></pre>
