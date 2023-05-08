@@ -503,7 +503,8 @@ class Outer {
 	</span>
 	</li>
 	<li>Immediately before a wildcard type argument, in which case the
-		annotation applies to the wildcard.</li>
+		annotation applies to the wildcard. <!-- TODO: Assert that bounded wildcards can also be annotated. -->
+	</li>
 	<li>Immediately before the <code>...</code> token of a variable arity
 		parameter, in which case the annotation applies to the type
 		represented by the <code>...</code><sup info=4></sup>. <span info=4>The
@@ -516,6 +517,7 @@ class Outer {
 	</li>
 	<li>Immediately before the type name in a constructor, in which case
 		the annotation applies to the type named by the constructor.</li>
+	<li>In the modifier list of a method declaration,</li>
 </ul>
 <p>
 	<code>TYPE_USE</code> <i>does not</i> permit an annotation to be used
@@ -561,5 +563,59 @@ class Outer {
 	<!-- TODO: Show example of an annotation that targets METHODs being applied to its own element. -->
 	<!-- TODO: Distinguish this from the annotation element returning itself. -->
 </div>
+<h2>Notes</h2>
+<ol>
+	<li>A bug in some versions of the Eclipse IDE compiler allows an
+		annotation to be applied to a generic method's return type twice if
+		the annotation targets <code>TYPE_USE</code>. This can be done if the
+		method declares any type parameters and the annotation is placed
+		within the method's <span class="syntax-piece">modifier-list</span> as
+		well as immediately before the method's return type, so long as the
+		return type is not <code>void</code>.
+		</p>
+		<p>
+			Attempting to access the annotation on the return type, via
+			reflection, raises a <code>java.lang.annotation.AnnotationFormatError</code>,
+			reflecting the invalid application of the annotation in bytecode.
+		</p>
+		<p>Code to reproduce the error is as follows:</p> <pre><code>@Target(ElementType.TYPE_USE)
+@Retention(RetentionPolicy.RUNTIME)
+@interface A {	}
+@A &lt;T&gt; @A int test() {// Problematic line
+	return 0;
+}</code></pre>
+		<ul>
+			<li>This compilation issue occurs even if the aforementioned
+				annotation is <code>@Repeatable</code>, resulting in a <code>java.lang.annotation.AnnotationFormatError</code>
+				when the annotation is accessed, as from the following code: <pre><code>@Target(ElementType.TYPE_USE)
+@Retention(RetentionPolicy.RUNTIME)
+@interface As {
+	A[] value();
+}
+@Target(ElementType.TYPE_USE)
+@Retention(RetentionPolicy.RUNTIME)
+@Repeatable(As.class)
+@interface A {	}
+@A &lt;T&gt; @A int test() {// Problematic line
+	return 0;
+}</code></pre>
+				<p>Such results in an error because of the way annotations are
+					compiled.</p>
+			</li>
+		</ul>
+	</li>
+	<li>A bug in some versions of the Eclipse IDE compiler allows an
+		annotation targeting <code>TYPE_USE</code> to be applied to <code>void</code>
+		in a method declaration if the declaration declares a type parameter
+		list. Code containing such an annotation successfully compiles by the
+		IDE's compiler, and the annotation is not available during runtime,
+		even if its retention is <code>RUNTIME</code>. Code to reproduce the
+		behavior is as follows: <pre><code>@Target(ElementType.TYPE_USE)
+@Retention(RetentionPolicy.RUNTIME)
+@interface A {	}
+&lt;T&gt; @A void test() {	}</code></pre>
+		<p>The correct behavior is for a compilation error to be raised.</p>
+	</li>
+</ol>
 <?php
 b();
