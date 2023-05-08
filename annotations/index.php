@@ -667,6 +667,24 @@ class Outer {
 &lt;T&gt; @A void test() {	}</code></pre>
 		<p>The correct behavior is for a compilation error to be raised.</p>
 	</li>
+	<li>A bug in some versions of the Eclipse IDE compiler prevents an
+		annotation targeting <code>TYPE_USE</code> from being applied to a
+		constructor declaring type-parameters if located after that
+		constructor's <span class="syntax-piece">type-parameter-list</span>: <pre><code>@Target(TYPE_USE)
+@interface A {	}
+class Ex {
+	&lt;T&gt; @A Ex() {	} // Compiler complains that "@" symbol is not allowed here
+}</code></pre>
+		<p>
+			Curiously, duplicating the annotation by placing it in the modifier
+			list of the constructor, before the <span class="syntax-piece">type-parameter-list</span>,
+			raises an additional error that <code>@A</code> is duplicated:
+		</p> <pre><code>@Target(TYPE_USE)
+@interface A {	}
+class Ex {
+	@A &lt;T&gt; @A Ex() {	} // Compiler complains that "@" symbol is not allowed here
+}</code></pre>
+	</li>
 	<li>In many declarations, annotations targeting <code>TYPE_USE</code>
 		can be construed as being either:
 		<ul>
