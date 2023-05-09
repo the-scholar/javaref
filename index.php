@@ -30,9 +30,9 @@ a.u {
 </head>
 <body>
 	<div id="Header">
-		<div style="font-size: 2em; font-weight: bold;">Javaref.net</div>
+		<div style="font-size: 2em; font-weight: bold; color: white;">Javaref.net</div>
 		<div id="Menu">
-			<a href="/" style="color: white;">Home</a>
+			<a href="/" style="color: darkgray;">Home</a>
 		</div>
 	</div>
 	<div id="Content">
