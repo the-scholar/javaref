@@ -28,9 +28,9 @@
 <table class="syntax-breakdown">
 	<tr>
 		<td><span class="syntax-piece">statements</span></td>
-		<td>is a sequence of statements, just like the body of a code block.
-			The statements can be separated by whitespace. (For more details, see
-			<a href="/statements/blocks">blocks</a>.)
+		<td>is a sequence of statements, (just like in the body of any other
+			code block). The statements can be separated by whitespace. (For more
+			details, see <a href="/statements/blocks" class="unlinked">blocks</a>.)
 		</td>
 	</tr>
 </table>
