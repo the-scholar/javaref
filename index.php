@@ -61,7 +61,6 @@
 				<span>General</span><br> <a class="c" href="/identifiers">Identifiers</a><br>
 				<a class="c" href="/initializers">Static &amp; Instance Initializers</a><br>
 			</div>
-			<br>
 			<div>
 				<span>Literals</span><br> <a class="c" href="/literals/integer">Integer
 					Literal</a><br> <a class="c" href="/literals/floating-point">Floating
@@ -72,6 +71,10 @@
 				<span>Methods</span><br> <a class="c" href="/methods/declarations">Method
 					Declarations</a><br> <a class="c"
 					href="/methods/receiver-parameters">Receiver Parameters</a><br>
+			</div>
+			<div>
+				<span>Operators</span><br>
+				<a class="c u" href="/operators/unary/cast">Cast Operator</a>
 			</div>
 			<div>
 				<span>Annotations</span><br> <a class="c u" href="annotations">Annotations</a><br>
