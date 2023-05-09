@@ -12,8 +12,8 @@
 <table class="syntax">
 	<tr>
 		<td>1</td>
-		<td><code>(</code> <span class="syntax-piece">type</span> <code>)</code>
-			<span class="syntax-piece">castable-expression</span></td>
+		<td><code>(</code> <span class="syntax-piece">primitive-type</span> <code>)</code>
+			<span class="syntax-piece">unary-expression</span></td>
 	</tr>
 	<tr>
 		<td>2</td>
@@ -27,15 +27,47 @@
 </p>
 <table class="syntax-breakdown">
 	<tr>
-		<td><span class="syntax-piece">type</span></td>
-		<td>is any type, except <code>void</code>. <!-- TODO: Check spec to clarify this. -->
+		<td><span class="syntax-piece">primitive-type</span></td>
+		<td>is one of the primitive types:
+			<ul>
+				<li><code>byte</code></li>
+				<li><code>short</code></li>
+				<li><code>char</code></li>
+				<li><code>int</code></li>
+				<li><code>long</code></li>
+				<li><code>float</code></li>
+				<li><code>double</code></li>
+				<li><code>boolean</code></li>
+			</ul>
 		</td>
 	</tr>
 	<tr>
-		<td><span class="syntax-piece">castable-expression</span></td>
-		<td>is any expression other than a unary plus or minus expression.</td>
+		<td><span class="syntax-piece">unary-expression</span></td>
+		<td>is any unary expression<sup info=1></sup>. <span info=1>A unary
+				expression is simple expression including expressions with
+				unary-operators. Each of the following expressions <!-- TODO: Organize -->
+				<ul>
+					<li>Pre-Increment Expression (<code>++</code> operator)
+					</li>
+					<li>Pre-Decrement Expression (<code>--</code> operator)
+					</li>
+					<li>Cast Expression</li>
+					<li>The use of any of the following operators:
+						<ul>
+							<li>Unary Plus (<code>+</code>)
+							</li>
+							<li>Unary Minus (<code>-</code>)
+							</li>
+							<li>Bitwise Complement (<code>~</code>)
+							</li>
+							<li>Logical Complement (<code>!</code>)
+							</li>
+						</ul>
+					</li>
+				</ul>
+		</span></td>
 	</tr>
-	
+	<!-- TODO: Finish -->
 </table>
 <p>
 	<i>such that...</i>
@@ -61,5 +93,4 @@
 	</li>
 </ol>
 <?php
-
 b();
