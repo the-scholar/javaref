@@ -11,8 +11,16 @@
 	font-size: 1.1em;
 }
 
+#ToC>ul {
+	margin: 0;
+}
+
 #ToC a {
 	font-size: calc(1em/ 1.1);
+}
+
+.sec>a {
+	font-size: inherit;
 }
 
 a.u {
@@ -31,43 +39,43 @@ a.u {
 		<h1>Java Reference</h1>
 		<p>This is a list of all existing pages on this site:</p>
 		<p>Table of contents:</p>
-		<ul id="ToC">
-			<li><span class="sec">General</span>
-				<ul>
-					<li><a class="c" href="/identifiers">Identifiers</a></li>
-					<li><a class="c" href="/initializers">Static &amp; Instance
-							Initializers</a></li>
-				</ul></li>
-			<li><span class="sec">Literals</span>
-				<ul>
-					<li><a class="c" href="/literals/integer">Integer Literal</a></li>
-					<li><a class="c" href="/literals/floating-point">Floating Point
-							Literal</a></li>
-					<li><a class="c" href="/literals/boolean">Boolean Literal</a></li>
-					<li><a class="c u" href="/literals/null">Null Literal</a></li>
-				</ul></li>
-			<li><span class="sec">Methods</span>
-				<ul>
-					<li><a class="c" href="/methods/declarations">Method Declarations</a></li>
-					<li><a class="c" href="/methods/receiver-parameters">Receiver
-							Parameters</a></li>
-				</ul></li>
-			<li><span class="sec">Operators</span>
-				<ul>
-					<li><span class="sec">Unary</span>
-						<ul>
-							<li><a class="c u" href="/operators/unary/cast">Cast Operator</a></li>
-						</ul></li>
-				</ul></li>
-			<li><span class="sec">Annotations</span>
-				<ul>
-					<li><a class="c u" href="annotations">Annotations</a></li>
-					<li><a class="c u" href="annotations/declarations">Annotation
-							Declarations</a></li>
-					<li><a class="c" href="annotations/elements">Annotation Element
-							Declarations</a></li>
-				</ul></li>
-		</ul>
+		<div id="ToC" style="margin: 1em;">
+			<span class="sec">General</span>
+			<ul>
+				<li><a class="c" href="/identifiers">Identifiers</a></li>
+				<li><a class="c" href="/initializers">Static &amp; Instance
+						Initializers</a></li>
+			</ul>
+			<span class="sec">Literals</span>
+			<ul>
+				<li><a class="c" href="/literals/integer">Integer Literal</a></li>
+				<li><a class="c" href="/literals/floating-point">Floating Point
+						Literal</a></li>
+				<li><a class="c" href="/literals/boolean">Boolean Literal</a></li>
+				<li><a class="c u" href="/literals/null">Null Literal</a></li>
+			</ul>
+			<span class="sec">Methods</span>
+			<ul>
+				<li><a class="c" href="/methods/declarations">Method Declarations</a></li>
+				<li><a class="c" href="/methods/receiver-parameters">Receiver
+						Parameters</a></li>
+			</ul>
+			<span class="sec">Operators</span>
+			<ul>
+				<li><span class="sec">Unary</span>
+					<ul>
+						<li><a class="c u" href="/operators/unary/cast">Cast Operator</a></li>
+					</ul></li>
+			</ul>
+			<span class="sec">Annotations</span>
+			<ul>
+				<li><a class="c u" href="annotations">Annotations</a></li>
+				<li><a class="c u" href="annotations/declarations">Annotation
+						Declarations</a></li>
+				<li><a class="c" href="annotations/elements">Annotation Element
+						Declarations</a></li>
+			</ul>
+		</div>
 		<h3>Notes</h3>
 		<p>
 			<span style="color: #d93838;">Red</span> items point to pages that
