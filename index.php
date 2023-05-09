@@ -69,38 +69,32 @@ a.u {
 					<li><a class="c u" href="/literals/null">Null Literal</a></li>
 				</ul>
 			</li>
+			<li>Methods
+				<ul>
+					<li><a class="c" href="/methods/declarations">Method Declarations</a></li>
+					<li><a class="c" href="/methods/receiver-parameters">Receiver
+							Parameters</a></li>
+				</ul>
+			</li>
+			<li>Operators
+				<ul>
+					<li>Unary
+						<ul>
+							<li><a class="c u" href="/operators/unary/cast">Cast Operator</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Annotations
+				<ul>
+					<li><a class="c u" href="annotations">Annotations</a></li>
+					<li><a class="c u" href="annotations/declarations">Annotation
+							Declarations</a></li>
+					<li><a class="c" href="annotations/elements">Annotation Element
+							Declarations</a></li>
+				</ul>
+			</li>
 		</ul>
-		<div id="ToC">
-			<div>
-				<a class="u" href="/tools">Tools</a>
-			</div>
-			<br>
-			<div>
-				<span>General</span><br> <a class="c" href="/identifiers">Identifiers</a><br>
-				<a class="c" href="/initializers">Static &amp; Instance Initializers</a><br>
-			</div>
-			<div>
-				<span>Literals</span><br> <a class="c" href="/literals/integer">Integer
-					Literal</a><br> <a class="c" href="/literals/floating-point">Floating
-					Point Literal</a><br> <a class="c" href="/literals/boolean">Boolean
-					Literal</a><br> <a class="c u" href="/literals/null">Null Literal</a><br>
-			</div>
-			<div>
-				<span>Methods</span><br> <a class="c" href="/methods/declarations">Method
-					Declarations</a><br> <a class="c"
-					href="/methods/receiver-parameters">Receiver Parameters</a><br>
-			</div>
-			<div>
-				<span>Operators</span><br> <a class="c u"
-					href="/operators/unary/cast">Cast Operator</a>
-			</div>
-			<div>
-				<span>Annotations</span><br> <a class="c u" href="annotations">Annotations</a><br>
-				<a class="c u" href="annotations/declarations">Annotation
-					Declarations</a><br> <a class="c" href="annotations/elements">Annotation
-					Element Declarations</a>
-			</div>
-		</div>
 		<h3>Notes</h3>
 		<p>
 			<span style="color: #d93838;">Red</span> items point to pages that
