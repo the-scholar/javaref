@@ -4,9 +4,9 @@
 	class or instance initialization.</p>
 <p>
 	Static and Instance initializers (sometimes called <i>initializer
-		blocks</i>) solve the issue of it being cumbersome or impossible to
-	run arbitrary code during the initialization of a class or an
-	interface. Both types of initializers are blocks of code.
+		blocks</i>) are used to run arbitrary code during initialization of a
+	type or object. They both can be located directly within a <code>class</code>,
+	normal <code>interface</code>, or <code>enum</code>.
 </p>
 <h2>Syntax</h2>
 <p>Initializer Blocks have the following forms:</p>
