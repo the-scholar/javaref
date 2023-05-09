@@ -37,7 +37,7 @@
 	opacity: 1;
 }
 
-#ToC a.u {
+a.u {
 	color: #d93838;
 }
 </style>
@@ -52,6 +52,24 @@
 	<div id="Content">
 		<h1>Java Reference</h1>
 		<p>Table of contents:</p>
+		<ul>
+			<li>General
+				<ul>
+					<li><a class="c" href="/identifiers">Identifiers</a></li>
+					<li><a class="c" href="/initializers">Static &amp; Instance
+							Initializers</a></li>
+				</ul>
+			</li>
+			<li>Literals
+				<ul>
+					<li><a class="c" href="/literals/integer">Integer Literal</a></li>
+					<li><a class="c" href="/literals/floating-point">Floating Point
+							Literal</a></li>
+					<li><a class="c" href="/literals/boolean">Boolean Literal</a></li>
+					<li><a class="c u" href="/literals/null">Null Literal</a></li>
+				</ul>
+			</li>
+		</ul>
 		<div id="ToC">
 			<div>
 				<a class="u" href="/tools">Tools</a>
@@ -73,8 +91,8 @@
 					href="/methods/receiver-parameters">Receiver Parameters</a><br>
 			</div>
 			<div>
-				<span>Operators</span><br>
-				<a class="c u" href="/operators/unary/cast">Cast Operator</a>
+				<span>Operators</span><br> <a class="c u"
+					href="/operators/unary/cast">Cast Operator</a>
 			</div>
 			<div>
 				<span>Annotations</span><br> <a class="c u" href="annotations">Annotations</a><br>
