@@ -598,6 +598,8 @@ class Outer {
 	declares type parameters (in the case of constructor and method
 	declarations, considering a constructor's type to be the type of object
 	it constructs).</p>
+<h3>Retention</h3>
+<!-- TODO: Talk about the three options for annotation retention and how they work. -->
 <h3>Meta Annotations</h3>
 <h3>
 	<span class="syntax-piece">element-value</span> and <span
@@ -614,6 +616,13 @@ class Outer {
 	<h4>Annotation Applied to Own Members</h4>
 	<!-- TODO: Show example of an annotation that targets METHODs being applied to its own element. -->
 	<!-- TODO: Distinguish this from the annotation element returning itself. -->
+</div>
+<!-- TODO: Add examples for each type of target. -->
+<div>
+	<h4>
+		<code>TYPE_USE</code> Examples
+	</h4>
+	<!-- TODO: Add examples of each TYPE_USE case. -->
 </div>
 <h2>Notes</h2>
 <ol>
