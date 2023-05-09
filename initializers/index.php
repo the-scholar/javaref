@@ -389,5 +389,4 @@ Constructor</code></pre>
 	</li>
 </ol>
 <?php
-
 b();
