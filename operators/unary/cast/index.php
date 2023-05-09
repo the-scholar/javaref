@@ -18,7 +18,8 @@
 	<tr>
 		<td>2</td>
 		<td><code>(</code> <span class="syntax-piece">main-type</span> <span
-			class="optional syntax-piece">additional-types</span></td>
+			class="optional syntax-piece">additional-types</span> <code>)</code>
+			<span class="syntax-piece">castable-expression</span></td>
 	</tr>
 </table>
 <p>
@@ -30,6 +31,11 @@
 		<td>is any type, except <code>void</code>. <!-- TODO: Check spec to clarify this. -->
 		</td>
 	</tr>
+	<tr>
+		<td><span class="syntax-piece">castable-expression</span></td>
+		<td>is any expression other than a unary plus or minus expression.</td>
+	</tr>
+	
 </table>
 <p>
 	<i>such that...</i>
