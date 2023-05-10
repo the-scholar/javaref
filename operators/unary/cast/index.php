@@ -1,7 +1,6 @@
-<?php t("Javaref - Cast Operators", "The Java cast operator attempts to coerce the type of an expression, throwing a ClassCastException upon failure.");?>
+<?php t("Javaref - Cast Operators", "The Java cast operator attempts to coerce the type of an expression to a specified type, throwing a ClassCastException upon failure. It can also be used to check or assert the type of an expression.");?>
 <h1>Cast Operator</h1>
-<p class="description">Changes the type of an expression without
-	changing the value.</p>
+<p class="description">Changes the type of an expression.</p>
 <p>
 	The cast operator changes or specifies the type of an expression,
 	throwing a <code>ClassCastException</code> if its argument cannot be
@@ -28,44 +27,21 @@
 <table class="syntax-breakdown">
 	<tr>
 		<td><span class="syntax-piece">primitive-type</span></td>
-		<td>is one of the primitive types:
-			<ul>
-				<li><code>byte</code></li>
-				<li><code>short</code></li>
-				<li><code>char</code></li>
-				<li><code>int</code></li>
-				<li><code>long</code></li>
-				<li><code>float</code></li>
-				<li><code>double</code></li>
-				<li><code>boolean</code></li>
-			</ul>
-		</td>
+		<td>is a primtive type.</td>
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">unary-expression</span></td>
-		<td>is any unary expression<sup info=1></sup>. <span info=1>A unary
-				expression is simple expression including expressions with
-				unary-operators. Each of the following expressions <!-- TODO: Organize -->
-				<ul>
-					<li>Pre-Increment Expression (<code>++</code> operator)
-					</li>
-					<li>Pre-Decrement Expression (<code>--</code> operator)
-					</li>
-					<li>Cast Expression</li>
-					<li>The use of any of the following operators:
-						<ul>
-							<li>Unary Plus (<code>+</code>)
-							</li>
-							<li>Unary Minus (<code>-</code>)
-							</li>
-							<li>Bitwise Complement (<code>~</code>)
-							</li>
-							<li>Logical Complement (<code>!</code>)
-							</li>
-						</ul>
-					</li>
-				</ul>
-		</span></td>
+		<td>is an expression of a simple form or an application of a unary
+			operator.</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">main-type</span></td>
+		<td>is a reference type. This can be any of:
+			<ol>
+				<li>
+			
+			</ol>
+		</td>
 	</tr>
 	<!-- TODO: Finish -->
 </table>
