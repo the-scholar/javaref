@@ -22,8 +22,8 @@
 	<tr>
 		<td>2</td>
 		<td><code>(</code> <span class="syntax-piece">reference-type</span> <span
-			class="optional syntax-piece">interface-type-list</span> <code>)</code>
-			<span class="syntax-piece">reference-castable-expression</span></td>
+			class="syntax-piece">interface-type-list</span> <code>)</code> <span
+			class="syntax-piece">reference-castable-expression</span></td>
 	</tr>
 </table>
 <p>
@@ -80,35 +80,44 @@
 				<li>the pre-decrement operator,</li>
 				<li>the unary plus operator, and</li>
 				<li>the unary minus operator.</li>
-			</ul> <span info=1>More formally, <span class="syntax-piece">reference-castable-expression</span>
-				is any of the following:
-				<ul>
-					<li>the application of any one of the following operators:
-						<ul>
-							<li>the cast operator,</li>
-							<li>the logical negation operator,</li>
-							<li>the bitwise negation operator,</li>
-							<li>the post-increment operator,</li>
-							<li>the post-decrement operator,</li>
-						</ul>
-					</li>
-					<li>any type of array creation expression,</li>
-					<li>a method reference,</li>
-					<li>the keyword <code>this</code> (possibly qualified by a type),
-					</li>
-					<li>a class literal,</li>
-					<li>a literal,</li>
-					<li>a parenthesized expression,</li>
-					<li>a class instance creation expression,</li>
-					<li>a reference to a field,</li>
-					<li>an array component,</li>
-					<li>a method invocation,</li>
-					<li>an expression name,</li>
-					<li>a lambda expression.</li>
-				</ul></span>
+			</ul>
+			<p>
+				That is; <span info=1>More formally, <span class="syntax-piece">reference-castable-expression</span>
+					is any of the following:
+					<ul>
+						<li>the application of any one of the following operators:
+							<ul>
+								<li>the cast operator,</li>
+								<li>the logical negation operator,</li>
+								<li>the bitwise negation operator,</li>
+								<li>the post-increment operator,</li>
+								<li>the post-decrement operator,</li>
+							</ul>
+						</li>
+						<li>any type of array creation expression,</li>
+						<li>a method reference,</li>
+						<li>the keyword <code>this</code> (possibly qualified by a type),
+						</li>
+						<li>a class literal,</li>
+						<li>a literal,</li>
+						<li>a parenthesized expression,</li>
+						<li>a class instance creation expression,</li>
+						<li>a reference to a field,</li>
+						<li>an array component,</li>
+						<li>a method invocation,</li>
+						<li>an expression name,</li>
+						<li>a lambda expression.</li>
+					</ul></span></td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">interface-type-list</span></td>
+		<td>is a sequence that specifies additional types, each of which must
+			be an <code>interface</code> type. Each element of the sequence is
+			comprised of the <code>&</code> token (used as a separator between
+			the types specified) followed by the type itself. Each type in the
+			sequence must be an <code>interface</code>.
 		</td>
 	</tr>
-	<!-- TODO: Finish -->
 </table>
 <p>
 	<i>such that...</i>
@@ -120,11 +129,25 @@
 </ul>
 <h3>Syntax Elements</h3>
 <p>
-	<span class="syntax-number">1</span> syntax_fragment_1_breakdown
+	<span class="syntax-number">1</span> A normal cast to a primitive type.
+</p>
+<p>
+	<span class="syntax-number">2</span> A normal cast to a reference type.
+</p>
+<p>
+	<span class="syntax-number">3</span> An intersection cast. Intersection
+	casts always use reference types.
 </p>
 <!-- TODO: Insert any additional syntax fragment breakdowns -->
-<h2>main_section_title</h2>
+<h2>Behavior</h2>
 <!-- TODO: Fill out main section -->
+
+<p>Casting to a primitive type is treated different, syntactically, from
+	casting to a reference type. To avoid syntactical ambiguity, a cast
+	with reference types cannot be applied to a unary plus or minus
+	expression, or to a pre-increment or pre-decrement expression. This
+	restriction holds even in the case when an intersection cast is used,
+	despite the lack of syntactic ambiguity in with an intersection cast.</p>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <h2>Notes</h2>
