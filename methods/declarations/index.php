@@ -81,7 +81,7 @@
 		<td>is made up of three components, in order:
 			<ol>
 				<li>A possibly empty set of parameter modifiers, in any order. The
-					modifiers can contain the keyword <code>final</code>, as well as
+					modifier set can contain the keyword <code>final</code>, as well as
 					annotations that are applicable to parameters.
 				</li>
 				<li>A parameter type that determines the type of the variable. It
