@@ -1,4 +1,4 @@
-<?php t("Javaref - Cast Operator", "The Java cast operator attempts to coerce the type of an expression to a specified type, throwing a ClassCastException upon failure. It can also be used to check or assert the type of an expression.");?>
+<?php t("Javaref - Cast Operator", "The Java cast operator attempts to convert or specify the type of an expression to a specified type, throwing a ClassCastException upon failure. It can also be used to check or assert the type of an expression.");?>
 <h1>Cast Operator</h1>
 <p class="description">Changes the type of an expression.</p>
 <p>
