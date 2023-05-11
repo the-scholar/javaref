@@ -81,33 +81,33 @@
 				<li>the unary plus operator, and</li>
 				<li>the unary minus operator.</li>
 			</ul>
-			<p>
-				That is; <span info=1>More formally, <span class="syntax-piece">reference-castable-expression</span>
-					is any of the following:
-					<ul>
-						<li>the application of any one of the following operators:
-							<ul>
-								<li>the cast operator,</li>
-								<li>the logical negation operator,</li>
-								<li>the bitwise negation operator,</li>
-								<li>the post-increment operator,</li>
-								<li>the post-decrement operator,</li>
-							</ul>
-						</li>
-						<li>any type of array creation expression,</li>
-						<li>a method reference,</li>
-						<li>the keyword <code>this</code> (possibly qualified by a type),
-						</li>
-						<li>a class literal,</li>
-						<li>a literal,</li>
-						<li>a parenthesized expression,</li>
-						<li>a class instance creation expression,</li>
-						<li>a reference to a field,</li>
-						<li>an array component,</li>
-						<li>a method invocation,</li>
-						<li>an expression name,</li>
-						<li>a lambda expression.</li>
-					</ul></span></td>
+			<span info=1>More formally, <span class="syntax-piece">reference-castable-expression</span>
+				is any of the following:
+				<ul>
+					<li>the application of any one of the following operators:
+						<ul>
+							<li>the cast operator,</li>
+							<li>the logical negation operator,</li>
+							<li>the bitwise negation operator,</li>
+							<li>the post-increment operator,</li>
+							<li>the post-decrement operator,</li>
+						</ul>
+					</li>
+					<li>any type of array creation expression,</li>
+					<li>a method reference,</li>
+					<li>the keyword <code>this</code> (possibly qualified by a type),
+					</li>
+					<li>a class literal,</li>
+					<li>a literal,</li>
+					<li>a parenthesized expression,</li>
+					<li>a class instance creation expression,</li>
+					<li>a reference to a field,</li>
+					<li>an array component,</li>
+					<li>a method invocation,</li>
+					<li>an expression name,</li>
+					<li>a lambda expression.</li>
+				</ul></span>
+		</td>
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">interface-type-list</span></td>
@@ -119,14 +119,6 @@
 		</td>
 	</tr>
 </table>
-<p>
-	<i>such that...</i>
-</p>
-<ul>
-	<li>
-		<!-- TODO: Insert Such that clause -->
-	</li>
-</ul>
 <h3>Syntax Elements</h3>
 <p>
 	<span class="syntax-number">1</span> A normal cast to a primitive type.
@@ -138,13 +130,21 @@
 	<span class="syntax-number">3</span> An intersection cast. Intersection
 	casts always use reference types.
 </p>
-<!-- TODO: Insert any additional syntax fragment breakdowns -->
 <h2>Behavior</h2>
-<!-- TODO: Fill out main section -->
-
+<p>Every expression has a type which is known at compile time. Casting
+	has runtime effects, but is usually used to change the type of an
+	expression; more specifically, a cast operator, applied to an
+	expression, is a new expression whose type is exactly that specified by
+	the cast.</p>
+<p>A cast expression does not affect the value of its operand except in
+	the case that the operand is a lambda expression, in which case the
+	actual runtime value of the cast expression is the lambda expression of
+	type specified by the cast.</p>
+<h3>Impossible, Permissible, and Failing Casts</h3>
+<h3>Reference vs. Primitive Cast</h3>
 <p>Casting to a primitive type is treated different, syntactically, from
-	casting to a reference type. To avoid syntactical ambiguity, a cast
-	with reference types cannot be applied to a unary plus or minus
+	casting to a reference type. To avoid syntactical ambiguity, a cast to
+	one or more reference types cannot be applied to a unary plus or minus
 	expression, or to a pre-increment or pre-decrement expression. This
 	restriction holds even in the case when an intersection cast is used,
 	despite the lack of syntactic ambiguity in with an intersection cast.</p>
