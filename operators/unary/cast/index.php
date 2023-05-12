@@ -150,8 +150,8 @@
 </p>
 <p>A cast expression does not affect the value of its operand except in
 	the case that the operand is a lambda expression, in which case the
-	actual runtime value of the cast expression is the lambda expression of
-	type specified by the cast.</p>
+	actual runtime value of the cast expression is the lambda expression
+	with type specified by the cast.</p>
 <h3>Casting Conversion</h3>
 <p>
 <h3>Cast Errors or Redundance</h3>
