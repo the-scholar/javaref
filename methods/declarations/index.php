@@ -97,8 +97,8 @@
 	<tr>
 		<td><span class="syntax-piece">array-dims</span></td>
 		<td>is any number of consecutive pairs of <code>[]</code> strings,
-			optionally separated (e.g. <code style="white-space: pre;">[][]   []</code>)
-			and/or split (e.g. <code style="white-space: pre;">[][][   ]</code>) by
+			optionally separated (e.g. <code style="white-space: pre;">[][] []</code>)
+			and/or split (e.g. <code style="white-space: pre;">[][][ ]</code>) by
 			whitespace. Each <code>[]</code> pair may be annotated with an
 			annotation that targets type use. (Such annotation targets the
 			respective dimension of the array that the <code>[]</code>
@@ -119,8 +119,10 @@
 	<tr>
 		<td><span class="syntax-piece">type-parameter-list</span></td>
 		<td>is a comma-separated list of type parameters. Each type parameter
-			is an identifier. The identifier may be the keyword <code>extends</code>
-			and then another type, to establish an upper bound.
+			is an identifier. The identifier may be followed by the keyword <code>extends</code>
+			and then a set of types to establish an upper bound. The set of types
+			upper-bounding the parameter must be delimitted by the <code>&amp;</code>
+			token, and all but the first must be <code>interface</code> types.
 		</td>
 	</tr>
 </table>
@@ -800,4 +802,6 @@ public class AmbiguityTest {
 	}
 }</code></pre></li>
 </ol>
-<?php b();
+<?php
+
+b();
