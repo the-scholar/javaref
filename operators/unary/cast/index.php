@@ -175,12 +175,13 @@
 	expression the argument is).
 	<!-- TODO: Supplement this section (and replace the parenthesized portion) with the details of which expressions can be poly expressions as the argument of a cast. (Also include the conditions for when they are poly expressions.) -->
 </p>
-<p>
+<p id="capture-conversion-part">
 	If the argument for a cast expression is a poly expression, the <i>target
 		type</i><sup info=4></sup> for the poly expression is exactly the type
 	specified by the cast, unless that specified type is generic and
 	contains any wildcard type arguments, in which case the target type is
-	instead the original type with each wildcard replaced as follows:
+	instead the original type with each wildcard replaced as follows due to
+	capture conversion:
 </p>
 <span info=4>The actual type of a poly expression is based on the type
 	of expression the poly expression is <i>and</i> on the target type of
@@ -278,6 +279,45 @@
 
 	int x = 10;
 //	System.out.println((Integer) (++x));// Valid</code></pre>
+	</li>
+	<li>The ability to cast a lambda expression or method reference to a
+		type parameterized with a wildcard allows creating an instance of an <code>interface</code>
+		in a way that is otherwise impossible, without using generics.
+		<p>
+			An <code>interface</code> can be declared generic with a type
+			parameter bounded by a private (inaccessible) class. For example:
+		</p> <pre><code>class ContainerType {
+	private static class PrivateClass {	}
+
+	public interface Interface&lt;T extends PrivateClass&gt; {
+		int doSomething();
+	}
+}</code></pre>
+		<p>
+			Classes outside of <code>ContainerType</code> can refer to <code>Interface</code>
+			but not use it as a type unless using it raw or with the <code>?</code>
+			wildcard type argument. The only other permissible parameterization
+			is <code>PrivateClass</code> which is inaccessible.
+		</p>
+		<p>
+			In a separate class, one can instantiate <code>Interface</code> using
+			a lambda expression or method reference without using <code>Interface</code>
+			as a raw type and without having to refer to <code>PrivateClass</code>
+			(which would raise a compile-time error) using a wildcard:
+		</p> <pre><code>public class Example {
+	public static void main(String[] args) {
+		Object x = (Interface&lt;?&gt;) () -&gt; 1;
+	}
+}</code></pre>
+		<p>
+			Because of the cast, the lambda expression is instantiated as the
+			type <code>Interface&lt;PrivateClass&gt;</code> due to <a
+				href="#capture-conversion-part">capture conversion</a>. This becomes
+			the type of the lambda expression itself. Since <code>PrivateClass</code>
+			is not explicitly referenced, no compile-time error occurs. The cast
+			expression converts the type to <code>Interface&lt;?&gt;</code>,
+			which is the result of the cast expression itself.
+		</p>
 	</li>
 </ol>
 <?php
