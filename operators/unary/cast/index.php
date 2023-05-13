@@ -2,10 +2,14 @@
 <h1>Cast Operator</h1>
 <p class="description">Changes the type of an expression.</p>
 <p>
-	The cast operator changes or specifies the type of an expression,
-	throwing a <code>ClassCastException</code> if its argument cannot be
-	coerced to the specified type.
+	The cast operator (often simply called <i>cast</i>) changes or
+	specifies the type of an expression, throwing a <code>ClassCastException</code>
+	if its argument cannot be coerced to the specified type.
 </p>
+<p>Casts can be used to perform certain automatic conversions, broaden
+	or shrink the type of an expression, change the type being instantiated
+	by a lambda or method reference, clarify ambiguous method invocations,
+	and more.</p>
 <h2>Syntax</h2>
 <p>Cast Operators can be expressed through:</p>
 <table class="syntax">
@@ -144,34 +148,69 @@
 		a <i>poly</i> expression. A standalone expression's type can be
 		determined from its contents whereas a poly expression's type can be
 		determined from its context.
-	</span> Casting has runtime effects, but is usually used to change the
-	type of an expression; using the cast operator on some expression forms
-	a new expression whose type is specified by the cast.
+	</span> Casting can have runtime effects, but is usually used to change
+	the type of an expression, which is a compile-time change; using the
+	cast operator on some expression forms a new expression whose type is
+	that specified in the cast.
 </p>
 <p>A cast expression does not affect the value of its operand except in
-	the case that the operand is a lambda expression, in which case the
-	actual runtime value of the cast expression is the lambda expression
-	with type specified by the cast.</p>
+	the case that the operand is a poly expression (notably a lambda
+	expression or method reference expression).</p>
 <h3>Casting Conversion</h3>
 <p>
 <h3>Cast Errors or Redundance</h3>
 <p>
 <h3>Reference &amp; Primitive Cast Differences</h3>
 <p>Casting to a primitive type is treated different, syntactically, from
-	casting to a reference type. To avoid syntactical ambiguity, a cast to
-	one or more reference types cannot be applied to a unary plus or minus
-	expression, or to a pre-increment or pre-decrement expression. This
-	restriction holds even in the case when an intersection cast is used,
-	despite the lack of syntactic ambiguity in with an intersection cast.</p>
-<h3>Lambdas</h3>
+	casting to a reference type. To avoid syntactical ambiguity and ease
+	parsing, a cast to one or more reference types cannot be applied to a
+	unary plus or minus expression, or to a pre-increment or pre-decrement
+	expression. This restriction holds even in the case when an
+	intersection cast is used, (despite the lack of syntactic ambiguity
+	with an intersection cast).</p>
+<h3>Poly Expression Arguments</h3>
+<p>
+	The operand to a cast expression can be a poly expression (although,
+	whether the argument is a poly expression is dependent on which type of
+	expression the argument is).
+	<!-- TODO: Supplement this section (and replace the parenthesized portion) with the details of which expressions can be poly expressions as the argument of a cast. (Also include the conditions for when they are poly expressions.) -->
+</p>
+<p>
+	If the argument for a cast expression is a poly expression, the <i>target
+		type</i><sup info=4></sup> for the poly expression is exactly the type
+	specified by the cast, unless that specified type is generic and
+	contains any wildcard type arguments, in which case the target type is
+	instead the original type with each wildcard replaced as follows:
+</p>
+<span info=4>The actual type of a poly expression is based on the type
+	of expression the poly expression is <i>and</i> on the target type of
+	the context that the poly expression is used in.
+</span>
+<ul>
+	<li>If the wildcard has no bound, it is replaced with the bound for the
+		type argument it substitutes,</li>
+	<li>if the wildcard has a lower bound, it is replaced such that<!-- TODO -->,
+		and
+	</li>
+	<li>if the wildcard has an upper bound, it is replaced such that<!-- TODO -->.
+	</li>
+</ul>
+<p>
+	In this case, the cast expression's type is still exactly the type
+	specified in the parentheses, but the target type for the cast
+	expression's argument will have no wildcards. See <a href="note-2">Note
+		2</a> for details.
+</p>
 <h3>Intersection Casts</h3>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
+<div>
+	<h4></h4>
+</div>
 <h2>Notes</h2>
 <ol>
-	<li>
-		<!-- TODO: Add notes -->
-	</li>
+	<li></li>
+	<li id="note-2"></li>
 </ol>
 <?php
 b();
