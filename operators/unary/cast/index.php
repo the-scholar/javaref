@@ -168,7 +168,7 @@
 	expression. This restriction holds even in the case when an
 	intersection cast is used, (despite the lack of syntactic ambiguity
 	with an intersection cast).</p>
-<h3>Poly Expression Arguments</h3>
+<h3 id="poly-expr-args">Poly Expression Arguments</h3>
 <p>
 	The operand to a cast expression can be a poly expression (although,
 	whether the argument is a poly expression is dependent on which type of
@@ -198,14 +198,49 @@
 <p>
 	In this case, the cast expression's type is still exactly the type
 	specified in the parentheses, but the target type for the cast
-	expression's argument will have no wildcards. See <a href="note-2">Note
-		2</a> for details.
+	expression's argument will have no wildcards. See <a
+		href="#examples.wildcard-cast">Note 2</a> for details.
 </p>
 <h3>Intersection Casts</h3>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <div>
-	<h4></h4>
+	<h4 id="examples.wildcard-cast">Poly Expressions &amp; Wildcard Casts</h4>
+	<p>Casting a poly expression to a generic type with a wildcard type
+		parameter causes the poly expression's finalized type to be different
+		from the type of the cast.</p>
+	<p>
+		Consider some generic <code>interface</code>:
+	</p>
+	<pre><code>interface Example&lt;T&gt; {
+	void doSomething(T input);
+}</code></pre>
+	<p>
+		The type parameter declaration <code>&lt;T&gt;</code> does not declare
+		an explicit bound, so its bound is <code>Object</code> (as if declared
+		as <code>&lt;T extends Object&gt;</code>). Instances can be obtained
+		using lambda expressions:
+	</p>
+	<pre><code>Object ex = (Example&lt;?&gt;) a -> System.out.println(a);
+// ex is an instance of Example</code></pre>
+	<p>
+		Due to the <a href="#poly-expr-args">rules of casting with poly
+			expressions</a> as arguments, the lambda expression is created as an
+		instance of <code>Example&lt;Object&gt;</code>, with <code>Object</code>
+		used as the type argument rather than the wildcard <code>?</code>
+		(since wildcards are not allowed to be specified as type arguments for
+		the instantiation of a type).
+	</p>
+	<p>
+		Expressions of type <code>Example&lt;Object&gt;</code> can be assigned
+		to expressions of type <code>Example&lt;?&gt;</code>, due to subtyping
+		rules, so the thus <code>Example&lt;?&gt;</code>-type lambda
+		expression is permitted as the argument of the cast, and the full cast
+		expression maintains its type, <code>Example&lt;?&gt;</code>.
+	</p>
+	<p>This allows lambda expressions and method reference expressions to
+		be cast to a type possessing wildcard type arguments without the need
+		to first cast the expression to a type without wildcard arguments.</p>
 </div>
 <h2>Notes</h2>
 <ol>
@@ -214,28 +249,36 @@
 		type. This simplifies the Java grammar but seems to be the result of a
 		nominal oversight in the language's design<sup info=5></sup>. <span
 		info=5>The justification for this grammar seems to be an oversight in
-			the design of the Java language. The relevant <a
-			href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.15">footnote,
-				in section 15.15</a>, assumes that
+			the design of the Java language. The <a
+			href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.15">relevant
+				footnote</a>, in section 15.15, assumes that
 			<blockquote>all type names involved in casts on numeric values are
 				known keywords</blockquote>
-			<p>There are in fact valid reference-type casts, generic casts, and
-				even intersection casts that can be applied to numeric literals,
-				though not to the aforementioned unary expressions:</p>
-	</span> <pre><code>	System.out.println((int) +10); // Valid
+			<p>However, there are in fact valid reference-type casts, generic
+				casts, and even intersection casts that can be applied to other
+				expressions of numeric types, though none to the aforementioned
+				unary expressions:</p> <pre><code>	// Valid
+	System.out.println((Object) 1);
+	System.out.println((Comparable&lt;Integer&gt;) 1);
+	System.out.println((Object & Serializable & Comparable&lt;Integer&gt;) 1);
+
+	// Invalid
+//	System.out.println((Object) -1);
+//	System.out.println((Comparable&lt;Integer&gt;) -1);
+//	System.out.println((Object & Serializable & Comparable&lt;Integer&gt;) -1);</code></pre>
+	</span>
+		<p>For example,</p> <pre><code>	System.out.println((int) +10); // Valid
 //	System.out.println((Integer) +10); // Invalid
 
 	int x = 10;
 	System.out.println((int) ++x); // Valid
 //	System.out.println((Integer) ++x);// Invalid</code></pre>
 		<p>This limitation can be overcome by parenthesizing the argument to
-			the cast expression.</p>
-			<pre><code>//	System.out.println((Integer) (+10)); // Valid
+			the cast expression.</p> <pre><code>//	System.out.println((Integer) (+10)); // Valid
 
 	int x = 10;
 //	System.out.println((Integer) (++x));// Valid</code></pre>
 	</li>
-	<li id="note-2"></li>
 </ol>
 <?php
 b();
