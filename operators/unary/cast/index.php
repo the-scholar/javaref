@@ -209,7 +209,32 @@
 </div>
 <h2>Notes</h2>
 <ol>
-	<li></li>
+	<li>An expression beginning with a <code>+</code> or <code>-</code>
+		cannot be cast to a reference type, but can be cast to a primitive
+		type. This simplifies the Java grammar but seems to be the result of a
+		nominal oversight in the language's design<sup info=5></sup>. <span
+		info=5>The justification for this grammar seems to be an oversight in
+			the design of the Java language. The relevant <a
+			href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.15">footnote,
+				in section 15.15</a>, assumes that
+			<blockquote>all type names involved in casts on numeric values are
+				known keywords</blockquote>
+			<p>There are in fact valid reference-type casts, generic casts, and
+				even intersection casts that can be applied to numeric literals,
+				though not to the aforementioned unary expressions:</p>
+	</span> <pre><code>	System.out.println((int) +10); // Valid
+//	System.out.println((Integer) +10); // Invalid
+
+	int x = 10;
+	System.out.println((int) ++x); // Valid
+//	System.out.println((Integer) ++x);// Invalid</code></pre>
+		<p>This limitation can be overcome by parenthesizing the argument to
+			the cast expression.</p>
+			<pre><code>//	System.out.println((Integer) (+10)); // Valid
+
+	int x = 10;
+//	System.out.println((Integer) (++x));// Valid</code></pre>
+	</li>
 	<li id="note-2"></li>
 </ol>
 <?php
