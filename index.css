@@ -346,6 +346,10 @@ section[sect-symbol]::before {
 	text-align: center;
 }
 
+div.block {
+	margin: 1em 2em;
+}
+
 /* Linklist */
 #Linklist>li::marker {
 	color: var(--link-color);
