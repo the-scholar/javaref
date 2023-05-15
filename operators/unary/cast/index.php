@@ -1,4 +1,4 @@
-<?php t("Javaref - Cast Operator", "The Java cast operator attempts to convert or specify the type of an expression to a specified type, throwing a ClassCastException upon failure. It can also be used to check or assert the type of an expression.");?>
+<?php t("Javaref - Cast Operator", "The Java cast operator attempts to convert or specify the type of an expression so that it is a chosen type, throwing a ClassCastException upon failure. It can also be used to check or assert the type of an expression.");?>
 <h1>Cast Operator</h1>
 <p class="description">Changes the type of an expression.</p>
 <p>
@@ -149,17 +149,57 @@
 		determined from its contents whereas a poly expression's type can be
 		determined from its context.
 	</span> Casting can have runtime effects, but is usually used to change
-	the type of an expression, which is a compile-time change; using the
-	cast operator on some expression forms a new expression whose type is
-	that specified in the cast.
+	the type of an expression without changing the value, which is a
+	compile-time operation; using the cast operator on some expression
+	forms a new expression whose type is that specified in the cast.
 </p>
-<p>A cast expression does not affect the value of its operand except in
-	the case that the operand is a poly expression (notably a lambda
-	expression or method reference expression).</p>
-<h3>Casting Conversion</h3>
+<p>A cast expression can affect the runtime value of its operand.
+	Notable cases include the case that the operand is a lambda expression
+	or method reference expression and the case that either the operand or
+	the type being casted to is primitive.</p>
+<h3>Primitive Type Casting Conversion</h3>
 <p>
-<h3>Cast Errors or Redundance</h3>
+	All primitive types can be cast between each other except for the type
+	<code>boolean</code>, which cannot be cast to or from any other
+	primitive type.
+</p>
+<h4>Widening Primitive Conversion</h4>
 <p>
+	Widening primitive conversion is performed when an expression of a
+	smaller numeric primitive type is cast to a larger numeric primitive
+	type, such as in casting an <code>int</code> expression to type <code>long</code>.
+	The resulting value always exactly represents the original value,
+	except when casting a negative <code>byte</code> to type <code>char</code>.
+	Integral numeric types are ordered by size as follows:
+</p>
+<div class="block">
+	<code>byte</code> &lt; <code>short</code><sup info=4></sup> &lt; <code>int</code>
+	&lt; <code>long</code>
+</div>
+<span info=4><code>char</code> is equal in byte-size to <code>short</code>,
+	but is unsigned.</span>
+<p>If any such smaller type is cast to a larger type, the conversion
+	will occur without loss of information and the larger-type value will
+	exactly represent the same as the smaller-type value. Such a cast
+	performs a two's-complement sign-extension on the value (extending the
+	sign bit) to fill the bits of the larger type.</p>
+<p>
+	Converting a <code>char</code> to a wider integral type involves a
+	zero-extension of the value (i.e., bits introduced by the larger type
+	are set to 0).
+</p>
+<p>
+	Conversion of a <code>byte</code> into a <code>char</code> will operate
+	in two steps:
+</p>
+<ol>
+	<li>The value is converted from <code>byte</code> to <code>int</code>,
+	</li>
+	<li>then the value is converted from <code>int</code> to <code>char</code>.
+	</li>
+</ol>
+<h3>Cast Legality</h3>
+<p>It is always permissible to cast an expression to its own type.
 <h3>Reference &amp; Primitive Cast Differences</h3>
 <p>Casting to a primitive type is treated different, syntactically, from
 	casting to a reference type. To avoid syntactical ambiguity and ease
@@ -177,13 +217,13 @@
 </p>
 <p id="capture-conversion-part">
 	If the argument for a cast expression is a poly expression, the <i>target
-		type</i><sup info=4></sup> for the poly expression is exactly the type
+		type</i><sup info=5></sup> for the poly expression is exactly the type
 	specified by the cast, unless that specified type is generic and
 	contains any wildcard type arguments, in which case the target type is
 	instead the original type with each wildcard replaced as follows due to
 	capture conversion:
 </p>
-<span info=4>The actual type of a poly expression is based on the type
+<span info=5>The actual type of a poly expression is based on the type
 	of expression the poly expression is <i>and</i> on the target type of
 	the context that the poly expression is used in.
 </span>
@@ -200,7 +240,8 @@
 	In this case, the cast expression's type is still exactly the type
 	specified in the parentheses, but the target type for the cast
 	expression's argument will have no wildcards. See <a
-		href="#examples.wildcard-cast">Note 2</a> for details.
+		href="#examples.wildcard-cast">Poly Expressions &amp; Wildcard Casts</a>
+	for details.
 </p>
 <h3>Intersection Casts</h3>
 <h2>Examples</h2>
