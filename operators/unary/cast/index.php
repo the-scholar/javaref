@@ -1,4 +1,28 @@
-<?php t("Javaref - Cast Operator", "The Java cast operator attempts to convert or specify the type of an expression so that it is a chosen type, throwing a ClassCastException upon failure. It can also be used to check or assert the type of an expression.");?>
+<?php $tmods["head_after_stylesheet"] = function() {?>
+<style type="text/css">
+.toc ol {
+	list-style: lower-alpha;
+}
+
+.toc ol ol {
+	list-style: upper-roman;
+}
+
+.toc ol ol ol {
+	list-style: lower-roman;
+}
+
+.toc li>a {
+    color: var(--link-color);
+}
+.toc li:has(>ol,>ul)>a {
+    color: #7fd4e3;
+}
+</style>
+<?php
+};
+t("Javaref - Cast Operator", "The Java cast operator attempts to convert or specify the type of an expression so that it is a chosen type, throwing a ClassCastException upon failure. It can also be used to check or assert the type of an expression.");
+?>
 <h1>Cast Operator</h1>
 <p class="description">Changes the type of an expression.</p>
 <p>
@@ -157,13 +181,67 @@
 	Notable cases include the case that the operand is a lambda expression
 	or method reference expression and the case that either the operand or
 	the type being casted to is primitive.</p>
-<h3>Primitive Type Casting Conversion</h3>
+<h3>Conversions</h3>
+<p>
+	Casting operates on its argument by performing a <i>casting conversion</i>.
+	A casting conversion is the attempted change of a value's type to the
+	type specified by the cast.
+</p>
+<ol class="toc">
+	<li><a href="#conversions.primitive-to-primitive">Primitive-Type <span
+			style="font-family: monospace;">--&gt;</span> Primitive-Type
+			Conversion
+	</a>
+		<ol>
+			<li><a href="conversions.widening-primitive">Widening Primitive
+					Conversion</a>
+				<ol>
+					<li><a href="conversions.integral-to-integral">Integral <span
+							style="font-family: monospace;">--&gt;</span> Integral
+					</a>
+						<ol>
+							<li><a href="#conversions.normal-widening-primitive-numeric"><code>byte</code>
+									<span style="font-family: monospace;">--&gt;</span> <code>short</code>,
+									<code>int</code>, <code>long</code><br> <code>short</code> <span
+									style="font-family: monospace;">--&gt;</span> <code>int</code>,
+									<code>long</code><br> <code>int</code> <span
+									style="font-family: monospace;">--&gt;</span> <code>long</code></a></li>
+							<li><a href="#conversions.char-promotion"><code>char</code> <span
+									style="font-family: monospace;">--&gt;</span> <code>int</code>,
+									<code>long</code></a></li>
+							<li><a href="#conversions.byte-to-char"><code>byte</code> <span
+									style="font-family: monospace;">--&gt;</span> <code>char</code></a></li>
+						</ol></li>
+					<li><a href="#conversions.float-to-double"><code>float</code> <span
+							style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
+					<li><a href="#conversions.integral-to-floating">Integral <span
+							style="font-family: monospace;">--&gt;</span> Floating
+					</a>
+						<ol>
+							<li><a href="#conversions.lossless--to-float"><code>byte</code>, <code>short</code>,
+									<code>char</code> <span style="font-family: monospace;">--&gt;</span>
+									<code>float</code></a></li>
+							<li><a href="#conversions.lossless--to-double"><code>byte</code>,
+									<code>short</code>, <code>char</code>, <code>int</code> <span
+									style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
+							<li><a href="#conversions.lossy--to-float"><code>int</code>, <code>long</code>
+									<span style="font-family: monospace;">--&gt;</span> <code>float</code></a></li>
+							<li><a href="#conversions.lossy-to-double"><code>long</code> <span
+									style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
+						</ol></li>
+				</ol></li>
+		</ol></li>
+</ol>
+<h4 id="conversions.primitive-to-primitive">
+	Primitive <span style="font-family: monospace;">--&gt;</span> Primitive
+	Conversions
+</h4>
 <p>
 	All primitive types can be cast between each other except for the type
 	<code>boolean</code>, which cannot be cast to or from any other
-	primitive type.
+	primitive type (since it is not numeric).
 </p>
-<h4>Widening Primitive Conversion</h4>
+<h5 id="#conversions.widening-primitive">Widening Primitive Conversion</h5>
 <p>
 	Widening primitive conversion is performed when an expression of a
 	smaller numeric primitive type is cast to a larger numeric primitive
