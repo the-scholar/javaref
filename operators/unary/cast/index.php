@@ -13,10 +13,11 @@
 }
 
 .toc li>a {
-    color: var(--link-color);
+	color: var(--link-color);
 }
-.toc li:has(>ol,>ul)>a {
-    color: #7fd4e3;
+
+.toc li:has(>ol, >ul)>a {
+	color: #7fd4e3;
 }
 </style>
 <?php
@@ -218,9 +219,9 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 							style="font-family: monospace;">--&gt;</span> Floating
 					</a>
 						<ol>
-							<li><a href="#conversions.lossless--to-float"><code>byte</code>, <code>short</code>,
-									<code>char</code> <span style="font-family: monospace;">--&gt;</span>
-									<code>float</code></a></li>
+							<li><a href="#conversions.lossless--to-float"><code>byte</code>,
+									<code>short</code>, <code>char</code> <span
+									style="font-family: monospace;">--&gt;</span> <code>float</code></a></li>
 							<li><a href="#conversions.lossless--to-double"><code>byte</code>,
 									<code>short</code>, <code>char</code>, <code>int</code> <span
 									style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
