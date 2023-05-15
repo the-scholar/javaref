@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=1000">
+<meta name="description" content="The unofficial reference for Java syntax.">
 <link rel="stylesheet" type="text/css" href="/index.css">
 <title>Javaref.net</title>
 <style type="text/css">
