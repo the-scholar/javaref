@@ -13,7 +13,7 @@
 }
 
 .toc li>a {
-	color: var(--link-color);
+	color: var(- -link-color);
 }
 
 .toc li:has(>ol, >ul)>a {
@@ -231,6 +231,8 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 									style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
 						</ol></li>
 				</ol></li>
+			<li><a href="#conversions.narrowing-primitive">Narrowing Primitive
+					Conversion</a></li>
 		</ol></li>
 </ol>
 <h4 id="conversions.primitive-to-primitive">
