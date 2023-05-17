@@ -209,8 +209,7 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 							<li><a href="#conversions.char-promotion"><code>char</code> <span
 									style="font-family: monospace;">--&gt;</span> <code>int</code>,
 									<code>long</code></a></li>
-							<li><a href="#conversions.byte-to-char"><code>byte</code> <span
-									style="font-family: monospace;">--&gt;</span> <code>char</code></a></li>
+
 						</ol></li>
 					<li><a href="#conversions.float-to-double"><code>float</code> <span
 							style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
@@ -249,6 +248,26 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 							<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>,
 							<code>long</code></a></li>
 				</ol></li>
+			<li><a href="#conversions.byte-to-char"><code>byte</code> <span
+					style="font-family: monospace;">--&gt;</span> <code>char</code></a></li>
+		</ol></li>
+	<li><a href="#conversions.boxing">Primitive Type <span
+			style="font-family: monospace;">--&gt;</span> Reference Type
+			Conversion
+	</a>
+	<!-- TODO: Add boxing conversions. --></li>
+	<li><a href="#conversions.reference">Reference Type <span
+			style="font-family: monospace;">--&gt;</span> Reference Type
+			Conversion
+	</a>
+		<ol>
+			<li><a href="#conversions.reference.sub-to-super">Widening (Subtype <span
+					style="font-family: monospace;">--&gt;</span> Supertype)
+			</a></li>
+			<li><a href="#conversions.reference.super-to-sub">Narrowing
+					(Supertype <span style="font-family: monospace;">--&gt;</span>
+					Subtype)
+			</a></li>
 		</ol></li>
 </ol>
 <h4 id="conversions.primitive-to-primitive">
