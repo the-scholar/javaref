@@ -1,6 +1,5 @@
 <?php $tmods["head_after_stylesheet"] = function() {?>
 <style type="text/css">
-
 .toc ol {
 	list-style: lower-alpha;
 }
@@ -191,42 +190,46 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 			Conversion
 	</a>
 		<ol>
-			<li><a href="conversions.widening">Widening Primitive Conversion</a>
+			<li><a href="#conversions.primitive.widening">Widening Primitive
+					Conversion</a>
 				<ol>
-					<li><a href="conversions.widening.integral-to-integral">Integral <span
+					<li><a href="#conversions.primitive.widening.i2i">Integral <span
 							style="font-family: monospace;">--&gt;</span> Integral
 					</a>
 						<ol>
-							<li><a href="#conversions.normal-widening-primitive-numeric"><code>byte</code>
+							<li><a href="#conversions.primitive.widening.i2i.normal"><code>byte</code>
 									<span style="font-family: monospace;">--&gt;</span> <code>short</code>,
 									<code>int</code>, <code>long</code><br> <code>short</code> <span
 									style="font-family: monospace;">--&gt;</span> <code>int</code>,
 									<code>long</code><br> <code>int</code> <span
 									style="font-family: monospace;">--&gt;</span> <code>long</code></a></li>
-							<li><a href="#conversions.char-promotion"><code>char</code> <span
-									style="font-family: monospace;">--&gt;</span> <code>int</code>,
+							<li><a href="#conversions.primitive.widening.i2i.char-prom"><code>char</code>
+									<span style="font-family: monospace;">--&gt;</span> <code>int</code>,
 									<code>long</code></a></li>
 
 						</ol></li>
-					<li><a href="#conversions.float-to-double"><code>float</code> <span
-							style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
-					<li><a href="#conversions.integral-to-floating">Integral <span
+					<li><a href="#conversions.primitive.widening.float-to-double"><code>float</code>
+							<span style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
+					<li><a href="#conversions.primitive.widening.i2f">Integral <span
 							style="font-family: monospace;">--&gt;</span> Floating
 					</a>
 						<ol>
-							<li><a href="#conversions.lossless--to-float"><code>byte</code>,
+							<li><a
+								href="#conversions.primitive.widening.i2f.lossless-to-float"><code>byte</code>,
 									<code>short</code>, <code>char</code> <span
 									style="font-family: monospace;">--&gt;</span> <code>float</code></a></li>
-							<li><a href="#conversions.lossless--to-double"><code>byte</code>,
+							<li><a
+								href="#conversions.primitive.widening.i2f.lossless-to-double"><code>byte</code>,
 									<code>short</code>, <code>char</code>, <code>int</code> <span
 									style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
-							<li><a href="#conversions.lossy--to-float"><code>int</code>, <code>long</code>
-									<span style="font-family: monospace;">--&gt;</span> <code>float</code></a></li>
-							<li><a href="#conversions.lossy-to-double"><code>long</code> <span
-									style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
+							<li><a href="#conversions.primitive.widening.i2f.lossy-to-float"><code>int</code>,
+									<code>long</code> <span style="font-family: monospace;">--&gt;</span>
+									<code>float</code></a></li>
+							<li><a href="#conversions.primitive.widening.i2f.lossy-to-double"><code>long</code>
+									<span style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
 						</ol></li>
 				</ol></li>
-			<li><a href="#conversions.narrowing-primitive">Narrowing Primitive
+			<li><a href="#conversions.primitive.narrowing">Narrowing Primitive
 					Conversion</a>
 				<ol>
 					<li><a href="#conversions.double-to-float"><code>double</code> <span
@@ -284,39 +287,64 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 	<code>boolean</code>, which cannot be cast to or from any other
 	primitive type (since it is not numeric).
 </p>
-<h5 id="#conversions.widening-primitive">Widening Primitive Conversion</h5>
+<h5 id="conversions.primitive.widening">Widening Primitive Conversion</h5>
 <p>
 	Widening primitive conversion is performed when an expression of a
 	smaller numeric primitive type is cast to a larger numeric primitive
-	type, such as in casting an <code>int</code> expression to type <code>long</code>.
-	The resulting value always exactly represents the original value,
-	except when casting a negative <code>byte</code> to type <code>char</code>.
+	type, such as in casting an <code>int</code> expression to type <code>long</code>,
+	or a <code>short</code> to type <code>double</code>.
+</p>
+<h6 id="conversions.primitive.widening.i2i">For integral types</h6>
+<p>
+	For integral (non-decimal) types, the value resulting from a widening
+	cast conversion always exactly represents the original value, except
+	when casting a negative <code>byte</code> to type <code>char</code>
+	(see <a href="#conversions.byte-to-char"><code>byte</code> <span
+		style="font-family: monospace;">--&gt;</span> <code>char</code></a>).
 	Integral numeric types are ordered by size as follows:
 </p>
 <div class="block">
-	<code>byte</code> &lt; <code>short</code><sup info=4></sup> &lt; <code>int</code>
+	<code>byte</code> &lt; <code>short</code><sup info=5></sup> &lt; <code>int</code>
 	&lt; <code>long</code>
 </div>
-<span info=4><code>char</code> is equal in byte-size to <code>short</code>,
+<span info=5><code>char</code> is equal in byte-size to <code>short</code>,
 	but is unsigned.</span>
-<p>If any such smaller type is cast to a larger type, the conversion
-	will occur without loss of information and the larger-type value will
-	exactly represent the same as the smaller-type value. Such a cast
-	performs a two's-complement sign-extension on the value (extending the
-	sign bit) to fill the bits of the larger type.</p>
-<p>
-	Converting a <code>char</code> to a wider integral type involves a
-	zero-extension of the value (i.e., bits introduced by the larger type
-	are set to 0).
+<div>
+	<p id="conversions.primitive.widening.i2i.normal">
+		If any such smaller type is cast to a larger type, the conversion will
+		occur without loss of information and the larger-type value will
+		exactly represent the same as the smaller-type value. This is because
+		a larger such type can represent all of the values that the smaller
+		such type can (e.g. any <code>byte</code> value is also a valid <code>int</code>
+		value).
+	</p>
+	<p>A cast of a value from a smaller such type to a larger such type
+		performs a two's-complement sign-extension on the binary data of the
+		value (extending the sign bit) to fill the bits of the larger type.</p>
+</div>
+<p id="conversions.primitive.widening.i2i.char-prom">
+	Converting a <code>char</code> to a wider integral type (i.e., to <code>int</code>
+	or <code>long</code>) involves a zero-extension of the value (i.e.,
+	bits introduced by the larger type are set to 0). Therefore, casting
+	from <code>char</code> to <code>int</code> or <code>long</code> never
+	changes the value being cast.
 </p>
+
+<h5 id="conversions.byte-to-char">
+	<code>byte</code> --&gt; <code>char</code>
+</h5>
 <p>
 	Conversion of a <code>byte</code> into a <code>char</code> will operate
 	in two steps:
 </p>
 <ol>
-	<li>The value is converted from <code>byte</code> to <code>int</code>,
+	<li>The value is converted <a
+		href="#conversions.primitive.widening.i2i.normal">from <code>byte</code>
+			to <code>int</code></a>,
 	</li>
-	<li>then the value is converted from <code>int</code> to <code>char</code>.
+	<li>then the value is converted <a
+		href="#conversions.narrowing.integral-to-integral">from <code>int</code>
+			to <code>char</code></a>.
 	</li>
 </ol>
 <h3>Cast Legality</h3>
@@ -338,13 +366,13 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 </p>
 <p id="capture-conversion-part">
 	If the argument for a cast expression is a poly expression, the <i>target
-		type</i><sup info=5></sup> for the poly expression is exactly the type
+		type</i><sup info=6></sup> for the poly expression is exactly the type
 	specified by the cast, unless that specified type is generic and
 	contains any wildcard type arguments, in which case the target type is
 	instead the original type with each wildcard replaced as follows due to
 	capture conversion:
 </p>
-<span info=5>The actual type of a poly expression is based on the type
+<span info=6>The actual type of a poly expression is based on the type
 	of expression the poly expression is <i>and</i> on the target type of
 	the context that the poly expression is used in.
 </span>
@@ -410,8 +438,8 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 	<li>An expression beginning with a <code>+</code> or <code>-</code>
 		cannot be cast to a reference type, but can be cast to a primitive
 		type. This simplifies the Java grammar but seems to be the result of a
-		nominal oversight in the language's design<sup info=5></sup>. <span
-		info=5>The justification for this grammar seems to be an oversight in
+		nominal oversight in the language's design<sup info=7></sup>. <span
+		info=7>The justification for this grammar seems to be an oversight in
 			the design of the Java language. The <a
 			href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.15">relevant
 				footnote</a>, in section 15.15, assumes that
