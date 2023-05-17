@@ -194,10 +194,9 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 			Conversion
 	</a>
 		<ol>
-			<li><a href="conversions.widening-primitive">Widening Primitive
-					Conversion</a>
+			<li><a href="conversions.widening">Widening Primitive Conversion</a>
 				<ol>
-					<li><a href="conversions.integral-to-integral">Integral <span
+					<li><a href="conversions.widening.integral-to-integral">Integral <span
 							style="font-family: monospace;">--&gt;</span> Integral
 					</a>
 						<ol>
@@ -232,7 +231,24 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 						</ol></li>
 				</ol></li>
 			<li><a href="#conversions.narrowing-primitive">Narrowing Primitive
-					Conversion</a></li>
+					Conversion</a>
+				<ol>
+					<li><a href="#conversions.double-to-float"><code>double</code> <span
+							style="font-family: monospace;">--&gt;</span> <code>float</code></a></li>
+					<li><a href="conversions.narrowing.integral-to-integral"><code>short</code>,
+							<code>char</code>, <code>int</code>, <code>long</code> <span
+							style="font-family: monospace;">--&gt;</span> <code>byte</code><br>
+							<code>short</code>, <code>int</code>, <code>long</code> <span
+							style="font-family: monospace;">--&gt;</span> <code>char</code><br>
+							<code>char</code>, <code>int</code>, <code>long</code> <span
+							style="font-family: monospace;">--&gt;</span> <code>short</code><br>
+							<code>long</code> <span style="font-family: monospace;">--&gt;</span>
+							<code>int</code></a></li>
+					<li><a href="conversions.narrowing.floating-to-integral"><code>float</code>,
+							<code>double</code> <span style="font-family: monospace;">--&gt;</span>
+							<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>,
+							<code>long</code></a></li>
+				</ol></li>
 		</ol></li>
 </ol>
 <h4 id="conversions.primitive-to-primitive">
