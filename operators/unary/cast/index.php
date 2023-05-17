@@ -1,5 +1,6 @@
 <?php $tmods["head_after_stylesheet"] = function() {?>
 <style type="text/css">
+
 .toc ol {
 	list-style: lower-alpha;
 }
@@ -10,10 +11,6 @@
 
 .toc ol ol ol {
 	list-style: lower-roman;
-}
-
-.toc li>a {
-	color: var(- -link-color);
 }
 
 .toc li:has(>ol, >ul)>a {
@@ -234,7 +231,7 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 				<ol>
 					<li><a href="#conversions.double-to-float"><code>double</code> <span
 							style="font-family: monospace;">--&gt;</span> <code>float</code></a></li>
-					<li><a href="conversions.narrowing.integral-to-integral"><code>short</code>,
+					<li><a href="#conversions.narrowing.integral-to-integral"><code>short</code>,
 							<code>char</code>, <code>int</code>, <code>long</code> <span
 							style="font-family: monospace;">--&gt;</span> <code>byte</code><br>
 							<code>short</code>, <code>int</code>, <code>long</code> <span
@@ -243,10 +240,12 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 							style="font-family: monospace;">--&gt;</span> <code>short</code><br>
 							<code>long</code> <span style="font-family: monospace;">--&gt;</span>
 							<code>int</code></a></li>
-					<li><a href="conversions.narrowing.floating-to-integral"><code>float</code>,
+					<li><a href="#conversions.narrowing.floating-to-integral"><code>float</code>,
 							<code>double</code> <span style="font-family: monospace;">--&gt;</span>
-							<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>,
-							<code>long</code></a></li>
+							<code>int</code>, <code>long</code></a></li>
+					<li><a href="#conversions.narrowing.floating-to-reduced-integral"><code>float</code>,
+							<code>double</code> <span style="font-family: monospace;">--&gt;</span>
+							<code>byte</code>, <code>short</code>, <code>char</code></a></li>
 				</ol></li>
 			<li><a href="#conversions.byte-to-char"><code>byte</code> <span
 					style="font-family: monospace;">--&gt;</span> <code>char</code></a></li>
@@ -255,7 +254,13 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 			style="font-family: monospace;">--&gt;</span> Reference Type
 			Conversion
 	</a>
-	<!-- TODO: Add boxing conversions. --></li>
+		<ol>
+			<li><a href="#conversions.boxing.simple">Auto-Boxing of <code>boolean</code>,
+					<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>,
+					<code>long</code></a></li>
+			<li><a href="#conversions.boxing.floating">Auto-Boxing of <code>float</code>,
+					<code>double</code></a></li>
+		</ol></li>
 	<li><a href="#conversions.reference">Reference Type <span
 			style="font-family: monospace;">--&gt;</span> Reference Type
 			Conversion
