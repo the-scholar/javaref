@@ -214,19 +214,15 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 							style="font-family: monospace;">--&gt;</span> Floating
 					</a>
 						<ol>
-							<li><a
-								href="#conversions.primitive.widening.i2f.lossless-to-float"><code>byte</code>,
+							<li><a href="#conversions.primitive.widening.i2f.lossless"><code>byte</code>,
 									<code>short</code>, <code>char</code> <span
-									style="font-family: monospace;">--&gt;</span> <code>float</code></a></li>
-							<li><a
-								href="#conversions.primitive.widening.i2f.lossless-to-double"><code>byte</code>,
-									<code>short</code>, <code>char</code>, <code>int</code> <span
-									style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
-							<li><a href="#conversions.primitive.widening.i2f.lossy-to-float"><code>int</code>,
-									<code>long</code> <span style="font-family: monospace;">--&gt;</span>
-									<code>float</code></a></li>
-							<li><a href="#conversions.primitive.widening.i2f.lossy-to-double"><code>long</code>
+									style="font-family: monospace;">--&gt;</span> <code>float</code><br>
+									<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>
 									<span style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
+							<li><a href="#conversions.primitive.widening.i2f.lossy"><code>int</code>,
+									<code>long</code> <span style="font-family: monospace;">--&gt;</span>
+									<code>float</code><br> <code>long</code> <span
+									style="font-family: monospace;">--&gt;</span> <code>double</code></a></li>
 						</ol></li>
 				</ol></li>
 			<li><a href="#conversions.primitive.narrowing">Narrowing Primitive
@@ -329,6 +325,46 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 	from <code>char</code> to <code>int</code> or <code>long</code> never
 	changes the value being cast.
 </p>
+<h6 id="conversions.primitive.widening.float-to-double">
+	<code>float</code> <span style="font-family: monospace;">--&gt;</span>
+	<code>double</code>
+</h6>
+<p>
+	Conversion of a <code>float</code> to type <code>double</code> results
+	in a <code>double</code> value that represents the exact same number as
+	the original <code>float</code> value.
+</p>
+<h5 id="conversions.primitive.widening.i2f">Integral to Floating Point
+	Conversions</h5>
+<p>
+	Converting an integral-type value to a floating point type performs
+	IEEE 754 rounding with round-to-nearest mode. The resulting floating
+	point number is the representable value that is nearest to the source
+	value, with ties between two potential floating point numbers being
+	broken by picking the one whose least significant bit is zero (i.e.,
+	the one that is farthest from <code>0</code>).
+</p>
+<h6 id="conversions.primitive.widening.i2f.lossless">Converting to
+	floating point losslessly</h6>
+<p>
+	Conversion from <code>byte</code>, <code>short</code>, or <code>char</code>
+	to <code>float</code> will always result in a <code>float</code> that
+	exactly represents the same number as the original value. Conversion
+	from <code>byte</code>, <code>short</code>, <code>char</code>, or <code>int</code>
+	to <code>double</code> will result in a <code>double</code> that
+	exactly represents the same number as the source value.
+</p>
+<h6 id="conversions.primitive.widening.i2f.lossy">Lossy conversion to
+	floating point</h6>
+<p>Conversion of large integral types to floating point types, i.e.</p>
+<ul>
+	<li><code>int</code> or <code>long</code> converted to <code>float</code>,
+		or</li>
+	<li><code>long</code> converted to <code>double</code>,</li>
+</ul>
+<p>undergoes IEEE 754 rounding with round-to-nearest mode to arrive at a
+	floating point value.</p>
+<h5 id="conversions.primitive.narrowing">Narrowing Primitive Conversion</h5>
 
 <h5 id="conversions.byte-to-char">
 	<code>byte</code> --&gt; <code>char</code>
