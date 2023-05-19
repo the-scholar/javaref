@@ -346,8 +346,13 @@ section[sect-symbol]::before {
 	text-align: center;
 }
 
+/* Specialized DIV elements */
 div.block {
 	margin: 1em 2em;
+}
+div.grouper {
+	margin: none;
+	padding: none;
 }
 
 /* Linklist */
