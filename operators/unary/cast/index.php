@@ -445,9 +445,37 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 	</li>
 </ol>
 <h4 id="conversions.boxing">Boxing (Primitive-to-Reference Cast)</h4>
-<p>Conversion from a primitive type to a reference type (boxing) results
-	in an object representing the exact same value as the original
-	primitive type.</p>
+<p>
+	Casting can induce boxing, which is a conversion that results in an
+	object (whose type is one of the wrapper types <code>Byte</code>, <code>Short</code>,
+	<code>Character</code>, <code>Integer</code>, <code>Long</code>, <code>Float</code>,
+	<code>Double</code>, or <code>Boolean</code>, each a member of the <code>java.lang</code>
+	package) that represents the primitive value being cast. Wrapper types
+	and boxing are useful for generics, as generic program elements cannot
+	be parameterized with a primitive type (e.g. <code>List&lt;int&gt</code>
+	is not allowed, whereas <code>List&lt;Integer&gt;</code> is).
+</p>
+<p>An expression of any primitive type, can be cast to that primitive
+	type's wrapper type. That is, an expression can cast be from type:</p>
+<ul>
+	<li><code>byte</code> to <code>Byte</code>,</li>
+	<li><code>short</code> to <code>Short</code>,</li>
+	<li><code>char</code> to <code>Character</code>,</li>
+	<li><code>int</code> to <code>Integer</code>,</li>
+	<li><code>long</code> to <code>Long</code>,</li>
+	<li><code>float</code> to <code>Float</code>,</li>
+	<li><code>double</code> to <code>Double</code>, and</li>
+	<li><code>boolean</code> to <code>Boolean</code>.</li>
+</ul>
+<p>
+	In addition to these casts, a primitive type expression can be cast to
+	any supertype of the primitive type's wrapper type, including generic
+	types or intersection types. For example, <code>Integer</code>
+	implements <code>Comparable&lt;Integer&gt;</code> and so a primitive
+	type <code>int</code> expression can be cast to <code>Comparable&lt;Integer&gt;</code>
+	or even to intersection type <code>Number &amp;
+		Comparable&lt;Integer&gt;</code>.
+</p>
 <h3>Cast Legality</h3>
 <p>It is always permissible to cast an expression to its own type.
 <h3>Reference &amp; Primitive Cast Differences</h3>
