@@ -241,10 +241,8 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 							<code>int</code></a></li>
 					<li><a href="#conversions.narrowing.floating-to-integral"><code>float</code>,
 							<code>double</code> <span style="font-family: monospace;">--&gt;</span>
-							<code>int</code>, <code>long</code></a></li>
-					<li><a href="#conversions.narrowing.floating-to-reduced-integral"><code>float</code>,
-							<code>double</code> <span style="font-family: monospace;">--&gt;</span>
-							<code>byte</code>, <code>short</code>, <code>char</code></a></li>
+							<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>,
+							<code>long</code></a></li>
 				</ol></li>
 			<li><a href="#conversions.byte-to-char"><code>byte</code> <span
 					style="font-family: monospace;">--&gt;</span> <code>char</code></a></li>
@@ -259,6 +257,8 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 					<code>long</code></a></li>
 			<li><a href="#conversions.boxing.floating">Auto-Boxing of <code>float</code>,
 					<code>double</code></a></li>
+			<li><a href="#conversions.boxing.caching">Mandated caching of
+					integers, characters, and booleans</a></li>
 		</ol></li>
 	<li><a href="#conversions.reference">Reference Type <span
 			style="font-family: monospace;">--&gt;</span> Reference Type
@@ -344,9 +344,7 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 	broken by picking the one whose least significant bit is zero (i.e.,
 	the one that is farthest from <code>0</code>).
 </p>
-<h6 id="conversions.primitive.widening.i2f.lossless">Converting to
-	floating point losslessly</h6>
-<p>
+<p id="conversions.primitive.widening.i2f.lossless">
 	Conversion from <code>byte</code>, <code>short</code>, or <code>char</code>
 	to <code>float</code> will always result in a <code>float</code> that
 	exactly represents the same number as the original value. Conversion
@@ -354,9 +352,8 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 	to <code>double</code> will result in a <code>double</code> that
 	exactly represents the same number as the source value.
 </p>
-<h6 id="conversions.primitive.widening.i2f.lossy">Lossy conversion to
-	floating point</h6>
-<p>Conversion of large integral types to floating point types, i.e.</p>
+<p id="conversions.primitive.widening.i2f.lossy">Conversion of large
+	integral types to floating point types, i.e.</p>
 <ul>
 	<li><code>int</code> or <code>long</code> converted to <code>float</code>,
 		or</li>
@@ -365,7 +362,71 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 <p>undergoes IEEE 754 rounding with round-to-nearest mode to arrive at a
 	floating point value.</p>
 <h5 id="conversions.primitive.narrowing">Narrowing Primitive Conversion</h5>
-
+<p id="conversions.double-to-float">
+	<code>double</code> to <code>float</code> conversion performs IEEE 754
+	rounding. <code>Infinity</code> values and <code>NaN</code> are
+	preserved. That is, casting <code>NaN</code> or positive or negative <code>Infinity</code>
+	from <code>double</code> to <code>float</code> results in the exact
+	same value, but of type <code>float</code>.
+</p>
+<p id="conversions.narrowing.integral-to-integral">
+	Integral-type values, when cast to a smaller integral type, lose their
+	most significant bits so as to fit into the smaller integral type. All
+	signed integral types (<code>byte</code>, <code>short</code>, <code>int</code>,
+	and <code>long</code>) use the most-significant bit (leftmost bit) to
+	negativity, and the remaining bits to represent value. The unsigned <code>char</code>
+	type uses all its bits to represent value. This can cause the sign to
+	change when casting a larger integral type to a smaller integral type,
+	including in the case of casting from <code>char</code> to <code>byte</code>,
+	where the result may be negative despite no possible <code>char</code>
+	value being negative.
+</p>
+<h6 id="conversions.narrowing.floating-to-integral">Floating point to
+	integral conversions</h6>
+<p>
+	Conversion of a floating point to an integral value rounds the floating
+	point number to the nearest integer value, picking the integer closest
+	to zero if two integers are equidistant to the original floating point
+	value, unless the floating point value is <code>NaN</code> in which
+	case the result of the cast conversion is <code>0</code>, of type
+	specified by the cast.
+</p>
+<p>A check is then made to determine if the integer value obtained is a
+	valid:</p>
+<ul>
+	<li><code>long</code> if the target type of the cast is <code>long</code>,
+		or</li>
+	<li><code>int</code>, if the target type of the cast is another
+		integral primitive type.</li>
+</ul>
+<p>
+	In either case, if the rounded integer value is a valid element, it is
+	the result of the cast expression (if casting to <code>long</code> or <code>int</code>),
+	or the value is converted from <code>int</code> to the smaller,
+	integral, primitive type via <a
+		href="#conversions.narrowing.integral-to-integral">primitive integral
+		narrowing conversion</a>.
+</p>
+<p>
+	If the rounded integer value is not a valid element, then the closest
+	valid <code>long</code> (if casting to <code>long</code>) or <code>int</code>
+	(otherwise) is used. This is maintained in the case that the floating
+	point value is positive or negative <code>Infinity</code>, in which
+	case the integer value is either the maximum or minimum value for the <code>long</code>
+	(if casting to <code>long</code>) or <code>int</code> (otherwise) type.
+	If the cast is to a type other than <code>long</code> or <code>int</code>
+	then the <code>int</code> min- or max-value is converted to the target
+	type of the cast via <a
+		href="#conversions.narrowing.integral-to-integral">primitive integral
+		narrowing conversion</a>.
+</p>
+<p>
+	In this way, floating point values are only directly converted to
+	either <code>long</code> or <code>int</code>, even when cast to <code>short</code>,
+	<code>char</code>, or <code>byte</code>, but for these cases, an
+	additional conversion is made from <code>int</code> to the target type
+	being cast to.
+</p>
 <h5 id="conversions.byte-to-char">
 	<code>byte</code> --&gt; <code>char</code>
 </h5>
@@ -383,6 +444,10 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 			to <code>char</code></a>.
 	</li>
 </ol>
+<h4 id="conversions.boxing">Boxing (Primitive-to-Reference Cast)</h4>
+<p>Conversion from a primitive type to a reference type (boxing) results
+	in an object representing the exact same value as the original
+	primitive type.</p>
 <h3>Cast Legality</h3>
 <p>It is always permissible to cast an expression to its own type.
 <h3>Reference &amp; Primitive Cast Differences</h3>
