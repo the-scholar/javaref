@@ -249,7 +249,7 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 		</ol></li>
 	<li><a href="#conversions.boxing">Primitive Type <span
 			style="font-family: monospace;">--&gt;</span> Reference Type
-			Conversion
+			Conversion (Boxing)
 	</a>
 		<ol>
 			<li><a href="#conversions.boxing.simple">Boxing of <code>boolean</code>,
@@ -260,6 +260,10 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 			<li><a href="#conversions.boxing.caching">Mandated caching of
 					integers, characters, and booleans</a></li>
 		</ol></li>
+	<li><a href="#conversions.unboxing">Reference Type <span
+			style="font-family: monospace;">--&gt;</span> Primitive Type
+			Conversion (Unboxing)
+	</a></li>
 	<li><a href="#conversions.reference">Reference Type <span
 			style="font-family: monospace;">--&gt;</span> Reference Type
 			Conversion
@@ -516,6 +520,39 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 System.out.println(a == b);</code></pre>
 	<p>will always print</p> <pre><code class="output">true</code></pre>
 </span>
+<h4 id="conversions.unboxing">Unboxing (Reference-to-Primitive Cast)</h4>
+<p>
+	Unboxing occurs when an expression of reference type is cast to an
+	expression of primitive type. The cast operates by first attempting to
+	narrow the reference type to the appropriate wrapper type; (the wrapper
+	type that corresponds to the primitive type being cast to), then the
+	cast returns a primitive type with the same value as the one
+	represented by the value being cast (or the cast throws a <code>NullPointerException</code>
+	at runtime if the reference type's value is <code>null</code>).
+</p>
+<p>
+	If the type of the expression being cast (<span class="syntax-piece">primitive-castable-expression</span>),
+	is not a supertype of the wrapper type that corresponds to <span
+		class="syntax-piece">primitive-type</span> (i.e., the wrapper type
+	that corresponds to the cast's target type), the cast expression raises
+	a compile-time error. For example, trying to cast an expression of type
+	<code>List</code> to type <code>int</code> raises a compile-time error
+	because the <code>List</code> expression can never evaluate to an <code>Integer</code>
+	object.
+</p>
+<p>
+	If the cast is valid at compile-time but, at runtime, the actual value
+	of the <span class="syntax-piece">primitive-castable-expression</span>
+	is not an instance of the wrapper type, a <code>ClassCastException</code>
+	is raised. If <span class="syntax-piece">primitive-castable-expression</span>
+	evaluates to <code>null</code>, the cast results in a <code>NullPointerException</code>.
+</p>
+<p>
+	If the cast succeeds, the resulting primitive value is exactly the same
+	as the value represented by the object that was cast. In particular,
+	the cast is the same as the result of the corresponding <code>value</code>
+	method of the wrapper type.
+</p>
 <h3>Cast Legality</h3>
 <p>It is always permissible to cast an expression to its own type.
 <h3>Reference &amp; Primitive Cast Differences</h3>
