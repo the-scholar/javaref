@@ -252,10 +252,10 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 			Conversion
 	</a>
 		<ol>
-			<li><a href="#conversions.boxing.simple">Auto-Boxing of <code>boolean</code>,
+			<li><a href="#conversions.boxing.simple">Boxing of <code>boolean</code>,
 					<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>,
 					<code>long</code></a></li>
-			<li><a href="#conversions.boxing.floating">Auto-Boxing of <code>float</code>,
+			<li><a href="#conversions.boxing.floating">Boxing of <code>float</code>,
 					<code>double</code></a></li>
 			<li><a href="#conversions.boxing.caching">Mandated caching of
 					integers, characters, and booleans</a></li>
@@ -476,6 +476,46 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 	or even to intersection type <code>Number &amp;
 		Comparable&lt;Integer&gt;</code>.
 </p>
+<p id="conversions.boxing.simple">The result of casting a primitive-type
+	value to a reference type so that it is boxed is an instance of the
+	primitive type's corresponding wrapper type that represents the
+	primitive value that was boxed. When invoked on the result of a boxing
+	conversion, the following methods,</p>
+<ul>
+	<li><code>booleanValue()</code> for <code>Boolean</code>,</li>
+	<li><code>byteValue()</code> for <code>Byte</code>,</li>
+	<li><code>shortValue()</code> for <code>Short</code>,</li>
+	<li><code>charValue()</code> for <code>Character</code>,</li>
+	<li><code>intValue()</code> for <code>Integer</code>,</li>
+	<li><code>doubleValue()</code> for <code>Double</code>, and</li>
+	<li><code>floatValue()</code> for <code>Float</code></li>
+</ul>
+<p id="conversions.boxing.floating">
+	will return the primitive value that was boxed, unless the value was <code>NaN</code>,
+	in which case the <code>isNaN()</code> method for <code>Double</code>
+	and <code>Float</code> will return <code>true</code>.
+</p>
+<h5 id="conversions.boxing.caching">Caching of Boxed Values</h5>
+<p>The values:</p>
+<ul>
+	<li>from <code>-128</code> to <code>127</code> for <code>int</code>
+		(inclusive),
+	</li>
+	<li>from <code>0</code> to <code>127</code> for <code>char</code>
+		(inclusive), and
+	</li>
+	<li><code>true</code> and <code>false</code> for <code>boolean</code>,</li>
+</ul>
+<p>
+	are cached so that boxing one of the values repeatedly results in the
+	same object.<sup info=6></sup>
+</p>
+<span info=6>If any of these values is boxed twice, an identity
+	comparison (with the <code>==</code> operator) of the results of the
+	two boxings always returns <code>true</code>. For example: <pre><code>Object a = 10, b = 5 + 5;
+System.out.println(a == b);</code></pre>
+	<p>will always print</p> <pre><code class="output">true</code></pre>
+</span>
 <h3>Cast Legality</h3>
 <p>It is always permissible to cast an expression to its own type.
 <h3>Reference &amp; Primitive Cast Differences</h3>
@@ -495,13 +535,13 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 </p>
 <p id="capture-conversion-part">
 	If the argument for a cast expression is a poly expression, the <i>target
-		type</i><sup info=6></sup> for the poly expression is exactly the type
+		type</i><sup info=7></sup> for the poly expression is exactly the type
 	specified by the cast, unless that specified type is generic and
 	contains any wildcard type arguments, in which case the target type is
 	instead the original type with each wildcard replaced as follows due to
 	capture conversion:
 </p>
-<span info=6>The actual type of a poly expression is based on the type
+<span info=7>The actual type of a poly expression is based on the type
 	of expression the poly expression is <i>and</i> on the target type of
 	the context that the poly expression is used in.
 </span>
@@ -567,8 +607,8 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 	<li>An expression beginning with a <code>+</code> or <code>-</code>
 		cannot be cast to a reference type, but can be cast to a primitive
 		type. This simplifies the Java grammar but seems to be the result of a
-		nominal oversight in the language's design<sup info=7></sup>. <span
-		info=7>The justification for this grammar seems to be an oversight in
+		nominal oversight in the language's design<sup info=8></sup>. <span
+		info=8>The justification for this grammar seems to be an oversight in
 			the design of the Java language. The <a
 			href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.15">relevant
 				footnote</a>, in section 15.15, assumes that
