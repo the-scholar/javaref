@@ -553,6 +553,17 @@ System.out.println(a == b);</code></pre>
 	the cast is the same as the result of the corresponding <code>value</code>
 	method of the wrapper type.
 </p>
+<h4 id="conversions.reference">
+	Reference <span style="font-family: monospace;">--&gt;</span> Reference
+	Conversion
+</h4>
+<h5 id="conversions.reference.sub-to-super">
+	Widening (Subtype <span style="font-family: monospace;">--&gt;</span>
+	Supertype)
+</h5>
+<p>Casting a reference type expression to a supertype of the
+	expression's type never results in a compile-time error and always
+	succeeds.</p>
 <h3>Cast Legality</h3>
 <p>It is always permissible to cast an expression to its own type.
 <h3>Reference &amp; Primitive Cast Differences</h3>
