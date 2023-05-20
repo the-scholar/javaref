@@ -577,7 +577,7 @@ System.out.println(a == b);</code></pre>
 <h3 id="poly-expr-args">Poly Expression Arguments</h3>
 <p>
 	The operand to a cast expression can be a poly expression (although,
-	whether the argument is a poly expression is dependent on which type of
+	whether the argument is a poly expression is dependent on what kind of
 	expression the argument is).
 	<!-- TODO: Supplement this section (and replace the parenthesized portion) with the details of which expressions can be poly expressions as the argument of a cast. (Also include the conditions for when they are poly expressions.) -->
 </p>
@@ -649,6 +649,27 @@ System.out.println(a == b);</code></pre>
 	<p>This allows lambda expressions and method reference expressions to
 		be cast to a type possessing wildcard type arguments without the need
 		to first cast the expression to a type without wildcard arguments.</p>
+</div>
+<div>
+	<h4>Method Invocation Selection</h4>
+	<p>Casting to a supertype may be used on an argument to a method
+		invocation expression to change which method is invoked by the
+		expression.</p>
+	<pre><code>class Test {
+	void m(String x)	{	System.out.println("String");	}
+	void m(Object x)	{	System.out.println("Object");	}
+	
+	void example() {
+		m("abc"); // Invokes m(String) which prints "String"
+		m((Object) "abc"); // Invokes m(Object) which prints "Object"
+	}
+}</code></pre>
+	<p>
+		In both cases, the same value (<code>"abc"</code>) is passed to the
+		methods, but which method is called is determined by the type of the
+		expression used as an argument, not the type of the value used as an
+		argument.
+	</p>
 </div>
 <h2>Notes</h2>
 <ol>
