@@ -559,11 +559,44 @@ System.out.println(a == b);</code></pre>
 </h4>
 <h5 id="conversions.reference.sub-to-super">
 	Widening (Subtype <span style="font-family: monospace;">--&gt;</span>
-	Supertype)
+	Supertype) Conversion
 </h5>
 <p>Casting a reference type expression to a supertype of the
 	expression's type never results in a compile-time error and always
-	succeeds.</p>
+	succeeds. Casting to a supertype can be used to change which method or
+	constructor is invoked by a method invocation expression, or can be
+	used to change the type of value that a lambda expression evaluates to.</p>
+<h5 id="conversions.reference.super-to-sub">
+	Narrowing (Supertype <span style="font-family: monospace;">--&gt;</span>
+	Subtype) Conversion
+</h5>
+<p>
+	Narrowing reference conversions always perform a run-time check to
+	verify that the actual value that <span class="syntax-piece">reference-castable-expression</span>
+	evaluates to is an instance of the <span class="syntax-piece">reference-type</span>
+	(or intersection type) being cast to. If the value is not an instance,
+	the cast fails with a <code>ClassCastException</code>.
+</p>
+<p>
+	A cast that performs a narrowing reference conversion can convert a <span
+		class="syntax-piece">reference-castable-expression</span>:
+</p>
+<ul>
+	<li>of any type to a subtype (as when casting <code>Object</code> to <code>String</code>),
+	</li>
+	<li>of any non-<code>final</code> type to a non-parameterized <code>interface</code>
+		type that <span class="syntax-piece">reference-castable-expression</span>'s
+		type does not implement or extend,
+	</li>
+	<li>of type <code>java.lang.Cloneable</code> or <code>java.io.Serializable</code>
+		to any array type (since arrays always implement <code>Cloneable</code>
+		and <code>Serializable</code>),
+	</li>
+	<li>of any array type with component <code>A</code> to another array
+		type with component <code>B</code> where <code>A</code> can be
+		converted to <code>B</code> via a narrowing reference conversion.
+	</li>
+</ul>
 <h3>Cast Legality</h3>
 <p>It is always permissible to cast an expression to its own type.
 <h3>Reference &amp; Primitive Cast Differences</h3>
@@ -612,7 +645,7 @@ System.out.println(a == b);</code></pre>
 <h3>Intersection Casts</h3>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
-<div>
+<div class="example">
 	<h4 id="examples.wildcard-cast">Poly Expressions &amp; Wildcard Casts</h4>
 	<p>Casting a poly expression to a generic type with a wildcard type
 		parameter causes the poly expression's finalized type to be different
@@ -650,7 +683,7 @@ System.out.println(a == b);</code></pre>
 		be cast to a type possessing wildcard type arguments without the need
 		to first cast the expression to a type without wildcard arguments.</p>
 </div>
-<div>
+<div class="example">
 	<h4>Method Invocation Selection</h4>
 	<p>Casting to a supertype may be used on an argument to a method
 		invocation expression to change which method is invoked by the
@@ -669,6 +702,32 @@ System.out.println(a == b);</code></pre>
 		methods, but which method is called is determined by the type of the
 		expression used as an argument, not the type of the value used as an
 		argument.
+	</p>
+</div>
+<div class="example">
+	<h4>
+		<code>Serializable</code>, <code>Cloneable</code>, &amp; Arrays
+	</h4>
+	<p>
+		The type of every dimension of a multidimensional array, possibly
+		except for the last dimension's type, is an instance of <code>java.lang.Cloneable</code>
+		and of <code>java.io.Serializable</code> (and an instance of <code>Object</code>,
+		which is the supertype of <code>Cloneable</code> and of <code>Serializable</code>),
+		and so an expression of either type (or of type <code>Object</code>)
+		can be cast to any array type:
+	</p>
+	<pre><code>Object a = null;
+System.out.println((Object[]) a); // An array of objects is also an object.
+System.out.println((int[]) a); // An array of primitive-type values is also an object.
+System.out.println((String[][][][][][]) a); // A multi-dimensional array is also an object.</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">null
+null
+null</code></pre>
+	<p>
+		Each of the above casts performs narrowing reference conversion,
+		attempting to convert from a supertype (<code>Object</code>) to a
+		subtype (some array).
 	</p>
 </div>
 <h2>Notes</h2>
