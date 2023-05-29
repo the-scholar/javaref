@@ -643,9 +643,12 @@ System.out.println(a == b);</code></pre>
 				&amp; UpperBoundTwo</code>.
 	</span> <!-- TODO Describe how it's a compile-time error if none of the intersected types subtypes the other. -->
 	</li>
-	<li>if the wildcard has an upper bound, it is replaced such that<!-- TODO -->.
-	</li>
+	<li>if the wildcard has a lower bound, it is replaced with a new type
+		whose upper bound is the bound of the type parameter that the wildcard
+		takes place of and whose lower bound is the wildcard's lowerbound.</li>
 </ul>
+<p>This allows for otherwise impossible casts, such as casting a lambda
+	expression to a wildcard-parameterized type.</p>
 <p>
 	In this case, the cast expression's type is still exactly the type
 	specified in the parentheses, but the target type for the cast
