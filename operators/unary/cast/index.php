@@ -627,10 +627,21 @@ System.out.println(a == b);</code></pre>
 	the context that the poly expression is used in.
 </span>
 <ul>
+	<!-- TODO rewrite to be clearer; see int/float literals pages' descriptive sections. -->
 	<li>If the wildcard has no bound, it is replaced with the bound for the
 		type argument it substitutes,</li>
-	<li>if the wildcard has a lower bound, it is replaced such that<!-- TODO -->,
-		and
+	<li>if the wildcard has an upper bound, it is replaced with a new type
+		whose upper bound is the intersection of:
+		<ol>
+			<li>the wildcard's upper bound and</li>
+			<li>the upper bound of the type parameter that the wildcard replaces,</li>
+		</ol> (so long as at least one of the two upper bounds is a subtype of
+		the other) and whose lower bound is the <code>null</code> type, and<sup
+		info=8></sup> <span info=8>If a type parameter, <code>T extends
+				UpperBoundOne</code> is parameterized by <code>? extends
+				UpperBoundTwo</code>, the resulting new type has upper bound <code>UpperBoundOne
+				&amp; UpperBoundTwo</code>.
+	</span> <!-- TODO Describe how it's a compile-time error if none of the intersected types subtypes the other. -->
 	</li>
 	<li>if the wildcard has an upper bound, it is replaced such that<!-- TODO -->.
 	</li>
@@ -735,8 +746,8 @@ null</code></pre>
 	<li>An expression beginning with a <code>+</code> or <code>-</code>
 		cannot be cast to a reference type, but can be cast to a primitive
 		type. This simplifies the Java grammar but seems to be the result of a
-		nominal oversight in the language's design<sup info=8></sup>. <span
-		info=8>The justification for this grammar seems to be an oversight in
+		nominal oversight in the language's design<sup info=9></sup>. <span
+		info=9>The justification for this grammar seems to be an oversight in
 			the design of the Java language. The <a
 			href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.15">relevant
 				footnote</a>, in section 15.15, assumes that
