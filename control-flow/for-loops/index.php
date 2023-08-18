@@ -55,6 +55,17 @@
 			<p>The list of statement expressions is comma-delimited.</p>
 		</td>
 	</tr>
+	<tr>
+		<td><span class="syntax-piece">condition</span></td>
+		<td>is a <code>boolean</code> expression.
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">increment-expr</span></td>
+		<td>is a comma-delimited list of any number of <span
+			class="syntax-piece">stmt-expr</span> (statement expressions).
+		</td>
+	</tr>
 	<!-- TODO: Insert any additional syntax piece breakdowns -->
 </table>
 <p>
