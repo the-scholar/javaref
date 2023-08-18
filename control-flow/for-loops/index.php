@@ -57,6 +57,20 @@
 		</td>
 	</tr>
 	<tr>
+		<td><span class="syntax-piece">stmt-expr</span></td>
+		<td>is a any one of:
+			<ul>
+				<li>an assignment,</li>
+				<li>a pre- or post-increment expression,</li>
+				<li>a pre- or post-decrement expression,</li>
+				<li>a method invocation, or</li>
+				<li>a class instance creation expression (with the <code>new</code>
+					operator)
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
 		<td><span class="syntax-piece">body-statement</span></td>
 		<td>is any statement.</td>
 	</tr>
@@ -71,6 +85,34 @@
 					class="syntax-piece">type</span> <span class="syntax-piece">name</span>
 				<span class="syntax-piece optional">array-dims</span>
 			</div>
+			<p>
+				<i>where...</i>
+			</p>
+			<table class="syntax-breakdown">
+				<tr>
+					<td><span class="syntax-piece">variable-modifiers</span></td>
+					<td>is a any number of the modifiers: <code>final</code> or any
+						applicable annotation.
+					</td>
+				</tr>
+				<tr>
+					<td><span class="syntax-piece">type</span></td>
+					<td>is the variable's type.</td>
+				</tr>
+				<tr>
+					<td><span class="syntax-piece">name</span></td>
+					<td>is an identifier that names the variable.</td>
+				</tr>
+				<tr>
+					<td><span class="syntax-piece">array-dims</span></td>
+					<td>is any number of bracket pairs augmenting the
+						array-dimensionality of the type of the variable. Each consecutive
+						<code>[]</code> after the variable name adds a new dimension to
+						the array variable, and can be annotated by an appropriate
+						annotation.
+					</td>
+				</tr>
+			</table>
 		</td>
 	</tr>
 	<tr>
@@ -78,20 +120,6 @@
 		<td>is a list of any number of variable modifiers. The list can
 			comprise the <code>final</code> keyword and any applicable
 			annotations.
-		</td>
-	</tr>
-	<tr>
-		<td><span class="syntax-piece">stmt-expr</span></td>
-		<td>is a any one of:
-			<ul>
-				<li>an assignment,</li>
-				<li>a pre- or post-increment expression,</li>
-				<li>a pre- or post-decrement expression,</li>
-				<li>a method invocation, or</li>
-				<li>a class instance creation expression (with the <code>new</code>
-					operator)
-				</li>
-			</ul>
 		</td>
 	</tr>
 	<!-- TODO: Insert any additional syntax piece breakdowns -->
