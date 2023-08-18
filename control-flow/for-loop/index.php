@@ -24,12 +24,14 @@
 	<tr>
 		<td>2</td>
 		<td><code>for (</code> <span class="syntax-piece">iter-variable-decl</span>
-			<code>:</code> <span class="syntax-piece">iterable-expr</span></td>
+			<code>:</code> <span class="syntax-piece">iterable-expr</span> <code>)</code>
+			<span class="syntax-piece">body-statement</span></td>
 	</tr>
 	<tr>
 		<td>3</td>
 		<td><code>for (</code> <span class="syntax-piece">iter-variable-decl</span>
-			<code>:</code> <span class="syntax-piece">array-expr</span></td>
+			<code>:</code> <span class="syntax-piece">array-expr</span> <code>)</code>
+			<span class="syntax-piece">body-statement</span></td>
 	</tr>
 </table>
 <p>
