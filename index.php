@@ -39,7 +39,7 @@ a.u {
 	</div>
 	<div id="Content">
 		<h1>Java Reference</h1>
-		<p>This is a list of all existing pages on this site:</p>
+		<p>This is a list of all existing pages:</p>
 		<p>Table of contents:</p>
 		<div id="ToC" style="margin: 1em;">
 			<span class="sec">General</span>
@@ -55,6 +55,10 @@ a.u {
 						Literal</a></li>
 				<li><a class="c" href="/literals/boolean">Boolean Literal</a></li>
 				<li><a class="c u" href="/literals/null">Null Literal</a></li>
+			</ul>
+			<span class="sec">Control Flow</span>
+			<ul>
+				<li><a class="c u" href="/control-flow/for-loops">For Loops</a></li>
 			</ul>
 			<span class="sec">Methods</span>
 			<ul>
