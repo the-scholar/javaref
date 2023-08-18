@@ -41,18 +41,8 @@
 	<tr>
 		<td><span class="syntax-piece">init-expression</span></td>
 		<td>is either a list of any number of <span class="syntax-piece">stmt-expr</span>
-			(statement expressions) or a local variable declaration. A statement
-			expression is any one of:
-			<ul>
-				<li>an assignment,</li>
-				<li>a pre- or post-increment expression,</li>
-				<li>a pre- or post-decrement expression,</li>
-				<li>a method invocation, or</li>
-				<li>a class instance creation expression (with the <code>new</code>
-					operator)
-				</li>
-			</ul>
-			<p>The list of statement expressions is comma-delimited.</p>
+			(statement expressions) or a local variable declaration. The list is
+			comma-delimited.
 		</td>
 	</tr>
 	<tr>
@@ -64,6 +54,44 @@
 		<td><span class="syntax-piece">increment-expr</span></td>
 		<td>is a comma-delimited list of any number of <span
 			class="syntax-piece">stmt-expr</span> (statement expressions).
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">body-statement</span></td>
+		<td>is any statement.</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">iter-variable-decl</span></td>
+		<td>is a formal parameter declaration, (like one that may go in a
+			method declaration). The <span class="syntax-piece">iter-variable-decl</span>
+			is equivalently a local variable declaration without the optional
+			initializer (and without the trailing semicolon):
+			<div class="decorated">
+				<span class="syntax-piece optional">variable-modifiers</span> <span
+					class="syntax-piece">type</span> <span class="syntax-piece">name</span>
+				<span class="syntax-piece optional">array-dims</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">variable-modifiers</span></td>
+		<td>is a list of any number of variable modifiers. The list can
+			comprise the <code>final</code> keyword and any applicable
+			annotations.
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">stmt-expr</span></td>
+		<td>is a any one of:
+			<ul>
+				<li>an assignment,</li>
+				<li>a pre- or post-increment expression,</li>
+				<li>a pre- or post-decrement expression,</li>
+				<li>a method invocation, or</li>
+				<li>a class instance creation expression (with the <code>new</code>
+					operator)
+				</li>
+			</ul>
 		</td>
 	</tr>
 	<!-- TODO: Insert any additional syntax piece breakdowns -->
