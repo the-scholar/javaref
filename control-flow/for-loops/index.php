@@ -39,8 +39,21 @@
 </p>
 <table class="syntax-breakdown">
 	<tr>
-		<td><span class="syntax-piece">syntax_piece_1</span></td>
-		<td>is syntax_piece_1_breakdown</td>
+		<td><span class="syntax-piece">init-expression</span></td>
+		<td>is either a list of any number of <span class="syntax-piece">stmt-expr</span>
+			(statement expressions) or a local variable declaration. A statement
+			expression is any one of:
+			<ul>
+				<li>an assignment,</li>
+				<li>a pre- or post-increment expression,</li>
+				<li>a pre- or post-decrement expression,</li>
+				<li>a method invocation, or</li>
+				<li>a class instance creation expression (with the <code>new</code>
+					operator)
+				</li>
+			</ul>
+			<p>The list of statement expressions is comma-delimited.</p>
+		</td>
 	</tr>
 	<!-- TODO: Insert any additional syntax piece breakdowns -->
 </table>
