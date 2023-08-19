@@ -115,11 +115,12 @@
 			</table>
 		</td>
 	</tr>
+
 	<tr>
-		<td><span class="syntax-piece">variable-modifiers</span></td>
-		<td>is a list of any number of variable modifiers. The list can
-			comprise the <code>final</code> keyword and any applicable
-			annotations.
+		<td><span class="syntax-piece">iterable-expr</span></td>
+		<td>is any expression that is assignable to the <code>Iterable</code>
+			type. <code>Iterable</code> is generic; the type of the expression
+			may be either raw or parameterized.
 		</td>
 	</tr>
 	<!-- TODO: Insert any additional syntax piece breakdowns -->
