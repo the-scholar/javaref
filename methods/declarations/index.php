@@ -7,7 +7,7 @@
 	introduces a method to the program. The group of statements that are
 	executed are called the method's implementation. A method declaration
 	includes the method's name (and formally, it's signature), which can be
-	used to refer to it elsewhere, though it is not necessary for a
+	used to refer to the method elsewhere, though it is not necessary for a
 	declaration to include the implementation.</p>
 <h2>Syntax</h2>
 <p>A method declaration consists of:</p>
