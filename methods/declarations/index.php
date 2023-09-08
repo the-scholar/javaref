@@ -1,8 +1,7 @@
 <?php t("Method Declaration", "Method declarations introduce a named, executable group of statements to a program.");?>
 <h1>Method Declaration</h1>
-<p class="description">Declares a method so that it can be referenced
-	via a method reference, called, and overridden, possibly while also
-	providing a body.</p>
+<p class="description">Declares a method, (possibly with a body), so that it can be referenced
+	via a method reference, called, and overridden.</p>
 <p>A method is a named group of statements that can be referred to and
 	executed via a method invocation statement. A method declaration
 	introduces a method to the program. The group of statements that are
