@@ -57,7 +57,7 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">return-type</span></td>
-		<td>is a type denoting what type of values, if any<sup info=1></sup>,
+		<td>is a type denoting what type of value, if any<sup info=1></sup>,
 			the method returns. The type may have its own annotations. <span
 			info=1>If <code>void</code> is specified as the method's return type,
 				the method returns no value.
