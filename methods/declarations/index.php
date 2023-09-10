@@ -242,67 +242,90 @@ t("Method Declaration", "Method declarations introduce a named, executable group
 <p>A method can have at most one access modifier keyword, otherwise a
 	compile error occurs.</p>
 <h4>Other Keywords</h4>
-<ul id="KeywordList">
-	<li><a href="/keywords/final"><code>final</code></a> - The <code>final</code>
-		modifier, when used on a method, disables the ability for any
-		subclasses to override the method. Despite having no effect, it may be
-		used on <code>private</code> methods. It cannot be used on
-		declarations directly in an <code>interface</code>, nor on any method
-		declared <code>abstract</code> or <code>native</code>.</li>
-	<li><a href="/keywords/static"><code>static</code></a> - The <code>static</code> modifier causes a
-		method to be a <i>class method</i> rather than an <i>instance method</i>.
-		Resultingly, the method may not refer to <code>this</code>, <code>super</code>,
-		or any other instance methods or instance fields without qualifying
-		such references with an explicit instance. This is in contrast to
-		instance methods, which, in their bodies, may access instance-specific
-		members without explicit qualification. Instance methods additionally
-		may refer to <code>this</code> and <code>super</code>.</li>
-	<li><a href="/keywords/strictfp"><code>strictfp</code></a> - The <code>strictfp</code> modifier causes
-		all floating point computations written in the body of a so modified
-		method to consistently operate on the normal float/double value set
-		(depending on expression type) across implementations. See <a
-		href="/keywords/strictfp">strictfp</a> for details.</li>
-	<li><a href="/keywords/synchronized"><code>synchronized</code></a> - A <code>synchronized</code> method
-		synchronizes on:
-		<ul>
-			<li><code>this</code>, if the method is an instance method, or</li>
-			<li>the <code>Class</code> object of the class of which it is a
-				member, if the method is <code>static</code>
-			</li>
-		</ul>
-		<p>before it begins executing. The lock is released after the method
-			completes.</p></li>
-	<li><a href="/keywords/abstract"><code>abstract</code></a> - Abstract method declarations cannot provide
-		a block statement body. <code>abstract</code> methods cannot be <code>static</code>,
-		<code>final</code>, <code>native</code>, <code>private</code>, <code>synchronized</code>,
-		nor <code>strictfp</code>. Any type containing an <code>abstract</code>
-		method must also, itself, be <code>abstract</code> (<code>interface</code>s
-		are always inherently <code>abstract</code>). <code>abstract</code>
-		types cannot be instantiated directly; only concrete sub-types can be
-		instantiated directly.
-		<p>
-			Any non-<code>abstract</code> sub-type that inherits an <code>abstract</code>
-			method from its immediate parent must override the abstract method
-			and provide an implementation:
-		</p></li>
-</ul>
-<p>The native modifier is used to declare a method whose implementation
-	is provided through some other language, typically C or C++. Such
-	methods' implementations are connected to the program through the Java
-	Native Interface.</p>
-<p>
-	The <code>native</code> modifier cannot be used with <code>strictfp</code>
-	or <code>abstract</code>, although it can be used with other modifiers.
-</p>
-<h4>
-	<code>default</code> Modifier
-</h4>
-<p>
-	The default modifier allows a method declared in an <code>interface</code>
-	to include an implementation. <code>default</code> methods are not
-	abstract. A method declaration containing <code>default</code> must
-	include a block as its body.
-</p>
+<table>
+	<tr>
+		<td><a href="/keywords/final"><code>final</code></a></td>
+		<td>The <code>final</code> modifier, when used on a method, disables
+			the ability for any subclasses to override the method. Despite having
+			no effect, it may be used on <code>private</code> methods. It cannot
+			be used on declarations directly in an <code>interface</code>, nor on
+			any method declared <code>abstract</code> or <code>native</code>.
+		</td>
+	</tr>
+	<tr>
+		<td><a href="/keywords/static"><code>static</code></a></td>
+		<td>The <code>static</code> modifier causes a method to be a <i>class
+				method</i> rather than an <i>instance method</i>. Resultingly, the
+			method may not refer to <code>this</code>, <code>super</code>, or any
+			other instance methods or instance fields without qualifying such
+			references with an explicit instance. This is in contrast to instance
+			methods, which, in their bodies, may access instance-specific members
+			without explicit qualification. Instance methods additionally may
+			refer to <code>this</code> and <code>super</code>.
+		</td>
+	</tr>
+	<tr>
+		<td><a href="/keywords/strictfp"><code>strictfp</code></a></td>
+		<td>The <code>strictfp</code> modifier causes all floating point
+			computations written in the body of a so modified method to
+			consistently operate on the normal float/double value set (depending
+			on expression type) across implementations. See <a
+			href="/keywords/strictfp">strictfp</a> for details.
+		</td>
+	</tr>
+	<tr>
+		<td><a href="/keywords/synchronized"><code>synchronized</code></a></td>
+		<td>A <code>synchronized</code> method synchronizes on:
+			<ul>
+				<li><code>this</code>, if the method is an instance method, or</li>
+				<li>the <code>Class</code> object of the class of which it is a
+					member, if the method is <code>static</code>
+				</li>
+			</ul>
+			<p>before it begins executing. The lock is released after the method
+				completes.</p>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="/keywords/abstract"><code>abstract</code></a></td>
+		<td>Abstract method declarations cannot provide a block statement
+			body. <code>abstract</code> methods cannot be <code>static</code>, <code>final</code>,
+			<code>native</code>, <code>private</code>, <code>synchronized</code>,
+			nor <code>strictfp</code>. Any type containing an <code>abstract</code>
+			method must also, itself, be <code>abstract</code> (<code>interface</code>s
+			are always inherently <code>abstract</code>). <code>abstract</code>
+			types cannot be instantiated directly; only concrete sub-types can be
+			instantiated directly.
+			<p>
+				Any non-<code>abstract</code> sub-type that inherits an <code>abstract</code>
+				method from its immediate parent must override the abstract method
+				and provide an implementation:
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="/keywords/native"><code>native</code></a></td>
+		<td>The native modifier is used to declare a method whose
+			implementation is provided through some other language, typically C
+			or C++. Such methods' implementations are connected to the program
+			through the Java Native Interface.
+			<p>
+				The <code>native</code> modifier cannot be used with <code>strictfp</code>
+				or <code>abstract</code>, although it can be used with other
+				modifiers.
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="/keywords/default"><code>default</code></a></td>
+		<td>The default modifier allows a method declared in an <code>interface</code>
+			to include an implementation. <code>default</code> methods are not
+			abstract. A method declaration containing <code>default</code> must
+			include a block as its body.
+		</td>
+	</tr>
+</table>
+
 <h3>Return Type</h3>
 <p>A method's return type determines the type of the method invocation
 	statement that invokes it.</p>
