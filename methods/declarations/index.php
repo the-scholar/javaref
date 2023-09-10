@@ -347,7 +347,7 @@ t("Method Declaration", "Method declarations introduce a named, executable group
 	execution that does <code>throw</code> a value.
 </p>
 <span info=3> With a <code>finally</code> block, a method may execute
-	multiple of <code>return</code> statements. In such a case, the last <i>abrupt
+	multiple <code>return</code> statements. In such a case, the last <i>abrupt
 		exit</i> from execution of the method takes precedence, i.e., the
 	final <code>return</code> or <code>throw</code> that is executed is
 	what the method completes with: <pre><code>int test() {
@@ -356,7 +356,8 @@ t("Method Declaration", "Method declarations introduce a named, executable group
 	} finally {
 		return 10;
 	}
-}</code></pre> A call to <code>test()</code> returns <code>10</code>.
+}</code></pre> A call to <code>test()</code> returns <code>10</code>,
+	even though the <code>return 5</code> does in fact get executed.
 </span>
 <span info=4> If a path of execution does not end, (e.g., if you have an
 	infinite <code>while</code> or <code>for</code> loop), then that path
