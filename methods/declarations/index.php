@@ -163,7 +163,7 @@
 				class="syntax-piece">modifier-list</span> does not contain the <code>default</code>
 				keyword,
 			</li>
-		</ul> then the method is an <i>abstract</i> method and it must have <code>;</code>
+		</ul> then the method must have <code>;</code>
 		for its <span class="syntax-piece">body</span>. Otherwise, the method
 		is not abstract and must not have <code>;</code> for its <span
 		class="syntax-piece">body</span>.
