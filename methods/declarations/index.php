@@ -185,7 +185,7 @@
 <p>
 	Annotations can be placed in two distinct places in a method
 	declaration, either in the <span class="syntax-piece">modifier-list</span>,
-	intermixed with keyword modifiers, or, if type parameters are includes,
+	intermixed with keyword modifiers, or, if type parameters are included,
 	after the <span class="syntax-piece">type-parameter-list</span> and
 	immediately before the return type.
 </p>
