@@ -12,7 +12,7 @@
 	or an array type expression.
 </p>
 <h2>Syntax</h2>
-<p>For Loops can be expressed through two forms:</p>
+<p>For Loops have three forms:</p>
 <table class="syntax">
 	<tr>
 		<td>1</td>
@@ -123,7 +123,10 @@
 			may be either raw or parameterized.
 		</td>
 	</tr>
-	<!-- TODO: Insert any additional syntax piece breakdowns -->
+	<tr>
+		<td><span class="syntax-piece">array-expr</span></td>
+		<td>is any expression whose type is an array type.</td>
+	</tr>
 </table>
 <p>
 	<i>such that...</i>
