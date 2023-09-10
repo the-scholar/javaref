@@ -165,7 +165,7 @@
 			</li>
 		</ul> then the method must have <code>;</code>
 		for its <span class="syntax-piece">body</span>. Otherwise, the method
-		is not abstract and must not have <code>;</code> for its <span
+		must have a block statement as its <span
 		class="syntax-piece">body</span>.
 	</li>
 </ul>
