@@ -1,14 +1,24 @@
-<?php t("Method Declaration", "Method declarations introduce a named, executable group of statements to a program.");?>
+<?php $tmods["head_after_stylesheet"] = function() {?>
+<style type="text/css">
+#KeywordList>li>code:first-child {
+	color: white;
+}
+</style>
+<?php
+};
+t("Method Declaration", "Method declarations introduce a named, executable group of statements to a program.");
+?>
 <h1>Method Declaration</h1>
-<p class="description">Declares a method, (possibly with a body), so that it can be referenced
-	via a method reference, called, and overridden.</p>
+<p class="description">Declares a method, (possibly with a body), so
+	that it can be referenced via a method reference, called, and
+	overridden.</p>
 <p>A method is a named group of statements that can be referred to and
 	executed via a method invocation statement. A method declaration
 	introduces a method to the program. The group of statements that are
 	executed are called the method's implementation. A method declaration
 	includes the method's name (and formally, it's signature), which can be
-	used to refer to the method elsewhere, though it is not always necessary for a
-	declaration to include the implementation.</p>
+	used to refer to the method elsewhere, though it is not always
+	necessary for a declaration to include the implementation.</p>
 <h2>Syntax</h2>
 <p>A method declaration consists of:</p>
 <table class="syntax">
@@ -163,10 +173,9 @@
 				class="syntax-piece">modifier-list</span> does not contain the <code>default</code>
 				keyword,
 			</li>
-		</ul> then the method must have <code>;</code>
-		for its <span class="syntax-piece">body</span>. Otherwise, the method
-		must have a block statement as its <span
-		class="syntax-piece">body</span>.
+		</ul> then the method must have <code>;</code> for its <span
+		class="syntax-piece">body</span>. Otherwise, the method must have a
+		block statement as its <span class="syntax-piece">body</span>.
 	</li>
 </ul>
 <h3>Syntax Elements</h3>
@@ -232,74 +241,51 @@
 </ul>
 <p>A method can have at most one access modifier keyword, otherwise a
 	compile error occurs.</p>
-<h4>
-	<code>final</code> Modifier
-</h4>
-<p>
-	The <code>final</code> modifier, when used on a method, disables the
-	ability for any subclasses to override the method. Despite having no
-	effect, it may be used on <code>private</code> methods. It cannot be
-	used on declarations directly in an <code>interface</code>, nor on any
-	method declared <code>abstract</code> or <code>native</code>.
-</p>
-<h4>
-	<code>static</code> Modifier
-</h4>
-<p>
-	The <code>static</code> modifier causes a method to be a <i>class
-		method</i> rather than an <i>instance method</i>. Resultingly, the
-	method may not refer to <code>this</code>, <code>super</code>, or any
-	other instance methods or instance fields without qualifying such
-	references with an explicit instance. This is in contrast to instance
-	methods, which, in their bodies, may access instance-specific members
-	without explicit qualification. Instance methods additionally may refer
-	to <code>this</code> and <code>super</code>.
-</p>
-<h4>
-	<code>strictfp</code> Modifier
-</h4>
-<p>
-	The <code>strictfp</code> modifier causes all floating point
-	computations written in the body of a so modified method to
-	consistently operate on the normal float/double value set (depending on
-	expression type) across implementations. See <a
-		href="/keywords/strictfp">strictfp</a> for details.
-</p>
-<h4>
-	<code>synchronized</code> Modifier
-</h4>
-<p>
-	A <code>synchronized</code> method synchronizes on:
-</p>
-<ul>
-	<li><code>this</code>, if the method is an instance method, or</li>
-	<li>the <code>Class</code> object of the class of which it is a member,
-		if the method is <code>static</code>
-	</li>
+<h4>Other Keywords</h4>
+<ul id="KeywordList">
+	<li><a href="/keywords/final"><code>final</code></a> - The <code>final</code>
+		modifier, when used on a method, disables the ability for any
+		subclasses to override the method. Despite having no effect, it may be
+		used on <code>private</code> methods. It cannot be used on
+		declarations directly in an <code>interface</code>, nor on any method
+		declared <code>abstract</code> or <code>native</code>.</li>
+	<li><a href="/keywords/static"><code>static</code></a> - The <code>static</code> modifier causes a
+		method to be a <i>class method</i> rather than an <i>instance method</i>.
+		Resultingly, the method may not refer to <code>this</code>, <code>super</code>,
+		or any other instance methods or instance fields without qualifying
+		such references with an explicit instance. This is in contrast to
+		instance methods, which, in their bodies, may access instance-specific
+		members without explicit qualification. Instance methods additionally
+		may refer to <code>this</code> and <code>super</code>.</li>
+	<li><a href="/keywords/strictfp"><code>strictfp</code></a> - The <code>strictfp</code> modifier causes
+		all floating point computations written in the body of a so modified
+		method to consistently operate on the normal float/double value set
+		(depending on expression type) across implementations. See <a
+		href="/keywords/strictfp">strictfp</a> for details.</li>
+	<li><a href="/keywords/synchronized"><code>synchronized</code></a> - A <code>synchronized</code> method
+		synchronizes on:
+		<ul>
+			<li><code>this</code>, if the method is an instance method, or</li>
+			<li>the <code>Class</code> object of the class of which it is a
+				member, if the method is <code>static</code>
+			</li>
+		</ul>
+		<p>before it begins executing. The lock is released after the method
+			completes.</p></li>
+	<li><a href="/keywords/abstract"><code>abstract</code></a> - Abstract method declarations cannot provide
+		a block statement body. <code>abstract</code> methods cannot be <code>static</code>,
+		<code>final</code>, <code>native</code>, <code>private</code>, <code>synchronized</code>,
+		nor <code>strictfp</code>. Any type containing an <code>abstract</code>
+		method must also, itself, be <code>abstract</code> (<code>interface</code>s
+		are always inherently <code>abstract</code>). <code>abstract</code>
+		types cannot be instantiated directly; only concrete sub-types can be
+		instantiated directly.
+		<p>
+			Any non-<code>abstract</code> sub-type that inherits an <code>abstract</code>
+			method from its immediate parent must override the abstract method
+			and provide an implementation:
+		</p></li>
 </ul>
-<p>before it begins executing. The lock is released after the method
-	completes.</p>
-<h4>
-	<code>abstract</code> Modifier
-</h4>
-<p>
-	Abstract method declarations cannot provide a block statement body. <code>abstract</code>
-	methods cannot be <code>static</code>, <code>final</code>, <code>native</code>,
-	<code>private</code>, <code>synchronized</code>, nor <code>strictfp</code>.
-	Any type containing an <code>abstract</code> method must also, itself,
-	be <code>abstract</code> (<code>interface</code>s are always inherently
-	<code>abstract</code>). <code>abstract</code> types cannot be
-	instantiated directly; only concrete sub-types can be instantiated
-	directly.
-</p>
-<p>
-	Any non-<code>abstract</code> sub-type that inherits an <code>abstract</code>
-	method from its immediate parent must override the abstract method and
-	provide an implementation:
-</p>
-<h4>
-	<code>native</code> Modifier
-</h4>
 <p>The native modifier is used to declare a method whose implementation
 	is provided through some other language, typically C or C++. Such
 	methods' implementations are connected to the program through the Java
