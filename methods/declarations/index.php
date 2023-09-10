@@ -327,13 +327,24 @@ t("Method Declaration", "Method declarations introduce a named, executable group
 </table>
 
 <h3>Return Type</h3>
-<p>A method's return type determines the type of the method invocation
-	statement that invokes it.</p>
+<p>
+	A method's return type determines the type of the method invocation
+	statement that invokes it. Specifically, any method invocation
+	statement will be an expression whose type is the same as the return
+	type of the method it invokes. For example, the following method's
+	return type is <code>int</code>:
+</p>
+<pre><code>int getRandomNumber() {	return (int) (Math.random() * 10);	}// Method declaration</code></pre>
+<p>
+	so the expression that invokes it (<code>getRandomNumber()</code>) is
+	an <code>int</code> expression:
+</p>
+<pre><code>int result = getRandomNumber();</code></pre>
 <p>
 	If a method has a return type other than <code>void</code>, it is
 	required to execute at least 1<sup info=3></sup> <code>return</code>
-	statement at the end of every possible path of execution that does <code>throw</code>
-	a value.
+	statement at the end<sup info=4></sup> of every possible path of normal
+	execution that does <code>throw</code> a value.
 </p>
 <span info=3> With a <code>finally</code> block, a method may execute
 	multiple of <code>return</code> statements. In such a case, the last <i>abrupt
@@ -346,6 +357,15 @@ t("Method Declaration", "Method declarations introduce a named, executable group
 		return 10;
 	}
 }</code></pre> A call to <code>test()</code> returns <code>10</code>.
+</span>
+<span info=4> If a path of execution does not end, (e.g., if you have an
+	infinite <code>while</code> or <code>for</code> loop), then that path
+	is not required to return a value: <pre><code>int neverEndingMethod() {
+	while(true);
+	
+	// No return statement required.
+	// In fact, writing a return statement here is a compile time error, since the return statement would be unreachable.
+}</code></pre>
 </span>
 <h3>Parameter List</h3>
 <p>A method's parameters are a list of inputs that must be provided upon
