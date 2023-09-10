@@ -329,15 +329,15 @@ t("Method Declaration", "Method declarations introduce a named, executable group
 <h3>Return Type</h3>
 <p>
 	A method's return type determines the type of the method invocation
-	statement that invokes it. Specifically, any method invocation
-	statement will be an expression whose type is the same as the return
-	type of the method it invokes. For example, the following method's
-	return type is <code>int</code>:
+	that invokes it. Specifically, any method invocation (e.g. <code>doSomething()</code>)
+	will be an expression whose type is the same as the return type of the
+	method it invokes. For example, the following method's return type is <code>int</code>:
 </p>
 <pre><code>int getRandomNumber() {	return (int) (Math.random() * 10);	}// Method declaration</code></pre>
 <p>
 	so the expression that invokes it (<code>getRandomNumber()</code>) is
-	an <code>int</code> expression:
+	an <code>int</code> expression, that can be assigned to an <code>int</code>
+	variable:
 </p>
 <pre><code>int result = getRandomNumber();</code></pre>
 <p>
