@@ -99,7 +99,7 @@
 			optionally separated (e.g. <code style="white-space: pre;">[][] []</code>)
 			and/or split (e.g. <code style="white-space: pre;">[][][ ]</code>) by
 			whitespace. Each <code>[]</code> pair may be annotated with an
-			annotation that targets type use. (Such annotation targets the
+			annotation that targets type use. (Such annotations target the
 			respective dimension of the array that the <code>[]</code>
 			represents.)
 		</td>
