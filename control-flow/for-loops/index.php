@@ -1,11 +1,11 @@
 <?php t("Javaref - For Loops", "For loops allow re-executing a statement a number of times in Java.");?>
 <h1>For Loop</h1>
-<p class="description">A control flow construct used to repeatedly
-	execute a body statement in a structured manner.</p>
+<p class="description">A looping statement used to repeatedly execute
+	another statement (the body statement) in a structured manner.</p>
 <p>
 	For loops come in two forms: <i>Basic</i> and <i>Enhanced</i>. Basic
 	for loops contain an initializer expression, a condition, an increment
-	expression, and a body statement. One's execution begins by executing
+	expression, and a body statement, and Java executes them by begins by executing
 	its initializer statement. Then the condition is checked and if true,
 	the body, and then the increment expression are executed, in that
 	order. Enhanced for loops execute their body for every member of an <i>Iterable</i>
@@ -132,17 +132,55 @@
 	<i>such that...</i>
 </p>
 <ul>
+	<!-- REV: Not very clear. -->
+	<li>The element type of <span class="syntax-piece">array-expr</span>
+		must be assignable to the effective type of the variable in <span
+		class="syntax-piece">iter-variable-decl</span>.<sup info=1></sup> <span
+		info=1>In essence, this means that array elements must be able to
+			"fit" in the <span class="syntax-piece">iter-variable-decl</span>
+			variable, as if through an assignment statement: <pre><code>class Animal {}
+class Dog extends Animal {}
+class Cat extends Animal {}
+
+Dog[] dogArray = new Dog[100];	// Each element has type Dog
+
+// Valid enhanced for loops:
+for (Dog d : dogArray);			// Dog objects (from the array) can fit in the Dog variable, d
+for (Animal a : dogArray);		// Dog objects can fit in the Animal variable, a
+for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
+
+// Invalid enhanced for loops:
+// for (Cat c : dogArray);		// Invalid; Dog objects cannot fit in Cat variable, c</code></pre>
+	</span>
+	</li>
 	<li>
-		<!-- TODO: Insert Such that clause -->
+		<!-- TODO: Add bullet regarding iterable-expr behavior -->
 	</li>
 </ul>
 <h3>Syntax Elements</h3>
 <p>
-	<span class="syntax-number">1</span> syntax_fragment_1_breakdown
+	<span class="syntax-number">1</span> Basic <code>for</code> loop.
 </p>
-<!-- TODO: Insert any additional syntax fragment breakdowns -->
-<h2>main_section_title</h2>
-<!-- TODO: Fill out main section -->
+<p>
+	<span class="syntax-number">2</span> Enhanced <code>for</code> loop,
+	looping over an <code>Iterable</code>.
+</p>
+<p>
+	<span class="syntax-number">3</span> Enhanced <code>for</code> loop,
+	looping over an array.
+</p>
+<h2>Behavior</h2>
+<p>
+	The execution of enhanced <code>for</code> loops is expressed through a
+	basic <code>for</code> loop. Execution of a basic <code>for</code> loop
+	proceeds as follows:
+</p>
+<ol>
+	<li>The <code>init-expression</code> is executed. If it is a
+		comma-delimited list of statements, they are each executed in order.
+	</li>
+	<li>The <code>condition</code> is evaluated. If it evaluates to <code>false</code>, the loop finishes
+</ol>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <h2>Notes</h2>
