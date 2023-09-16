@@ -56,9 +56,9 @@ a.u {
 				<li><a class="c" href="/literals/boolean">Boolean Literal</a></li>
 				<li><a class="c u" href="/literals/null">Null Literal</a></li>
 			</ul>
-			<span class="sec">Control Flow</span>
+			<span class="sec">Statements</span>
 			<ul>
-				<li><a class="c u" href="/control-flow/for-loops">For Loops</a></li>
+				<li><a class="c u" href="/statements/for-loops">For Loops</a></li>
 			</ul>
 			<span class="sec">Methods</span>
 			<ul>
