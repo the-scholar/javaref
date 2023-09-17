@@ -44,8 +44,7 @@
 			<ol>
 				<li>any number of <a
 					href="/statements/expression-statements#statement-expressions">statement
-						expressions</a>, (expressions which can be made into statements by
-					suffixing them with a semicolon), separated by comma tokens, or
+						expressions</a>, separated by comma tokens, or
 				</li>
 				<li>a local variable declaration.</li>
 			</ol>
@@ -53,7 +52,7 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">condition</span></td>
-		<td>is a <code>boolean</code> expression.
+		<td>is an expression of type <code>boolean</code> or <code>Boolean</code>.
 		</td>
 	</tr>
 	<tr>
@@ -64,29 +63,15 @@
 		</td>
 	</tr>
 	<tr>
-		<td><span class="syntax-piece">stmt-expr</span></td>
-		<td>is a any one of:
-			<ul>
-				<li>an assignment,</li>
-				<li>a pre- or post-increment expression,</li>
-				<li>a pre- or post-decrement expression,</li>
-				<li>a method invocation, or</li>
-				<li>a class instance creation expression (with the <code>new</code>
-					operator)
-				</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
 		<td><span class="syntax-piece">body-statement</span></td>
 		<td>is any statement.</td>
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">iter-variable-decl</span></td>
-		<td>is a formal parameter declaration, (like one that may go in a
-			method declaration). The <span class="syntax-piece">iter-variable-decl</span>
-			is equivalently a local variable declaration without the optional
-			initializer (and without the trailing semicolon):
+		<td>is a formal parameter declaration, (as in a method declaration's
+			parameter list). Equivalently, the <span class="syntax-piece">iter-variable-decl</span>
+			is a local variable declaration without the optional initializer (and
+			without the trailing semicolon):
 			<div class="decorated">
 				<span class="syntax-piece optional">variable-modifiers</span> <span
 					class="syntax-piece">type</span> <span class="syntax-piece">name</span>
@@ -122,7 +107,6 @@
 			</table>
 		</td>
 	</tr>
-
 	<tr>
 		<td><span class="syntax-piece">iterable-expr</span></td>
 		<td>is any expression that is assignable to the <code>Iterable</code>
