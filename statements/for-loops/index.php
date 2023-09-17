@@ -5,11 +5,11 @@
 <p>
 	For loops come in two forms: <i>Basic</i> and <i>Enhanced</i>. Basic
 	for loops contain an initializer expression, a condition, an increment
-	expression, and a body statement, and Java executes them by begins by executing
-	its initializer statement. Then the condition is checked and if true,
-	the body, and then the increment expression are executed, in that
-	order. Enhanced for loops execute their body for every member of an <i>Iterable</i>
-	or an array type expression.
+	expression, and a body statement, and Java executes them by begins by
+	executing its initializer statement. Then the condition is checked and
+	if true, the body, and then the increment expression are executed, in
+	that order. Enhanced for loops execute their body for every member of
+	an <i>Iterable</i> or an array type expression.
 </p>
 <h2>Syntax</h2>
 <p>For Loops have three forms:</p>
@@ -40,8 +40,9 @@
 <table class="syntax-breakdown">
 	<tr>
 		<td><span class="syntax-piece">init-expression</span></td>
-		<td>is either a list of any number of <span class="syntax-piece">stmt-expr</span>
-			(statement expressions) or a local variable declaration. The list is
+		<td>is either (1) a list of any number of <span class="syntax-piece">stmt-expr</span>
+			(<a href="/statements/expression-statements#statement-expressions">statement
+				expressions</a>) or (2) a local variable declaration. The list is
 			comma-delimited.
 		</td>
 	</tr>
@@ -138,7 +139,8 @@
 		class="syntax-piece">iter-variable-decl</span>.<sup info=1></sup> <span
 		info=1>In essence, this means that array elements must be able to
 			"fit" in the <span class="syntax-piece">iter-variable-decl</span>
-			variable, as if through an assignment statement: <pre><code>class Animal {}
+			variable, as if through an assignment statement: <pre>
+				<code>class Animal {}
 class Dog extends Animal {}
 class Cat extends Animal {}
 
@@ -150,7 +152,8 @@ for (Animal a : dogArray);		// Dog objects can fit in the Animal variable, a
 for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 
 // Invalid enhanced for loops:
-// for (Cat c : dogArray);		// Invalid; Dog objects cannot fit in Cat variable, c</code></pre>
+// for (Cat c : dogArray);		// Invalid; Dog objects cannot fit in Cat variable, c</code>
+			</pre>
 	</span>
 	</li>
 	<li>
@@ -159,27 +162,39 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 </ul>
 <h3>Syntax Elements</h3>
 <p>
-	<span class="syntax-number">1</span> Basic <code>for</code> loop.
+	<span class="syntax-number">1</span> Basic
+	<code>for</code>
+	loop.
 </p>
 <p>
-	<span class="syntax-number">2</span> Enhanced <code>for</code> loop,
-	looping over an <code>Iterable</code>.
+	<span class="syntax-number">2</span> Enhanced
+	<code>for</code>
+	loop, looping over an
+	<code>Iterable</code>
+	.
 </p>
 <p>
-	<span class="syntax-number">3</span> Enhanced <code>for</code> loop,
-	looping over an array.
+	<span class="syntax-number">3</span> Enhanced
+	<code>for</code>
+	loop, looping over an array.
 </p>
 <h2>Behavior</h2>
 <p>
-	The execution of enhanced <code>for</code> loops is expressed through a
-	basic <code>for</code> loop. Execution of a basic <code>for</code> loop
-	proceeds as follows:
+	The execution of enhanced
+	<code>for</code>
+	loops is expressed through a basic
+	<code>for</code>
+	loop. Execution of a basic
+	<code>for</code>
+	loop proceeds as follows:
 </p>
 <ol>
 	<li>The <code>init-expression</code> is executed. If it is a
 		comma-delimited list of statements, they are each executed in order.
 	</li>
-	<li>The <code>condition</code> is evaluated. If it evaluates to <code>false</code>, the loop finishes
+	<li>The <code>condition</code> is evaluated. If it evaluates to <code>false</code>,
+		the loop finishes
+
 </ol>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
