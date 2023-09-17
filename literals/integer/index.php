@@ -7,6 +7,7 @@
 	type in source code. They can be used to specify an exact value for <code>char</code>s,
 	<code>byte</code>s, <code>short</code>s, <code>int</code>s, and <code>long</code>s.
 </p>
+<p>An integer literal is always a single token.</p>
 <h2>Syntax</h2>
 <p>Integer literals can be expressed through four forms:</p>
 <table class="syntax">
