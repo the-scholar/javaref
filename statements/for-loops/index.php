@@ -3,13 +3,20 @@
 <p class="description">A looping statement used to repeatedly execute
 	another statement (the body statement) in a structured manner.</p>
 <p>
-	For loops come in two forms: <i>Basic</i> and <i>Enhanced</i>. Basic
-	for loops contain an initializer expression, a condition, an increment
-	expression, and a body statement, and Java executes them by begins by
-	executing its initializer statement. Then the condition is checked and
-	if true, the body, and then the increment expression are executed, in
-	that order. Enhanced for loops execute their body for every member of
-	an <i>Iterable</i> or an array type expression.
+	For loops come in two forms: <i>Basic</i> and <i>Enhanced</i>.
+</p>
+<p>
+	Basic for loops contain an initializer expression, a condition, an
+	increment expression, and a body statement. They are executed beginning
+	with their initializer statement. Then their condition evaluated and,
+	while <code>true</code>, the body statement and then the increment
+	expression are executed, in that order. The condition, body, and
+	increment expression are executed repeatedly until the condition
+	evaluates to <code>false</code> or an exception is thrown.
+</p>
+<p>
+	Enhanced for loops execute their body statement for every member of an
+	<i>Iterable</i> or an array type expression.
 </p>
 <h2>Syntax</h2>
 <p>For Loops have three forms:</p>
