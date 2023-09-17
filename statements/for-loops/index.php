@@ -40,11 +40,15 @@
 <table class="syntax-breakdown">
 	<tr>
 		<td><span class="syntax-piece">init-expression</span></td>
-		<td>is either (1) any number of <a
-			href="/statements/expression-statements#statement-expressions">statement
-				expressions</a>, (expressions which can be made into statements by
-			suffixing them with a semicolon), separated by comma tokens, or (2) a
-			local variable declaration.
+		<td>is either:
+			<ol>
+				<li>any number of <a
+					href="/statements/expression-statements#statement-expressions">statement
+						expressions</a>, (expressions which can be made into statements by
+					suffixing them with a semicolon), separated by comma tokens, or
+				</li>
+				<li>a local variable declaration.</li>
+			</ol>
 		</td>
 	</tr>
 	<tr>
