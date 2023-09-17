@@ -169,20 +169,36 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 	<span class="syntax-number">3</span> Enhanced <code>for</code> loop,
 	looping over an array.
 </p>
-<h2>Behavior</h2>
+<h2>Execution</h2>
 <p>
 	The execution of enhanced <code>for</code> loops is expressed through a
-	basic <code>for</code> loop. Execution of a basic <code>for</code> loop
-	proceeds as follows:
+	basic <code>for</code> loop.
+</p>
+<h3>Basic For Loop Execution</h3>
+<p>
+	Normal execution (no exceptions, <code>return</code> statements, <code>break</code>s,
+	etc.) of a basic <code>for</code> loop proceeds as follows. Steps <span
+		style="color: #ffe62b;">2, 3, and 4</span> are repeated until <span
+		class="syntax-piece">condition</span> evaluates to <code>false</code>.
 </p>
 <ol>
-	<li>The <code>init-expression</code> is executed. If it is a
-		comma-delimited list of statements, they are each executed in order.
+	<li>The <span class="syntax-piece">init-expression</span> is executed.
 	</li>
-	<li>The <code>condition</code> is evaluated. If it evaluates to <code>false</code>,
-		the loop finishes
-
+	<li style="color: #ffe62b;">The <span class="syntax-piece">condition</span>
+		is evaluated. If it evaluates to <code>false</code>, the loop is
+		exited.
+	</li>
+	<li style="color: #ffe62b;">The <span class="syntax-piece">body-stmt</span>
+		is executed.
+	</li>
+	<li style="color: #ffe62b;">The <span class="syntax-piece">increment-expr</span>
+		is executed.
+	</li>
 </ol>
+<p>
+	The loop only exits normally if the <span class="syntax-piece">condition</span>
+	evaluates to <code>false</code>.
+</p>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <h2>Notes</h2>
