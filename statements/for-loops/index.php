@@ -200,13 +200,14 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 	evaluates to <code>false</code>.
 </p>
 <p>
-	If the <span class="syntax-piece">init-expression</span> is a list of <a
+	Each of the <a
 		href="/statements/expression-statements#statement-expressions">statement
-		expressions</a>, each is executed in order, left to right, and if any
-	complete abruptly, the <span class="syntax-piece">init-expression</span>
-	immediately completes abruptly for the same reason. Otherwise, if the <span
-		class="syntax-piece">init-expression</span> is a local variable
-	declaration, it is executed as normal.
+		expressions</a> in the <span class="syntax-piece">increment-expr</span>
+	is executed in the order they are written. If any statement expression
+	completes abruptly, the whole <span class="syntax-piece">increment-expr</span>
+	immediately completes abruptly for the same reason. If the <span
+		class="syntax-piece">init-expression</span> is also a list of
+	statement expressions, it is executed in the same way.
 </p>
 <h3>Enhanced For Loop Execution</h3>
 <p>
