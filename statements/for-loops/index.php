@@ -199,6 +199,10 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 	The loop only exits normally if the <span class="syntax-piece">condition</span>
 	evaluates to <code>false</code>.
 </p>
+<h4>Abrupt Execution</h4>
+<p>If the execution of any statement or expression completes abruptly
+	during the execution of a basic for loop, the loop immediately
+	completes abruptly for that same reason.</p>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <h2>Notes</h2>
