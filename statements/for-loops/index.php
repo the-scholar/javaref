@@ -199,8 +199,19 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 	The loop exits normally if the <span class="syntax-piece">condition</span>
 	evaluates to <code>false</code>.
 </p>
+<p>
+	If the <span class="syntax-piece">init-expression</span> is a list of <a
+		href="/statements/expression-statements#statement-expressions">statement
+		expressions</a>, each is executed in order, left to right, and if any
+	complete abruptly, the <span class="syntax-piece">init-expression</span>
+	immediately completes abruptly for the same reason. Otherwise, if the <span
+		class="syntax-piece">init-expression</span> is a local variable
+	declaration, it is executed as normal.
+</p>
 <h3>Enhanced For Loop Execution</h3>
-<p><!-- TODO --></p>
+<p>
+	<!-- TODO -->
+</p>
 <h3>Abrupt Completion of For Loops</h3>
 <h4>
 	Unlabeled <code>break</code>s &amp; <code>continue</code>s
