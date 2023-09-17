@@ -152,31 +152,21 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 </ul>
 <h3>Syntax Elements</h3>
 <p>
-	<span class="syntax-number">1</span> Basic
-	<code>for</code>
-	loop.
+	<span class="syntax-number">1</span> Basic <code>for</code> loop.
 </p>
 <p>
-	<span class="syntax-number">2</span> Enhanced
-	<code>for</code>
-	loop, looping over an
-	<code>Iterable</code>
-	.
+	<span class="syntax-number">2</span> Enhanced <code>for</code> loop,
+	looping over an <code>Iterable</code>.
 </p>
 <p>
-	<span class="syntax-number">3</span> Enhanced
-	<code>for</code>
-	loop, looping over an array.
+	<span class="syntax-number">3</span> Enhanced <code>for</code> loop,
+	looping over an array.
 </p>
 <h2>Behavior</h2>
 <p>
-	The execution of enhanced
-	<code>for</code>
-	loops is expressed through a basic
-	<code>for</code>
-	loop. Execution of a basic
-	<code>for</code>
-	loop proceeds as follows:
+	The execution of enhanced <code>for</code> loops is expressed through a
+	basic <code>for</code> loop. Execution of a basic <code>for</code> loop
+	proceeds as follows:
 </p>
 <ol>
 	<li>The <code>init-expression</code> is executed. If it is a
