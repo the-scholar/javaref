@@ -40,10 +40,11 @@
 <table class="syntax-breakdown">
 	<tr>
 		<td><span class="syntax-piece">init-expression</span></td>
-		<td>is either (1) a list of any number of <span class="syntax-piece">stmt-expr</span>
-			(<a href="/statements/expression-statements#statement-expressions">statement
-				expressions</a>) or (2) a local variable declaration. The list is
-			comma-delimited.
+		<td>is either (1) any number of <a
+			href="/statements/expression-statements#statement-expressions">statement
+				expressions</a>, (expressions which can be made into statements by
+			suffixing them with a semicolon), separated by comma tokens, or (2) a
+			local variable declaration.
 		</td>
 	</tr>
 	<tr>
@@ -53,8 +54,9 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">increment-expr</span></td>
-		<td>is a comma-delimited list of any number of <span
-			class="syntax-piece">stmt-expr</span> (statement expressions).
+		<td>is any number of <a
+			href="/statements/expression-statements#statement-expressions">statement
+				expressions</a>, separated by comma tokens.
 		</td>
 	</tr>
 	<tr>
