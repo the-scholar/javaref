@@ -199,48 +199,48 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 	The loop exits normally if the <span class="syntax-piece">condition</span>
 	evaluates to <code>false</code>.
 </p>
-<h3>Abrupt Execution</h3>
-<ul>
-	<li>If execution of any statement/expression immediately enclosed<sup
-		info=2></sup><span info=2>The four statements/expressions immediately
-			enclosed by a basic for loop are the:
-			<ol>
-				<li><span class="syntax-piece">init-expression</span>,</li>
-				<li><span class="syntax-piece">condition</span>,</li>
-				<li><span class="syntax-piece">increment-expr</span>, and</li>
-				<li><span class="syntax-piece">body-statement</span>.</li>
-			</ol>
-			<p>The two statements/expressions immediately enclosed by an enhanced
-				for loop are the:</p>
-			<ol>
-				<li><span class="syntax-piece">iterable-expr</span> or <span
-					class="syntax-piece">array-expr</span>, and</li>
-				<li><span class="syntax-piece">body-statement</span>.</li>
-			</ol>
-	</span> by a for loop completes abruptly due to an exception, the for
-		loop immediately completes abruptly for the same reason.
-	</li>
-	<li>If execution of the <span class="syntax-piece">body-statement</span>
-		completes abruptly due to an <em>unlabeled</em> <code>break</code>,
-		the for loop immediately completes <em>normally</em>.
-	</li>
-	<li>If execution of the <span class="syntax-piece">body-statement</span>
-		completes abruptly due to an <em>unlabeled</em> <code>continue</code>,
-		the for loop loops, (as if the <span class="syntax-piece">body-statement</span>
-		completed normally), executing the <span class="syntax-piece">increment-expr</span>
-		(step <span style="color: #ffe62b;">4</span> in the <a
-		href="#basic-for-loop-steps">list of steps above</a>).
-	</li>
-</ul>
 <h3>Enhanced For Loop Execution</h3>
-
-<h3>
-	<code>break</code> &amp; <code>continue</code> Statements
-</h3>
+<p><!-- TODO --></p>
+<h3>Abrupt Completion of For Loops</h3>
+<h4>
+	Unlabeled <code>break</code>s &amp; <code>continue</code>s
+</h4>
 <p>
-	<code>continue</code> and <code>break</code> statements that do not
-	specify a label can be
+	If execution of the <span class="syntax-piece">body-statement</span>
+	completes abruptly due to an:
 </p>
+<ul>
+	<li><em>unlabeled</em> <code>break</code>, the for loop immediately
+		completes <em>normally</em>.</li>
+	<li><em>unlabeled</em> <code>continue</code>, the for loop loops, (as
+		if the <span class="syntax-piece">body-statement</span> completed
+		normally), executing the <span class="syntax-piece">increment-expr</span>
+		(step <span style="color: #ffe62b;">4</span> in the <a
+		href="#basic-for-loop-steps">list of steps above</a>).</li>
+</ul>
+<h4>Other Abrupt Completion</h4>
+<p>
+	Otherwise, if execution of any statement/expression immediately
+	enclosed<sup info=2></sup> by a for loop completes abruptly, due to any
+	other reason, the for loop immediately completes abruptly for the same
+	reason.
+</p>
+<span info=2>The four statements/expressions immediately enclosed by a
+	basic for loop are the:
+	<ol>
+		<li><span class="syntax-piece">init-expression</span>,</li>
+		<li><span class="syntax-piece">condition</span>,</li>
+		<li><span class="syntax-piece">increment-expr</span>, and</li>
+		<li><span class="syntax-piece">body-statement</span>.</li>
+	</ol>
+	<p>The two statements/expressions immediately enclosed by an enhanced
+		for loop are the:</p>
+	<ol>
+		<li><span class="syntax-piece">iterable-expr</span> or <span
+			class="syntax-piece">array-expr</span>, and</li>
+		<li><span class="syntax-piece">body-statement</span>.</li>
+	</ol>
+</span>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <h2>Notes</h2>
