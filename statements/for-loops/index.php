@@ -184,10 +184,9 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 <ol id="basic-for-loop-steps">
 	<li>The <span class="syntax-piece">init-expression</span> is executed.
 	</li>
-	<li style="color: #ffe62b;">The <span class="syntax-piece">condition</span>
-		is evaluated. If it evaluates to <code>false</code>, the loop is
-		exited.
-	</li>
+	<li><span style="color: #ffe62b;">The <span class="syntax-piece">condition</span>
+			is evaluated. If it evaluates to <code>false</code>,
+	</span> the loop is exited.</li>
 	<li style="color: #ffe62b;">The <span class="syntax-piece">body-stmt</span>
 		is executed.
 	</li>
