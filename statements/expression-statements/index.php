@@ -1,15 +1,20 @@
-<?php t("Javaref - Expression Statements", "Expression statements are expressions that can be executed as standalone statements.");?>
+<?php t("Javaref - Expression Statements", "Expression statements are expressions that can also be standalone statements, with the result discarded. Execution of the statement results in the computation of the expression.");?>
 <h1>Expression Statement</h1>
-<p class="description">concise_description</p>
+<p class="description">Expression Statements are statements that are
+	computed by simply evaluating the expression they contain and
+	discarding the result.</p>
 <p>
-	<!-- TODO: Full description -->
+	There are a number of expressions that can be made into a statement
+	simply by suffixing them with a semicolon (<code>;</code>). These are
+	called Statement Expressions. An Expression Statement is one of the
+	statements made from these expressions.
 </p>
 <h2>Syntax</h2>
 <p>Expression Statements can be expressed through:</p>
 <table class="syntax">
 	<tr>
 		<td>1</td>
-		<td>syntax_fragment_1</td>
+		<td><span class="syntax-piece">stmt-expression</span> <code>;</code></td>
 	</tr>
 	<!-- TODO: Insert any additional syntax fragments -->
 </table>
@@ -18,8 +23,21 @@
 </p>
 <table class="syntax-breakdown">
 	<tr>
-		<td><span class="syntax-piece">syntax_piece_1</span></td>
-		<td>is syntax_piece_1_breakdown</td>
+		<td><span class="syntax-piece">stmt-expression</span></td>
+		<td>is either:
+			<ul>
+				<li>A use of an <a href="/expressions/assignment">assignment
+						operator</a>,
+				</li>
+				<li>a <a href="/expressions/method-invocation">method invocation</a>,
+				</li>
+				<li>an <a href="/expressions/instance-creation">instance creation
+						expression</a> (i.e., a use of the <code>new</code> operator),
+				</li>
+				<li>use of any of the increment or decrement operators (pre- or
+					post- increment or decrement).</li>
+			</ul>
+		</td>
 	</tr>
 	<!-- TODO: Insert any additional syntax piece breakdowns -->
 </table>
@@ -27,19 +45,27 @@
 	<i>such that...</i>
 </p>
 <ul>
-	<li><!-- TODO: Insert Such that clause --></li>
+	<li>
+		<!-- TODO: Insert Such that clause -->
+	</li>
 </ul>
 <h3>Syntax Elements</h3>
 <p>
 	<span class="syntax-number">1</span> syntax_fragment_1_breakdown
 </p>
 <!-- TODO: Insert any additional syntax fragment breakdowns -->
-<h2>main_section_title</h2>
-<!-- TODO: Fill out main section -->
+<h2>Expression Statements</h2>
+<p>There are a number of expressions that may be computed as a
+	statement, with the result simply discarded. These are known as
+	Statement Expressions.
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <h2>Notes</h2>
 <ol>
-	<li><!-- TODO: Add notes --></li>
+	<li>
+		<!-- TODO: Add notes -->
+	</li>
 </ol>
-<?php b();
+<?php
+
+b();
