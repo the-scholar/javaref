@@ -1,6 +1,5 @@
 <?php t("Javaref - Capture Conversions", "Capture conversion is a process that the compiler undergoes to replace wildcards with reified types in certain contexts. In doing so, it \"captures\" the type hidden behind the wildcard for use in type checking.");?>
 <!-- TODO: Add to homepage -->
-<!-- TODO: Add conversion rules -->
 <h1>Capture Conversion</h1>
 <p class="description">
 	Capture conversion is a process undergone by the compiler during type
@@ -61,13 +60,40 @@ doSomething(myList); // Valid, despite being called with a list whose type is a 
 	In such a case as the method invocation <code>doSomething(myList);</code>
 	above, capture conversion is performed, replacing the wildcard type <code>?</code>
 	in the type of the expression <code>myList</code> with the actual type
-	<code>Object</code> (see <a href="#capture-conversion-rules">below</a>
+	<code>Object</code> (see <a href="#type-replacement-rules">below</a>
 	for detail on what the wildcard is replaced with during capture
 	conversion). The <code>doSomething</code> method is then called with
 	the type parameter <code>Object</code>, similar to as if by <code>ContainingType.&lt;Object&gt;doSomething(myList);</code>.
 </p>
 <p>Capture conversion is performed in certain, language-mandated
 	contexts.</p>
+<h3 id="type-replacement-rules">Type Replacement Rules</h3>
+<ul>
+	<!-- TODO rewrite to be clearer; see int/float literals pages' descriptive sections. -->
+	<li>If the wildcard has no bound, it is replaced with the bound for the
+		type argument it substitutes,</li>
+	<li>if the wildcard has an upper bound, it is replaced with a new type
+		whose upper bound is the intersection of:
+		<ol>
+			<li>the wildcard's upper bound and</li>
+			<li>the upper bound of the type parameter that the wildcard replaces,</li>
+		</ol> (so long as at least one of the two upper bounds is a subtype of
+		the other) and whose lower bound is the <code>null</code> type, and<sup
+		info=8></sup> <span info=8>If a type parameter, <code>T extends
+				UpperBoundOne</code> is parameterized by <code>? extends
+				UpperBoundTwo</code>, the resulting new type has upper bound <code>UpperBoundOne
+				&amp; UpperBoundTwo</code>.
+	</span> <!-- TODO Describe how it's a compile-time error if none of the intersected types subtypes the other. -->
+	</li>
+	<li>if the wildcard has a lower bound, it is replaced with a new type
+		whose upper bound is the bound of the type parameter that the wildcard
+		takes place of and whose lower bound is the wildcard's lowerbound.</li>
+</ul>
+<p>
+	This allows for otherwise impossible casts in various cases. (See <a
+		href="/operators/unary/cast#note-2">Cast Operator - Notes</a> for
+	examples.)
+</p>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <?php

@@ -620,41 +620,19 @@ System.out.println(a == b);</code></pre>
 	specified by the cast, unless that specified type is generic and
 	contains any wildcard type arguments, in which case the target type is
 	instead the original type with each wildcard replaced as follows due to
-	capture conversion:
+	<a href="/concepts/capture-conversion#type-replacement-rules">capture-conversion</a>
 </p>
 <span info=7>The actual type of a poly expression is based on the type
 	of expression the poly expression is <i>and</i> on the target type of
 	the context that the poly expression is used in.
 </span>
-<ul>
-	<!-- TODO rewrite to be clearer; see int/float literals pages' descriptive sections. -->
-	<li>If the wildcard has no bound, it is replaced with the bound for the
-		type argument it substitutes,</li>
-	<li>if the wildcard has an upper bound, it is replaced with a new type
-		whose upper bound is the intersection of:
-		<ol>
-			<li>the wildcard's upper bound and</li>
-			<li>the upper bound of the type parameter that the wildcard replaces,</li>
-		</ol> (so long as at least one of the two upper bounds is a subtype of
-		the other) and whose lower bound is the <code>null</code> type, and<sup
-		info=8></sup> <span info=8>If a type parameter, <code>T extends
-				UpperBoundOne</code> is parameterized by <code>? extends
-				UpperBoundTwo</code>, the resulting new type has upper bound <code>UpperBoundOne
-				&amp; UpperBoundTwo</code>.
-	</span> <!-- TODO Describe how it's a compile-time error if none of the intersected types subtypes the other. -->
-	</li>
-	<li>if the wildcard has a lower bound, it is replaced with a new type
-		whose upper bound is the bound of the type parameter that the wildcard
-		takes place of and whose lower bound is the wildcard's lowerbound.</li>
-</ul>
-<p>This allows for otherwise impossible casts, such as casting a lambda
-	expression to a wildcard-parameterized type.</p>
 <p>
 	In this case, the cast expression's type is still exactly the type
-	specified in the parentheses, but the target type for the cast
-	expression's argument will have no wildcards. See <a
+	specified in the cast operator's parentheses, but the target type for
+	the cast expression's argument will have no wildcards. See <a
 		href="#examples.wildcard-cast">Poly Expressions &amp; Wildcard Casts</a>
-	for details.
+	for details. This allows otherwise impossible lambda expressions (see <a
+		href="#note-2">below</a>).
 </p>
 <h3>Intersection Casts</h3>
 <h2>Examples</h2>
@@ -781,7 +759,7 @@ null</code></pre>
 	int x = 10;
 //	System.out.println((Integer) (++x));// Valid</code></pre>
 	</li>
-	<li>The ability to cast a lambda expression or method reference to a
+	<li id="note-2">The ability to cast a lambda expression or method reference to a
 		type parameterized with a wildcard allows creating an instance of an <code>interface</code>
 		in a way that is otherwise impossible, without using generics.
 		<p>
