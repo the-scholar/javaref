@@ -1,8 +1,10 @@
-<?php t("Javaref - Capture Conversions", "Capture conversion is a process that the compiler undergoes to replace wildcards with reified types in certain operations.");?>
+<?php t("Javaref - Capture Conversions", "Capture conversion is a process that the compiler undergoes to replace wildcards with reified types in certain contexts. In doing so, it \"captures\" the type hidden behind the wildcard for use in type checking.");?>
+<!-- TODO: Add to homepage -->
+<!-- TODO: Add conversion rules -->
 <h1>Capture Conversion</h1>
 <p class="description">
-	Capture conversion is a process undergone by the compiler during [type
-	checking?] that effectively gives a unique, <i>temporary</i> name to a
+	Capture conversion is a process undergone by the compiler during type
+	checking that effectively gives a unique, <i>temporary</i> name to a
 	wildcard type that is not directly referencable by the developer, but
 	can be used by the compiler to validate typing in certain operations.
 	Capture conversion strengthens the applicability of wildcards.
