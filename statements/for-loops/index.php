@@ -16,7 +16,8 @@
 </p>
 <p>
 	Enhanced for loops execute their body statement for every member of an
-	<i>Iterable</i> or an array type expression.
+	<code>Iterable</code> or an array type expression. An enhanced for loop
+	is said to <i>loop over</i> the <code>Iterable</code> or array.
 </p>
 <h2>Syntax</h2>
 <p>For Loops have three forms:</p>
@@ -184,9 +185,12 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 <ol id="basic-for-loop-steps">
 	<li>The <span class="syntax-piece">init-expression</span> is executed.
 	</li>
-	<li><!-- TODO: Fix uncolored list item marker. --><span style="color: #ffe62b;">The <span class="syntax-piece">condition</span>
+	<li>
+		<!-- TODO: Fix uncolored list item marker. --> <span
+		style="color: #ffe62b;">The <span class="syntax-piece">condition</span>
 			is evaluated. If it evaluates to <code>false</code>,
-	</span> the loop is exited.</li>
+	</span> the loop is exited.
+	</li>
 	<li style="color: #ffe62b;">The <span class="syntax-piece">body-stmt</span>
 		is executed.
 	</li>
@@ -210,8 +214,49 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 </p>
 <h3>Enhanced For Loop Execution</h3>
 <p>
-	<!-- TODO -->
+	An enhanced for loop is executed by performing the following for each
+	element in an <code>Iterable</code> or an array:
 </p>
+<ol>
+	<li><span class="syntax-piece">iter-variable-decl</span> is declared
+		and initialized to the current element.</li>
+	<li>The <span class="syntax-piece">body-statement</span> is executed.
+		(It may reference <span class="syntax-piece">iter-variable-decl</span>.)
+	</li>
+</ol>
+<p>
+	These steps comprise one <i>iteration</i> of an enhanced for loop. Each
+	iteration is performed synchronously, in order, and elements of the <code>Iterable</code>
+	or array are retrieved in natural order (first to last). More formally,
+	an enhanced for loop over an <code>Iterable</code> is equivalent to the
+	following code block:
+</p>
+<pre><code>{
+	IterableType iterable = <span class="syntax-piece">iterable-expr</span>;
+	while (iterable.hasNext()) {
+		<span class="syntax-piece">iter-variable-decl</span> = (ItemType) iterable.next();
+		<span class="syntax-piece">body-statement</span>
+	}
+}</code></pre>
+<p>where:</p>
+<ul>
+	<li><code>IterableType</code> is the type of the <span
+		class="syntax-piece">iterable-expr</span>, and</li>
+	<li><code>ItemType</code> is:
+		<ul>
+			<li>the type of the <span class="syntax-piece">iter-variable-decl</span>
+				variable, if such is a reference type, otherwise,
+			</li>
+			<li>the type <code>Object</code>, if <code>IterableType</code> is a
+				raw type, otherwise,
+			</li>
+			<li>the <a href="/concepts/capture-conversion">capture conversion</a>
+				of the type argument of <code>IterableType</code>.
+			</li>
+		</ul></li>
+</ul>
+<p>and an enhanced for loop over an array is equivalent to the following
+	code block:</p>
 <h3>Abrupt Completion of For Loops</h3>
 <h4>
 	Unlabeled <code>break</code>s &amp; <code>continue</code>s
