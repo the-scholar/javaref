@@ -10,9 +10,11 @@
 </p>
 <h2>Extended Description</h2>
 <h3>Motivation</h3>
-<p>Consistency information regarding wildcard types is not kept between
-	two uses of the same wildcard type. For example, the third line of the
-	following code raises a compilation error:</p>
+<p>
+	Consistency information regarding wildcard types is not kept between
+	two uses of the <i>same</i> wildcard type. For example, the third line
+	of the following code raises a compilation error:
+</p>
 <pre><code>List&lt;String&gt; strlist = new ArrayList&lt;&gt;();
 strlist.add("some value");
 

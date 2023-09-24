@@ -257,6 +257,7 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 </ul>
 <p>and an enhanced for loop over an array is equivalent to the following
 	code block:</p>
+<!-- TODO: Show code that is equivalent to enhanced for loop on array. -->
 <h3>Abrupt Completion of For Loops</h3>
 <h4>
 	Unlabeled <code>break</code>s &amp; <code>continue</code>s
