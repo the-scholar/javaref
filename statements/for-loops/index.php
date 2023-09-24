@@ -234,7 +234,7 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 <pre><code>{
 	IterableType iterable = <span class="syntax-piece">iterable-expr</span>;
 	while (iterable.hasNext()) {
-		<span class="syntax-piece">iter-variable-decl</span> = (ItemType) iterable.next();
+		<span class="syntax-piece">iter-variable-decl</span> = (ItemType<!-- TODO: Color code -->) iterable.next();
 		<span class="syntax-piece">body-statement</span>
 	}
 }</code></pre>
@@ -307,5 +307,4 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 	</li>
 </ol>
 <?php
-
 b();
