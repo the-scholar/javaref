@@ -3,12 +3,17 @@
 <p class="description">Expression Statements are statements that are
 	executed by simply evaluating the expression they contain and
 	discarding the result. Expressively, they are a means of instructing
-	the runtime to compute an expression</p>
+	the runtime to compute an expression (usually with side-effects).</p>
 <p>
 	There are a number of expressions that can be made into a statement
-	simply by suffixing them with a semicolon (<code>;</code>). These are
-	called Statement Expressions. An Expression Statement is one of the
-	statements made from these expressions.
+	simply by suffixing them with a semicolon (<code>;</code>). These
+	expressions are called Statement Expressions. An Expression Statement
+	is one of the statements made from these Statement Expressions. For
+	example,
+</p>
+<p>
+	<code>x++</code> - Statement Expression<br> <code>x++;</code> -
+	Expression Statement (made of a Statement Expression followed by <code>;</code>).
 </p>
 <h2>Syntax</h2>
 <p>Expression Statements can be expressed through:</p>
