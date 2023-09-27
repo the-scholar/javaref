@@ -48,6 +48,11 @@ a.u {
 				<li><a class="c" href="/initializers">Static &amp; Instance
 						Initializers</a></li>
 			</ul>
+			<span class="sec">Concepts</span>
+			<ul>
+				<li><a class="c" href="/concepts/capture-conversion">Capture
+						Conversion</a></li>
+			</ul>
 			<span class="sec">Literals</span>
 			<ul>
 				<li><a class="c" href="/literals/integer">Integer Literal</a></li>
@@ -59,6 +64,8 @@ a.u {
 			<span class="sec">Statements</span>
 			<ul>
 				<li><a class="c u" href="/statements/for-loops">For Loops</a></li>
+				<li><a class="c u" href="/statements/expression-statements">Expression
+						Statements</a></li>
 			</ul>
 			<span class="sec">Methods</span>
 			<ul>
