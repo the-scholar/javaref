@@ -1,8 +1,9 @@
-<?php t("Javaref - Expression Statements", "Expression statements are expressions that can also be standalone statements, with the result discarded. Execution of the statement results in the computation of the expression.");?>
+<?php t("Javaref - Expression Statements", "Expression statements are statements that compute an expression and discard the result, and do nothing else. They allow the computation of an expression without the need to execute excess operations (e.g., declaring a variable).");?>
 <h1>Expression Statement</h1>
 <p class="description">Expression Statements are statements that are
-	computed by simply evaluating the expression they contain and
-	discarding the result.</p>
+	executed by simply evaluating the expression they contain and
+	discarding the result. Expressively, they are a means of instructing
+	the runtime to compute an expression</p>
 <p>
 	There are a number of expressions that can be made into a statement
 	simply by suffixing them with a semicolon (<code>;</code>). These are
@@ -57,7 +58,7 @@
 <h2>Expression Statements</h2>
 <p>There are a number of expressions that may be computed as a
 	statement, with the result simply discarded. These are known as
-	Statement Expressions.
+	Statement Expressions.</p>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <h2>Notes</h2>
