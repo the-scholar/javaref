@@ -32,16 +32,16 @@
 		<td><span class="syntax-piece">stmt-expression</span></td>
 		<td>is either:
 			<ul>
-				<li>An assignment expresison (a use of an <a href="/expressions/assignment">assignment
-						operator</a>),
+				<li>An assignment expresison (a use of an <a
+					href="/expressions/assignment">assignment operator</a>),
 				</li>
 				<li>a <a href="/expressions/method-invocation">method invocation</a>,
 				</li>
 				<li>an <a href="/expressions/instance-creation">instance creation
 						expression</a> (i.e., a use of the <code>new</code> operator),
 				</li>
-				<li>an inc/decrement expression (i.e., use of any of the increment or decrement operators (pre- or
-					post- increment or decrement)).</li>
+				<li>an inc/decrement expression (i.e., use of any of the increment
+					or decrement operators (pre- or post- increment or decrement)).</li>
 			</ul>
 		</td>
 	</tr>
@@ -56,6 +56,15 @@
 	statement, with the result simply discarded. These are known as
 	Statement Expressions.</p>
 <h2>Extended Explanation</h2>
+<p>
+	Expressions can only be written inside statements<sup info=1></sup>. <span
+		info=1>An example of this is as follows:<pre><code>int x = 5 + 5;</code></pre>
+		<p>
+			The expression <code>5 + 5</code> can be written within a local
+			variable declaration statement.
+		</p>
+	</span>
+</p>
 <p>
 	Certain types of expressions can have <i>side-effects</i>, meaning they
 	can affect the state of the running program other than by what they
