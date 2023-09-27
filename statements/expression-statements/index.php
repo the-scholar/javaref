@@ -32,16 +32,16 @@
 		<td><span class="syntax-piece">stmt-expression</span></td>
 		<td>is either:
 			<ul>
-				<li>A use of an <a href="/expressions/assignment">assignment
-						operator</a>,
+				<li>An assignment expresison (a use of an <a href="/expressions/assignment">assignment
+						operator</a>),
 				</li>
 				<li>a <a href="/expressions/method-invocation">method invocation</a>,
 				</li>
 				<li>an <a href="/expressions/instance-creation">instance creation
 						expression</a> (i.e., a use of the <code>new</code> operator),
 				</li>
-				<li>use of any of the increment or decrement operators (pre- or
-					post- increment or decrement).</li>
+				<li>an inc/decrement expression (i.e., use of any of the increment or decrement operators (pre- or
+					post- increment or decrement)).</li>
 			</ul>
 		</td>
 	</tr>
