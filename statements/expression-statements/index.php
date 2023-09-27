@@ -59,6 +59,23 @@
 <p>There are a number of expressions that may be computed as a
 	statement, with the result simply discarded. These are known as
 	Statement Expressions.</p>
+<h2>Extended Explanation</h2>
+<p>
+	Certain types of expressions can have <i>side-effects</i>, meaning they
+	can affect the state of the running program other than by what they
+	evaluate to. For example,
+</p>
+<pre><code>int x = 10;
+int i = 1 + x;	// 1 + x evaluates to 11, so i is set to 11.
+int j = ++x;	// ++x evaluates to 11, so j is set to 11.
+				// However, ++x also changes the value of x to 11. This is a side-effect of the ++ operator.
+System.out.println(x);	// Prints 11</code></pre>
+<p>
+	Because of side-effects, expressions can have usefulness in contexts
+	other than within most statements. For example, a developer may want to
+	increment a variable, which can be done using an increment expression. For example:</p>
+	<pre><code>int x = getSomeValue();
+</code></pre>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <h2>Notes</h2>
