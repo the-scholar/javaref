@@ -45,19 +45,10 @@
 			</ul>
 		</td>
 	</tr>
-	<!-- TODO: Insert any additional syntax piece breakdowns -->
 </table>
-<p>
-	<i>such that...</i>
-</p>
-<ul>
-	<li>
-		<!-- TODO: Insert Such that clause -->
-	</li>
-</ul>
 <h3>Syntax Elements</h3>
 <p>
-	<span class="syntax-number">1</span> syntax_fragment_1_breakdown
+	<span class="syntax-number">1</span> An expression statement.
 </p>
 <!-- TODO: Insert any additional syntax fragment breakdowns -->
 <h2>Expression Statements</h2>
