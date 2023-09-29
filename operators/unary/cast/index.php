@@ -747,17 +747,17 @@ null</code></pre>
 //	System.out.println((Comparable&lt;Integer&gt;) -1);
 //	System.out.println((Object & Serializable & Comparable&lt;Integer&gt;) -1);</code></pre>
 	</span>
-		<p>For example,</p> <pre><code>	System.out.println((int) +10); // Valid
-//	System.out.println((Integer) +10); // Invalid
+		<p>For example,</p> <pre><code>	System.out.println((int) +10);		// Valid
+//	System.out.println((Integer) +10);	// Invalid
 
 	int x = 10;
-	System.out.println((int) ++x); // Valid
-//	System.out.println((Integer) ++x);// Invalid</code></pre>
+	System.out.println((int) ++x);		// Valid
+//	System.out.println((Integer) ++x);	// Invalid</code></pre>
 		<p>This limitation can be overcome by parenthesizing the argument to
-			the cast expression.</p> <pre><code>//	System.out.println((Integer) (+10)); // Valid
+			the cast expression.</p> <pre><code>	System.out.println((Integer) (+10));	// Valid
 
 	int x = 10;
-//	System.out.println((Integer) (++x));// Valid</code></pre>
+	System.out.println((Integer) (++x));	// Valid</code></pre>
 	</li>
 	<li id="note-2">The ability to cast a lambda expression or method reference to a
 		type parameterized with a wildcard allows creating an instance of an <code>interface</code>
