@@ -57,14 +57,14 @@
 	Statement Expressions.</p>
 <h2>Extended Explanation</h2>
 <p>
-	Expressions can only be written inside statements<sup info=1></sup>. <span
-		info=1>An example of this is as follows:<pre><code>int x = 5 + 5;</code></pre>
-		<p>
-			The expression <code>5 + 5</code> can be written within a local
-			variable declaration statement.
-		</p>
-	</span>
+	Expressions can only be written inside statements<sup info=1></sup>.
 </p>
+<span info=1>An example of this is as follows:<pre><code>int x = 5 + 5;</code></pre>
+	<p>
+		The expression <code>5 + 5</code> can be written within a local
+		variable declaration statement.
+	</p>
+</span>
 <p>
 	Certain types of expressions can have <i>side-effects</i>, meaning they
 	can affect the state of the running program other than by what they
