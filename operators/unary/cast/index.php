@@ -619,8 +619,9 @@ System.out.println(a == b);</code></pre>
 		type</i><sup info=7></sup> for the poly expression is exactly the type
 	specified by the cast, unless that specified type is generic and
 	contains any wildcard type arguments, in which case the target type is
-	instead the original type with each wildcard replaced as follows due to
-	<a href="/concepts/capture-conversion#type-replacement-rules">capture-conversion</a>
+	instead the original type with each wildcard replaced with a concrete
+	type through <a
+		href="/concepts/capture-conversion#type-replacement-rules">capture-conversion</a>
 </p>
 <span info=7>The actual type of a poly expression is based on the type
 	of expression the poly expression is <i>and</i> on the target type of
