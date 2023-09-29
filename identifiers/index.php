@@ -88,8 +88,8 @@
 	respectively).
 </span>
 <ul>
-	<li>begins with is <code>L</code> (i.e., the code-point's major
-		category is <i>Letter</i>),
+	<li>begins with <code>L</code> (i.e., the code-point's major category
+		is <i>Letter</i>),
 	</li>
 	<li>is <code>Nl</code> (i.e., the code-point is a: <i>Number, letter</i>),
 	</li>
