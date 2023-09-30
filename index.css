@@ -363,3 +363,24 @@ div.grouper {
 #Linklist>li {
 	margin: .7em 0;
 }
+
+/* To Do Markers */
+.todo::before {
+	content: 'TODO: ';
+	color: white;
+}
+.todo {
+	border: #85ffe2 1px solid;
+	border-radius: 2px;
+	font-family: monospace;
+}
+div.todo {
+	padding: .3em;
+	padding-left: 1em;
+	display: inline-block;
+	background: linear-gradient(to right, #85ffe2 0.3em, #7772 0.3em);
+}
+span.todo {
+	padding-left: 1px;
+	padding-right: 1px;
+}
