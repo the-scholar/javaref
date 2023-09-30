@@ -630,6 +630,8 @@ System.out.println(a == b);</code></pre>
 		href="#note-2">below</a>).
 </p>
 <h3>Intersection Casts</h3>
+<div class="todo">Specify semantic constraints for intersection cast
+	types and behavior of intersection casts with poly expressions.</div>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <div class="example">
