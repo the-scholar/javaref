@@ -762,7 +762,7 @@ null</code></pre>
 	</li>
 	<li id="note-2">The ability to cast a lambda expression or method reference to a
 		type parameterized with a wildcard allows creating an instance of an <code>interface</code>
-		in a way that is otherwise impossible, without using generics.
+		in a way that is otherwise impossible without using raw types.
 		<p>
 			An <code>interface</code> can be declared generic with a type
 			parameter bounded by a private (inaccessible) class. For example:
