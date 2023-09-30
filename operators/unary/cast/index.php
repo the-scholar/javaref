@@ -66,18 +66,24 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 		<td><span class="syntax-piece">primitive-castable-expression</span></td>
 		<td>is an expression of one of the following types:
 			<ul>
-				<li>the application of any one unary operator (including another
+				<li>the application of any unary operator (including another
 					cast),</li>
 				<li>a literal,</li>
 				<li>a parenthesized expression,</li>
 				<li>a reference to a field or variable,</li>
 				<li>an array component,</li>
 				<li>a method invocation,</li>
+				<li>a class instance creation expression that instantiates one of
+					the wrapper types (e.g., <code>new Integer(10)</code>),
+				</li>
+				<li>the keyword <code>this</code> (possibly qualified by a type),
+					specifically when referring to one of the wrapper types,
+				</li>
 			</ul>
 			<p>
 				Other types are syntactically, but not semantically<sup info=1></sup>
 				permitted.
-			</p> <span info=1>Syntactically, a <span class="syntax-piece">primitive-castable-expression</span>
+			</p><span info=1>Syntactically, a <span class="syntax-piece">primitive-castable-expression</span>
 				can also be any one of the following expressions, but a
 				primitive-type&ndash;cast may only be applied to a type convertible
 				to a primitive type, and none of the following types can be
@@ -85,11 +91,7 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 				<ul>
 					<li>any type of array creation expression,</li>
 					<li>a method reference,</li>
-					<li>the keyword <code>this</code> (possibly qualified by a type),
-					</li>
-					<li>a class literal,</li>
-					<li>a class instance creation expression,</li>
-					<li>an expression name.</li>
+					<li>a class literal.</li>
 				</ul>
 		</span>
 		</td>
