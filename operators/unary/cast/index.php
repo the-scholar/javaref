@@ -107,7 +107,7 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 		<td>is an expression of one of the following types:
 			<ul>
 				<li>lambda expressions</li>
-				<li>only<sup info=2></sup> the application of any one of the
+				<li>the application of any one of the
 					following operators:
 					<ul>
 						<li>the cast operator,</li>
@@ -130,15 +130,7 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 				<li>a method invocation,</li>
 				<li>an expression name,</li>
 				<li>a lambda expression.</li>
-			</ul> <span info=2> This excludes types of expressions from being the
-				operand of a reference-type&ndash;cast:
-				<ul>
-					<li>the pre-increment operator,</li>
-					<li>the pre-decrement operator,</li>
-					<li>the unary plus operator, and</li>
-					<li>the unary minus operator.</li>
-				</ul>
-		</span>
+			</ul>
 		</td>
 	</tr>
 	<tr>
@@ -164,8 +156,8 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 </p>
 <h2>Behavior</h2>
 <p>
-	Every expression has a type which is known at compile time<sup info=3></sup>.<span
-		info=3>Every expression is classified as either a <i>standalone</i> or
+	Every expression has a type which is known at compile time<sup info=2></sup>.<span
+		info=2>Every expression is classified as either a <i>standalone</i> or
 		a <i>poly</i> expression. A standalone expression's type can be
 		determined from its contents whereas a poly expression's type can be
 		determined from its context.
@@ -304,10 +296,10 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 	Integral numeric types are ordered by size as follows:
 </p>
 <div class="block">
-	<code>byte</code> &lt; <code>short</code><sup info=5></sup> &lt; <code>int</code>
+	<code>byte</code> &lt; <code>short</code><sup info=3></sup> &lt; <code>int</code>
 	&lt; <code>long</code>
 </div>
-<span info=5><code>char</code> is equal in byte-size to <code>short</code>,
+<span info=3><code>char</code> is equal in byte-size to <code>short</code>,
 	but is unsigned.</span>
 <div>
 	<p id="conversions.primitive.widening.i2i.normal">
@@ -512,9 +504,9 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 </ul>
 <p>
 	are cached so that boxing one of the values repeatedly results in the
-	same object.<sup info=6></sup>
+	same object.<sup info=4></sup>
 </p>
-<span info=6>If any of these values is boxed twice, an identity
+<span info=4>If any of these values is boxed twice, an identity
 	comparison (with the <code>==</code> operator) of the results of the
 	two boxings always returns <code>true</code>. For example: <pre><code>Object a = 10, b = 5 + 5;
 System.out.println(a == b);</code></pre>
@@ -616,14 +608,14 @@ System.out.println(a == b);</code></pre>
 </p>
 <p id="capture-conversion-part">
 	If the argument for a cast expression is a poly expression, the <i>target
-		type</i><sup info=7></sup> for the poly expression is exactly the type
+		type</i><sup info=5></sup> for the poly expression is exactly the type
 	specified by the cast, unless that specified type is generic and
 	contains any wildcard type arguments, in which case the target type is
 	instead the original type with each wildcard replaced with a concrete
 	type through <a
 		href="/concepts/capture-conversion#type-replacement-rules">capture-conversion</a>
 </p>
-<span info=7>The actual type of a poly expression is based on the type
+<span info=5>The actual type of a poly expression is based on the type
 	of expression the poly expression is <i>and</i> on the target type of
 	the context that the poly expression is used in.
 </span>
