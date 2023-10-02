@@ -381,6 +381,6 @@ div.todo {
 	background: linear-gradient(to right, #85ffe2 0.3em, #7772 0.3em);
 }
 span.todo {
-	padding-left: 1px;
-	padding-right: 1px;
+	padding-left: 3px;
+	padding-right: 3px;
 }
