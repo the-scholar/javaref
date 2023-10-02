@@ -605,8 +605,7 @@ System.out.println(a == b);</code></pre>
 <p>
 	The operand to a cast expression can be a poly expression (although,
 	whether the argument is a poly expression is dependent on what kind of
-	expression the argument is).
-	<!-- TODO: Supplement this section (and replace the parenthesized portion) with the details of which expressions can be poly expressions as the argument of a cast. (Also include the conditions for when they are poly expressions.) -->
+	expression the argument is <span class="todo">specify how</span>).
 </p>
 <p id="capture-conversion-part">
 	If the argument for a cast expression is a poly expression, the <i>target
@@ -633,7 +632,7 @@ System.out.println(a == b);</code></pre>
 <div class="todo">Specify semantic constraints for intersection cast
 	types and behavior of intersection casts with poly expressions.</div>
 <h2>Examples</h2>
-<!-- TODO: Add examples -->
+<div class="todo">Add simple examples</div>
 <div class="example">
 	<h4 id="examples.wildcard-cast">Poly Expressions &amp; Wildcard Casts</h4>
 	<p>Casting a poly expression to a generic type with a wildcard type
