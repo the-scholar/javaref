@@ -8,11 +8,12 @@
 <p>
 	Basic for loops contain an initializer expression, a condition, an
 	increment expression, and a body statement. They are executed beginning
-	with their initializer statement. Then their condition evaluated and,
-	while <code>true</code>, the body statement and then the increment
+	with their initializer statement. Then the condition is evaluated and,
+	while it's <code>true</code>, the body statement and then the increment
 	expression are executed, in that order. The condition, body, and
 	increment expression are executed repeatedly until the condition
-	evaluates to <code>false</code> or an exception is thrown.
+	evaluates to <code>false</code> or the for loop structure completes
+	abruptly.
 </p>
 <p>
 	Enhanced for loops execute their body statement for every member of an
@@ -131,7 +132,6 @@
 	<i>such that...</i>
 </p>
 <ul>
-	<!-- REV: Not very clear. -->
 	<li>The element type of <span class="syntax-piece">array-expr</span>
 		must be assignable to the effective type of the variable in <span
 		class="syntax-piece">iter-variable-decl</span>.<sup info=1></sup> <span
@@ -154,8 +154,7 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 			</pre>
 	</span>
 	</li>
-	<li>
-		<!-- TODO: Add bullet regarding iterable-expr behavior -->
+	<li><div class="todo">Add bullet regarding iterable-expr behavior</div>
 	</li>
 </ul>
 <h3>Syntax Elements</h3>
@@ -171,6 +170,8 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 	looping over an array.
 </p>
 <h2>Execution</h2>
+<div class="todo">Provide explanation in subsequent sections, (not just
+	a rule list).</div>
 <p>
 	The execution of enhanced <code>for</code> loops is expressed through a
 	basic <code>for</code> loop.
@@ -185,11 +186,9 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 <ol id="basic-for-loop-steps">
 	<li>The <span class="syntax-piece">init-expression</span> is executed.
 	</li>
-	<li>
-		<!-- TODO: Fix uncolored list item marker. --> <span
-		style="color: #ffe62b;">The <span class="syntax-piece">condition</span>
-			is evaluated. If it evaluates to <code>false</code>,
-	</span> the loop is exited.
+	<li style="color: #ffe62b;">The <span class="syntax-piece">condition</span>
+		is evaluated. If it evaluates to <code>false</code>, the loop is
+		exited.
 	</li>
 	<li style="color: #ffe62b;">The <span class="syntax-piece">body-stmt</span>
 		is executed.
@@ -257,7 +256,9 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 </ul>
 <p>and an enhanced for loop over an array is equivalent to the following
 	code block:</p>
-<!-- TODO: Show code that is equivalent to enhanced for loop on array. -->
+<div class="todo">Show code that is equivalent to enhanced for loop on
+	array.</div>
+<p>An enhanced for loop
 <h3>Abrupt Completion of For Loops</h3>
 <h4>
 	Unlabeled <code>break</code>s &amp; <code>continue</code>s
@@ -299,11 +300,11 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 	</ol>
 </span>
 <h2>Examples</h2>
-<!-- TODO: Add examples -->
+<div class="todo">Add examples</div>
 <h2>Notes</h2>
 <ol>
 	<li>
-		<!-- TODO: Add notes -->
+		<div class="todo">Add notes</div>
 	</li>
 </ol>
 <?php
