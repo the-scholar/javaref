@@ -239,6 +239,7 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 }</code></pre>
 <p>where:</p>
 <ul>
+	<li><code>iterable</code> is a unique variable name,</li>
 	<li><code>IterableType</code> is the type of the <span
 		class="syntax-piece">iterable-expr</span>, and</li>
 	<li><code>ItemType</code> is:
