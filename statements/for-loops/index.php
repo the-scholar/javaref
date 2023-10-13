@@ -170,8 +170,6 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 	looping over an array.
 </p>
 <h2>Execution</h2>
-<div class="todo">Provide explanation in subsequent sections, (not just
-	a rule list).</div>
 <p>
 	The execution of enhanced <code>for</code> loops is expressed through a
 	basic <code>for</code> loop.
