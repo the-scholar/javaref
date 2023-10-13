@@ -336,6 +336,27 @@ Letter: h
 Letter: i
 Letter: j</code></pre>
 </div>
+<h4>Statement Expression Examples</h4>
+<p>
+	The <span class="syntax-piece">increment-expr</span> is expressive
+	enough that many for loops can be equivalently written without a body,
+	because basic for loop bodies are often <a
+		href="/statements/expression-statements">expression statements</a>
+	(like method calls or assignments), which can instead be executed in
+	the <span class="syntax-piece">increment-expr</span>. For example, the
+	following for loop:
+</p>
+<pre><code>for (int i = 0; i &lt; 5; i++)
+	System.out.println(i);</code></pre>
+<p>can equivalently be written as follows:</p>
+<pre><code>for (int i = 0; i &lt; 5; System.out.println(i++))
+	;</code></pre>
+<p>The output of either for loop is as follows:</p>
+<pre><code class="output">0
+1
+2
+3
+4</code></pre>
 <div class="todo">Add examples</div>
 <h2>Notes</h2>
 <ol>
