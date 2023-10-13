@@ -301,6 +301,41 @@ for (Object o : dogArray);		// Dog objects can fit in the Object variable, o
 	</ol>
 </span>
 <h2>Examples</h2>
+<div class="example">
+	<h4>Simple Usage</h4>
+	<p>A simple example of a basic for loop used to print the numbers 0
+		through 4:</p>
+	<pre><code>for (int i = 0; i &lt; 5; i++)
+	System.out.println(i);</code></pre>
+	<p>Output:</p>
+	<pre><code>0
+1
+2
+3
+4</code></pre>
+	<p>
+		This example demonstrates using a basic for loop to fill the list, <code>strs</code>,
+		with values, then using an enhanced for loop to print each value
+		inside <code>strs</code>.
+	</p>
+	<pre><code>List&lt;String&gt; strs = new ArrayList&lt;&gt;();
+for (int i = 0; i &lt; 10; i++)
+	strs.add("Letter: " + (char) (i + 'a'));
+
+for (String s : strs)
+	System.out.println(s);</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">Letter: a
+Letter: b
+Letter: c
+Letter: d
+Letter: e
+Letter: f
+Letter: g
+Letter: h
+Letter: i
+Letter: j</code></pre>
+</div>
 <div class="todo">Add examples</div>
 <h2>Notes</h2>
 <ol>
