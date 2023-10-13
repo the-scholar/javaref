@@ -357,12 +357,10 @@ Letter: j</code></pre>
 2
 3
 4</code></pre>
-<div class="todo">Add examples</div>
-<h2>Notes</h2>
-<ol>
-	<li>
-		<div class="todo">Add notes</div>
-	</li>
-</ol>
+<div class="todo">
+	Add enhanced for loop example with non-intuitive expression as the <span
+		class="syntax-piece">iterable-expr</span> or <span
+		class="syntax-piece">array-expr</span>.
+</div>
 <?php
 b();
