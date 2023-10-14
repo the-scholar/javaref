@@ -55,9 +55,12 @@
 	The variable initializers in instance field declarations and the
 	instance initializer blocks, contained within a type, collectively make
 	up the initialization code that gets executed when an instance of that
-	type is created. Similarly, the variable initializers of static fields
-	and the static initializer blocks collectively make up the
-	initialization code that is executed when the type is loaded. Such
+	type is created. (See the <a href="#instance-init-code">Instance
+		Initializer Code</a> example below for details.) Similarly, the
+	variable initializers of static fields and the static initializer
+	blocks collectively make up the initialization code that is executed
+	when the type is loaded. (See the <a href="#static-init-code">Static
+		Initializer Code</a> example below for details.) In either case,
 	initialization code is always executed in the same textual order as it
 	is written throughout the class.<sup info=1></sup> Thereby, it is said
 	that such initialization code is <i>ordered</i>. Note that other code
@@ -307,6 +310,14 @@ Main method started.
 Initializer 2 (Instance)
 Initializer 4 (Instance)
 Constructor</code></pre>
+</div>
+<div class="example">
+	<h4 id="instance-init-code">Instance Initializer Code</h4>
+	<div class="todo">Add example code</div>
+</div>
+<div class="example">
+	<h4 id="static-init-code">Static Initializer Code</h4>
+	<div class="todo">Add example code</div>
 </div>
 <h2>Notes</h2>
 <ol>
