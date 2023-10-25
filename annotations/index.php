@@ -703,7 +703,7 @@ class Ex {
 				href="#type-list.type-prefixes">see above</a>),
 			</li>
 			<li>or in the modifier list of the declaration (<a
-				href="type-list.modifier-list-items">see above</a>.
+				href="type-list.modifier-list-items">see above</a>).
 			</li>
 		</ul>
 		<p>A simple example is in the method declaration:</p> <pre><code>@A int one() {	return 1;	}</code></pre>
