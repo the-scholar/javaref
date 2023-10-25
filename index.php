@@ -63,8 +63,8 @@ a.u {
 			</ul>
 			<span class="sec">Statements</span>
 			<ul>
-				<li><a class="c u" href="/statements/for-loops">For Loops</a></li>
-				<li><a class="c u" href="/statements/expression-statements">Expression
+				<li><a class="c" href="/statements/for-loops">For Loops</a></li>
+				<li><a class="c" href="/statements/expression-statements">Expression
 						Statements</a></li>
 			</ul>
 			<span class="sec">Methods</span>
@@ -77,13 +77,13 @@ a.u {
 			<ul>
 				<li><span class="sec">Unary</span>
 					<ul>
-						<li><a class="c u" href="/operators/unary/cast">Cast Operator</a></li>
+						<li><a class="c" href="/operators/unary/cast">Cast Operator</a></li>
 					</ul></li>
 			</ul>
 			<span class="sec">Annotations</span>
 			<ul>
-				<li><a class="c u" href="annotations">Annotations</a></li>
-				<li><a class="c u" href="annotations/declarations">Annotation
+				<li><a class="c" href="annotations">Annotations</a></li>
+				<li><a class="c" href="annotations/declarations">Annotation
 						Declarations</a></li>
 				<li><a class="c" href="annotations/elements">Annotation Element
 						Declarations</a></li>
