@@ -737,7 +737,7 @@ class Ex {
 			type, deterring the ability of an annotation in the declaration's <span
 				class="syntax-piece">modifier-list</span> from applying to both the
 			declaration and the declaration's type. Such annotations targeting
-			any of the five <a href="targets.ambiguity-declarations">potentially
+			any of the five <a href="#targets.ambiguity-declarations">potentially
 				ambiguous declarations</a> as well as <code>TYPE_USE</code> can be
 			made to only apply to the declaration, since the simple name closest
 			to the declaration's modifier list will be a package name, not a type
