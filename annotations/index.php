@@ -395,7 +395,7 @@
 				clause,
 			</li>
 			<li>any type used to qualify a type that it encloses (i.e., contains
-				in an non-<code>static</code> context<sup info=1></sup>), <span
+				in a non-<code>static</code> context<sup info=1></sup>), <span
 				info=1>A type can <i>surround</i> or <i>enclose</i> a member:
 					<ul>
 						<li>If a type's member is <code>static</code>, the type surrounds
