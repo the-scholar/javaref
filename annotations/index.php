@@ -607,6 +607,8 @@ class Outer {
 </h3>
 <!-- TODO: Talk about how these arguments must be constants. -->
 <!-- TODO: Talk about how these arguments may also include annotations, even inside the array expressions. -->
+<h2>Uses</h2>
+<div class="todo">Show and explain uses for annotations.</div>
 <h2>Examples</h2>
 <div>
 	<h4>Self-Application of Annotations</h4>
