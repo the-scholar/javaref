@@ -369,6 +369,9 @@ div.grouper {
 	content: 'TODO: ';
 	color: white;
 }
+.todo:empty::before {
+	content: 'TODO';
+}
 .todo {
 	border: #85ffe2 1px solid;
 	border-radius: 2px;
@@ -380,6 +383,9 @@ div.todo {
 	display: table;
 	background: linear-gradient(to right, #85ffe2 0.3em, #7772 0.3em);
 	margin-top: 1em;
+}
+div.todo:empty {
+	padding-left: .6em;
 }
 span.todo {
 	padding-left: 3px;
