@@ -63,12 +63,13 @@
 	are sequences of <code>char</code>s. Some Unicode code-points are now
 	larger than 16 bits, so two characters in Java are required to
 	represent them (totaling 32 bits). (This is why some methods in the <code>Character</code>
-	and <code>String</code> classes are overloaded to accept an <code>int</code>.)
-	Because of such, the Java documentation distinguishes between <i>characters</i>
-	and <i>code-points</i>, the latter being represented by an <code>int</code>
-	in Java, and the former being represented by a <code>char</code>.
-	Code-points are what most understand a character to be: A concept of a
-	letter, digit, or other symbol (primarily) used for communication.
+	and <code>String</code> classes are overloaded to accept an <code>int</code>,
+	which is 32 bits.) Because of such, the Java documentation
+	distinguishes between <i>characters</i> and <i>code-points</i>, the
+	latter being represented by an <code>int</code> in Java, and the former
+	being represented by a <code>char</code>. Code-points are what most
+	understand a character to be: A concept of a letter, digit, or other
+	symbol (primarily) used for communication.
 	<p>When referring to a Unicode code-point, this document uses the term
 		code-point.</p>
 </span>
@@ -241,4 +242,6 @@ else
 		href="https://lingojam.com/ZalgoText">Zalgo Text Generator</a> - Used
 		to generate the <code>int</code> variable <a href="#VarInternalRef">above</a>.</li>
 </ol>
-<?php b();
+<?php
+
+b();
