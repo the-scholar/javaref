@@ -1,11 +1,18 @@
-<?php t("Javaref - Identifiers", "Identifiers are used by a programmer to name Java constructs, such as methods, variables, and types.");?>
+<?php t("Javaref - Identifiers", "Identifiers are the names of Java constructs in a source file. They're used to name methods, variables, and types");?>
 <h1>Identifiers</h1>
 <p class="description">A string of characters used to name (or otherwise
 	identify) a Java construct.</p>
-<p>Identifiers are used for the names of variables, methods, types, type
-	parameters, and packages. Each identifier is parsed as a separate token
-	during tokenization of a Java program. Keywords are not considered
-	identifiers.</p>
+<p>
+	Identifiers are used in source code for the names of variables,
+	methods, types, type parameters, and packages.<sup info=1></sup> Each
+	identifier is parsed as a separate token during tokenization of a Java
+	program. Keywords are not considered identifiers.
+</p>
+<span info=1>For example, <pre><code>int x = 10;</code></pre>
+	<p>
+		<code>x</code> is an identifier.
+	</p>
+</span>
 <h2>Syntax</h2>
 <p>Identifiers consist of:</p>
 <table class="syntax">
@@ -48,7 +55,7 @@
 </p>
 <h2 id="Composition">Composition</h2>
 <p>
-	Java identifiers are composed of Unicode code-points<sup info=1></sup>
+	Java identifiers are composed of Unicode code-points<sup info=2></sup>
 	(characters), defined by the Unicode standard. The code-points that can
 	comprise an identifier are defined by the static Java API methods <code>Character.isJavaIdentifierStart(int)</code>
 	and <code>Character.isJavaIdentifierPart(int)</code>, for the <span
@@ -57,7 +64,7 @@
 	method returns <code>true</code> for a character, then the respective
 	syntax element can be composed of that character in a valid identifier.
 </p>
-<span info=1>The Unicode Standard technically specifies <i>code-points</i>,
+<span info=2>The Unicode Standard technically specifies <i>code-points</i>,
 	not characters. In Java (and the Java specification), characters are
 	16-bit data stored by the well-known <code>char</code> type. <code>String</code>s
 	are sequences of <code>char</code>s. Some Unicode code-points are now
@@ -78,9 +85,9 @@
 </h3>
 <p>
 	The first character of a Java identifier may be any Unicode code-point
-	whose general category<sup info=2></sup>:
+	whose general category<sup info=3></sup>:
 </p>
-<span info=2>Unicode groups characters into <i>blocks</i> and into <i>general
+<span info=3>Unicode groups characters into <i>blocks</i> and into <i>general
 		categories</i> (and sub-categories). Blocks are generally used to
 	group code-points by language, function, etc. A character can only be
 	in one block and blocks are contiguous. General Categories are an <i>attribute</i>
@@ -180,6 +187,9 @@ public static void main(String[] args) {
 }</code></pre>
 	<p>Output:</p>
 	<pre><code class="output">Failure</code></pre>
+</div>
+<div>
+	<h4>Examples From Code Snippets</h4>
 </div>
 <h2>Notes</h2>
 <ol>
