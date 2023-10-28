@@ -32,14 +32,34 @@
 <pre><code>String x = null;</code></pre>
 <p>
 	The <code>null</code> value is assignable to any reference type,
-	including variables of any type parameter.
+	including variables of any type parameter, even if the type is not
+	visible (see <a href="#notes.1">note 1</a>).
 </p>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <h2>Notes</h2>
 <ol>
-	<li>
-		<!-- TODO: Add notes -->
+	<li id="notes.1">
+		<p>
+			The <code>null</code> literal can be used to call a function that has
+			parameters of inaccessible type. For example:
+		</p> <pre><code>class A {
+	private static class Hidden {
+
+	}
+
+	public static void secureMethod(Hidden hidden) {
+
+	}
+}
+
+class B {
+	public static void test() {
+		// Call A.secureMethod(A.Hidden) without having an instance of the class, A.Hidden
+		A.secureMethod(null); // null is assignable to A.Hidden, so no instance of A.Hidden needed
+		// A.secureMethod(new A.Hidden()); // Not allowed; A.Hidden is private
+	}
+}</code></pre>
 	</li>
 </ol>
 <?php
