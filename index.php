@@ -59,7 +59,7 @@ a.u {
 				<li><a class="c" href="/literals/floating-point">Floating Point
 						Literal</a></li>
 				<li><a class="c" href="/literals/boolean">Boolean Literal</a></li>
-				<li><a class="c u" href="/literals/null">Null Literal</a></li>
+				<li><a class="c" href="/literals/null">Null Literal</a></li>
 			</ul>
 			<span class="sec">Statements</span>
 			<ul>
