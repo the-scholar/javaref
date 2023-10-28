@@ -36,7 +36,26 @@
 	visible (see <a href="#notes.1">note 1</a>).
 </p>
 <h2>Examples</h2>
-<!-- TODO: Add examples -->
+<h3>Method Invocation</h3>
+<p>
+	Invoking a method on the null value results in a <code>java.lang.NullPointerException</code>.
+	Doing so requires that the <code>null</code> value be cast to some
+	reference type, such as <code>String</code>:
+</p>
+<pre><code>int x = ((String) null).length(); // throws a NullPointerException</code></pre>
+<p>or more simply:</p>
+<pre><code>((String) null).length(); // throws a NullPointerException</code></pre>
+<h3>
+	Throwing <code>null</code>
+</h3>
+<p>
+	The <code>null</code> literal can be the operand of the <code>throw</code>
+	operator in a throw statement:
+</p>
+<pre><code>throw null;</code></pre>
+<p>
+	This creates and throws a <code>java.lang.NullPointerException</code>.
+</p>
 <h2>Notes</h2>
 <ol>
 	<li id="notes.1">
