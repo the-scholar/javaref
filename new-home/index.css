@@ -66,15 +66,20 @@ h1 {
 #Search {
 	background-color: #292929;
 	width: 15rem;
+	float: right;
 	height: 100%;
 	font-style: italic;
 	margin: 0;
 	padding: 0.5em;
-	color: #7f84e3;
+	color: white;
 	vertical-align: top;
 	box-sizing: border-box;
 	border: none;
 	outline: none;
+}
+
+#Search:focus {
+    border: 0.2em ridge #3498db;
 }
 
 #HeaderContentMenu {
