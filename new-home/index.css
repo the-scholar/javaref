@@ -4,6 +4,7 @@
 	background-color: #222;
 	font-family: "Segoe UI", sans-serif;
 	color: darkgray;
+	font-size: 1.2em;
 }
 
 body {
@@ -30,4 +31,5 @@ body {
 
 h1 {
 	color: white;
+	border-bottom: solid #222 2px;
 }
