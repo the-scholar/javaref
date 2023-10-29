@@ -3,6 +3,7 @@
 :root {
 	background-color: #222;
 	font-family: "Segoe UI", sans-serif;
+	color: darkgray;
 }
 
 body {
@@ -21,5 +22,5 @@ body {
 	max-width: min(60em, calc(100vw - 4em));
 }
 h1 {
-	
+	color: white;
 }
