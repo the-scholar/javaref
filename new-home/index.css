@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+:root {
+	background-color: #222;
+}
+
+body {
+	margin: 0;
+}
+
+#Header {
+	background-color: #171717;
+	height: 6.5em;
+}
