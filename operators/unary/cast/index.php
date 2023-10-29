@@ -32,7 +32,8 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 	by a lambda or method reference, clarify ambiguous method invocations,
 	and more.</p>
 <h2>Syntax</h2>
-<p>Cast Operators can be expressed through:</p>
+<p>Cast Operators are used in cast expressions. Cast expressions can be
+	written in the following forms:</p>
 <table class="syntax">
 	<tr>
 		<td>1</td>
@@ -66,8 +67,7 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 		<td><span class="syntax-piece">primitive-castable-expression</span></td>
 		<td>is an expression of one of the following types:
 			<ul>
-				<li>the application of any unary operator (including another
-					cast),</li>
+				<li>the application of any unary operator (including another cast),</li>
 				<li>a literal,</li>
 				<li>a parenthesized expression,</li>
 				<li>a reference to a field or variable,</li>
@@ -83,7 +83,8 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 			<p>
 				Other types are syntactically, but not semantically<sup info=1></sup>
 				permitted.
-			</p><span info=1>Syntactically, a <span class="syntax-piece">primitive-castable-expression</span>
+			</p>
+			<span info=1>Syntactically, a <span class="syntax-piece">primitive-castable-expression</span>
 				can also be any one of the following expressions, but a
 				primitive-type&ndash;cast may only be applied to a type convertible
 				to a primitive type, and none of the following types can be
@@ -109,8 +110,7 @@ t("Javaref - Cast Operator", "The Java cast operator attempts to convert or spec
 		<td>is an expression of one of the following types:
 			<ul>
 				<li>lambda expressions</li>
-				<li>the application of any one of the
-					following operators:
+				<li>the application of any one of the following operators:
 					<ul>
 						<li>the cast operator,</li>
 						<li>the logical negation operator,</li>
@@ -755,9 +755,10 @@ null</code></pre>
 	int x = 10;
 	System.out.println((Integer) (++x));	// Valid</code></pre>
 	</li>
-	<li id="note-2">The ability to cast a lambda expression or method reference to a
-		type parameterized with a wildcard allows creating an instance of an <code>interface</code>
-		in a way that is otherwise impossible without using raw types.
+	<li id="note-2">The ability to cast a lambda expression or method
+		reference to a type parameterized with a wildcard allows creating an
+		instance of an <code>interface</code> in a way that is otherwise
+		impossible without using raw types.
 		<p>
 			An <code>interface</code> can be declared generic with a type
 			parameter bounded by a private (inaccessible) class. For example:
