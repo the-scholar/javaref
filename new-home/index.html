@@ -10,6 +10,7 @@
 			font-weight: bold;
 			color: white;
 		}
+
 		ul {
 			list-style-type: none;
 			padding: .3em 1em;
@@ -24,10 +25,7 @@
 		<div id="HeaderContent">
 			<div id="HeaderContentTitle">
 				<div id="Title">javaref.net</div>
-				<form action="/search" method="get" id="Search">
-					<input type="text" name="q" placeholder="Search...">
-					<input type="submit" value="Search">
-				</form>
+				<input id=Search type="text" name="q" placeholder="Search...">
 			</div>
 			<div id="HeaderContentMenu">
 				<div id="Home"></div>
@@ -72,7 +70,8 @@
 		</ul>
 		<div class="sec">Operators</div>
 		<ul>
-			<li><div class="sec">Unary</div>
+			<li>
+				<div class="sec">Unary</div>
 				<ul>
 					<li><a class="c" href="/operators/unary/cast">Cast Operator</a></li>
 					<li><a class="c" href="/operators/unary/minus">Unary Minus</a></li>
