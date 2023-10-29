@@ -69,15 +69,44 @@ h1 {
 	height: 100%;
 	font-style: italic;
 	margin: 0;
-    padding: 0.5em;
+	padding: 0.5em;
 	color: #7f84e3;
 	vertical-align: top;
 	box-sizing: border-box;
 	border: none;
-    outline: none;
+	outline: none;
 }
 
 #HeaderContentMenu {
-	background-color: deeppink;
+	background-color: transparent;
 	height: 50%;
+	white-space: nowrap;
+}
+
+button {
+	background: linear-gradient(to top, #4D4D4D, #171717);
+	color: white;
+	cursor: pointer;
+	margin: 0;
+	border: none;
+	outline: none;
+	vertical-align: top;
+	width: 5em;
+	height: 100%;
+}
+
+button:active {
+	background: linear-gradient(to top, #7f84e3, white);
+}
+
+#Help {
+	float: right;
+}
+
+#Home {
+	background: linear-gradient(to top, #7f84e3, #171717);
+}
+
+#Home:active {
+	background: linear-gradient(to top, #7f84e3, white);
 }
