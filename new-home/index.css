@@ -79,7 +79,7 @@ h1 {
 }
 
 #Search:focus {
-    border: 0.2em ridge #3498db;
+	border: 0.2em ridge #3498db;
 }
 
 #HeaderContentMenu {
@@ -114,4 +114,16 @@ button:active {
 
 #Home:active {
 	background: linear-gradient(to top, #7f84e3, white);
+}
+
+div.sec {
+	font-weight: bold;
+	color: white;
+}
+
+ul {
+	list-style-type: none;
+	padding: .3em 1em;
+	margin: .2em;
+	background-color: #ffffff0a;
 }
