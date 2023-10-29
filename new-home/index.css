@@ -110,6 +110,7 @@ button:active {
 
 #Home {
 	background: linear-gradient(to top, #7f84e3, #171717);
+	font-weight: bold;
 }
 
 #Home:active {
