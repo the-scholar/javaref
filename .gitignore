@@ -1,1 +1,7 @@
 /.htaccess
+.buildpath
+.project
+.project
+*.prefs
+.settings/org.eclipse.wst.common.project.facet.core.xml
+.gitignore
