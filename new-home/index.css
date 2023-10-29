@@ -15,18 +15,30 @@ body {
 	height: 6.5em;
 }
 
-#HeaderContent {
-	max-width: min(60em, calc(100vw - 4em));
-	margin-left: auto;
-	margin-right: auto;
-}
+
 #Content {
 	background: #171717;
 	margin: 2em auto;
 	padding: 1rem;
 	max-width: min(60em, calc(100vw - 4em));
 }
+
 h1 {
 	color: white;
 }
+
+#HeaderContent {
+	max-width: min(60em, calc(100vw - 4em));
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#HeaderContentTitle {
+	background-color: rgb(255, 255, 255);
+	height: 1em
+}
+
+#HeaderContentMenu {
+		background-color: rgb(255, 255, 255);
+	height: 1em
 }
