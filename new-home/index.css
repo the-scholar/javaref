@@ -27,12 +27,6 @@ a:hover {
 	height: 3em;
 }
 
-#HeaderContent {
-	max-width: min(60em, calc(100vw - 4em));
-	margin-left: auto;
-	margin-right: auto;
-}
-
 #Content {
 	background: #171717;
 	margin: 2em auto;
@@ -53,8 +47,30 @@ h1 {
 }
 
 #HeaderContentTitle {
-	background-color: white;
+	background-color: transparent;
 	height: 50%;
+	white-space: nowrap;
+}
+
+#Title {
+	background-color: transparent;
+	display: inline-block;
+	width: calc(100% - 15rem);
+	height: 100%;
+	vertical-align: top;
+	font-weight: bold;
+	color: white;
+}
+
+#Search {
+	background-color: #292929;
+	display: inline-block;
+	width: 15rem;
+	height: 100%;
+	font-style: italic;
+	color: white;
+	font-size: .8em;
+	vertical-align: top;
 }
 
 #HeaderContentMenu {
