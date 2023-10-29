@@ -43,7 +43,8 @@
 			<code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>,
 			<code>8</code>, <code>9</code>), possibly with one decimal point (<code>.</code>)
 			before, after, or in between any of the digits.<sup info=1></sup><span
-			info=1>In other words, it is one of:
+			info=1>In other words, the <span class="syntax-piece">decimal-significand</span>
+				is one of:
 				<ol>
 					<li>A decimal point followed by one or more decimal digits, e.g. <code>.439</code>,
 					</li>
@@ -67,7 +68,8 @@
 			<code>C</code>, <code>D</code>, <code>E</code>, <code>F</code>),
 			possibly with one decimal point (<code>.</code>) before, after, or in
 			between any of the digits.<sup info=2></sup><span info=2>In other
-				words, it is one of:
+				words, the <span class="syntax-piece">hex-significand</span> is one
+				of:
 				<ol>
 					<li><code>0x</code> or <code>0X</code>, followed by a decimal
 						point, followed then by one or more hexadecimal digits, e.g. <code>0x.43A</code>,</li>
