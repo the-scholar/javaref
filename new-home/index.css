@@ -13,8 +13,8 @@ body {
 
 #Header {
 	background-color: #171717;
-	padding-top: 1em;
-	height: 4em;
+	padding-top: 0.5em;
+	height: 3em;
 }
 
 #HeaderContent {
@@ -27,7 +27,7 @@ body {
 	background: #171717;
 	margin: 2em auto;
 	padding: 1rem;
-	max-width: calc(min(60em, calc(100vw - 4em)) - 2rem);
+	max-width: calc(min(50em, calc(100vw - 4em)) - 2rem);
 }
 
 h1 {
@@ -36,7 +36,7 @@ h1 {
 }
 
 #HeaderContent {
-	max-width: min(60em, calc(100vw - 4em));
+	max-width: min(50em, calc(100vw - 4em));
 	margin-left: auto;
 	margin-right: auto;
 	height: 100%;
