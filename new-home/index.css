@@ -37,15 +37,15 @@ h1 {
 }
 
 #HeaderContentTitle {
-	background-color: white;
+	background-color: transparent;
 	height: 50%;
 	white-space: nowrap;
 }
 
 #Title {
-	background-color: green;
+	background-color: transparent;
 	display: inline-block;
-	width: calc(100% - 15em);
+	width: calc(100% - 15rem);
 	height: 100%;
 	vertical-align: top;
 	font-weight: bold;
@@ -53,11 +53,14 @@ h1 {
 }
 
 #Search {
-	background-color: orange;
+	background-color: #292929;
 	display: inline-block;
-	width: 15em;
+	width: 15rem;
 	height: 100%;
-
+	font-style: italic;
+	color: white;
+	font-size: .8em;
+	vertical-align: top;
 }
 
 #HeaderContentMenu {
