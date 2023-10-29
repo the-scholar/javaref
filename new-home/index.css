@@ -13,7 +13,8 @@ body {
 
 #Header {
 	background-color: #171717;
-	height: 6.5em;
+	padding-top: 1em;
+	height: 4em;
 }
 
 #HeaderContent {
@@ -26,10 +27,27 @@ body {
 	background: #171717;
 	margin: 2em auto;
 	padding: 1rem;
-	max-width: min(60em, calc(100vw - 4em));
+	max-width: calc(min(60em, calc(100vw - 4em)) - 2rem);
 }
 
 h1 {
 	color: white;
 	border-bottom: solid #222 2px;
+}
+
+#HeaderContent {
+	max-width: min(60em, calc(100vw - 4em));
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+}
+
+#HeaderContentTitle {
+	background-color: white;
+	height: 50%;
+}
+
+#HeaderContentMenu {
+	background-color: deeppink;
+	height: 50%;
 }
