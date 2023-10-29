@@ -5,37 +5,48 @@
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<meta charset="ISO-8859-1">
 	<title>Insert title here</title>
+	<style>
+		div.sec {
+			font-weight: bold;
+			color: white;
+		}
+		ul {
+			list-style-type: none;
+			padding-left: 1em;
+			margin: .2em;
+		}
+	</style>
 </head>
 
 <body>
 	<div id="Header">
 		<div id="HeaderContent">
 			<div id="HeaderContentTitle">
-        <div id="Title"></div>
-			  <div id="Search"></div>
-      </div>
-      <div id="HeaderContentMenu">
-        <div id="Home"></div>
-        <div id="Github"></div>
-        <div id="About"></div>
-        <div id="Help"></div>
-		  </div>
+				<div id="Title"></div>
+				<div id="Search"></div>
+			</div>
+			<div id="HeaderContentMenu">
+				<div id="Home"></div>
+				<div id="Github"></div>
+				<div id="About"></div>
+				<div id="Help"></div>
+			</div>
 		</div>
 	</div>
 	<div id="Content">
 		<h1>Java Reference</h1>
-		<span class="sec">General</span>
+		<div class="sec">General</div>
 		<ul>
 			<li><a class="c" href="/identifiers">Identifiers</a></li>
 			<li><a class="c" href="/initializers">Static &amp; Instance
 					Initializers</a></li>
 		</ul>
-		<span class="sec">Concepts</span>
+		<div class="sec">Concepts</div>
 		<ul>
 			<li><a class="c" href="/concepts/capture-conversion">Capture
 					Conversion</a></li>
 		</ul>
-		<span class="sec">Literals</span>
+		<div class="sec">Literals</div>
 		<ul>
 			<li><a class="c" href="/literals/integer">Integer Literal</a></li>
 			<li><a class="c" href="/literals/floating-point">Floating Point
@@ -43,21 +54,21 @@
 			<li><a class="c" href="/literals/boolean">Boolean Literals</a></li>
 			<li><a class="c" href="/literals/null">Null Literals</a></li>
 		</ul>
-		<span class="sec">Statements</span>
+		<div class="sec">Statements</div>
 		<ul>
 			<li><a class="c" href="/statements/for-loops">For Loops</a></li>
 			<li><a class="c" href="/statements/expression-statements">Expression
 					Statements</a></li>
 		</ul>
-		<span class="sec">Methods</span>
+		<div class="sec">Methods</div>
 		<ul>
 			<li><a class="c" href="/methods/declarations">Method Declarations</a></li>
 			<li><a class="c" href="/methods/receiver-parameters">Receiver
 					Parameters</a></li>
 		</ul>
-		<span class="sec">Operators</span>
+		<div class="sec">Operators</div>
 		<ul>
-			<li><span class="sec">Unary</span>
+			<li><div class="sec">Unary</div>
 				<ul>
 					<li><a class="c" href="/operators/unary/cast">Cast Operator</a></li>
 					<li><a class="c" href="/operators/unary/minus">Unary Minus</a></li>
@@ -65,7 +76,7 @@
 				</ul>
 			</li>
 		</ul>
-		<span class="sec">Annotations</span>
+		<div class="sec">Annotations</div>
 		<ul>
 			<li><a class="c" href="annotations">Annotations</a></li>
 			<li><a class="c" href="annotations/declarations">Annotation
