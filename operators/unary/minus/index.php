@@ -41,9 +41,44 @@
 <p>
 	<span class="syntax-number">1</span> Unary minus expression.
 </p>
+<h2>Inputs</h2>
+<p>
+	The unary minus operator can take any primitive numeric type (<code>byte</code>,
+	<code>short</code>, <code>char</code>, <code>int</code>, <code>long</code>,
+	<code>float</code>, or <code>double</code>) as its operand, but can
+	also take any corresponding wrapper type (<code>Byte</code>, <code>Short</code>,
+	<code>Character</code>, <code>Integer</code>, <code>Long</code>, <code>Float</code>,
+	or <code>Double</code>). If a wrapper type is provided, the type is
+	first <i>unboxed</i> into its primitive counterpart<sup info=2></sup>.
+</p>
+<span info=2>If a wrapper type is provided as the operand of a unary
+	minus operator, it is unboxed before "promotion to <code>int</code>" or
+	the negation occur. For example, <pre><code>Integer x = Integer.valueOf(123); // Variable x stores an Integer object that represents the value 123
+System.out.println(-x); // x is "unboxed" into 123 as an int</code></pre>
+	<p>The above code is equivalent to:</p> <pre><code>Integer x = Integer.valueOf(123);
+System.out.println(- (int) x);</code></pre>
+	<p>
+		That is to say that the operand of <code>-</code> is converted to its
+		primitive form, if necessary.
+	</p>
+</span>
+<p>
+	After unboxing (if necessary), if the operand is a <code>byte</code>, <code>short</code>,
+	or <code>char</code>, then <i>integer promotion</i> occurs: The type is
+	converted to <code>int</code>. Since the <code>int</code> type can
+	always represent all of the values of each of these 3 smaller types, no
+	change in value ever occurs during this promotion process.
+</p>
 <h2>Behavior</h2>
+<p>The type of a unary minus expression is the promoted, primitive type
+	of the input (that is, the type of the input after unboxing then
+	integer promotion are performed, if necessary).</p>
 <p>The unary minus operator negates its input. For most numbers, this
 	transformation is trivial.</p>
+<h3>Integral Types</h3>
+<p>
+	Any <code>byte</code>, <code>char</code>, or <code>short</code> is
+	promoted to <code>int</code> before
 <h2>Examples</h2>
 <div class="example">
 	<h4>Negating Numbers</h4>
@@ -70,6 +105,10 @@ System.out.println(- -0.0d); // Also prints 0.0</code></pre>
 -2147483648
 0.0
 0.0</code></pre>
+	<p>
+		Because of this, double negation is effectively equivalent to an
+		application of the <a href="/operators/unary/plus">unary plus operator</a>.
+	</p>
 	<h5>Double-Negation of NaN</h5>
 	<p>
 		The result of double-negating a value is always that same value, but
@@ -85,12 +124,85 @@ System.out.println(x == - -x); // Prints false, despite x and - -x being the sam
 		always results in <code>false</code>.
 	</p>
 </div>
-<h2>Notes</h2>
-<ol>
-	<li>
-		<!-- TODO: Add notes -->
-	</li>
-</ol>
-<?php
+<div class="example">
+	<h4>Type of Unary Minus Expressions</h4>
+	<p>The type of a unary minus expression is partially controlled by the
+		type of the operand expression.</p>
+	<pre><code>public static void main(String[] args) {
+	System.out.println("Types of primitive invocations:");
+	test(-(byte) 1); 					// int
+	test(-(char) 1);					// int
+	test(-(short) 1);					// int
+	test(-(int) 1);
+	test(-(long) 1);
+	test(-(float) 1);
+	test(-(double) 1);
+	System.out.println("\nTypes of wrapper invocations:");
+	test(-Byte.valueOf((byte) 1));		// int
+	test(-Character.valueOf((char) 1));	// int
+	test(-Short.valueOf((short) 1));	// int
+	test(-Integer.valueOf(1));			// int
+	test(-Long.valueOf(1));				// long
+	test(-Float.valueOf(1));			// float
+	test(-Double.valueOf(1));			// double
 
+}
+
+static void test(byte in) {
+	System.out.println("byte");
+}
+
+static void test(char in) {
+	System.out.println("char");
+}
+
+static void test(short in) {
+	System.out.println("short");
+}
+
+static void test(int in) {
+	System.out.println("int");
+}
+
+static void test(long in) {
+	System.out.println("long");
+}
+
+static void test(float in) {
+	System.out.println("float");
+}
+
+static void test(double in) {
+	System.out.println("double");
+}</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">Types of primitive invocations:
+int
+int
+int
+int
+long
+float
+double
+
+Types of wrapper invocations:
+int
+int
+int
+int
+long
+float
+double</code></pre>
+	<p>
+		In the above example, the <code>test(int)</code>, <code>test(long)</code>,
+		<code>test(float</code>, and <code>test(double)</code> methods are
+		called, which is why the output contains only <code>int</code>, <code>long</code>,
+		<code>float</code>, and <code>double</code>. The <code>test(byte)</code>,
+		<code>test(char)</code>, and <code>test(short)</code> methods do not
+		get called at all. The type of the unary minus expression is either <code>int</code>,
+		<code>long</code>, <code>float</code>, or <code>double</code>,
+		depending on the argument.
+	</p>
+</div>
+<?php
 b();
