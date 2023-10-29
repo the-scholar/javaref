@@ -5,10 +5,20 @@
 	font-family: "Segoe UI", sans-serif;
 	color: darkgray;
 	font-size: 1.2em;
+	--link-color: #7f84e3;
 }
 
 body {
 	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: var(--link-color);
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 #Header {
