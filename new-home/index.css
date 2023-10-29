@@ -4,6 +4,7 @@
 	background-color: #222;
 	font-family: "Segoe UI", sans-serif;
 	color: darkgray;
+	font-size: 1.2em;
 }
 
 body {
@@ -16,6 +17,12 @@ body {
 	height: 4em;
 }
 
+#HeaderContent {
+	max-width: min(60em, calc(100vw - 4em));
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #Content {
 	background: #171717;
 	margin: 2em auto;
@@ -25,6 +32,7 @@ body {
 
 h1 {
 	color: white;
+	border-bottom: solid #222 2px;
 }
 
 #HeaderContent {
