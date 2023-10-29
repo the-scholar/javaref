@@ -5,6 +5,7 @@
 	font-family: "Segoe UI", sans-serif;
 	color: darkgray;
 	font-size: 1.2em;
+	--link-color: #7f84e3;
 }
 
 body {
