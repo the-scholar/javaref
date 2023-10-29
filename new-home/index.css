@@ -1,0 +1,26 @@
+@charset "ISO-8859-1";
+
+:root {
+	background-color: #222;
+	font-family: "Segoe UI", sans-serif;
+	color: darkgray;
+}
+
+body {
+	margin: 0;
+}
+
+#Header {
+	background-color: #171717;
+	height: 6.5em;
+}
+
+#Content {
+	background: #171717;
+	margin: 2em auto;
+	padding: 1rem;
+	max-width: min(60em, calc(100vw - 4em));
+}
+h1 {
+	color: white;
+}
