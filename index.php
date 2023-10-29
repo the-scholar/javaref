@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1000">
-<meta name="description" content="The unofficial reference for Java syntax.">
+<meta name="description"
+	content="The unofficial reference for Java syntax.">
 <link rel="stylesheet" type="text/css" href="/index.css">
 <title>Javaref.net</title>
 <style type="text/css">
@@ -78,6 +79,8 @@ a.u {
 				<li><span class="sec">Unary</span>
 					<ul>
 						<li><a class="c" href="/operators/unary/cast">Cast Operator</a></li>
+						<li><a class="c" href="/operators/unary/minus">Unary Minus</a></li>
+						<li><a class="c u" href="/operators/unary/plus">Unary Plus</a></li>
 					</ul></li>
 			</ul>
 			<span class="sec">Annotations</span>
