@@ -138,8 +138,9 @@
 <p>
 	The value of a floating point literal is calculated by interpreting it
 	as a number in scientific notation, and then rounding that number to
-	the closest value in the value set for the literal's type. The suffix,
-	when included, determines whether the literal is of type <code>double</code>
+	the closest value in the value set<sup info=4></sup> for the literal's
+	type. The <span class="syntax-piece">float-suffix</span>, when
+	included, determines whether the literal is of type <code>double</code>
 	or <code>float</code>, and thus determines the corresponding value set<sup
 		info=4></sup>. <span info=4>The value set of <code>float</code> is the
 		set of all values in the <i>IEEE 754 32-bit single-precision
@@ -372,4 +373,6 @@ System.out.println(new BigDecimal(z));</code></pre>
 		are used for the exponent part of decimal floating point literals).
 	</li>
 </ol>
-<?php b();
+<?php
+
+b();
