@@ -77,8 +77,37 @@ System.out.println(- (int) x);</code></pre>
 	transformation is trivial.</p>
 <h3>Integral Types</h3>
 <p>
-	Any <code>byte</code>, <code>char</code>, or <code>short</code> is
-	promoted to <code>int</code> before
+	The minimum values of integer types <code>int</code> and <code>long</code>
+	are: <code>-2147483648</code> and <code>-9223372036854775808</code>
+	respectively. Performing the unary minus operation on either of these
+	values will cause overflow and result in the same value.<sup info=3></sup>
+</p>
+<span info=3>There is no corresponding, positive <code>int</code> for <code>-2147483648</code>,
+	and there is no corresponding positive <code>long</code> for <code>-9223372036854775808</code>.
+	Because of this, trying to negate either value would result in the
+	maximum positive value plus <code>1</code> for the respective type,
+	which overflows to the minimum value. For example, negating <code>-2147483648</code>,
+	<i>would</i> result in <code>2147483648</code> (which is the maximum
+	value of an int: <code>2147483647</code>, plus 1), which then simply
+	overflows back to <code>-2147483648</code>.
+	<p>
+		Resultingly, negating the minimum <code>int</code> or <code>long</code>
+		value results in the same value.
+	</p>
+</span>
+<h3>Floating Point Types</h3>
+<p>
+	For floating point values (<code>float</code> and <code>double</code>),
+	the unary minus operator simply flips the sign bit. This results in a
+	normal, mathematic negation for any floating point value except for <code>NaN</code>;
+	the negation of <code>NaN</code> is <code>NaN</code>.
+</p>
+<p>
+	Note that negating floating point zero (<code>0.0</code>) will result
+	in <i>negative zero</i> (<code>-0.0</code>), and negating negative zero
+	results in positive zero. Floating point types differentiate between
+	negative and positive zero.
+</p>
 <h2>Examples</h2>
 <div class="example">
 	<h4>Negating Numbers</h4>
