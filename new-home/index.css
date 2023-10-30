@@ -1,11 +1,13 @@
 @charset "ISO-8859-1";
 
 :root {
-	background-color: #222;
 	font-family: "Segoe UI", sans-serif;
 	color: darkgray;
 	font-size: 1.2em;
 	--link-color: #7f84e3;
+	--dark-background: #171717;
+	--light-background: #222;
+	background-color: var(--light-background);
 }
 
 body {
@@ -22,13 +24,13 @@ a:hover {
 }
 
 #Header {
-	background-color: #171717;
+	background-color: var(--dark-background);
 	padding-top: 0.5em;
 	height: 3em;
 }
 
 #Content {
-	background: #171717;
+	background: var(--dark-background);
 	margin: 2em auto;
 	padding: 1rem;
 	max-width: calc(min(50em, calc(100vw - 4em)) - 2rem);
@@ -91,7 +93,7 @@ h1 {
 }
 
 #HeaderContentMenu button {
-	background: linear-gradient(to top, #4D4D4D, #171717);
+	background: linear-gradient(to top, #4D4D4D, var(--dark-background));
 	color: white;
 	cursor: pointer;
 	margin: 0;
@@ -103,7 +105,7 @@ h1 {
 }
 
 #HeaderContentMenu button:active {
-	background: linear-gradient(to top, white, #171717);
+	background: linear-gradient(to top, white, var(--dark-background));
 }
 
 #HeaderContentMenu .right {
@@ -111,12 +113,12 @@ h1 {
 }
 
 #HeaderContentMenu .selected {
-	background: linear-gradient(to top, #7f84e3, #171717);
+	background: linear-gradient(to top, #7f84e3, var(--dark-background));
 	font-weight: bold;
 }
 
 #HeaderContentMenu .selected:active {
-	background: linear-gradient(to top, white, #171717);
+	background: linear-gradient(to top, white, var(--dark-background));
 	font-weight: bold;
 }
 
