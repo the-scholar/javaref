@@ -104,10 +104,6 @@ h1 {
 	height: 100%;
 }
 
-#HeaderContentMenu button:active {
-	background: linear-gradient(to top, white, var(--dark-background));
-}
-
 #HeaderContentMenu .right {
 	float: right;
 }
@@ -117,9 +113,8 @@ h1 {
 	font-weight: bold;
 }
 
-#HeaderContentMenu .selected:active {
+#HeaderContentMenu button:active {
 	background: linear-gradient(to top, white, var(--dark-background));
-	font-weight: bold;
 }
 
 div.sec {
