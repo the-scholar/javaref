@@ -1,14 +1,20 @@
 @charset "ISO-8859-1";
 
 :root {
-	font-family: "Segoe UI", sans-serif;
-	color: darkgray;
-	font-size: 1.2em;
+	
+	--main-color: darkgray;
+	--accent-color: white;
 	--link-color: #7f84e3;
 	--dark-background: #171717;
 	--light-background: #222;
-	background-color: var(--light-background);
+	
 	--content-width: min(50em, calc(100vw - 4em));
+	
+	font-family: "Segoe UI", sans-serif;
+	color: var(--main-color);
+	font-size: 1.2em;
+	background-color: var(--light-background);
+	
 }
 
 body {
@@ -38,7 +44,7 @@ a:hover {
 }
 
 h1 {
-	color: white;
+	color: var(--accent-color);
 	border-bottom: solid #222 2px;
 }
 
@@ -63,7 +69,7 @@ h1 {
 	height: 100%;
 	vertical-align: top;
 	font-weight: bold;
-	color: white;
+	color: var(--accent-color);
 }
 
 #Search {
@@ -74,7 +80,7 @@ h1 {
 	font-style: italic;
 	margin: 0;
 	padding: 0.5em;
-	color: white;
+	color: var(--accent-color);
 	vertical-align: top;
 	box-sizing: border-box;
 	border: none;
@@ -95,7 +101,7 @@ h1 {
 
 #HeaderContentMenu button {
 	background: linear-gradient(to top, #4D4D4D, var(--dark-background));
-	color: white;
+	color: var(--accent-color);
 	cursor: pointer;
 	margin: 0;
 	border: none;
@@ -110,12 +116,12 @@ h1 {
 }
 
 #HeaderContentMenu .selected {
-	background: linear-gradient(to top, #7f84e3, var(--dark-background));
+	background: linear-gradient(to top, var(--link-color), var(--dark-background));
 	font-weight: bold;
 }
 
 #HeaderContentMenu button:active {
-	background: linear-gradient(to top, white, var(--dark-background));
+	background: linear-gradient(to top, var(--accent-color), var(--dark-background));
 }
 
 div.sec {
