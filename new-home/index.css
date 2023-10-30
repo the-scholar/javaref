@@ -126,7 +126,7 @@ h1 {
 }
 
 #HeaderContentMenu .selected {
-	--from-color: var(--link-color);
+	--from-color: var(--button-selected);
 	font-weight: bold;
 }
 
