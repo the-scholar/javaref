@@ -104,7 +104,6 @@ button {
 
 button:active {
 	background: linear-gradient(to top, white, #171717);
-	font-weight: bold;
 }
 
 #Help {
