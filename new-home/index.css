@@ -102,20 +102,15 @@ h1 {
 }
 
 #HeaderContentMenu {
-	background-color: transparent;
 	height: 50%;
-	margin: 0;
-	padding: 0;
-	white-space: nowrap;
 	display: flex;
 	vertical-align: middle;
 }
 
-#HeaderContentMenu a {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	text-decoration: none;
+#HeaderContentMenu>.button {
+	width: 1.5em;
+}
+#HeaderContentMenu>a, #HeaderContentMenu>.button {
 	cursor: pointer;
 	font-size: 0.75em;
 	text-align: center;
@@ -123,8 +118,15 @@ h1 {
 	background: linear-gradient(to top, var(--from-color), var(--background-dark, var(--background-light)));
 	color: var(--accent-dark, var(--accent-light));
 	margin: 0 1px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+#HeaderContentMenu a {
+	
+	text-decoration: none;
+	font-size: 0.75em;
 	width: 7.65em;
-	height: 100%;
 }
 
 #HeaderContentMenu>div:empty {
@@ -136,6 +138,6 @@ h1 {
 	font-weight: bold;
 }
 
-#HeaderContentMenu a:active {
+#HeaderContentMenu a:active, #HeaderContentMenu>.button:active {
 	--from-color: var(--accent-dark, var(--button-active-light));
 }
