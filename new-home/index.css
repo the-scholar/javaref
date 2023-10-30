@@ -7,11 +7,11 @@
 	--color-background-dark: #171717;
 	--color-background-accent-dark: #222;
 	
-	--color-main-light: darkgray;
-	--color-accent-light: white;
-	--color-link-light: #7f84e3;
-	--color-background-light: #171717;
-	--color-background-accent-light: #222;
+	--color-main-light: #D8D8D8;
+	--color-accent-light: black;
+	--color-link-light: #2932E8;
+	--color-background-light: #E9E9E9;
+	--color-background-accent-light: #CBCBCB;
 
 	--content-width: min(50em, calc(100vw - 4em));
 
