@@ -1,20 +1,23 @@
 @charset "ISO-8859-1";
 
 :root {
-	/*
 	--main-dark: darkgray;
 	--accent-dark: white;
 	--link-dark: #7f84e3;
 	--background-dark: #171717;
 	--background-accent-dark: #222;
 	--search-bar-dark: #292929;
-*/
+	--button-gradient-dark: #4D4D4D;
+
 	--main-light: #D8D8D8;
 	--accent-light: black;
 	--link-light: #2932E8;
 	--background-light: #E9E9E9;
 	--background-accent-light: #CBCBCB;
 	--search-bar-light: #D8D8D8;
+	--button-gradient-light: #CECECE;
+	--button-active-light: white;
+	--button-selected: #7f84e3;
 
 	--content-width: min(50em, calc(100vw - 4em));
 
@@ -116,7 +119,7 @@ h1 {
 	cursor: pointer;
 	font-size: 0.75em;
 	text-align: center;
-	--from-color: #4D4D4D;
+	--from-color: var(--button-gradient-dark, var(--button-gradient-light));
 	background: linear-gradient(to top, var(--from-color), var(--background-dark, var(--background-light)));
 	color: var(--accent-dark, var(--accent-light));
 	margin: 0 1px;
@@ -129,10 +132,10 @@ h1 {
 }
 
 #HeaderContentMenu .selected {
-	--from-color: var(--link-dark, var(--link-light));
+	--from-color: var(--link-dark, var(--button-selected));
 	font-weight: bold;
 }
 
 #HeaderContentMenu a:active {
-	--from-color: var(--accent-dark, var(--accent-light));
+	--from-color: var(--accent-dark, var(--button-active-light));
 }
