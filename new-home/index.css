@@ -100,7 +100,8 @@ h1 {
 }
 
 #HeaderContentMenu button {
-	background: linear-gradient(to top, #4D4D4D, var(--dark-background));
+	--from-color: #4D4D4D;
+	background: linear-gradient(to top, var(--from-color), var(--dark-background));
 	color: var(--accent-color);
 	cursor: pointer;
 	margin: 0;
@@ -116,12 +117,12 @@ h1 {
 }
 
 #HeaderContentMenu .selected {
-	background: linear-gradient(to top, var(--link-color), var(--dark-background));
+	--from-color: var(--link-color);
 	font-weight: bold;
 }
 
 #HeaderContentMenu button:active {
-	background: linear-gradient(to top, var(--accent-color), var(--dark-background));
+	--from-color: var(--accent-color);
 }
 
 div.sec {
