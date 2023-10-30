@@ -58,18 +58,9 @@ h1 {
 	height: 100%;
 }
 
-#HeaderContentTitle {
-	background-color: transparent;
-	height: 50%;
-	white-space: nowrap;
-	overflow: hidden;
-}
-
 #Title {
 	background-color: transparent;
 	display: inline-block;
-	width: calc(100% - 15rem);
-	height: 100%;
 	vertical-align: top;
 	font-weight: bold;
 	color: var(--accent-color);
@@ -79,7 +70,6 @@ h1 {
 	background-color: var(--search-bar-color);
 	width: 15rem;
 	float: right;
-	height: 100%;
 	font-style: italic;
 	margin: 0;
 	padding: 0.5em;
@@ -88,13 +78,15 @@ h1 {
 	box-sizing: border-box;
 	border: none;
 	outline: none;
+	transition: width .2s ease-in-out;
 }
 
 #Search:focus {
 	border: 0.1em solid var(--search-box-surround);
+	width: 20rem;
 }
 
-#HeaderContentMenu {
+#HeaderContentMenu, #HeaderContentTitle {
 	height: 50%;
 	display: flex;
 	vertical-align: middle;
@@ -116,13 +108,12 @@ h1 {
 	justify-content: center;
 }
 #HeaderContentMenu a {
-	
 	text-decoration: none;
 	font-size: 0.75em;
 	width: 7.65em;
 }
 
-#HeaderContentMenu>div:empty {
+#HeaderContent div:empty {
 	flex: auto;
 }
 
