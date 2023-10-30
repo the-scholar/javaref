@@ -1,18 +1,24 @@
 @charset "ISO-8859-1";
 
 :root {
-	--main-color: darkgray;
-	--accent-color: white;
-	--link-color: #7f84e3;
-	--dark-background: #171717;
-	--light-background: #222;
+	--color-main-dark: darkgray;
+	--color-accent-dark: white;
+	--color-link-dark: #7f84e3;
+	--color-background-dark: #171717;
+	--color-background-accent-dark: #222;
+	
+	--color-main-light: darkgray;
+	--color-accent-light: white;
+	--color-link-light: #7f84e3;
+	--color-background-light: #171717;
+	--color-background-accent-light: #222;
 
 	--content-width: min(50em, calc(100vw - 4em));
 
 	font-family: "Segoe UI", sans-serif;
-	color: var(--main-color);
+	color: var(--color-main-dark);
 	font-size: 1.2em;
-	background-color: var(--light-background);
+	background-color: var(--color-background-accent-dark);
 }
 
 body {
@@ -21,7 +27,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: var(--link-color);
+	color: var(--color-link-dark);
 }
 
 a:hover {
@@ -29,20 +35,20 @@ a:hover {
 }
 
 #Header {
-	background-color: var(--dark-background);
+	background-color: var(--color-background-dark);
 	padding-top: 0.5em;
 	height: 3em;
 }
 
 #Content {
-	background: var(--dark-background);
+	background: var(--color-background-dark);
 	margin: 2em auto;
 	padding: 1rem;
 	max-width: calc(var(--content-width) - 2rem);
 }
 
 h1 {
-	color: var(--accent-color);
+	color: var(--color-accent-dark);
 	border-bottom: solid #222 2px;
 }
 
@@ -67,7 +73,7 @@ h1 {
 	height: 100%;
 	vertical-align: top;
 	font-weight: bold;
-	color: var(--accent-color);
+	color: var(--color-accent-dark);
 }
 
 #Search {
@@ -78,7 +84,7 @@ h1 {
 	font-style: italic;
 	margin: 0;
 	padding: 0.5em;
-	color: var(--accent-color);
+	color: var(--color-accent-dark);
 	vertical-align: top;
 	box-sizing: border-box;
 	border: none;
@@ -108,8 +114,8 @@ h1 {
 	font-size: 0.75em;
 	text-align: center;
 	--from-color: #4D4D4D;
-	background: linear-gradient(to top, var(--from-color), var(--dark-background));
-	color: var(--accent-color);
+	background: linear-gradient(to top, var(--from-color), var(--color-background-dark));
+	color: var(--color-accent-dark);
 	margin: 0 1px;
 	width: 7.65em;
 	height: 100%;
@@ -120,10 +126,10 @@ h1 {
 }
 
 #HeaderContentMenu .selected {
-	--from-color: var(--link-color);
+	--from-color: var(--color-link-dark);
 	font-weight: bold;
 }
 
 #HeaderContentMenu a:active {
-	--from-color: var(--accent-color);
+	--from-color: var(--color-accent-dark);
 }
