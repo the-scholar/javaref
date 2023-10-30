@@ -1,18 +1,30 @@
 @charset "ISO-8859-1";
 
 :root {
-	--main-color: darkgray;
-	--accent-color: white;
-	--link-color: #7f84e3;
-	--dark-background: #171717;
-	--light-background: #222;
+	--main-dark: darkgray;
+	--accent-dark: white;
+	--link-dark: #7f84e3;
+	--background-dark: #171717;
+	--background-accent-dark: #222;
+	--search-bar-dark: #292929;
+	--button-gradient-dark: #4D4D4D;
+
+	--main-light: #D8D8D8;
+	--accent-light: black;
+	--link-light: #2932E8;
+	--background-light: #E9E9E9;
+	--background-accent-light: #CBCBCB;
+	--search-bar-light: #D8D8D8;
+	--button-gradient-light: #CECECE;
+	--button-active-light: white;
+	--button-selected: #7f84e3;
 
 	--content-width: min(50em, calc(100vw - 4em));
 
 	font-family: "Segoe UI", sans-serif;
-	color: var(--main-color);
+	color: var(--main-dark);
 	font-size: 1.2em;
-	background-color: var(--light-background);
+	background-color: var(--background-accent-dark, var(--background-accent-light));
 }
 
 body {
@@ -21,7 +33,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: var(--link-color);
+	color: var(--link-dark, var(--link-light));
 }
 
 a:hover {
@@ -29,21 +41,21 @@ a:hover {
 }
 
 #Header {
-	background-color: var(--dark-background);
+	background-color: var(--background-dark, var(--background-light));
 	padding-top: 0.5em;
 	height: 3em;
 }
 
 #Content {
-	background: var(--dark-background);
+	background: var(--background-dark, var(--background-light));
 	margin: 2em auto;
 	padding: 1rem;
 	max-width: calc(var(--content-width) - 2rem);
 }
 
 h1 {
-	color: var(--accent-color);
-	border-bottom: solid #222 2px;
+	color: var(--accent-dark, var(--accent-light));
+	border-bottom: solid var(--background-accent-dark, var(--background-accent-light)) 2px;
 }
 
 #HeaderContent {
@@ -67,18 +79,18 @@ h1 {
 	height: 100%;
 	vertical-align: top;
 	font-weight: bold;
-	color: var(--accent-color);
+	color: var(--accent-dark, var(--accent-light));
 }
 
 #Search {
-	background-color: #292929;
+	background-color: var(--search-bar-dark, var(--search-bar-light));
 	width: 15rem;
 	float: right;
 	height: 100%;
 	font-style: italic;
 	margin: 0;
 	padding: 0.5em;
-	color: var(--accent-color);
+	color: var(--accent-dark, var(--accent-light));
 	vertical-align: top;
 	box-sizing: border-box;
 	border: none;
@@ -100,9 +112,11 @@ h1 {
 }
 #HeaderContentMenu>a, #HeaderContentMenu>.button {
 	cursor: pointer;
-	--from-color: #4D4D4D;
-	background: linear-gradient(to top, var(--from-color), var(--dark-background));
-	color: var(--accent-color);
+	font-size: 0.75em;
+	text-align: center;
+	--from-color: var(--button-gradient-dark, var(--button-gradient-light));
+	background: linear-gradient(to top, var(--from-color), var(--background-dark, var(--background-light)));
+	color: var(--accent-dark, var(--accent-light));
 	margin: 0 1px;
 	display: inline-flex;
 	align-items: center;
@@ -119,11 +133,11 @@ h1 {
 	flex: auto;
 }
 
-#HeaderContentMenu>.selected {
-	--from-color: var(--link-color);
+#HeaderContentMenu .selected {
+	--from-color: var(--link-dark, var(--button-selected));
 	font-weight: bold;
 }
 
-#HeaderContentMenu>a:active, #HeaderContentMenu>.button:active {
-	--from-color: var(--accent-color);
+#HeaderContentMenu a:active, #HeaderContentMenu>.button:active {
+	--from-color: var(--accent-dark, var(--button-active-light));
 }
