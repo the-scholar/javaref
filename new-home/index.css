@@ -1,24 +1,27 @@
 @charset "ISO-8859-1";
 
 :root {
-	--color-main-dark: darkgray;
-	--color-accent-dark: white;
-	--color-link-dark: #7f84e3;
-	--color-background-dark: #171717;
-	--color-background-accent-dark: #222;
-	
-	--color-main-light: #D8D8D8;
-	--color-accent-light: black;
-	--color-link-light: #2932E8;
-	--color-background-light: #E9E9E9;
-	--color-background-accent-light: #CBCBCB;
+	/*
+	--main-dark: darkgray;
+	--accent-dark: white;
+	--link-dark: #7f84e3;
+	--background-dark: #171717;
+	--background-accent-dark: #222;
+	--search-bar-dark: #292929;
+*/
+	--main-light: #D8D8D8;
+	--accent-light: black;
+	--link-light: #2932E8;
+	--background-light: #E9E9E9;
+	--background-accent-light: #CBCBCB;
+	--search-bar-light: #D8D8D8;
 
 	--content-width: min(50em, calc(100vw - 4em));
 
 	font-family: "Segoe UI", sans-serif;
-	color: var(--color-main-dark);
+	color: var(--main-dark);
 	font-size: 1.2em;
-	background-color: var(--color-background-accent-dark);
+	background-color: var(--background-accent-dark, var(--background-accent-light));
 }
 
 body {
@@ -27,7 +30,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: var(--color-link-dark);
+	color: var(--link-dark, var(--link-light));
 }
 
 a:hover {
@@ -35,21 +38,21 @@ a:hover {
 }
 
 #Header {
-	background-color: var(--color-background-dark);
+	background-color: var(--background-dark, var(--background-light));
 	padding-top: 0.5em;
 	height: 3em;
 }
 
 #Content {
-	background: var(--color-background-dark);
+	background: var(--background-dark, var(--background-light));
 	margin: 2em auto;
 	padding: 1rem;
 	max-width: calc(var(--content-width) - 2rem);
 }
 
 h1 {
-	color: var(--color-accent-dark);
-	border-bottom: solid #222 2px;
+	color: var(--accent-dark, var(--accent-light));
+	border-bottom: solid var(--background-accent-dark, var(--background-accent-light)) 2px;
 }
 
 #HeaderContent {
@@ -73,18 +76,18 @@ h1 {
 	height: 100%;
 	vertical-align: top;
 	font-weight: bold;
-	color: var(--color-accent-dark);
+	color: var(--accent-dark, var(--accent-light));
 }
 
 #Search {
-	background-color: #292929;
+	background-color: var(--search-bar-dark, var(--search-bar-light));
 	width: 15rem;
 	float: right;
 	height: 100%;
 	font-style: italic;
 	margin: 0;
 	padding: 0.5em;
-	color: var(--color-accent-dark);
+	color: var(--accent-dark, var(--accent-light));
 	vertical-align: top;
 	box-sizing: border-box;
 	border: none;
@@ -114,8 +117,8 @@ h1 {
 	font-size: 0.75em;
 	text-align: center;
 	--from-color: #4D4D4D;
-	background: linear-gradient(to top, var(--from-color), var(--color-background-dark));
-	color: var(--color-accent-dark);
+	background: linear-gradient(to top, var(--from-color), var(--background-dark, var(--background-light)));
+	color: var(--accent-dark, var(--accent-light));
 	margin: 0 1px;
 	width: 7.65em;
 	height: 100%;
@@ -126,10 +129,10 @@ h1 {
 }
 
 #HeaderContentMenu .selected {
-	--from-color: var(--color-link-dark);
+	--from-color: var(--link-dark, var(--link-light));
 	font-weight: bold;
 }
 
 #HeaderContentMenu a:active {
-	--from-color: var(--color-accent-dark);
+	--from-color: var(--accent-dark, var(--accent-light));
 }
