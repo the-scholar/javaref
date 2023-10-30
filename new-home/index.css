@@ -90,7 +90,7 @@ h1 {
 	white-space: nowrap;
 }
 
-button {
+#HeaderContentMenu button {
 	background: linear-gradient(to top, #4D4D4D, #171717);
 	color: white;
 	cursor: pointer;
@@ -102,20 +102,20 @@ button {
 	height: 100%;
 }
 
-button:active {
+#HeaderContentMenu button:active {
 	background: linear-gradient(to top, white, #171717);
 }
 
-#Help {
+#HeaderContentMenu .right {
 	float: right;
 }
 
-#Home {
+#HeaderContentMenu .selected {
 	background: linear-gradient(to top, #7f84e3, #171717);
 	font-weight: bold;
 }
 
-#Home:active {
+#HeaderContentMenu .selected:active {
 	background: linear-gradient(to top, white, #171717);
 	font-weight: bold;
 }
