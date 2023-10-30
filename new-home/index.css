@@ -9,6 +9,7 @@
 	--search-bar-color: #292929;
 	--button-gradient-color: #4D4D4D;
 	--button-selected: #7f84e3;
+	--button-active-color: white;
 
 	--content-width: min(50em, calc(100vw - 4em));
 
@@ -130,5 +131,5 @@ h1 {
 }
 
 #HeaderContentMenu a:active, #HeaderContentMenu>.button:active {
-	--from-color: var(--accent-color);
+	--from-color: var(--button-active-color);
 }
