@@ -95,6 +95,7 @@ h1 {
 	margin: 0;
 	padding: 0;
 	white-space: nowrap;
+	display: flex;
 }
 
 #HeaderContentMenu button {
@@ -110,8 +111,8 @@ h1 {
 	height: 100%;
 }
 
-#HeaderContentMenu .right {
-	float: right;
+#HeaderContentMenu>div:empty {
+	flex: auto;
 }
 
 #HeaderContentMenu .selected {
