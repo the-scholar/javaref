@@ -1,30 +1,21 @@
 @charset "ISO-8859-1";
 
 :root {
-	--main-dark: darkgray;
-	--accent-dark: white;
-	--link-dark: #7f84e3;
-	--background-dark: #171717;
-	--background-accent-dark: #222;
-	--search-bar-dark: #292929;
-	--button-gradient-dark: #4D4D4D;
-
-	--main-light: #D8D8D8;
-	--accent-light: black;
-	--link-light: #2932E8;
-	--background-light: #E9E9E9;
-	--background-accent-light: #CBCBCB;
-	--search-bar-light: #D8D8D8;
-	--button-gradient-light: #CECECE;
-	--button-active-light: white;
+	--main-color: darkgray;
+	--accent-color: white;
+	--link-color: #7f84e3;
+	--background-color: #171717;
+	--background-accent-color: #222;
+	--search-bar-color: #292929;
+	--button-gradient-color: #4D4D4D;
 	--button-selected: #7f84e3;
 
 	--content-width: min(50em, calc(100vw - 4em));
 
 	font-family: "Segoe UI", sans-serif;
-	color: var(--main-dark);
+	color: var(--main-color);
 	font-size: 1.2em;
-	background-color: var(--background-accent-dark, var(--background-accent-light));
+	background-color: var(--background-accent-color);
 }
 
 body {
@@ -33,7 +24,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: var(--link-dark, var(--link-light));
+	color: var(--link-color);
 }
 
 a:hover {
@@ -41,21 +32,21 @@ a:hover {
 }
 
 #Header {
-	background-color: var(--background-dark, var(--background-light));
+	background-color: var(--background-color);
 	padding-top: 0.5em;
 	height: 3em;
 }
 
 #Content {
-	background: var(--background-dark, var(--background-light));
+	background: var(--background-color);
 	margin: 2em auto;
 	padding: 1rem;
 	max-width: calc(var(--content-width) - 2rem);
 }
 
 h1 {
-	color: var(--accent-dark, var(--accent-light));
-	border-bottom: solid var(--background-accent-dark, var(--background-accent-light)) 2px;
+	color: var(--accent-color);
+	border-bottom: solid var(--background-accent-color) 2px;
 }
 
 #HeaderContent {
@@ -79,18 +70,18 @@ h1 {
 	height: 100%;
 	vertical-align: top;
 	font-weight: bold;
-	color: var(--accent-dark, var(--accent-light));
+	color: var(--accent-color);
 }
 
 #Search {
-	background-color: var(--search-bar-dark, var(--search-bar-light));
+	background-color: var(--search-bar-color);
 	width: 15rem;
 	float: right;
 	height: 100%;
 	font-style: italic;
 	margin: 0;
 	padding: 0.5em;
-	color: var(--accent-dark, var(--accent-light));
+	color: var(--accent-color);
 	vertical-align: top;
 	box-sizing: border-box;
 	border: none;
@@ -108,15 +99,15 @@ h1 {
 }
 
 #HeaderContentMenu>.button {
-	width: 1.5em;
+	width: 2em;
 }
 #HeaderContentMenu>a, #HeaderContentMenu>.button {
 	cursor: pointer;
 	font-size: 0.75em;
 	text-align: center;
-	--from-color: var(--button-gradient-dark, var(--button-gradient-light));
-	background: linear-gradient(to top, var(--from-color), var(--background-dark, var(--background-light)));
-	color: var(--accent-dark, var(--accent-light));
+	--from-color: var(--button-gradient-color);
+	background: linear-gradient(to top, var(--from-color), var(--background-color));
+	color: var(--accent-color);
 	margin: 0 1px;
 	display: inline-flex;
 	align-items: center;
@@ -134,10 +125,10 @@ h1 {
 }
 
 #HeaderContentMenu .selected {
-	--from-color: var(--link-dark, var(--button-selected));
+	--from-color: var(--link-color);
 	font-weight: bold;
 }
 
 #HeaderContentMenu a:active, #HeaderContentMenu>.button:active {
-	--from-color: var(--accent-dark, var(--button-active-light));
+	--from-color: var(--accent-color);
 }
