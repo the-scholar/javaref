@@ -85,6 +85,8 @@ h1 {
 #HeaderContentMenu {
 	background-color: transparent;
 	height: 50%;
+	margin: 0;
+	padding: 0;
 	white-space: nowrap;
 }
 
@@ -96,12 +98,13 @@ button {
 	border: none;
 	outline: none;
 	vertical-align: top;
-	width: 5em;
+	width: 8em;
 	height: 100%;
 }
 
 button:active {
-	background: linear-gradient(to top, #7f84e3, white);
+	background: linear-gradient(to top, white, #171717);
+	font-weight: bold;
 }
 
 #Help {
@@ -114,7 +117,8 @@ button:active {
 }
 
 #Home:active {
-	background: linear-gradient(to top, #7f84e3, white);
+	background: linear-gradient(to top, white, #171717);
+	font-weight: bold;
 }
 
 div.sec {
