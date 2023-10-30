@@ -79,7 +79,7 @@ h1 {
 }
 
 #Search:focus {
-	border: 0.2em ridge #3498db;
+	border: 0.1em solid ghostwhite;
 }
 
 #HeaderContentMenu {
