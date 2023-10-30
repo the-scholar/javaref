@@ -1,20 +1,18 @@
 @charset "ISO-8859-1";
 
 :root {
-	
 	--main-color: darkgray;
 	--accent-color: white;
 	--link-color: #7f84e3;
 	--dark-background: #171717;
 	--light-background: #222;
-	
+
 	--content-width: min(50em, calc(100vw - 4em));
-	
+
 	font-family: "Segoe UI", sans-serif;
 	color: var(--main-color);
 	font-size: 1.2em;
 	background-color: var(--light-background);
-	
 }
 
 body {
