@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="15.912" height="15.912" viewBox="0 0 15.912 15.912">
-  <g id="Group_2" data-name="Group 2" transform="translate(-1300.004 181.599)">
-    <rect id="Rectangle_84" data-name="Rectangle 84" width="8" height="8" rx="4" transform="translate(1304.004 -177.599)" fill="#fff"/>
-    <g id="Group_1" data-name="Group 1" transform="translate(1300.004 -181.599)">
-      <line y2="2.328" transform="translate(7.956 0)" stroke="#fff" stroke-width="2"/>
-      <line y2="2.328" transform="translate(7.956 13.583)" stroke="#fff" stroke-width="2"/>
-      <line y2="2.328" transform="translate(15.912 7.956) rotate(90)" stroke="#fff" stroke-width="2"/>
-      <line y2="2.328" transform="translate(2.328 7.956) rotate(90)" stroke="#fff" stroke-width="2"/>
-      <line y2="2.328" transform="translate(2.402 2.402) rotate(-45)" stroke="#fff" stroke-width="2"/>
-      <line y2="2.328" transform="translate(11.863 11.863) rotate(-45)" stroke="#fff" stroke-width="2"/>
-      <line y2="2.328" transform="translate(13.51 2.402) rotate(45)" stroke="#fff" stroke-width="2"/>
-      <line y2="2.328" transform="translate(4.048 11.863) rotate(45)" stroke="#fff" stroke-width="2"/>
+  <g transform="translate(-1300.004 181.599)">
+    <rect width="8" height="8" rx="4" transform="translate(1304.004 -177.599)" fill="#fff"/>
+    <g transform="translate(1300.004 -181.599)" stroke="#fff" stroke-width="2">
+      <line y2="2.328" transform="translate(7.956 0)"/>
+      <line y2="2.328" transform="translate(7.956 13.583)"/>
+      <line y2="2.328" transform="translate(15.912 7.956) rotate(90)"/>
+      <line y2="2.328" transform="translate(2.328 7.956) rotate(90)"/>
+      <line y2="2.328" transform="translate(2.402 2.402) rotate(-45)"/>
+      <line y2="2.328" transform="translate(11.863 11.863) rotate(-45)"/>
+      <line y2="2.328" transform="translate(13.51 2.402) rotate(45)"/>
+      <line y2="2.328" transform="translate(4.048 11.863) rotate(45)"/>
     </g>
   </g>
 </svg>
