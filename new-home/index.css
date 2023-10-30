@@ -122,15 +122,3 @@ h1 {
 #HeaderContentMenu button:active {
 	--from-color: var(--accent-color);
 }
-
-div.sec {
-	font-weight: bold;
-	color: white;
-}
-
-ul {
-	list-style-type: none;
-	padding: .3em 1em;
-	margin: .2em;
-	background-color: #ffffff0a;
-}
