@@ -10,6 +10,7 @@
 	--button-gradient-color: #4D4D4D;
 	--button-selected: #7f84e3;
 	--button-active-color: white;
+	--search-box-surround: ghostwhite;
 
 	--content-width: min(50em, calc(100vw - 4em));
 
@@ -90,7 +91,7 @@ h1 {
 }
 
 #Search:focus {
-	border: 0.1em solid ghostwhite;
+	border: 0.1em solid var(--search-box-surround);
 }
 
 #HeaderContentMenu {
