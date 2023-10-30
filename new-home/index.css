@@ -90,11 +90,7 @@ h1 {
 }
 
 #HeaderContentMenu {
-	background-color: transparent;
 	height: 50%;
-	margin: 0;
-	padding: 0;
-	white-space: nowrap;
 	display: flex;
 	vertical-align: middle;
 }
