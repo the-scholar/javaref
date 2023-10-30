@@ -96,16 +96,21 @@ h1 {
 	padding: 0;
 	white-space: nowrap;
 	display: flex;
+	vertical-align: middle;
 }
 
-#HeaderContentMenu button {
+#HeaderContentMenu a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 0.75em;
+	text-align: center;
 	--from-color: #4D4D4D;
 	background: linear-gradient(to top, var(--from-color), var(--dark-background));
 	color: var(--accent-color);
-	cursor: pointer;
-	margin: 1px;
-	border: none;
-	vertical-align: top;
+	margin: 0 1px;
 	width: 7.65em;
 	height: 100%;
 }
@@ -119,6 +124,6 @@ h1 {
 	font-weight: bold;
 }
 
-#HeaderContentMenu button:active {
+#HeaderContentMenu a:active {
 	--from-color: var(--accent-color);
 }
