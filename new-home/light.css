@@ -1,6 +1,6 @@
 @charset "ISO-8859-1";
 
-:root {
+:root.light-theme {
 	--main-color: #D8D8D8;
 	--accent-color: black;
 	--link-color: #2932E8;

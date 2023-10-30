@@ -3,13 +3,14 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="light.css">
 	<script src="index.js"></script>
 	<meta charset="ISO-8859-1">
 	<title>Javaref.net</title>
 	<style>
 		div.sec {
 			font-weight: bold;
-			color: var(--accent-balck, var(accent-light));
+			color: var(--accent-color);
 			margin-top: .5em;
 			margin-bottom: .1em;
 		}
@@ -22,6 +23,17 @@
 			font-size: .87em;
 		}
 	</style>
+	<script type="text/javascript">function lightTheme() {
+			document.getElementById("LightThemeButton").style.display = 'none'
+			document.getElementById("DarkThemeButton").style.removeProperty('display')
+			document.documentElement.classList.add("light-theme")
+		}
+		function darkTheme() {
+			document.getElementById("DarkThemeButton").style.display = 'none'
+			document.getElementById("LightThemeButton").style.removeProperty('display')
+			document.documentElement.classList.remove("light-theme")
+		}
+	</script>
 </head>
 
 <body>
@@ -37,8 +49,8 @@
 				<a href="/about">About</a>
 				<div></div>
 				<a href="/help">Help</a>
-				<div class="button" onclick="lightTheme()"><img src="sun.svg" alt="Light Theme"></div>
-				<div class="button"><img src="moon.svg" alt="Dark Theme"></div>
+				<div id="LightThemeButton" class="button" onclick="lightTheme()"><img src="sun.svg" alt="Light Theme"></div>
+				<div id="DarkThemeButton" class="button" onclick="darkTheme()" style="display: none;"><img src="moon.svg" alt="Dark Theme"></div>
 			</div>
 		</div>
 	</div>
