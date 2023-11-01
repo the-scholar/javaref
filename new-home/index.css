@@ -82,11 +82,15 @@
 	: #85ffe2;
 
 	--C21
-	/* Used for Hyperlink and Button-selected */
+	/* Used for Hyperlink */
+	: #7f84e3;
+	
+	--C22
+	/* Used for Button Selected */
 	: #7f84e3;
 
-	--C22
-	/* Used for Button active */
+	--C23
+	/* Used for Button Active */
 	: #C0C2F1;
 
 	--content-width: min(50em, calc(100vw - 4em));
@@ -199,11 +203,11 @@ h1 {
 }
 
 #HeaderContentMenu .selected {
-	--from-color: var(--C21);
+	--from-color: var(--C22);
 	font-weight: bold;
 }
 
 #HeaderContentMenu a:active,
 #HeaderContentMenu>.button:active {
-	--from-color: var(--C22);
+	--from-color: var(--C23);
 }
