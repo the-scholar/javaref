@@ -53,13 +53,11 @@ a.unlinked {
 	max-width: calc(var(--content-width) - 2rem);
 }
 
-h1 {
-	border-bottom: solid var(--background-accent-color) 2px;
+h1, h2 {
+	border-bottom: solid var(--button-gradient-color) 2px;
 }
-
-h2 {
-	border-bottom: solid currentcolor 1px;
-	line-height: .9em;
+h2{
+	border-bottom: solid var(--button-gradient-color) 1px;
 }
 
 h1,
