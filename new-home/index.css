@@ -18,6 +18,8 @@
 	color: var(--main-color);
 	font-size: 1.2em;
 	background-color: var(--background-accent-color);
+
+	scroll-behavior: smooth;
 }
 
 body {
@@ -31,6 +33,11 @@ a {
 
 a:hover {
 	text-decoration: underline;
+}
+
+a.unlinked {
+	color: #d93838;
+	cursor: pointer;
 }
 
 #Header {
@@ -47,8 +54,32 @@ a:hover {
 }
 
 h1 {
-	color: var(--accent-color);
 	border-bottom: solid var(--background-accent-color) 2px;
+}
+
+h2 {
+	border-bottom: solid currentcolor 1px;
+	line-height: .9em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--accent-color);
+}
+
+h3 {
+	margin-bottom: .5em;
+	margin-top: .5em;
+}
+
+h5,
+h6 {
+	font-variant: small-caps;
+	font-weight: normal;
 }
 
 #HeaderContent {
@@ -86,7 +117,8 @@ h1 {
 	width: 20rem;
 }
 
-#HeaderContentMenu, #HeaderContentTitle {
+#HeaderContentMenu,
+#HeaderContentTitle {
 	height: 50%;
 	display: flex;
 	vertical-align: middle;
@@ -95,7 +127,9 @@ h1 {
 #HeaderContentMenu>.button {
 	width: 2em;
 }
-#HeaderContentMenu>a, #HeaderContentMenu>.button {
+
+#HeaderContentMenu>a,
+#HeaderContentMenu>.button {
 	cursor: pointer;
 	font-size: 0.75em;
 	text-align: center;
@@ -107,6 +141,7 @@ h1 {
 	align-items: center;
 	justify-content: center;
 }
+
 #HeaderContentMenu a {
 	text-decoration: none;
 	font-size: 0.75em;
@@ -122,6 +157,387 @@ h1 {
 	font-weight: bold;
 }
 
-#HeaderContentMenu a:active, #HeaderContentMenu>.button:active {
+#HeaderContentMenu a:active,
+#HeaderContentMenu>.button:active {
 	--from-color: var(--button-active-color);
+}
+
+/* Features */
+@keyframes target-highlight {
+
+	15%,
+	60% {
+		background-color: #329da87f;
+	}
+}
+
+:target {
+	animation-fill-mode: forwards;
+	animation-duration: 2s;
+	animation-name: target-highlight;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+}
+
+#ProgressBar {
+	background: #7f84e3;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: .2em;
+	height: 0;
+}
+
+p {
+	margin: .4rem 0;
+}
+
+p.description {
+	font-style: italic;
+}
+
+p.description>i {
+	font-style: normal;
+}
+
+/* Tables */
+table td,
+table {
+	border: 1px solid #2a2a2a;
+	border-collapse: collapse;
+	padding: .3em;
+}
+
+table th {
+	padding-left: .5em;
+	padding-right: .5em;
+}
+
+table {
+	margin: 1em 0 .5em;
+}
+
+/* Stuff to undo unwanted table styles for syntax & syntax breakdown tables */
+.syntax,
+.syntax td,
+.syntax-breakdown,
+.syntax-breakdown td {
+	border: none;
+	border-collapse: initial;
+	padding: initial;
+	margin: initial;
+}
+
+code {
+	background: #333;
+	padding: 0 3px;
+	border-radius: 2px;
+	border: solid #555 1px;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	tab-size: 4;
+}
+
+/* Codeblocks */
+pre>code {
+	display: block;
+	padding: 5px;
+	overflow-x: auto;
+}
+
+/* Syntax */
+.syntax code,
+code.decorated,
+.decorated code {
+	/* Literal Code */
+	font-family: monospace;
+	background: none;
+	border: none;
+	font-size: 1.1em;
+	color: white;
+}
+
+.syntax-piece {
+	font-family: monospace;
+	font-style: italic;
+	font-size: 1.1em;
+	color: #7fe384;
+}
+
+.syntax-piece>i {
+	font-style: normal;
+}
+
+.syntax .syntax-piece,
+.decorated.syntax-piece,
+.decorated .syntax-piece {
+	border: #2a2a2a solid 1px;
+	padding: 1px 2px;
+	line-height: 2;
+}
+
+.syntax .optional,
+.decorated.optional,
+.decorated .optional {
+	border: #bb05 1px solid;
+	padding: 3px 1px;
+}
+
+.syntax .syntax-piece,
+.decorated.syntax-piece,
+.decorated .syntax-piece {
+	/* Override for when node is both optional and a syntax-piece */
+	padding: 1px 2px;
+}
+
+.syntax .optional::after,
+.decorated.optional::after,
+.decorated .optional::after {
+	content: "(optional)";
+	font-size: .55rem;
+	color: #bb0;
+	font-style: italic;
+	font-family: monospace;
+}
+
+.syntax td {
+	margin: .2em .25em;
+}
+
+.syntax-number,
+.syntax td:first-child {
+	--bubble-color: currentcolor;
+	border-radius: 50%;
+	border: solid var(--bubble-color) 2px;
+	min-width: 1.2rem;
+	display: inline-block;
+	text-align: center;
+	padding: 0;
+	margin-right: 5px;
+}
+
+.syntax-number.inline {
+	margin: 2.5px 0;
+}
+
+.syntax td:first-child {
+	margin-top: 5px;
+}
+
+.syntax-breakdown {
+	margin: 1em .4em;
+	border: #2a2a2a solid 1px;
+	padding: .4em;
+}
+
+.syntax-breakdown td {
+	vertical-align: top;
+	padding: .4em;
+}
+
+.syntax-breakdown ul,
+.syntax-breakdown ol {
+	margin: .1em;
+}
+
+.syntax-breakdown td:first-child {
+	/* Syntax Fragments */
+	text-align: right;
+	white-space: nowrap;
+}
+
+/* Info Popups */
+sup[info] {
+	color: gold;
+	cursor: pointer;
+}
+
+sup[info]:empty::before {
+	content: '[' attr(info) ']';
+}
+
+sup[info]:hover {
+	text-decoration: underline;
+}
+
+sup[info]:active {
+	color: red;
+}
+
+sup[info].inline {
+	/* Appears inline, not shrunk, and not vertically lifted. */
+	vertical-align: inherit;
+	font-size: inherit;
+}
+
+span[info]::before {
+	content: '[' attr(info) ']';
+	color: gold;
+	vertical-align: super;
+	font-size: .86em;
+}
+
+.note {
+	/* Notes */
+	margin-left: 1.5em;
+}
+
+span[info],
+.note {
+	font-size: .75em;
+	font-style: italic;
+	color: dimgray;
+}
+
+span[info]>i,
+.note>i {
+	font-style: normal;
+}
+
+span[info] {
+	transition: opacity .6s;
+	opacity: 0;
+	position: fixed;
+	display: none;
+	margin: .2em 20px;
+	overflow: hidden;
+}
+
+span[info].inline {
+	font-size: 0;
+	position: static;
+	color: inherit;
+	transition: font-size .6s;
+	margin: 0;
+}
+
+span[info].visible {
+	opacity: 1;
+	position: static;
+	display: block;
+	overflow: unset;
+}
+
+span[info].visible.inline {
+	font-size: .8em;
+	display: inline;
+}
+
+/* Shrunk Elements */
+span.shrink {
+	vertical-align: baseline;
+}
+
+span.shrink>:first-child {
+	overflow: hidden;
+	--shrink-size: 10em;
+	max-width: var(--shrink-size);
+	display: inline-block;
+	white-space: nowrap;
+	vertical-align: middle;
+	transition: max-width .4s ease-out;
+}
+
+span.shrink.expanded>:first-child {
+	max-width: unset;
+	white-space: normal;
+	word-break: break-word;
+}
+
+span.shrink>:last-child {
+	cursor: pointer;
+}
+
+span.shrink>:last-child::after {
+	content: '(expand)';
+	color: #f5d142;
+	font-size: .75em;
+	font-style: italic;
+	font-family: monospace;
+}
+
+span.shrink>:last-child:hover::after {
+	color: red;
+}
+
+span.shrink.expanded>:last-child::after {
+	content: '(shrink)';
+}
+
+/* Page Sections */
+section {
+	padding: .5em 1.5em 1em 1.5em;
+	border: 2px solid #888;
+	margin-top: 2em;
+}
+
+section[sect-symbol] {
+	position: relative;
+	padding-top: 2.5em;
+}
+
+section[sect-symbol]::before {
+	content: attr(sect-symbol);
+	border: 2px solid #888;
+	font-size: 1.4em;
+	font-weight: bold;
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	min-width: 2ex;
+	text-align: center;
+}
+
+/* Specialized DIV elements */
+div.block {
+	margin: 1em 2em;
+}
+
+div.grouper {
+	margin: none;
+	padding: none;
+}
+
+/* Linklist */
+#Linklist>li::marker {
+	color: var(--link-color);
+	content: '[' counter(list-item) '] ';
+}
+
+#Linklist>li {
+	margin: .7em 0;
+}
+
+/* To Do Markers */
+.todo::before {
+	content: 'TODO: ';
+	color: white;
+}
+
+.todo:empty::before {
+	content: 'TODO';
+}
+
+.todo {
+	border: #85ffe2 1px solid;
+	border-radius: 2px;
+	font-family: monospace;
+}
+
+div.todo {
+	padding: .3em;
+	padding-left: 1em;
+	display: table;
+	background: linear-gradient(to right, #85ffe2 0.3em, #7772 0.3em);
+	margin-top: 1em;
+}
+
+div.todo:empty {
+	padding-left: .6em;
+}
+
+span.todo {
+	padding-left: 3px;
+	padding-right: 3px;
 }
