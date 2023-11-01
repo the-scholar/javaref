@@ -86,10 +86,14 @@
 	: #85ffe2;
 
 	--C21
-	/* Used for Hyperlink and Button-selected */
+	/* Used for Hyperlink and Button Selected */
+	: #2932E8;
+	
+	--C22
+	/* Used for Button Selected*/
 	: #7f84e3;
 
-	--C22
+	--C23
 	/* Used for Button Active */
 	: #ffffff;
 }
