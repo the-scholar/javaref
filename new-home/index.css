@@ -1,25 +1,106 @@
 @charset "ISO-8859-1";
 
 :root {
-	--main-color: darkgray;
-	--accent-color: white;
-	--link-color: #7f84e3;
-	--background-color: #171717;
-	--background-accent-color: #222;
-	--search-bar-color: #292929;
-	--button-gradient-color: #4D4D4D;
-	--button-selected: #7f84e3;
-	--button-active-color: #C0C2F1;
-	--search-box-surround: ghostwhite;
+	--C1
+	/* Used for: Todo Markers, Syntax Text, All Headers, Title, Search Bar Text, Home Sub-Header Text, Active Copy Bar and Button Text */
+	: #ffffff;
+
+	--C2
+	/* Used for Search Box focus */
+	: #f8f8ff;
+
+	--C3
+	/* Used for default text color */
+	: #a9a9a9;
+
+	--C4
+	/* Used for, Todo Gradient-to ??? TODO */
+	: #888888;
+
+	--C5
+	/* Used for Note Text */
+	: #696969;
+
+	--C6
+	/* Used for Code Border */
+	: #555555;
+
+	--C7
+	/* Used for Button gradient-from */
+	: #4D4D4D;
+
+	--C8
+	/* Used for Code Background */
+	: #333333;
+
+	--C9
+	/* Used for Search Bar Background and Table Border */
+	: #292929;
+
+	--C10
+	/* Used for Default Background and Search Background*/
+	: #222222;
+
+	--C11
+	/* Used for ID Elements, Header Background, Content Background, Button gradient-to*/
+	: #181818;
+
+	--C12
+	/* Used for Copybar Text */
+	: #000000;
+
+	--C13
+	/* Used for Info Active Text */
+	: #ff0000;
+
+	--C14
+	/* Used for Unlinked */
+	: #d93838;
+
+	--C15
+	/* Used for ??? TODO */
+	: #bbbb00;
+
+	--C16
+	/* Used for ??? TODO */
+	: #f5d142;
+
+	--C17
+	/* Used for Features */
+	: #329ca8;
+
+	--C18
+	/* Used for Copybar Background */
+	: #43f094;
+
+	--C19
+	/* Used for Syntax-Piece Text */
+	: #7fe384;
+
+	--C20
+	/* Used for Todo Border, Todo Gradient-from */
+	: #85ffe2;
+
+	--C21
+	/* Used for Hyperlink */
+	: #7f84e3;
+	
+	--C22
+	/* Used for Button Selected */
+	: #7f84e3;
+
+	--C23
+	/* Used for Button Active */
+	: #C0C2F1;
 
 	--content-width: min(50em, calc(100vw - 4em));
 
 	font-family: "Segoe UI", sans-serif;
-	color: var(--main-color);
+	color: var(--C3);
 	font-size: 1.2em;
-	background-color: var(--background-accent-color);
 
 	scroll-behavior: smooth;
+	background-color: var(--C10);
 }
 
 body {
@@ -28,7 +109,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: var(--link-color);
+	color: var(--C21);
 }
 
 a:hover {
@@ -41,20 +122,21 @@ a.unlinked {
 }
 
 #Header {
-	background-color: var(--background-color);
+	background-color: var(--C11);
 	padding-top: 0.5em;
 	height: 3em;
 }
 
 #Content {
-	background: var(--background-color);
+	background: var(--C11);
 	margin: 2em auto;
 	padding: 1rem;
 	max-width: calc(var(--content-width) - 2rem);
 }
 
 h1 {
-	border-bottom: solid var(--background-accent-color) 2px;
+	color: var(--C1);
+	border-bottom: solid var(--C10) 2px;
 }
 
 h2 {
@@ -94,17 +176,17 @@ h6 {
 	display: inline-block;
 	vertical-align: top;
 	font-weight: bold;
-	color: var(--accent-color);
+	color: var(--C1);
 }
 
 #Search {
-	background-color: var(--search-bar-color);
+	background-color: var(--C10);
 	width: 15rem;
 	float: right;
 	font-style: italic;
 	margin: 0;
 	padding: 0.5em;
-	color: var(--accent-color);
+	color: var(--C2);
 	vertical-align: top;
 	box-sizing: border-box;
 	border: none;
@@ -113,7 +195,7 @@ h6 {
 }
 
 #Search:focus {
-	border: 0.1em solid var(--search-box-surround);
+	border: 0.1em solid var(--C2);
 	width: 20rem;
 }
 
@@ -133,9 +215,9 @@ h6 {
 	cursor: pointer;
 	font-size: 0.75em;
 	text-align: center;
-	--from-color: var(--button-gradient-color);
-	background: linear-gradient(to top, var(--from-color), var(--background-color));
-	color: var(--accent-color);
+	--from-color: var(--C7);
+	background: linear-gradient(to top, var(--from-color), var(--C11));
+	color: var(--C1);
 	margin: 0 1px;
 	display: inline-flex;
 	align-items: center;
@@ -153,13 +235,13 @@ h6 {
 }
 
 #HeaderContentMenu .selected {
-	--from-color: var(--button-selected);
+	--from-color: var(--C22);
 	font-weight: bold;
 }
 
 #HeaderContentMenu a:active,
 #HeaderContentMenu>.button:active {
-	--from-color: var(--button-active-color);
+  --from-color: var(--C23);
 }
 
 /* Features */
