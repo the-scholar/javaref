@@ -7,10 +7,32 @@ function d()
 $tmods = [
     "head_top" => "d",
     "head_bottom" => "d",
-    "head_after_stylesheet" => "d"
+    "head_after_stylesheet" => "d",
+    "header_button_config" => [
+        [
+            '/',
+            'Home',
+            false
+        ],
+        [
+            'https://github.com/the-scholar/javaref',
+            'GitHub',
+            false
+        ],
+        [
+            '/about',
+            'About',
+            false
+        ],
+        [
+            '/help',
+            'Help',
+            false
+        ]
+    ]
 ];
 
-function t($title)
+function t($title, $desc)
 {
     global $tmods;
     ?>
@@ -18,7 +40,7 @@ function t($title)
 <html lang="en">
 <head>
 <?php $tmods["head_top"]();?>
-<meta name="viewport" content="width=1000" />
+<meta name="viewport" content="width=1000">
 <meta charset="UTF-8">
 <meta name="description" content="<?php echo$desc;?>">
 <link rel="stylesheet" type="text/css" href="/index.css">
@@ -38,14 +60,26 @@ function t($title)
 				<div style="min-width: .5em;"></div>
 				<input id=Search type="text" name="q" placeholder="Search...">
 			</div>
-			<div id="HeaderContentMenu">
-				<a class="selected" href="/">Home</a>
-				<a href="https://github.com/the-scholar/javaref">GitHub</a>
-				<a href="/about">About</a>
+			<div id="HeaderContentMenu"><?php
+
+    $b = function ($l, $n, $s = false) {
+        echo '<a href="' . $l . '"' . ($s ? " class='selected' " : " ") . ">" . $n . "</a>";
+    };
+    $tmp = $tmods['header_button_config'];
+    $b(...$tmp[0]);
+    $b(...$tmp[1]);
+    $b(...$tmp[2]);
+    ?>
+				
 				<div></div>
-				<a href="/help">Help</a>
-				<div id="LightThemeButton" class="button" onclick="lightTheme()"><img src="/sun.svg" alt="Light Theme"></div>
-				<div id="DarkThemeButton" class="button" onclick="darkTheme()" style="display: none;"><img src="/moon.svg" alt="Dark Theme"></div>
+				<?php $b(...$tmp[3]);?>
+				<div id="LightThemeButton" class="button" onclick="lightTheme()">
+					<img src="/sun.svg" alt="Light Theme">
+				</div>
+				<div id="DarkThemeButton" class="button" onclick="darkTheme()"
+					style="display: none;">
+					<img src="/moon.svg" alt="Dark Theme">
+				</div>
 			</div>
 		</div>
 	</div>
