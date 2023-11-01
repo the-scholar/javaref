@@ -1,13 +1,13 @@
 @charset "ISO-8859-1";
 
 :root.light-theme {
-	--main-color: #D8D8D8;
-	--accent-color: black;
-	--link-color: #2932E8;
-	--background-color: #E9E9E9;
-	--background-accent-color: #CBCBCB;
-	--search-bar-color: #D8D8D8;
-	--button-gradient-color: #CECECE;
-	--search-box-surround: #7F84E3;
-	--button-active-color: white;
+	--C1: #D8D8D8;
+	--C2: black;
+	--C3: #2932E8;
+	--C4: #E9E9E9;
+	--C5: #CBCBCB;
+	--C6: #D8D8D8;
+	--C7: #CECECE;
+	--C8: #7F84E3;
+	--C9: white;
 }
