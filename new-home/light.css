@@ -1,13 +1,95 @@
 @charset "ISO-8859-1";
 
 :root.light-theme {
-	--C1: #D8D8D8;
-	--C2: black;
-	--C3: #2932E8;
-	--C4: #E9E9E9;
-	--C5: #CBCBCB;
-	--C6: #D8D8D8;
-	--C7: #CECECE;
-	--C8: #7F84E3;
-	--C9: white;
+	/*
+			LIGHT THEME COLOR  VALUES SOURCE
+	*/
+	
+	--C1
+	/* Used for: Todo Markers, Syntax Text, All Headers, Title, Search Bar Text, Home Sub-Header Text, Active Copy Bar and Button Text */
+	: #000000;
+
+	--C2
+	/* Used for Search Box Focus */
+	: #C0C2F1;
+
+	--C3
+	/* Used for Default Text Color */
+	: #a9a9a9;
+
+	--C4
+	/* Used for, Todo Gradient-to ??? TODO */
+	: #888888;
+
+	--C5
+	/* Used for Note Text */
+	: #696969;
+
+	--C6 
+	/* Used for Code Border */
+	: #555555;
+
+	--C7
+	/* Used for Button gradient-from */
+	: #CECECE;
+
+	--C8
+	/* Used for Code Background */
+	: #333333;
+
+	--C9
+	/* Used for Search Bar Background and Table Border */
+	: #D8D8D8;
+
+	--C10
+	/* Used for Default Background*/
+	: #D8D8D8;
+
+	--C11
+	/* Used for ID Elements, Header Background, Content Background, Button gradient-to*/
+	: #E9E9E9;
+
+	--C12
+	/* Used for Copybar Text */
+	: #000000;
+
+	--C13
+	/* Used for Info Active Text */
+	: #ff0000;
+
+	--C14
+	/* Used for Unlinked */
+	: #d93838;
+
+	--C15
+	/* Used for ??? TODO */
+	: #bbbb00;
+
+	--C16
+	/* Used for ??? TODO */
+	: #f5d142;
+
+	--C17
+	/* Used for Features */
+	: #329ca8;
+
+	--C18
+	/* Used for Copybar Background */
+	: #43f094;
+
+	--C19
+	/* Used for Syntax-Piece Text */
+	: #7fe384;
+
+	--C20
+	/* Used for Todo Border, Todo Gradient-from */
+	: #85ffe2;
+
+	--C21
+	/* Used for Hyperlink and Button-selected */
+	: #7f84e3;
+
+	--C22
+	/* Used for Button Active */
+	: #ffffff;
 }

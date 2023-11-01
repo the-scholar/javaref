@@ -1,14 +1,12 @@
 @charset "ISO-8859-1";
 
 :root {
-
-
 	--C1
 	/* Used for: Todo Markers, Syntax Text, All Headers, Title, Search Bar Text, Home Sub-Header Text, Active Copy Bar and Button Text */
 	: #ffffff;
 
 	--C2
-	/* Used for Search Box surround */
+	/* Used for Search Box focus */
 	: #f8f8ff;
 
 	--C3
@@ -40,7 +38,7 @@
 	: #292929;
 
 	--C10
-	/* Used for Default Background and Header div */
+	/* Used for Default Background and Search Background*/
 	: #222222;
 
 	--C11
@@ -94,7 +92,7 @@
 	--content-width: min(50em, calc(100vw - 4em));
 
 	font-family: "Segoe UI", sans-serif;
-	color: var(--C21);
+	color: var(--C3);
 	font-size: 1.2em;
 	background-color: var(--C10);
 }
@@ -146,13 +144,13 @@ h1 {
 }
 
 #Search {
-	background-color: var(--C2);
+	background-color: var(--C10);
 	width: 15rem;
 	float: right;
 	font-style: italic;
 	margin: 0;
 	padding: 0.5em;
-	color: var(--C1);
+	color: var(--C2);
 	vertical-align: top;
 	box-sizing: border-box;
 	border: none;
@@ -161,7 +159,7 @@ h1 {
 }
 
 #Search:focus {
-	border: 0.1em solid var(--C9);
+	border: 0.1em solid var(--C2);
 	width: 20rem;
 }
 
