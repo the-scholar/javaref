@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 	if (localStorage.getItem('light-theme')) {
-		res = document.documentElement.classList.toggle("light-theme")
-		document.getElementById(res ? "DarkThemeButton" : "LightThemeButton").style.display = 'none';
-		document.getElementById(res ? "LightThemeButton" : "DarkThemeButton").style.removeProperty('display')
+		document.documentElement.classList.toggle("light-theme")
+		document.getElementById("LightThemeButton").style.display = 'none';
+		document.getElementById("DarkThemeButton").style.removeProperty('display')
 	}
 });
 window.addEventListener("load", (e) => {
@@ -25,8 +25,8 @@ window.addEventListener("load", (e) => {
 
 function toggleTheme() {
 	res = document.documentElement.classList.toggle("light-theme")
-	document.getElementById(res ? "DarkThemeButton" : "LightThemeButton").style.display = 'none';
-	document.getElementById(res ? "LightThemeButton" : "DarkThemeButton").style.removeProperty('display')
+	document.getElementById(res ? "DarkThemeButton" : "LightThemeButton").style.removeProperty('display')
+	document.getElementById(res ? "LightThemeButton" : "DarkThemeButton").style.display = 'none'
 	if (res)
 		localStorage.setItem("light-theme", "enabled")
 	else
