@@ -376,11 +376,13 @@ code.decorated,
 	--bubble-color: currentcolor;
 	border-radius: 50%;
 	border: solid var(--bubble-color) 2px;
-	min-width: 1.2rem;
+	aspect-ratio: 1 / 1;
 	display: inline-block;
 	text-align: center;
 	padding: 0;
 	margin-right: 5px;
+	height: 1.5em;
+	font-weight: bold;
 }
 
 .syntax-number.inline {

@@ -1,5 +1,23 @@
 <?php
 $tmods['header_button_config'][0][2] = true;
+$tmods["head_after_stylesheet"] = function () {
+    ?><style>
+div.sec {
+	font-weight: bold;
+	color: var(--C1);
+	margin-top: .5em;
+	margin-bottom: .1em;
+}
+
+ul {
+	list-style-type: none;
+	padding: .3em 1em;
+	margin: .2em;
+	background-color: #ffffff0a;
+	font-size: .87em;
+}
+</style><?php
+};
 t("Javaref.net", "The unofficial reference for Java syntax.");
 ?>
 <h1>Java Reference</h1>
