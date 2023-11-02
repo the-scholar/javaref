@@ -13,6 +13,9 @@
 	/* Used for, Todo Gradient-to ??? TODO */
 	--C4: #888;
 
+	/* Used for, Todo Gradient-to ??? TODO */
+	--C4-A: #7772;
+
 	/* Used for Note Text */
 	--C5: #696969;
 
@@ -44,7 +47,10 @@
 	--C14: #d93838;
 
 	/* Used for ??? TODO */
-	--C15: #bbbb00;
+	--C15: #bb0;
+
+	/* Used for ??? TODO */
+	--C15-A: #bb05;
 
 	/* Used for ??? TODO */
 	--C16: #f5d142;
