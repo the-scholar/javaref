@@ -12,7 +12,7 @@ div.sec {
 ul {
 	list-style-type: none;
 	padding: .3em 1em;
-	margin: .2em;
+	margin: .2em 0;
 	background-color: #ffffff0a;
 	font-size: .87em;
 }
