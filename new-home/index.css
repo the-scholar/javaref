@@ -3,7 +3,7 @@
 :root {
 	--C1
 	/* Used for: Todo Markers, Syntax Text, All Headers, Title, Search Bar Text, Home Sub-Header Text, Active Copy Bar and Button Text */
-	: #ffffff;
+	: white;
 
 	--C2
 	/* Used for Search Box focus */
@@ -15,7 +15,7 @@
 
 	--C4
 	/* Used for, Todo Gradient-to ??? TODO */
-	: #888888;
+	: #888;
 
 	--C5
 	/* Used for Note Text */
@@ -23,7 +23,7 @@
 
 	--C6
 	/* Used for Code Border */
-	: #555555;
+	: #555;
 
 	--C7
 	/* Used for Button gradient-from */
@@ -31,7 +31,7 @@
 
 	--C8
 	/* Used for Code Background */
-	: #333333;
+	: #333;
 
 	--C9
 	/* Used for Search Bar Background and Table Border */
@@ -39,7 +39,7 @@
 
 	--C10
 	/* Used for Default Background and Search Background*/
-	: #222222;
+	: #222;
 
 	--C11
 	/* Used for ID Elements, Header Background, Content Background, Button gradient-to*/
@@ -47,11 +47,11 @@
 
 	--C12
 	/* Used for Copybar Text */
-	: #000000;
+	: #000;
 
 	--C13
 	/* Used for Info Active Text */
-	: #ff0000;
+	: red;
 
 	--C14
 	/* Used for Unlinked */
@@ -59,7 +59,7 @@
 
 	--C15
 	/* Used for ??? TODO */
-	: #bbbb00;
+	: #bb0;
 
 	--C16
 	/* Used for ??? TODO */
@@ -134,7 +134,7 @@ a.unlinked {
 	max-width: calc(var(--content-width) - 2rem);
 }
 
-h1 {
+h1, h2 {
 	color: var(--C1);
 	border-bottom: solid var(--C10) 2px;
 }
