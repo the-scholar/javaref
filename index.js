@@ -1,12 +1,7 @@
-function lightTheme() {
-	document.getElementById("LightThemeButton").style.display = 'none'
-	document.getElementById("DarkThemeButton").style.removeProperty('display')
-	document.documentElement.classList.add("light-theme")
-}
-function darkTheme() {
-	document.getElementById("DarkThemeButton").style.display = 'none'
-	document.getElementById("LightThemeButton").style.removeProperty('display')
-	document.documentElement.classList.remove("light-theme")
+function toggleTheme() {
+	res = document.documentElement.classList.toggle("light-theme")
+	document.getElementById(res ? "DarkThemeButton" : "LightThemeButton").style.display = 'none';
+	document.getElementById(res ? "LightThemeButton" : "DarkThemeButton").style.removeProperty('display')
 }
 
 function updateScrollbar() {
@@ -16,10 +11,7 @@ window.addEventListener("load", (e) => {
 	for (let ref of document.querySelectorAll("sup[info]")) {
 		let element = document.querySelector("span[info='" + ref.getAttribute("info") + "']");
 		ref.onclick = function() {
-			if (element.classList.contains("visible"))
-				element.classList.remove("visible");
-			else
-				element.classList.add("visible");
+			element.classList.toggle("visible")
 			updateScrollbar();
 		};
 	}
@@ -27,10 +19,7 @@ window.addEventListener("load", (e) => {
 		let clicker = document.createElement("span");
 		ref.appendChild(clicker);
 		clicker.onclick = function() {
-			if (ref.classList.contains("expanded"))
-				ref.classList.remove("expanded");
-			else
-				ref.classList.add("expanded");
+			ref.classList.toggle("expanded")
 			updateScrollbar();
 		};
 	}

@@ -73,10 +73,10 @@ function t($title, $desc)
 				
 				<div></div>
 				<?php $b(...$tmp[3]);?>
-				<div id="LightThemeButton" class="button" onclick="lightTheme()">
+				<div id="LightThemeButton" class="button" onclick="toggleTheme()">
 					<img src="/sun.svg" alt="Light Theme">
 				</div>
-				<div id="DarkThemeButton" class="button" onclick="darkTheme()"
+				<div id="DarkThemeButton" class="button" onclick="toggleTheme()"
 					style="display: none;">
 					<img src="/moon.svg" alt="Dark Theme">
 				</div>
