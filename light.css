@@ -20,13 +20,13 @@
 	--C5: #696969;
 
 	/* Used for Code Border */
-	--C6: #555;
+	--C6: #898989;
 
 	/* Used for Button gradient-from */
 	--C7: #CECECE;
 
 	/* Used for Code Background */
-	--C8: #333;
+	--C8: #b9b9b9;
 
 	/* Used for Search Bar Background and Table Border */
 	--C9: #D8D8D8;
@@ -47,13 +47,13 @@
 	--C14: #d93838;
 
 	/* Used for ??? TODO */
-	--C15: #bb0;
+	--C15: #dbb00a;
 
 	/* Used for ??? TODO */
 	--C15-A: #bb05;
 
 	/* Used for ??? TODO */
-	--C16: #f5d142;
+	--C16: #0041bb;
 
 	/* Used for Features */
 	--C17: #329ca8;
@@ -62,7 +62,7 @@
 	--C18: #43f094;
 
 	/* Used for Syntax-Piece Text */
-	--C19: #7fe384;
+	--C19: #31d73a;
 
 	/* Used for Todo Border, Todo Gradient-from */
 	--C20: #85ffe2;
