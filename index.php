@@ -16,6 +16,10 @@ ul {
 	background-color: #ffffff0a;
 	font-size: .87em;
 }
+
+.u {
+    color: firebrick;
+}
 </style><?php
 };
 t("Javaref.net", "The unofficial reference for Java syntax.");
@@ -54,12 +58,12 @@ t("Javaref.net", "The unofficial reference for Java syntax.");
 		<ul>
 			<li><a href="/operators/unary/cast">Cast Operator</a></li>
 			<li><a href="/operators/unary/minus">Unary Minus</a></li>
-			<li><a class="c u" href="/operators/unary/plus">Unary Plus</a></li>
+			<li><a class="u" href="/operators/unary/plus">Unary Plus</a></li>
 		</ul>
 	</li>
 	<li><div class="sec">Ternary</div>
 		<ul>
-			<li><a class="c u" href="/operators/ternary/conditional">Conditional
+			<li><a class="u" href="/operators/ternary/conditional">Conditional
 					Operator</a></li>
 		</ul></li>
 </ul>
