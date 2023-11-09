@@ -12,8 +12,8 @@
 	the operand is <code>byte</code>, <code>char</code>, <code>short</code>,
 	or a wrapper of one of those types).
 </p>
-<span info=1>A primitive numeric type is any primitive type other than <code>boolean</code>,
-	that is, any of the following types:
+<span info=1>A primitive numeric type is any primitive type other than <code>boolean</code>.
+	Specifically, any of the following types:
 	<ul>
 		<li><code>byte</code></li>
 		<li><code>short</code></li>
@@ -29,7 +29,7 @@
 <table class="syntax">
 	<tr>
 		<td>1</td>
-		<td>syntax_fragment_1</td>
+		<td><code>+</code> <span></span></td>
 	</tr>
 	<!-- TODO: Insert any additional syntax fragments -->
 </table>
