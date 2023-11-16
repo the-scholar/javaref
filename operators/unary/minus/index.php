@@ -11,7 +11,7 @@
 <table class="syntax">
 	<tr>
 		<td>1</td>
-		<td><code>-</code><span class="syntax-piece">operand</span></td>
+		<td><code>-</code> <span class="syntax-piece">operand</span></td>
 	</tr>
 </table>
 <p>
