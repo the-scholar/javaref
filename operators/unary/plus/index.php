@@ -29,9 +29,8 @@
 <table class="syntax">
 	<tr>
 		<td>1</td>
-		<td><code>+</code> <span></span></td>
+		<td><code>+</code> <span>operand</span></td>
 	</tr>
-	<!-- TODO: Insert any additional syntax fragments -->
 </table>
 <p>
 	<i>where...</i>
