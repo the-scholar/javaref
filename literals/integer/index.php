@@ -143,10 +143,17 @@
 	with the decimal literal as the operand. Special usage is granted to
 	the literals <code>2147483648</code> and <code>9223372036854775808L</code>,
 	which can both be used only as the operand of the <a
-		href="operators/unary-minus">unary minus</a> operator. Note that <code>2147483648L</code>
-	(and <code>2147483648l</code>) can be used in contexts other than as
-	the operand of the <a href="operators/unary-minus">unary minus</a>
-	operator.
+		href="operators/unary-minus">unary minus</a> operator:
+</p>
+<pre><code>// int x = 2147483648;	// Syntax error: 2147483648 out of range for type int.
+   int y = -2147483648;	// Valid</code></pre>
+<p>
+	See <a hre></a>
+<p>
+	Note that <code>2147483648L</code> (and <code>2147483648l</code>) can
+	be used in contexts other than as the operand of the <a
+		href="operators/unary-minus">unary minus</a> operator, since these are
+	long literals and not int literals.
 </p>
 <p>
 	Decimal literals are required to have the long suffix (<code>l</code>
@@ -320,9 +327,33 @@ System.out.println(z);</code></pre>
 -9223372036854775807
 1</code></pre>
 </div>
+<div class="example">
+	<h4 id="min-literal-restrictions">Restrictions on Minimum Int/Long
+		Literals</h4>
+	<p>
+		The literals <code>2147483648</code> and <code>9223372036854775808L</code>
+		cannot be written in a program unless they are the immediate operand
+		of a <a href="/operators/unary/minus">unary minus</a> operator:
+	</p>
+	<pre><code>   int a = 50;
+   int b = 2147483647;	// Largest possible int value
+// int c = 2147483648;	// Invalid: Literal is larger than largest possible int
+   int d = -50;
+   int e = -2147483647;
+   int f = -2147483648;	// Smallest possible int value
+// int g = -2147483649;	// Invalid: Literal is smaller than smallest possible int</code></pre>
+	<p>
+		This restriction is in place because the <code>int</code> type can
+		represent numbers from <code>2147483647</code> to <code>-2147483648</code>,
+		and positive <code>2147483648</code> is outside of that range.
+		(Similarly, the <code>long</code> type ranges from <code>9223372036854775807L</code>
+		to <code>-9223372036854775808L</code>.)
+	</p>
+</div>
 <h2>Notes</h2>
 <ol>
 	<li><code>0</code> is the only integer literal whose leftmost digit is
 		<code>0</code> that is not an octal literal.</li>
 </ol>
-<?php b();
+<?php
+b();
