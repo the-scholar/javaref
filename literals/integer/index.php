@@ -148,7 +148,9 @@
 <pre><code>// int x = 2147483648;	// Syntax error: 2147483648 out of range for type int.
    int y = -2147483648;	// Valid</code></pre>
 <p>
-	See <a hre></a>
+	See the <a href="#min-literal-restrictions">below example</a> for more
+	details.
+</p>
 <p>
 	Note that <code>2147483648L</code> (and <code>2147483648l</code>) can
 	be used in contexts other than as the operand of the <a
