@@ -356,6 +356,16 @@ System.out.println(z);</code></pre>
 <ol>
 	<li><code>0</code> is the only integer literal whose leftmost digit is
 		<code>0</code> that is not an octal literal.</li>
+	<li>The restriction that the literals <code>2147483648</code> and <code>9223372036854775808L</code>
+		may only be operands of the <a href="/operators/unary/minus">unary
+			minus</a> operator is at the syntactic level, and so, while the
+		following is allowed: <pre><code>   int small1 = -2147483648;	// Valid: 2147483648 is immediate operand of -
+   int small2 = - 2147483648;	// Valid: 2147483648 is immediate operand of -
+   int small3 = --2147483648;	// Valid: 2147483648 is immediate operand of -, (but this constant expression will exhibit overflow)
+   int small4 = (-2147483648);	// Valid: 2147483648 is immediate operand of -</code></pre>
+		<p>this is not:</p> <pre><code>// int small5 = -(2147483648);	// Invalid: 2147483648 is not the immediate operand of -
+								// (2147483648) is the immediate operand of -</code></pre>
+	</li>
 </ol>
 <?php
 b();
