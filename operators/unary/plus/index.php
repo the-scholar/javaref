@@ -29,7 +29,7 @@
 <table class="syntax">
 	<tr>
 		<td>1</td>
-		<td><code>+</code> <span>operand</span></td>
+		<td><code>+</code> <span class="syntax-piece">operand</span></td>
 	</tr>
 </table>
 <p>
@@ -37,26 +37,47 @@
 </p>
 <table class="syntax-breakdown">
 	<tr>
-		<td><span class="syntax-piece">syntax_piece_1</span></td>
-		<td>is syntax_piece_1_breakdown</td>
+		<td><span class="syntax-piece">operand</span></td>
+		<td>is an expression whose type is a primitive numeric type or a
+			wrapper of a primitive numeric type (such as <code>Integer</code> or
+			<code>Long</code>.
+		</td>
 	</tr>
-	<!-- TODO: Insert any additional syntax piece breakdowns -->
 </table>
-<p>
-	<i>such that...</i>
-</p>
-<ul>
-	<li>
-		<!-- TODO: Insert Such that clause -->
-	</li>
-</ul>
 <h3>Syntax Elements</h3>
 <p>
-	<span class="syntax-number">1</span> syntax_fragment_1_breakdown
+	<span class="syntax-number">1</span> A unary plus expression.
 </p>
-<!-- TODO: Insert any additional syntax fragment breakdowns -->
-<h2>main_section_title</h2>
-<!-- TODO: Fill out main section -->
+<h2>Inputs</h2>
+<p>
+	Like all other unary operators (except for the cast operator), the
+	unary plus operator accepts an expression of any primitive, numeric
+	type (<code>byte</code>, <code>short</code>, <code>char</code>, <code>int</code>,
+	<code>long</code>, <code>float</code>, or <code>double</code>), or an
+	expression of any numeric wrapper type (<code>Byte</code>, <code>Short</code>,
+	<code>Character</code>, <code>Integer</code>, <code>Long</code>, <code>Float</code>,
+	or <code>Double</code>). If a wrapper type is provided, the type is
+	first <i>unboxed</i> into its primitive counterpart<sup info=2></sup>.
+</p>
+<span info=2>If a wrapper type is provided as the operand of a unary
+	plus operator, it is unboxed before a <i>promotion to <code>int</code></i>
+	is attempted. For example, <pre><code>Integer x = Integer.valueOf(123); // Variable x stores an Integer object that represents the value 123
+System.out.println(+x); // x is "unboxed" into 123 as an int</code></pre>
+	<p>The above code is equivalent to:</p> <pre><code>Integer x = Integer.valueOf(123);
+System.out.println((int) x);</code></pre>
+	<p>
+		That is to say that the operand of <code>+</code> is converted to its
+		primitive form if not a primitive type.
+	</p>
+</span>
+<h2>Behavior</h2>
+<h3>Unboxing</h3>
+<p>
+	If the operand expression has a type that is a wrapper type, the value
+	is unboxed to its primitive form. For example, an operand of type <code>Long</code>
+	will be converted to <code>long</code>. See the <a href="unbox-example">below
+		examples</a> for details.
+</p>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <h2>Notes</h2>
