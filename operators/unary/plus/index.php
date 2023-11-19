@@ -79,7 +79,26 @@ System.out.println((int) x);</code></pre>
 		examples</a> for details.
 </p>
 <h2>Examples</h2>
-<!-- TODO: Add examples -->
+<div class="example" id="unbox-example">
+	<h4>Unboxing</h4>
+	<p>The unary plus operator will first unbox its argument before
+		attempting numeric promotion:</p>
+	<pre><code>static void example(long arg) {
+	System.out.println("Primitive method called");
+}
+static void example(Long arg) {
+	System.out.println("Wrapper method called");
+}
+
+public static void main(String[] args) {
+	Long x = 123L;
+	example(x);	// Calls example(Long)
+	example(+x);	// Calls example(long)
+}</code></pre>
+	<p>Output:</p>
+	<pre><code class="output">Wrapper method called
+Primitive method called</code></pre>
+</div>
 <h2>Notes</h2>
 <ol>
 	<li>
