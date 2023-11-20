@@ -78,6 +78,18 @@ System.out.println((int) x);</code></pre>
 	will be converted to <code>long</code>. See the <a href="unbox-example">below
 		examples</a> for details.
 </p>
+<h3>Numeric Promotion</h3>
+<p>
+	After unboxing, (if applicable), the operand is <i>promoted</i> to type
+	<code>int</code> if its type is <code>byte</code>, <code>short</code>,
+	or <code>char</code>. This conversion does not change the numeric value
+	of the operand, (since every <code>byte</code>, <code>short</code>, and
+	<code>char</code> can be represented as an <code>int</code> as well.
+</p>
+<p>
+	Operands of type <code>int</code>, <code>long</code>, <code>float</code>,
+	and <code>double</code> are not changed by the unary plus operator.
+</p>
 <h2>Examples</h2>
 <div class="example" id="unbox-example">
 	<h4>Unboxing</h4>
