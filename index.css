@@ -592,7 +592,7 @@ div.grouper {
 }
 
 .todo {
-	border: var(--C20) solid;
+	border: var(--C20) solid .15rem;
 	border-radius: 2px;
 	font-family: monospace;
 }
@@ -601,7 +601,8 @@ div.todo {
 	padding: .3em;
 	padding-left: 1em;
 	display: table;
-	background: linear-gradient(to right, var(--C20) 0.3em, var(--C4-A) 0.3em);
+	background: linear-gradient(to right, var(--C20) 0.2rem, var(--C4-A) 0.2rem);
+	background-position: -1px 0;
 	margin-top: 1em;
 }
 
