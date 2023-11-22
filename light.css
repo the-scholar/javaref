@@ -46,11 +46,11 @@
 	/* Used for Unlinked */
 	--C14: #d93838;
 
-	/* Used for ??? TODO */
-	--C15: #dbb00a;
+	/* Used for Optional Syntax border */
+	--C15: #f80;
 
-	/* Used for ??? TODO */
-	--C15-A: #bb05;
+	/* Used for optional text in optional syntax pieces */
+	--C15-A: #f80;
 
 	/* Used for ??? TODO */
 	--C16: #0041bb;
@@ -62,7 +62,7 @@
 	--C18: #43f094;
 
 	/* Used for Syntax-Piece Text */
-	--C19: #31d73a;
+	--C19: green;
 
 	/* Used for Todo Border, Todo Gradient-from */
 	--C20: #85ffe2;
