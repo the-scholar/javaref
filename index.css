@@ -75,6 +75,9 @@
 
 	/* Used for Button Active */
 	--C23: #C0C2F1;
+	
+	/* Used for H2 bar color */
+	--C24: var(--C21);
 
 	--content-width: min(50em, calc(100vw - 4em));
 
@@ -117,13 +120,29 @@ a.unlinked {
 	max-width: calc(var(--content-width) - 2rem);
 }
 
-h1,
-h2 {
-	border-bottom: solid var(--C10) 2px;
+h1 {
+	border-bottom: solid white .2rem;
 }
 
 h2 {
-	border-bottom: solid var(--C10) 1px;
+	display: flex;
+}
+
+h2::before, h2::after {
+	content: '';
+	height: 0.11rem;
+	margin: auto 0;
+}
+h2::before {
+	background-color: var(--C24);
+	width: 1.2rem;
+	margin-right: .8rem;
+}
+
+h2::after {
+	background: linear-gradient(to right, var(--C24), var(--C1));
+	flex-grow: 1;
+	margin-left: .8rem;
 }
 
 h1,
