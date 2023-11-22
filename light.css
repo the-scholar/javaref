@@ -46,11 +46,11 @@
 	/* Used for Unlinked */
 	--C14: #d93838;
 
-	/* Used for Optional Syntax border */
-	--C15: #f80;
-
 	/* Used for optional text in optional syntax pieces */
-	--C15-A: #f80;
+	--C15: #fa0;
+
+	/* Used for Optional Syntax border */
+	--C15-A: #fa0;
 
 	/* Used for ??? TODO */
 	--C16: #0041bb;
