@@ -5,7 +5,8 @@
 	--C1: black;
 
 	/* Used for Search Box Focus */
-	--C2: #C0C2F1;
+	--C2: black;
+	--C2-A: #3067f2;
 
 	/* Used for Default Text Color */
 	--C3: #292929;

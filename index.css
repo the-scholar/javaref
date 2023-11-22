@@ -6,6 +6,7 @@
 
 	/* Used for Search Box focus */
 	--C2: #f8f8ff;
+	--C2-A: var(--C2);
 
 	/* Used for default text color */
 	--C3: #a9a9a9;
@@ -202,8 +203,9 @@ h6 {
 }
 
 #Search:focus {
-	border: 0.1em solid var(--C2);
+	border: 0.1em solid var(--C2-A);
 	width: 20rem;
+	color: var(--C2-A);
 }
 
 #HeaderContentMenu,
