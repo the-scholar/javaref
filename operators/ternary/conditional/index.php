@@ -1,5 +1,4 @@
 <?php
-
 t("Javaref - Conditional Operators", "Uses the result of the first expression to select
 	which of the next two expressions to evaluate and return.");
 ?>
@@ -13,9 +12,7 @@ t("Javaref - Conditional Operators", "Uses the result of the first expression to
 	the second is selected and returned. If the first evaluates to <code>false</code>,
 	the third is evaluated and returned.
 </p>
-<pre>
-	<code>isRaining() ? "It's raining!" : "Clear skies!";</code>
-</pre>
+<pre><code>isRaining() ? "It's raining!" : "Clear skies!";</code></pre>
 <p>
 	If it's raining (<code>isRaining()</code> returns true), this
 	expression evaluates to <code>"It's raining!"</code>. Otherwise this
@@ -58,17 +55,9 @@ t("Javaref - Conditional Operators", "Uses the result of the first expression to
 	type is not <code>void</code>. In other words, any expression except
 	for an invocation of a void method.
 </span>
-<p>
-	<i>such that...</i>
-</p>
-<ul>
-	<li>
-		<!-- TODO: Insert Such that clause -->
-	</li>
-</ul>
 <h3>Syntax Elements</h3>
 <p>
-	<span class="syntax-number">1</span> syntax_fragment_1_breakdown
+	<span class="syntax-number">1</span> A conditional expression.
 </p>
 <!-- TODO: Insert any additional syntax fragment breakdowns -->
 <h2>main_section_title</h2>
