@@ -111,12 +111,5 @@ public static void main(String[] args) {
 	<pre><code class="output">Wrapper method called
 Primitive method called</code></pre>
 </div>
-<h2>Notes</h2>
-<ol>
-	<li>
-		<!-- TODO: Add notes -->
-	</li>
-</ol>
 <?php
-
 b();
