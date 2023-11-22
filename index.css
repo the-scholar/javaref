@@ -78,6 +78,9 @@
 	
 	/* Used for H2 bar color */
 	--C24: var(--C21);
+	
+	/* Used for H1 bar color*/
+	--C25: var(--C1);
 
 	--content-width: min(50em, calc(100vw - 4em));
 
@@ -121,7 +124,7 @@ a.unlinked {
 }
 
 h1 {
-	border-bottom: solid white .2rem;
+	border-bottom: solid var(--C25) .2rem;
 }
 
 h2 {
