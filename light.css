@@ -52,8 +52,9 @@
 	/* Used for Optional Syntax border */
 	--C15-A: #fa0;
 
-	/* Used for ??? TODO */
-	--C16: #0041bb;
+	/* Used for info popups */
+	--C16: #f80;
+	--C16-A: firebrick;/* Active Info Popup */
 
 	/* Used for Features */
 	--C17: #329ca8;

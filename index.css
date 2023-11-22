@@ -46,14 +46,15 @@
 	/* Used for Unlinked */
 	--C14: #d93838;
 
-	/* Used for Optional Syntax border */
+	/* Used for optional text in optional syntax pieces */
 	--C15: #bb0;
 
-	/* Used for optional text in optional syntax pieces */
+	/* Used for Optional Syntax border */
 	--C15-A: #bb05;
 
-	/* Used for ??? TODO */
+	/* Used for info popups */
 	--C16: gold;
+	--C16-A: red;/* Active Info Popup */
 
 	/* Used for Features */
 	--C17: #329ca8;
@@ -81,7 +82,7 @@
 	
 	/* Used for H1 bar color*/
 	--C25: var(--C1);
-
+	
 	--content-width: min(50em, calc(100vw - 4em));
 
 	font-family: "Segoe UI", sans-serif;
@@ -443,7 +444,7 @@ code.decorated,
 
 /* Info Popups */
 sup[info] {
-	color: gold;
+	color: var(--C16);
 	cursor: pointer;
 }
 
@@ -456,7 +457,7 @@ sup[info]:hover {
 }
 
 sup[info]:active {
-	color: red;
+	color: var(--C16-A);
 }
 
 sup[info].inline {
