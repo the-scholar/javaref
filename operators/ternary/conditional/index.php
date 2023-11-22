@@ -1,9 +1,13 @@
-<?php t("Javaref - Conditional Operators", "Selects which of two expressions to evaluate and return by the result of the first expression.");?>
+<?php
+
+t("Javaref - Conditional Operators", "Uses the result of the first expression to select
+	which of the next two expressions to evaluate and return.");
+?>
 <h1>Conditional Operator</h1>
-<p class="description">Selects which of two expressions to evaluate and
-	return by the result of the first expression.</p>
+<p class="description">Uses the result of the first expression to select
+	which of the next two expressions to evaluate and return.</p>
 <p>
-	The conditional operator evaluates the first expression (a <code>boolean</code>
+	The conditional operator evaluates the first expression (a <code>boolean</code>)
 	and uses the result to select which of the second and third expressions
 	to evaluate and return. If the first expression evaluates to <code>true</code>,
 	the second is selected and returned. If the first evaluates to <code>false</code>,
