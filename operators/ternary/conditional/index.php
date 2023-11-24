@@ -59,9 +59,24 @@ t("Javaref - Conditional Operators", "Uses the result of the first expression to
 <p>
 	<span class="syntax-number">1</span> A conditional expression.
 </p>
-<!-- TODO: Insert any additional syntax fragment breakdowns -->
-<h2>main_section_title</h2>
-<!-- TODO: Fill out main section -->
+<h2>Usage</h2>
+<p>
+	Ternary expressions are used to conditionally select one of two
+	expressions based on the result of a boolean expression. They are, in
+	some sense, the expression form of an <code>if</code> statement. The
+	following:
+</p>
+<pre><code>if (condition)
+	return "value1";
+else
+	return "value2";</code></pre>
+<p>is equivalent to:</p>
+<pre><code>return condition ? "value1" : "value2";</code></pre>
+<p>
+	because the expression <code>condition ? "value1" : "value2"</code>
+	evaluates to <code>"value1"</code> if <code>condition</code> is true
+	and <code>"value2"</code> if <code>condition</code> is false.
+</p>
 <h2>Examples</h2>
 <!-- TODO: Add examples -->
 <h2>Notes</h2>
