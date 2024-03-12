@@ -344,7 +344,7 @@ t("Method Declaration", "Method declarations introduce a named, executable group
 	If a method has a return type other than <code>void</code>, it is
 	required to execute at least 1<sup info=3></sup> <code>return</code>
 	statement at the end<sup info=4></sup> of every possible path of normal
-	execution that does <code>throw</code> a value.
+	execution that does not <code>throw</code> a value.
 </p>
 <span info=3> With a <code>finally</code> block, a method may execute
 	multiple <code>return</code> statements. In such a case, the last <i>abrupt
