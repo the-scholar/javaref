@@ -23,7 +23,7 @@ myList.set(0, myList.get(0));</code></pre>
 <p>
 	Despite it being obvious that execution of this code would never result
 	in type mismatches, (since the element returned by <code>myList.get(0)</code>
-	is the string, <code>"some value"</code>, and <code>myList</code> can
+	is of type <code>String</code>, and <code>myList</code> can
 	store strings), this code fails to compile due to type checking:
 	Because <code>myList</code>'s parameter type is a wildcard, <code>?</code>,
 </p>
@@ -37,12 +37,13 @@ myList.set(0, myList.get(0));</code></pre>
 </ul>
 <p>
 	Java does not consider these two <code>?</code> wildcards as
-	equivalent. In particular, a wildcard is not a named type, so two
+	equivalent, even though they represent the same type. In particular, a wildcard is not a named type, so two
 	distinct type references referring to the same wildcard are considered
 	unequal by the compiler. (This means that the compiler considers the
 	return type of <code>myList.get</code> and the parameter of <code>myList.set</code>
-	as completely distinct types.
+	as completely distinct types.)
 </p>
+<p>Capture conversion helps to alleviate this issue.</p>
 <h3>Capture Conversion</h3>
 <p>Capture conversion is a process in which the compiler assigns an
 	actual, inferred type to a wildcard, allowing code referencing the
