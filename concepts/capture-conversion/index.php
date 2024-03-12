@@ -12,7 +12,7 @@
 <h3>Motivation</h3>
 <p>
 	Consistency information regarding wildcard types is not kept between
-	two uses of the <i>same</i> wildcard type. For example, the third line
+	two uses of the <i>same</i> wildcard type. For example, the fourth statement
 	of the following code raises a compilation error:
 </p>
 <pre><code>List&lt;String&gt; strlist = new ArrayList&lt;&gt;();
