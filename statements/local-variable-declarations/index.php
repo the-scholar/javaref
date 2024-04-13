@@ -102,15 +102,11 @@
 	<li id="note-1">Declared local variables can be accessed and used
 		immediately after their actual declaration, before the end of the
 		local variable declaration statement that they're a part of. For
-		example:<pre>
-			<code>int x, y, z = x = y = 10; // Initializes all 3 variables to 10.
-System.out.println(x + y + z); // All variables are accessible and initialized; prints 30.</code>
-		</pre>
-		<p>
-			In the above code, <code>x</code> and <code>y</code> are accessible
-			within the initializer expression of <code>z</code>, and can be
-			assigned values before the end of the statement.
-		</p>
+		example:<pre><code>int x, y, z = x = y = 10; // Initializes all 3 variables to 10.
+System.out.println(x + y + z); // All variables are accessible and initialized; prints 30.</code></pre>
+		In the above code, <code>x</code> and <code>y</code> are accessible
+		within the initializer expression of <code>z</code>, and can be
+		assigned values before the end of the statement.
 		<p>Comparatively, declared local variables cannot be accessed or used
 			before their declaration, even within the same statement:</p> <pre><code>int x = y, y = 10; // Compiler error: cannot find symbol 'y'</code></pre>
 	</li>
