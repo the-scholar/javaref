@@ -97,6 +97,10 @@
 		href="/initializers">static and instance initializers</a> and <a
 		href="/methods/declarations">method bodies</a>.
 </p>
+<h2>
+	<code>final</code> Declarations
+</h2>
+<div class="todo">Describe unmodifiable local variable behavior</div>
 <h1>Notes</h1>
 <ol>
 	<li id="note-1">Declared local variables can be accessed and used
