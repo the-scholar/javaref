@@ -32,9 +32,20 @@
 				</li>
 			</ul>
 		</td>
-		<td><span class="syntax-piece">type</span></td><td>is any type that can be used to declare a variable (i.e., that is not <code>void</code>).</td>
-		<td><span class="syntax-piece">first-var-decl</span></td><td> is any of</td>
-		<td><span class="syntax-piece">additional-var-decls</span></td><td> is any of</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">type</span></td>
+		<td>is any type that can be used to declare a variable (i.e., that is
+			not <code>void</code>).
+		</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">first-var-decl</span></td>
+		<td>is any of</td>
+	</tr>
+	<tr>
+		<td><span class="syntax-piece">additional-var-decls</span></td>
+		<td>is any of</td>
 	</tr>
 </table>
 <h2>Behavior</h2>
