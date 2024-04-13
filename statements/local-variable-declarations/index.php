@@ -41,7 +41,37 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">first-var-decl</span></td>
-		<td>is any of</td>
+		<td>is an unused variable identifier, then any number of (optionally
+			annotated) pairs of brackets (<code>[]</code>) indicating additional
+			array dimensions, then optionally followed by an equals token (<code>=</code>)
+			and an expression whose type is that of the variable. Equivalently, the <span class="syntax-piece">first-var-decl</span>
+			has the form:
+			<div class="decorated">
+				<span class="syntax-piece">name</span> <span
+					class="syntax-piece optional">array-dims</span> <span
+					class="optional"><code>=</code> <span class="syntax-piece">init-expr</span></span>
+			</div>
+			<p><i>where...</i></p>
+			<table class="sytnax-breakdown">
+				<tr>
+					<td><span class="syntax-piece">name</span></td>
+					<td>is an identifier that is used to name the variable being
+						declared.</td>
+				</tr>
+				<tr>
+					<td><span class="syntax-piece">array-dims</span></td>
+					<td>is any number of consecutive pairs of <code>[]</code> brackets,
+						each of which can be independently annotated by an applicable <a
+						href="/annotations">annotation</a>.
+					</td>
+				</tr>
+				<tr>
+					<td><span class="syntax-piece">init-expr</span></td>
+					<td>is an expression whose type is assignable to the effective type
+						of the variable.</td>
+				</tr>
+			</table>
+		</td>
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">additional-var-decls</span></td>
