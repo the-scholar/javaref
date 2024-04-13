@@ -110,6 +110,19 @@ System.out.println(x + y + z); // All variables are accessible and initialized; 
 		<p>Comparatively, declared local variables cannot be accessed or used
 			before their declaration, even within the same statement:</p> <pre><code>int x = y, y = 10; // Compiler error: cannot find symbol 'y'</code></pre>
 	</li>
+	<li>In line with the first note above, <span class="synatx-piece">init-expr</span>s
+		for variables declared within the same local variable declaration are
+		executed in order, immediately after the variable they belong to is
+		introduced, and immediately before the succeeding variable (if any) is
+		introduced: <pre><code>int x = 0;
+int y = ++x, z = ++x, w = ++x; // Initializes x, y, and z to 1, 2, and 3, respectively.
+// x is set to 3.
+
+System.out.println("x: " + x);
+System.out.println("y: " + y + ", z: " + z + ", w: " + w);</code></pre>
+		This code prints:<pre><code class="output">x: 3
+y: 1, z: 2, w: 3</code></pre>
+	</li>
 </ol>
 <?php
 b();
