@@ -98,7 +98,7 @@
 		href="/methods/declarations">method bodies</a>.
 </p>
 <h2>
-	<code>final</code> Declarations
+	Final Declarations
 </h2>
 <div class="todo">Describe unmodifiable local variable behavior</div>
 <h1>Notes</h1>
