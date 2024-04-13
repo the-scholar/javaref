@@ -45,7 +45,9 @@
 	</tr>
 	<tr>
 		<td><span class="syntax-piece">additional-var-decls</span></td>
-		<td>is any of</td>
+		<td>is any number of <span class="syntax-piece">first-var-decl</span>s,
+			separated by comma tokens (<code>,</code>).
+		</td>
 	</tr>
 </table>
 <h2>Behavior</h2>
