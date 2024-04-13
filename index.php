@@ -18,7 +18,7 @@ ul {
 }
 
 .u {
-    color: firebrick;
+	color: firebrick;
 }
 </style><?php
 };
@@ -45,6 +45,8 @@ t("Javaref.net", "The unofficial reference for Java syntax.");
 <ul>
 	<li><a href="/statements/for-loops">For Loops</a></li>
 	<li><a href="/statements/expression-statements">Expression Statements</a></li>
+	<li><a href="/statements/local-variable-declarations">Local Variable
+			Declarations</a></li>
 </ul>
 <div class="sec">Methods</div>
 <ul>
