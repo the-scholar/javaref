@@ -46,6 +46,7 @@
 			array dimensions, then optionally followed by an equals token (<code>=</code>)
 			and an expression whose type is that of the variable. Equivalently,
 			the <span class="syntax-piece">first-var-decl</span> has the form: <br>
+		<br>
 			<div class="decorated">
 				<span class="syntax-piece">name</span> <span
 					class="syntax-piece optional">array-dims</span> <span
