@@ -44,14 +44,16 @@
 		<td>is an unused variable identifier, then any number of (optionally
 			annotated) pairs of brackets (<code>[]</code>) indicating additional
 			array dimensions, then optionally followed by an equals token (<code>=</code>)
-			and an expression whose type is that of the variable. Equivalently, the <span class="syntax-piece">first-var-decl</span>
-			has the form:
+			and an expression whose type is that of the variable. Equivalently,
+			the <span class="syntax-piece">first-var-decl</span> has the form: <br>
 			<div class="decorated">
 				<span class="syntax-piece">name</span> <span
 					class="syntax-piece optional">array-dims</span> <span
 					class="optional"><code>=</code> <span class="syntax-piece">init-expr</span></span>
 			</div>
-			<p><i>where...</i></p>
+			<p>
+				<i>where...</i>
+			</p>
 			<table class="sytnax-breakdown">
 				<tr>
 					<td><span class="syntax-piece">name</span></td>
