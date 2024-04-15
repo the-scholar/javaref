@@ -101,10 +101,12 @@
 <h3>Reading from a local variable</h3>
 <p>
 	Local variables can be read and evaluated only after they have been
-	definitively assigned a value. If there is a path of execution (even a
-	single path) that would result in the variable not being initialized by
-	the time it is read, the read is not valid. For example, in the following code, each commented
-	print statement illegally refers to <code>x</code>:
+	definitively assigned a value (see <a href="/definite-assignment"
+		class="u">Definite Assignment</a>). If there is a path of execution
+	(even a single path) that would result in the variable not being
+	initialized by the time it is read, the read is not valid. For example,
+	in the following code, each commented print statement illegally refers
+	to <code>x</code>:
 </p>
 <pre><code>int x;
 // System.out.println(x); // x not yet initialized; error
@@ -127,6 +129,25 @@ if (Math.random() > .25) {
 	It's a compile-time error for any path of execution to assign to a <code>final</code>
 	variable more than once.
 </p>
+<h3>Constant Declarations</h3>
+<p>The variable introduced by a local variable declaration can be
+	constant if all of the following are true:</p>
+<ol>
+	<li>The local variable declaration is marked <code>final</code> (i.e. <code>final</code>
+		is present in the list of <span class="syntax-piece">modifiers</span>),
+	</li>
+	<li>the variable's type is either <code>String</code> or some primitive
+		type,
+	</li>
+	<li>the variable has an initializer (i.e. the variable has a
+		corresponding <code>=</code> <span class="syntax-piece">init-expr</span>),
+		and
+	</li>
+	<li>the <span class="syntax-piece">init-expr</span> used to initialize
+		the variable is a <a href="/constant-expressions" class="u">constant
+			expression</a>.
+	</li>
+</ol>
 <h1>Notes</h1>
 <ol>
 	<li id="note-1">Declared local variables can be accessed and used
