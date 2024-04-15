@@ -103,10 +103,17 @@
 	Local variables can be read and evaluated only after they have been
 	definitively assigned a value. If there is a path of execution (even a
 	single path) that would result in the variable not being initialized by
-	the time it is read, the read is not valid. For example, the following
-	print statement illegal refers to <code>x</code>:
+	the time it is read, the read is not valid. For example, in the following code, each commented
+	print statement illegally refers to <code>x</code>:
 </p>
-<div class="todo">Add code example</div>
+<pre><code>int x;
+// System.out.println(x); // x not yet initialized; error
+if (Math.random() > .25) {
+	// System.out.println(x); // x not yet initialized; error
+	x = 20;
+	System.out.println(x); // x has been initialized; prints 20
+}
+// System.out.println(x); // x not yet initialized; error</code></pre>
 <h3>Final Declarations</h3>
 <p>
 	<code>final</code> local variable declarations create a <code>final</code>
