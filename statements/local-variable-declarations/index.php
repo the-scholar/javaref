@@ -107,13 +107,18 @@
 	print statement illegal refers to <code>x</code>:
 </p>
 <div class="todo">Add code example</div>
-<h2>Final Declarations</h2>
+<h3>Final Declarations</h3>
 <p>
 	<code>final</code> local variable declarations create a <code>final</code>
 	local variable. In contrast to <code>final</code> fields (class
 	members), they do not have to be given a value (if they are not ever
 	read). Once they have been assigned a value, though, they cannot be
 	reassigned (similar to <code>final</code> fields).
+</p>
+<p>
+	<code>final</code> local variables can only be assigned a value once.
+	It's a compile-time error for any path of execution to assign to a <code>final</code>
+	variable more than once.
 </p>
 <h1>Notes</h1>
 <ol>
@@ -140,6 +145,17 @@ System.out.println("x: " + x);
 System.out.println("y: " + y + ", z: " + z + ", w: " + w);</code></pre>
 		This code prints:<pre><code class="output">x: 3
 y: 1, z: 2, w: 3</code></pre>
+	</li>
+	<li>A final local variable can be read even if not every path of
+		execution assigns it a value, so long as every path of execution
+		leading up to the read assigns it a value: <pre><code>final int x;
+if (Math.random() &lt; .5) {
+	x = 10;
+	System.out.println(x);
+} else {
+	// System.out.println(x); // x cannot be accessed here.
+}
+// System.out.println(x); // x cannot be accessed here because it may not have been initialized</code></pre>
 	</li>
 </ol>
 <?php
