@@ -188,7 +188,7 @@ if (Math.random() &lt; .5) {
 	<li>Constant local variables can be used to form other constant
 		expressions, which allows certain calculations and expressions that
 		are not otherwise allowed. For example: <pre><code>final long x = 10;
-	byte b = x;</code></pre>This code compiles because <code>x</code> is a
+byte b = x;</code></pre>This code compiles because <code>x</code> is a
 		constant variable, meaning that its evaluation when initializing <code>b</code>
 		is performed at compile-time. Since <code>b</code> is initialized with
 		an integral constant-expression whose value (<code>10</code>) is known
