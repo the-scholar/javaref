@@ -148,7 +148,7 @@ if (Math.random() > .25) {
 			expression</a>.
 	</li>
 </ol>
-<h1>Notes</h1>
+<h2>Notes</h2>
 <ol>
 	<li id="note-1">Declared local variables can be accessed and used
 		immediately after their actual declaration, before the end of the
