@@ -185,6 +185,25 @@ if (Math.random() &lt; .5) {
 }
 // System.out.println(x); // x cannot be accessed here because it may not have been initialized</code></pre>
 	</li>
+	<li>Constant local variables can be used to form other constant
+		expressions, which allows certain calculations and expressions that
+		are not otherwise allowed. For example: <pre><code>final long x = 10;
+	byte b = x;</code></pre>This code compiles because <code>x</code> is a
+		constant variable, meaning that its evaluation when initializing <code>b</code>
+		is performed at compile-time. Since <code>b</code> is initialized with
+		an integral constant-expression whose value (<code>10</code>) is known
+		to be able to fit within the <code>byte</code> type, the assignment
+		succeeds.
+		<p>
+			If <code>x</code>'s local variable declaration were not declared
+			constant, the variable <code>x</code> would not be a constant
+			variable. This would cause the evaluation of <code>x</code>, within <code>b</code>'s
+			initializer, to not undergo value-checks that determine if the value
+			of <code>b</code>'s initializer can fit into <code>b</code>, making
+			the initialization result in the standard loss-of-precision in
+			assignment error.
+		</p>
+	</li>
 </ol>
 <?php
 b();
