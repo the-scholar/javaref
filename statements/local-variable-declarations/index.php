@@ -88,19 +88,33 @@
 <h2>Behavior</h2>
 <p>
 	Local variable declarations are the basic way to introduce a new
-	variable to a local scope. Such variables exist and are accessible
-	immediately after their declaration (even within the same local
-	variable declaration; <a href="#note-1">see below</a>).
+	variable to a local scope (called, a <i>local variable</i>). Such
+	variables exist and are accessible immediately after their declaration
+	(even within the same local variable declaration; <a href="#note-1">see
+		below</a>), within the scope in which they were declared.
 </p>
 <p>
 	They can be used within any local scope, such as inside <a
 		href="/initializers">static and instance initializers</a> and <a
 		href="/methods/declarations">method bodies</a>.
 </p>
-<h2>
-	Final Declarations
-</h2>
-<div class="todo">Describe unmodifiable local variable behavior</div>
+<h3>Reading from a local variable</h3>
+<p>
+	Local variables can be read and evaluated only after they have been
+	definitively assigned a value. If there is a path of execution (even a
+	single path) that would result in the variable not being initialized by
+	the time it is read, the read is not valid. For example, the following
+	print statement illegal refers to <code>x</code>:
+</p>
+<div class="todo">Add code example</div>
+<h2>Final Declarations</h2>
+<p>
+	<code>final</code> local variable declarations create a <code>final</code>
+	local variable. In contrast to <code>final</code> fields (class
+	members), they do not have to be given a value (if they are not ever
+	read). Once they have been assigned a value, though, they cannot be
+	reassigned (similar to <code>final</code> fields).
+</p>
 <h1>Notes</h1>
 <ol>
 	<li id="note-1">Declared local variables can be accessed and used
