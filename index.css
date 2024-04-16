@@ -84,7 +84,7 @@
 	/* Used for H1 bar color*/
 	--C25: var(--C1);
 	
-	--content-width: min(50em, calc(100vw - 4em));
+	--content-width: calc(min(100vw, max(160vh, 60vw)));
 
 	font-family: "Segoe UI", sans-serif;
 	color: var(--C3);
