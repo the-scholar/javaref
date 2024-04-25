@@ -58,7 +58,7 @@ function t($title, $desc)
 			<div id="HeaderContentTitle">
 				<div id="Title">javaref.net</div>
 				<div style="min-width: .5em;"></div>
-				<input id=Search type="text" name="q" placeholder="Search...">
+				<input id=Search type="text" name="q" placeholder="Search..." onkeydown="search(event)">
 			</div>
 			<div id="HeaderContentMenu"><?php
 

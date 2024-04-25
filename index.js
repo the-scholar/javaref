@@ -42,3 +42,10 @@ function copyToClipboard(text) {
 		alert("Failed to copy to clipboard: " + text);
 	});
 }
+function search(event) {
+    if (event.key === "Enter") {
+        var searchQuery = document.getElementById("Search").value.trim();
+        if (searchQuery !== "") 
+            window.location.href = "https://www.google.com/search?q=site:javaref.net+" + encodeURIComponent(searchQuery);
+    }
+}
