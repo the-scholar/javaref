@@ -49,6 +49,14 @@ function t($title, $desc)
 <?php $tmods["head_after_stylesheet"]();?>
 <script src="/index.js"></script>
 <title><?php echo$title;?></title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C48VH0KVC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C48VH0KVC4');
+</script>
 <?php $tmods["head_bottom"]();?>
 </head>
 
