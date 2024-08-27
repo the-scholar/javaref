@@ -84,7 +84,7 @@ System.out.println((int) x);</code></pre>
 	<code>int</code> if its type is <code>byte</code>, <code>short</code>,
 	or <code>char</code>. This conversion does not change the numeric value
 	of the operand, (since every <code>byte</code>, <code>short</code>, and
-	<code>char</code> can be represented as an <code>int</code> as well.
+	<code>char</code> can be represented as an <code>int</code> as well).
 </p>
 <p>
 	Operands of type <code>int</code>, <code>long</code>, <code>float</code>,
